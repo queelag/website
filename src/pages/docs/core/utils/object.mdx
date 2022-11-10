@@ -1,0 +1,193 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: ObjectUtils
+---
+
+This class contains utilities for objects.
+
+### Clone
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const a: Record<string, number> = { value: 0 }
+const b: Record<string, number> = ObjectUtils.clone(a)
+
+// a won't change since b has been deeply cloned
+b.value++
+
+// will log { value: 0 }
+console.log(a)
+
+// will log { value: 1 }
+console.log(b)
+```
+
+### Delete Property
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
+
+// will delete the "shallow" key
+ObjectUtils.delete(object, 'shallow')
+
+// will log { deep: { value: 0 } }
+console.log(object)
+
+// will delete the "deep.value" key
+ObjectUtils.delete(object, 'deep.value')
+
+// will log { deep: {} }
+console.log(object)
+```
+
+### Get Property
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
+
+// will log 0
+console.log(ObjectUtils.get(object, 'shallow'))
+
+// will log 0
+console.log(ObjectUtils.get(object, 'deep.value'))
+```
+
+### Merge
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const a: Record<string, number> = { a: 0 }
+const b: Record<string, number> = { b: 1 }
+
+// will log { a: 0, b: 1 }
+console.log(ObjectUtils.merge(a, b))
+```
+
+### Omit Properties
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const object: Record<string, number> = { a: 0, b: 1, c: 2 }
+
+// will log { b: 1 }
+console.log(ObjectUtils.omit(object, ['a', 'c']))
+```
+
+### Pick Properties
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const object: Record<string, number> = { a: 0, b: 1, c: 2 }
+
+// will log { a: 0, c: 2 }
+console.log(ObjectUtils.pick(object, ['a', 'c']))
+```
+
+### Set Property
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const object: Record<string, any> = {}
+
+// will set the "shallow" property with value 0
+ObjectUtils.set(object, 'shallow', 0)
+
+// will log 0
+console.log(object.shallow)
+
+// will set the "deep.value" property with value 0
+ObjectUtils.set(object, 'deep.value', 0)
+
+// will log { value: 0 }
+console.log(object.deep)
+
+// will log { shallow: 0, deep: { value: 0 } }
+console.log(object)
+
+// will set the "deep" property with value { value: 1 }
+ObjectUtils.set(object, 'deep', { value: 1 })
+
+// will log { value: 1 }
+console.log(object.deep)
+```
+
+### To FormData
+
+```ts
+import { ObjectUtils, Polyfill } from '@queelag/core'
+
+async function main(): Promise<void> {
+  await Polyfill.formData()
+
+  const object: Record<string, number> = { a: 0 }
+  const data: FormData = ObjectUtils.toFormData(object)
+
+  // will log [["a", "0"]]
+  console.log([...data.entries()])
+}
+```
+
+### Has Property
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
+
+// will log true
+console.log(ObjectUtils.has(object, 'shallow'))
+
+// will log true
+console.log(ObjectUtils.has(object, 'deep.value'))
+
+// will log false
+console.log(ObjectUtils.has(object, 'deep.unknown'))
+```
+
+### Has Keys
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+// will log true
+console.log(ObjectUtils.hasKeys({ a: 0 }))
+
+// will log false
+console.log(ObjectUtils.hasKeys({}))
+```
+
+### Has Values
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+// will log true
+console.log(ObjectUtils.hasValues({ a: 0 }))
+
+// will log false
+console.log(ObjectUtils.hasKeys({}))
+```
+
+### Check Type
+
+```ts
+import { ObjectUtils } from '@queelag/core'
+
+// will log true
+console.log(ObjectUtils.is({}))
+
+// will log false
+console.log(ObjectUtils.is([]))
+
+// will log false
+console.log(ObjectUtils.is(0))
+```

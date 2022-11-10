@@ -1,0 +1,79 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Cookie
+---
+
+This class makes it easier to work with cookies and leverages the cookie module.
+
+### Get
+
+```ts
+import { Cookie } from '@queelag/core'
+
+const auth_cookies: object = {}
+const auth_cookies_name: string = 'auth'
+
+Cookie.get(auth_cookies_name, auth_cookies)
+
+// all cookies prefixed with "auth" will be set inside the target object
+console.log(auth_cookies)
+```
+
+### Set
+
+```ts
+import { Cookie } from '@queelag/core'
+
+interface AuthCookies {
+  expiration: string
+  token: string
+}
+
+const auth_cookies: AuthCookies = {
+  expiration: new Date().toISOString(),
+  token: '$token'
+}
+const auth_cookies_name: string = 'auth'
+
+// will set each property inside the target object as a cookie prefixed by "auth"
+Cookie.set(auth_cookies_name, auth_cookies)
+```
+
+### Remove
+
+```ts
+import { Cookie } from '@queelag/core'
+
+const auth_cookies_name: string = 'auth'
+
+// will remove every cookie prefixed with "auth"
+Cookie.remove(auth_cookies_name)
+```
+
+### Advanced Usage
+
+You can also do partial operations by picking a set of keys.
+
+```ts
+import { Cookie } from '@queelag/core'
+
+interface AuthCookies {
+  expiration: string
+  token: string
+}
+
+const auth_cookies: AuthCookies = {
+  expiration: new Date().toISOString(),
+  token: '$token'
+}
+const auth_cookies_name: string = 'auth'
+
+// will only set the "token" property
+Cookie.set(auth_cookies_name, auth_cookies, ['token'])
+
+// will only get the "token" property
+Cookie.get(auth_cookies_name, auth_cookies, ['token'])
+
+// will only remove the "token" property
+Cookie.remove(auth_cookies_name, ['token'])
+```

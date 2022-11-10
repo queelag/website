@@ -1,0 +1,86 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: WebSocket
+---
+
+This class makes it easier to work with web sockets on the client by having the following features.
+
+- Improved Connection Open/Close
+- Safe Send Message
+- Smart Message Data Transformation
+
+### Open Connection
+
+```ts
+import { WebSocket } from '@queelag/core'
+
+async function main(): Promise<void> {
+  let ws: WebSocket
+
+  ws = new WebSocket(
+    'PieSocket',
+    'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
+  )
+
+  // will open the connection
+  await ws.open()
+
+  ws.onMessage = (event: MessageEvent) => {
+    // will log "Hello world!"
+    console.log(event.data)
+  }
+}
+
+main()
+```
+
+### Close Connection
+
+```ts
+import { WebSocket } from '@queelag/core'
+
+async function main(): Promise<void> {
+  let ws: WebSocket
+
+  ws = new WebSocket(
+    'PieSocket',
+    'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
+  )
+
+  // will open the connection
+  await ws.open()
+
+  // will close the connection
+  await ws.close()
+}
+
+main()
+```
+
+### Send Message
+
+```ts
+import { WebSocket } from '@queelag/core'
+
+async function main(): Promise<void> {
+  let ws: WebSocket
+
+  ws = new WebSocket(
+    'PieSocket',
+    'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
+  )
+
+  // will open the connection
+  await ws.open()
+
+  ws.onMessage = (event: MessageEvent) => {
+    // will log "Hello world!" or "hello" after sending our message
+    console.log(event.data)
+  }
+
+  // will send "hello"
+  ws.send('hello')
+}
+
+main()
+```

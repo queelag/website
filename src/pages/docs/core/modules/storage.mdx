@@ -1,0 +1,41 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Storage
+---
+
+This class abstracts interactions with basic storage APIs.
+
+### Usage
+
+```ts
+import { Storage } from '@queelag/core'
+
+interface User {
+  name: string
+}
+
+enum DiskStorageKey {
+  USER = 'USER'
+}
+
+const DiskStorage: Storage = new Storage(
+  'DiskStorage',
+  (key: string) => JSON.parse(window.localStorage.getItem(key) || '{}'),
+  (key: string) => window.localStorage.removeItem(key),
+  (key: string, value: string) => window.localStorage.setItem(key, value)
+)
+
+const user: User = { name: 'John' }
+
+// will set the user inside the local storage
+DiskStorage.set(DiskStorageKey.USER, user)
+
+// will log { name: "John" }
+console.log(DiskStorage.get(DiskStorageKey.USER))
+
+// will remove the user
+DiskStorage.remove(DiskStorageKey.USER)
+
+// will log {}
+console.log(DiskStorage.get(DiskStorageKey.USER))
+```

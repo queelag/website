@@ -1,0 +1,35 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Timeout
+---
+
+This class lets you handle timeout disposals in a new way.
+
+### Set
+
+```ts
+import { Sleep, Timeout } from '@queelag/core'
+
+// will set the timeout
+Timeout.set('timeout', () => console.log('running'), 100)
+
+Sleep.for(100).then(() => {
+  // will log "running"
+})
+```
+
+### Clear
+
+```ts
+import { Sleep, Timeout } from '@queelag/core'
+
+// will set the timeout
+Timeout.set('timeout', () => console.log('running'), 100)
+
+Sleep.for(100).then(() => {
+  // will not log
+})
+
+// will clear the timeout
+Timeout.clear('timeout')
+```

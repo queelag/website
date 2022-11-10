@@ -1,0 +1,16 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Throttle
+---
+
+This class lets you throttle a function so that it doesn't run everytime it's called.
+
+### Usage
+
+```ts
+import { Throttle } from '@queelag/core'
+
+document.addEventListener('mousemove', () => {
+  Throttle.handle('mousemove', () => console.log('mouse moved'), 100)
+})
+```

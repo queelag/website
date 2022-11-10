@@ -1,0 +1,32 @@
+---
+import Header from '../components/Header.astro'
+import Sidebar from '../components/Sidebar.astro'
+
+const { frontmatter } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Queelag Documentation - {frontmatter.title}</title>
+    <style>
+      html {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <div class='flex'>
+      <Sidebar />
+      <div class='prose prose-invert xl:prose-xl max-w-full xl:max-w-screen-lg p-6'>
+        <h1>{frontmatter.title}</h1>
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

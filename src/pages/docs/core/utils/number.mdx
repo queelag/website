@@ -1,0 +1,144 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: NumberUtils
+---
+
+This class contains utilities for numbers.
+
+### Absolute
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 1
+console.log(NumberUtils.absolute(-1))
+```
+
+### Distance
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 2
+console.log(NumberUtils.distance(3, 5))
+```
+
+### Limit
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 3
+console.log(NumberUtils.limit(5, 1, 3))
+```
+
+### Parse BigInt
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 1n
+console.log(NumberUtils.parseBigInt('1'))
+```
+
+### Parse Floating
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 2.5
+console.log(NumberUtils.parseFloat('2.5'))
+```
+
+### Parse Integer
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 5
+console.log(NumberUtils.parseInt('5'))
+```
+
+### Calculate Percentage
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 75%
+console.log(NumberUtils.percentage(75))
+```
+
+### Pick Highest
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 2
+console.log(NumberUtils.pickHighest(0, 1, 2))
+```
+
+### Pick Lowest
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 0
+console.log(NumberUtils.pickLowest(0, 1, 2))
+```
+
+### To Fixed
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log 2
+console.log(NumberUtils.toFixed(2.5, 0))
+```
+
+### Check Evenness
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log true
+console.log(NumberUtils.isEven(0))
+
+// will log false
+console.log(NumberUtils.isEven(1))
+```
+
+### Multiple
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log true
+console.log(NumberUtils.isMultipleOf(4, 2))
+
+// will log false
+console.log(NumberUtils.isMultipleOf(5, 2))
+```
+
+### Check Oddness
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log true
+console.log(NumberUtils.isOdd(1))
+
+// will log false
+console.log(NumberUtils.isOdd(2))
+```
+
+### Check Parsability
+
+```ts
+import { NumberUtils } from '@queelag/core'
+
+// will log true
+console.log(NumberUtils.isParseable('0'))
+
+// will log false
+console.log(NumberUtils.isParseable('hello'))
+```

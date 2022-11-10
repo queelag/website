@@ -1,0 +1,22 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: tc
+---
+
+This function makes try catching less verbose.
+
+### Usage
+
+```ts
+import { tc } from '@queelag/core'
+
+// will log 0
+console.log(tc(() => 0))
+
+// will log Error
+console.log(
+  tc(() => {
+    throw new Error()
+  })
+)
+```

@@ -1,0 +1,197 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: API
+---
+
+This class makes handling REST APIs easier by abstracting some essential features.
+
+- Base URL
+- Base Fetch Configuration
+- Status
+
+### Base URL
+
+```ts
+import { API, FetchResponse } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/");
+
+// will automatically prefix "products" with "https://dummyjson.com/"
+DummyAPI.get("products");
+```
+
+### Base Fetch Configuration
+
+```ts
+import { API, FetchResponse } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/", {
+  headers: {
+    authorization: "Bearer $token",
+  },
+});
+
+// will automatically set the authorization header
+DummyAPI.get("products");
+```
+
+### Status
+
+```ts
+import { API, FetchError, FetchResponse, RequestMethod } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/");
+
+DummyAPI.get("products")
+  .then((response: FetchResponse) => {
+    // will log true
+    console.log(DummyAPI.status.isSuccess(RequestMethod.GET, "products"));
+  })
+  .catch((error: FetchError) => {
+    // will log true
+    console.log(DummyAPI.status.isError(RequestMethod.GET, "products"));
+  });
+
+// will log true
+console.log(DummyAPI.status.isPending(RequestMethod.GET, "products"));
+```
+
+### Advanced Features
+
+- Custom Configuration
+- Write Method
+- Body Transformer
+- Query Parameters Transformer
+- Status Handlers
+
+### Custom Configuration
+
+```ts
+import { API, APIConfig, FetchResponse } from "@queelag/core";
+
+interface DummyAPIConfig extends APIConfig {
+  useAuthorization?: boolean;
+}
+
+const DummyAPI: API<APIConfig> = new API("https://dummyjson.com/");
+
+DummyAPI.handlePending = async <V>(
+  method: RequestMethod,
+  path: string,
+  body: V | undefined,
+  config: T
+): Promise<boolean> => {
+  if (config.useAuthorization) {
+    config.headers = { authorization: "Bearer $token" };
+  }
+
+  return true;
+};
+
+// will automatically perform this request with the authorization header
+DummyAPI.get("products", { useAuthorization: true });
+```
+
+### Write Method
+
+```ts
+import { API, FetchResponse, WriteMode } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/");
+
+// if you have the same path for POST and PUT you can use the write method
+DummyAPI.write(WriteMode.CREATE, "products/add");
+DummyAPI.write(WriteMode.UPDATE, "products/1");
+```
+
+### Body Transformer
+
+```ts
+import { API, FetchResponse, WriteMode } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/");
+
+DummyAPI.transformBody = async <V>(
+  method: RequestMethod,
+  path: string,
+  body: V | undefined,
+  config: T
+): Promise<any> => {
+  if (typeof body === "object") {
+    Reflect.set(body, "default_property", 1);
+  }
+
+  return body;
+};
+
+// will automatically set "default_property" to "1" in the body object
+DummyAPI.post("products/add", {});
+```
+
+### Query Parameters Transformer
+
+```ts
+import { API, FetchResponse, WriteMode } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/");
+
+DummyAPI.transformQueryParameters = async <V>(
+  method: RequestMethod,
+  path: string,
+  body: V | undefined,
+  config: T
+): Promise<string> => {
+  return "?default_parameter=1";
+};
+
+// will automatically append the "default_parameter" with value "1" to the request URL
+DummyAPI.get("products");
+```
+
+### Status Handler
+
+```ts
+import { API, FetchResponse, WriteMode } from "@queelag/core";
+
+const DummyAPI: API = new API("https://dummyjson.com/");
+
+DummyAPI.handleError = async <V, W = U>(
+  method: RequestMethod,
+  path: string,
+  body: V | undefined,
+  config: T,
+  error: FetchError<W>
+): Promise<boolean> => {
+  window.alert(error.message);
+
+  // if you return true it won't be considered as an error
+  return false;
+};
+
+DummyAPI.handlePending = async <V>(
+  method: RequestMethod,
+  path: string,
+  body: V | undefined,
+  config: T
+): Promise<boolean> => {
+  window.alert("PENDING REQUEST ON PATH: " + path);
+
+  // if you return false it will be considered as an error and the request won't be performed
+  return true;
+};
+
+DummyAPI.handleSuccess = async <V, W>(
+  method: RequestMethod,
+  path: string,
+  body: W | undefined,
+  config: T,
+  response: FetchResponse<V>
+): Promise<boolean> => {
+  window.alert("SUCCESS REQUEST ON PATH: " + path);
+
+  // if you return false it will be considered as an error
+  return true;
+};
+
+DummyAPI.get("products");
+```

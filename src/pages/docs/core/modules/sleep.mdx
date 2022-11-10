@@ -1,0 +1,15 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Sleep
+---
+
+This class is useful for adding artificial delays.
+
+### Usage
+
+```ts
+import { Sleep } from '@queelag/core'
+
+// will log "hello" after 1s
+Sleep.for(1000).then(() => console.log('hello'))
+```

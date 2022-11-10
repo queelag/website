@@ -1,0 +1,80 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: ArrayUtils
+---
+
+This class contains utilities for arrays.
+
+### Symmetric Difference
+
+```ts
+import { ArrayUtils } from '@queelag/core'
+
+const a: number[] = [0, 1]
+const b: number[] = [1, 2]
+
+// will log [0, 2]
+console.log(ArrayUtils.difference([a, b]))
+```
+
+### Intersection
+
+```ts
+import { ArrayUtils } from '@queelag/core'
+
+const a: number[] = [0, 1]
+const b: number[] = [1, 2]
+
+// will log [1]
+console.log(ArrayUtils.intersection([a, b]))
+```
+
+### Get Last Item
+
+```ts
+import { ArrayUtils } from '@queelag/core'
+
+// will log 1
+console.log(ArrayUtils.last([0, 1]))
+
+// will log 0
+console.log(ArrayUtils.last([]), 0)
+```
+
+### Remove Items
+
+```ts
+import { ArrayUtils } from '@queelag/core'
+
+// will log [0]
+console.log(ArrayUtils.remove([0, 1, 2], (value: number) => value > 0))
+```
+
+### Remove Duplicates
+
+```ts
+import { ArrayUtils } from '@queelag/core'
+
+// will log [0, 1, 2, 3]
+console.log(ArrayUtils.uniq([0, 1, 2, 2, 3, 3, 3]))
+
+interface Item {
+  value: number
+}
+
+// will log [{ value: 0 }, { value: 1 }, { value: 2 }, { value: 3 }]
+console.log(
+  ArrayUtils.uniq(
+    [
+      { value: 0 },
+      { value: 1 },
+      { value: 2 },
+      { value: 2 },
+      { value: 3 },
+      { value: 3 },
+      { value: 3 }
+    ],
+    (r: Item[], v: Item) => r.findIndex((w: Item) => w.value === v.value) > -1
+  )
+)
+```

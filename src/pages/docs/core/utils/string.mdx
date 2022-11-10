@@ -1,0 +1,69 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: StringUtils
+---
+
+This class contains utilities for strings.
+
+### Camel Case
+
+```ts
+import { StringUtils } from '@queelag/core'
+
+// will log helloWorld
+console.log(StringUtils.camelCase('hello_world'))
+```
+
+### Capitalize
+
+```ts
+import { StringUtils } from '@queelag/core'
+
+// will log Hello World
+console.log(StringUtils.capitalize('hello World'))
+```
+
+### Kebab Case
+
+```ts
+import { StringUtils } from '@queelag/core'
+
+// will log hello-world
+console.log(StringUtils.kebabCase('hello_world'))
+```
+
+### Snake Case
+
+```ts
+import { StringUtils } from '@queelag/core'
+
+// will log hello_world
+console.log(StringUtils.snakeCase('hello-world'))
+```
+
+### Start Case
+
+```ts
+import { StringUtils } from '@queelag/core'
+
+// will log Hello World
+console.log(StringUtils.startCase('hello_world'))
+```
+
+### Check JSON Parsability
+
+```ts
+import { StringUtils } from '@queelag/core'
+
+// will log true
+console.log(StringUtils.isJSON('{}'))
+
+// will log false
+console.log(StringUtils.isJSON('hello'))
+
+// will log true
+console.log(StringUtils.isNotJSON('hello'))
+
+// will log false
+console.log(StringUtils.isNotJSON('{}'))
+```

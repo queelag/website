@@ -1,0 +1,88 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Localization
+---
+
+This class makes it possible to localize your application.
+
+### Add Language Packs
+
+```ts
+import { Localization } from '@queelag/core'
+
+Localization.add(
+  { data: { title: 'My application' }, language: 'en-GB' },
+  { data: { title: 'La mia applicazione' }, language: 'it-IT' }
+)
+```
+
+### Get Localized String
+
+```ts
+import { Localization } from '@queelag/core'
+
+Localization.add(
+  { data: { title: 'My application' }, language: 'en-GB' },
+  { data: { title: 'La mia applicazione' }, language: 'it-IT' }
+)
+Localization.language = 'en-GB'
+
+// will log "My application"
+console.log(Localization.get('title'))
+
+// will log "La mia applicazione"
+console.log(Localization.get('it-IT', 'title'))
+
+Localization.language = 'it-IT'
+
+// will log "La mia applicazione"
+console.log(Localization.get('title'))
+```
+
+### Injections
+
+```ts
+import { Localization } from '@queelag/core'
+
+Localization.add(
+  {
+    data: {
+      shallow: 'My name is @name',
+      deep: 'John is @john->age years old, Mario is @mario->age years old'
+    },
+    language: 'en-GB'
+  },
+  {
+    data: {
+      shallow: 'Il mio nome è @name',
+      deep: 'Mario ha @mario->age anni, John ha @john->age anni'
+    },
+    language: 'it-IT'
+  }
+)
+Localization.language = 'en-GB'
+
+// will log "My name is John"
+Localization.get('shallow', { name: 'John' })
+
+// will log "Il mio nome è Mario"
+Localization.get('it-IT', 'shallow', { name: 'Mario' })
+
+// will log "John is 20 years old, Mario is 30 years old"
+Localization.get('deep', { john: { age: 20 }, mario: { age: 30 } })
+
+// will log "Mario ha 30 anni, John ha 20 anni"
+Localization.get('it-IT', 'deep', { john: { age: 20 }, mario: { age: 30 } })
+```
+
+### Set Language
+
+```ts
+import { Localization } from '@queelag/core'
+
+// will set "en-GB" as the language
+Localization.setLanguage('en-GB')
+
+// will set "it-IT" as the language
+Localization.setLanguage('it-IT')
+```

@@ -1,0 +1,28 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Base16
+---
+
+This is a base16 codec which leverages the rfc4648 module.
+
+### Encode
+
+```ts
+import { Base16 } from '@queelag/core'
+
+const encoded: string = Base16.encode('hello')
+
+// will log "68656C6C6F"
+console.log(encoded)
+```
+
+### Decode
+
+```ts
+import { Base16 } from '@queelag/core'
+
+const decoded: string = Base16.decode('68656C6C6F')
+
+// will log "hello"
+console.log(decoded)
+```

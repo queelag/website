@@ -1,0 +1,26 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: FormDataUtils
+---
+
+This class contains utilities for [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+
+### To JSON
+
+```ts
+import { FormDataUtils, Polyfill } from '@queelag/core'
+
+async function main(): Promise<void> {
+  let data: FormData
+
+  await Polyfill.formData()
+
+  data = new FormData()
+  data.append('value', 0)
+
+  // will log { value: 0 }
+  console.log(FormDataUtils.toObject(data))
+}
+
+main()
+```

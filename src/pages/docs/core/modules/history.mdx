@@ -1,0 +1,46 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: History
+---
+
+This class lets you keep track of history changes on objects.
+
+### Usage
+
+```ts
+import { History } from '@queelag/core'
+
+interface Store {
+  draft: {
+    text: string
+  }
+}
+
+const store: Store = { draft: { text: '' } }
+const store_history_name: string = 'draft'
+
+// will keep track of up to 100 versions of the draft property
+History.track(store_history_name, store, 'draft', 100)
+
+store.draft.text = 'hello'
+
+// will push the current version of draft
+History.push(store_history_name)
+
+// will undo the "hello"
+History.undo(store_history_name)
+
+// will log ""
+console.log(store.draft.text)
+
+// will redo the "hello"
+History.redo(store_history_name)
+
+// will log "hello"
+console.log(store.draft.text)
+```
+
+### Limitations
+
+- Only supports target objects with primitive properties
+- Versions must be pushed manually

@@ -1,0 +1,15 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: QueryParametersUtils
+---
+
+This class contains utilities for query parameters.
+
+### To String
+
+```ts
+import { QueryParametersUtils } from '@queelag/core'
+
+// will log "?a=0&b=1"
+console.log(QueryParametersUtils.toString({ a: 0, b: 1 }))
+```

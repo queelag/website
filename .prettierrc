@@ -1,0 +1,15 @@
+{
+  "jsxSingleQuote": true,
+  "overrides": [
+    {
+      "files": "*.{md,mdx}",
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ],
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 160,
+  "trailingComma": "none"
+}

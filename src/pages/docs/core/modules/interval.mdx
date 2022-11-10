@@ -1,0 +1,27 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Interval
+---
+
+This class lets you handle intervals disposal in a new way.
+
+### Usage
+
+```ts
+import { Interval } from '@queelag/core'
+
+const name: string = 'interval'
+const fn: Function = () => console.log('Running')
+
+// will start the interval
+Interval.start(name, fn, 100)
+
+// will log true
+console.log(Interval.isRunning(name))
+
+// will stop the interval
+Interval.stop(name)
+
+// will log false
+console.log(Interval.isRunning(name))
+```

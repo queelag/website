@@ -11,18 +11,33 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^0.11.6",
     "@astrojs/preact": "^1.2.0",
-    "@queelag/core": "^1.1.15",
-    "@queelag/react": "^1.0.3",
-    "@queelag/react-components": "^1.0.3",
+    "@astrojs/react": "^1.2.2",
+    "@astrojs/tailwind": "^2.1.2",
+    "@floating-ui/dom": "^1.0.4",
+    "@queelag/core": "^1.1.16",
+    "@queelag/react": "^1.0.7",
+    "@queelag/react-components": "^1.0.5",
     "@queelag/web": "^1.0.11",
     "@queelag/web-components": "^1.0.7",
+    "@types/react-dom": "^18.0.6",
     "astro": "^1.6.5",
+    "dompurify": "^2.4.1",
+    "focus-trap": "^7.0.0",
     "lit": "^2.4.1",
     "preact": "^10.6.5",
-    "react": "^18.2.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tabbable": "^6.0.1",
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "@types/react": "^18.0.25"
+    "@tailwindcss/typography": "^0.5.8",
+    "@types/react": "^18.0.21"
+  },
+  "overrides": {
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest"
   }
 }

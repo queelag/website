@@ -1,0 +1,121 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Logger
+---
+
+This class lets you create scoped loggers with prettier prints.
+
+### Levels
+
+- Verbose
+- Debug
+- Info
+- Warn
+- Error
+
+### Usage
+
+```ts
+import { Logger, LoggerLevel } from '@queelag/core'
+
+enum LoggerName {
+  MAIN = 'MAIN'
+}
+
+const MainLogger: Logger = new Logger(LoggerName.MAIN, LoggerLevel.DEBUG)
+
+function main(): void {
+  let text: string, struct: object
+
+  text = 'hello'
+
+  // will log "main -> The text variable has been set to hello."
+  MainLogger.debug('main', `The text variable has been set to ${text}.`)
+
+  struct = { number: 0 }
+
+  // will log "main -> The struct variable has been set. -> { number: 0 }"
+  MainLogger.debug('main', 'The struct variable has been set.', struct)
+}
+```
+
+### Set Level
+
+```ts
+import { Logger, LoggerLevel } from '@queelag/core'
+
+enum LoggerName {
+  MAIN = 'MAIN'
+}
+
+const MainLogger: Logger = new Logger(LoggerName.MAIN, LoggerLevel.DEBUG)
+
+function main(): void {
+  // will log "main -> running"
+  MainLogger.debug('main', 'running')
+
+  MainLogger.level = LoggerLevel.INFO
+
+  // will not log
+  MainLogger.debug('main', 'running')
+
+  // will log "main -> running"
+  MainLogger.info('main', 'running')
+}
+```
+
+### Disable
+
+```ts
+import { Logger, LoggerLevel } from '@queelag/core'
+
+enum LoggerName {
+  MAIN = 'MAIN'
+}
+
+const MainLogger: Logger = new Logger(LoggerName.MAIN, LoggerLevel.DEBUG)
+
+function main(): void {
+  // will log "main -> running"
+  MainLogger.debug('main', 'running')
+
+  MainLogger.disable()
+
+  // will not log
+  MainLogger.debug('main', 'running')
+}
+```
+
+### Set Level From Environment
+
+```ts
+import { Logger, LoggerLevel } from '@queelag/core'
+
+process.env.LOGGER_MAIN_LEVEL = LoggerLevel.ERROR
+
+enum LoggerName {
+  MAIN = 'MAIN'
+}
+
+const MainLogger: Logger = new Logger(LoggerName.MAIN)
+
+// will log "ERROR"
+console.log(MainLogger.level)
+```
+
+### Set Status From Environment
+
+```ts
+import { Logger } from '@queelag/core'
+
+process.env.LOGGER_MAIN_STATUS = 'FALSE'
+
+enum LoggerName {
+  MAIN = 'MAIN'
+}
+
+const MainLogger: Logger = new Logger(LoggerName.MAIN)
+
+// will log "FALSE"
+console.log(MainLogger.status)
+```

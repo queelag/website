@@ -1,0 +1,15 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: DateUtils
+---
+
+This class contains utilities for dates.
+
+### Convert any potential date value to milliseconds
+
+```ts
+import { DateUtils } from '@queelag/core'
+
+// will log 1660232042878
+console.log(DateUtils.toMilliseconds('2022-08-11T15:34:02.878Z'))
+```

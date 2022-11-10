@@ -1,0 +1,22 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: tcp
+---
+
+This function makes try catching promises less verbose.
+
+### Usage
+
+```ts
+import { tcp } from '@queelag/core'
+
+// will log 0
+console.log(tcp(async () => 0))
+
+// will log Error
+console.log(
+  tcp(async () => {
+    throw new Error()
+  })
+)
+```

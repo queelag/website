@@ -1,0 +1,15 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: DocumentUtils
+---
+
+This class contains utilities for the [Document](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+
+### Create Element Safely
+
+```ts
+import { DocumentUtils } from '@queelag/core'
+
+// will log the div element if document is defined, otherwise it will return an empty object
+console.log(DocumentUtils.createElement('div'))
+```

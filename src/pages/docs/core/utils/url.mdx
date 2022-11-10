@@ -1,0 +1,35 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: URLUtils
+---
+
+This class contains utilities for URLs.
+
+### Concatenate
+
+```ts
+import { URLUtils } from '@queelag/core'
+
+// will log "https://dummyjson.com/products"
+console.log(URLUtils.concat('https://dummyjson.com/', 'products'))
+```
+
+### Append Search Parameters
+
+```ts
+import { URLUtils } from '@queelag/core'
+
+// will log "https://dummyjson.com/products?a=0"
+console.log(
+  URLUtils.appendSearchParams('https://dummyjson.com/products', '?a=0')
+)
+```
+
+### Remove Search Parameters
+
+```ts
+import { URLUtils } from '@queelag/core'
+
+// will log "https://dummyjson.com/products"
+console.log(URLUtils.removeSearchParams('https://dummyjson.com/products?a=0'))
+```

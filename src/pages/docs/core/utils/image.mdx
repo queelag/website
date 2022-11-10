@@ -1,0 +1,36 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: ImageUtils
+---
+
+This class contains utilities for images.
+
+### To Base64
+
+```ts
+import { ImageUtils } from '@queelag/core'
+
+const image: HTMLImageElement = document.createElement('img')
+
+image.onload = () => {
+  // will log the base64 of the image
+  console.log(ImageUtils.toBase64(image))
+}
+image.src = 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg'
+
+document.body.appendChild(image)
+```
+
+### Preload
+
+```ts
+import { ImageUtils } from '@queelag/core'
+
+// will log true if the images have been cached
+console.log(
+  ImageUtils.preload([
+    'https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/1280px-Gatto_europeo4.jpg'
+  ])
+)
+```
