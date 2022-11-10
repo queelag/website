@@ -1,0 +1,28 @@
+{
+  "name": "@example/minimal",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^1.2.0",
+    "@queelag/core": "^1.1.15",
+    "@queelag/react": "^1.0.3",
+    "@queelag/react-components": "^1.0.3",
+    "@queelag/web": "^1.0.11",
+    "@queelag/web-components": "^1.0.7",
+    "astro": "^1.6.5",
+    "lit": "^2.4.1",
+    "preact": "^10.6.5",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25"
+  }
+}
