@@ -19,6 +19,8 @@
     "@queelag/core": "^1.1.16",
     "@queelag/react": "^1.0.7",
     "@queelag/react-components": "^1.0.5",
+    "@queelag/state-manager": "^1.0.12",
+    "@queelag/state-manager-react": "^1.0.9",
     "@queelag/web": "^1.0.11",
     "@queelag/web-components": "^1.0.7",
     "@types/react-dom": "^18.0.6",

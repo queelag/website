@@ -16,21 +16,20 @@ function transformFilesToItems(folder: string): SidebarItemProps[] {
 
 const items: SidebarItemProps[] = [
   {
-    folder: true,
     items: [
       {
-        folder: true,
         items: transformFilesToItems('/docs/core/functions'),
+        _key: 'core-functions',
         title: 'Functions'
       },
       {
-        folder: true,
         items: transformFilesToItems('/docs/core/modules'),
+        _key: 'core-modules',
         title: 'Modules'
       },
       {
-        folder: true,
         items: transformFilesToItems('/docs/core/utils'),
+        _key: 'core-installation',
         title: 'Utils'
       },
       {
@@ -38,28 +37,29 @@ const items: SidebarItemProps[] = [
         title: 'Installation'
       }
     ],
+    _key: 'core',
     title: 'Core'
   },
   {
-    folder: true,
     items: [
       {
-        folder: true,
         items: [
           {
-            folder: true,
             items: transformFilesToItems('/docs/state-manager/react/hooks'),
+            _key: 'state-manager-react-hooks',
             title: 'Hooks'
           }
         ],
+        _key: 'state-manager-react',
         title: 'React'
       }
     ],
+    _key: 'state-manager',
     title: 'State Manager'
   }
 ]
 ---
 
-<div class='w-72 hidden xl:flex flex-col p-6 border-r-2 border-slate-800' style='min-height: calc(100vh - 96px)'>
-  {items.map((props: SidebarItemProps) => <SidebarItem {...props} />)}
+<div class='w-72 max-h-screen-minus-header hidden xl:flex flex-col p-4 overflow-y-auto border-r-2 border-slate-800' style='min-height: calc(100vh - 96px)'>
+  {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:load />)}
 </div>

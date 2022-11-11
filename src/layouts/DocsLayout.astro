@@ -1,8 +1,9 @@
 ---
 import Header from '../components/Header.astro'
 import Sidebar from '../components/Sidebar.astro'
+import { TOCs } from '../components/TOCs'
 
-const { frontmatter } = Astro.props
+const { frontmatter, headings } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -13,20 +14,20 @@ const { frontmatter } = Astro.props
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Queelag Documentation - {frontmatter.title}</title>
     <style>
-      html {
-        background-color: black;
-        color: white;
+      body {
+        @apply bg-gradient-to-b from-slate-900 to-black text-white;
       }
     </style>
   </head>
   <body>
     <Header />
-    <div class='flex'>
+    <div class='max-h-screen-minus-header flex'>
       <Sidebar />
-      <div class='prose prose-invert xl:prose-xl max-w-full xl:max-w-screen-lg p-6'>
+      <div class='prose prose-invert max-w-full xl:max-w-screen-lg max-h-screen-minus-header p-6 overflow-y-auto'>
         <h1>{frontmatter.title}</h1>
         <slot />
       </div>
+      <TOCs client:load headings={headings} />
     </div>
   </body>
 </html>

@@ -1,0 +1,24 @@
+---
+import { QIcon } from '@queelag/react-components/components/data/Icon'
+import { joinElementClasses } from '@queelag/web'
+---
+
+<div
+  class={joinElementClasses(
+    'w-64 flex justify-between items-center px-3 py-2 rounded cursor-pointer border-2 border-slate-800',
+    'transition hover:border-slate-700'
+  )}
+>
+  <div class='flex items-center gap-2'>
+    <QIcon
+      fill='none'
+      size={16}
+      src='https://raw.githubusercontent.com/feathericons/feather/master/icons/search.svg'
+      stroke='white'
+      stroke-width={1}
+      client:load
+    />
+    <span>Search</span>
+  </div>
+  <div class='w-6 h-6 flex justify-center items-center text-xs rounded border-2 border-slate-800'>/</div>
+</div>
