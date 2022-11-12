@@ -1,12 +1,10 @@
-import { chainPromises } from '@queelag/core'
 import { QIcon } from '@queelag/react-components/components/data/Icon'
 import { useObservable } from '@queelag/state-manager-react'
-import { joinElementClasses, SessionStorage } from '@queelag/web'
-import { useEffect } from 'react'
+import { joinElementClasses } from '@queelag/web'
 import type { SidebarItemProps } from '../definitions/props'
 
 export function SidebarItem(props: SidebarItemProps) {
-  const store = useObservable({ expanded: false, ready: false })
+  const store = useObservable({ active: props.active ?? false, expanded: props.expanded ?? false })
 
   const onClick = () => {
     if (!props.items) {
@@ -14,21 +12,15 @@ export function SidebarItem(props: SidebarItemProps) {
     }
 
     store.expanded = !store.expanded
-    SessionStorage.set(`sidebar-item-${props._key}`, store)
   }
 
-  useEffect(() => {
-    chainPromises(
-      () => SessionStorage.copy(`sidebar-item-${props._key}`, store),
-      async () => {
-        store.ready = true
-      }
-    )
-  }, [])
-
   return (
-    <div className={joinElementClasses('flex flex-col text-sm', !store.ready && 'opacity-0')}>
-      <a className='flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-800' href={props.href} onClick={onClick}>
+    <div className='flex flex-col text-sm'>
+      <a
+        className={joinElementClasses('flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-800', props.active && 'bg-slate-900')}
+        href={props.items ? undefined : props.href}
+        onClick={onClick}
+      >
         <span>{props.title}</span>
         {props.items && (
           <QIcon

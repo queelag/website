@@ -1,6 +1,7 @@
 export interface SidebarItemProps {
-  href?: string
+  active?: boolean
+  expanded?: boolean
+  href: string
   items?: SidebarItemProps[]
-  _key?: string
   title: string
 }

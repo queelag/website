@@ -21,8 +21,8 @@
     "@queelag/react-components": "^1.0.5",
     "@queelag/state-manager": "^1.0.12",
     "@queelag/state-manager-react": "^1.0.9",
-    "@queelag/web": "^1.0.11",
-    "@queelag/web-components": "^1.0.7",
+    "@queelag/web": "^1.0.12",
+    "@queelag/web-components": "^1.0.8",
     "@types/react-dom": "^18.0.6",
     "astro": "^1.6.5",
     "dompurify": "^2.4.1",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.8",
+    "@types/node": "^18.11.9",
     "@types/react": "^18.0.21"
   },
   "overrides": {

@@ -2,62 +2,54 @@
 import type { DocsPageMDXInstance, DocsPageMDXInstanceFrontmatter } from '../definitions/interfaces'
 import type { SidebarItemProps } from '../definitions/props'
 import { SidebarItem } from './SidebarItem'
+import { readdir } from 'fs/promises'
+import { concatURL, getCapitalizedString } from '@queelag/core'
+import type { Dirent } from 'fs'
 
-const files = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/docs/**/*.mdx')
+const globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/docs/**/*.mdx')
 
-function transformFilesToItems(folder: string): SidebarItemProps[] {
-  return files
-    .filter((file: DocsPageMDXInstance) => file.url?.startsWith(folder))
-    .map((file: DocsPageMDXInstance) => ({
-      href: file.url,
-      title: file.frontmatter.title
-    }))
+async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[]> {
+  let dirs: Dirent[], items: SidebarItemProps[]
+
+  dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
+  items = []
+
+  for (let dir of dirs) {
+    let item: SidebarItemProps
+
+    if (dir.isDirectory()) {
+      item = {
+        href: concatURL('/', folders.join('/'), dir.name),
+        items: await getItems([...folders, dir.name]),
+        title: getCapitalizedString(dir.name)
+      }
+
+      item.expanded = Astro.url.pathname.includes(item.href)
+
+      items.push(item)
+    }
+
+    if (dir.isFile()) {
+      let glob: DocsPageMDXInstance | undefined
+
+      glob = globs.find((glob: DocsPageMDXInstance) => glob.file.includes(dir.name))
+      if (!glob) continue
+
+      item = {
+        href: concatURL('/', folders.join('/'), dir.name).replace('.mdx', ''),
+        title: glob.frontmatter.title
+      }
+
+      item.active = item.href === Astro.url.pathname
+
+      items.push(item)
+    }
+  }
+
+  return items
 }
 
-const items: SidebarItemProps[] = [
-  {
-    items: [
-      {
-        items: transformFilesToItems('/docs/core/functions'),
-        _key: 'core-functions',
-        title: 'Functions'
-      },
-      {
-        items: transformFilesToItems('/docs/core/modules'),
-        _key: 'core-modules',
-        title: 'Modules'
-      },
-      {
-        items: transformFilesToItems('/docs/core/utils'),
-        _key: 'core-installation',
-        title: 'Utils'
-      },
-      {
-        href: '/docs/core/installation',
-        title: 'Installation'
-      }
-    ],
-    _key: 'core',
-    title: 'Core'
-  },
-  {
-    items: [
-      {
-        items: [
-          {
-            items: transformFilesToItems('/docs/state-manager/react/hooks'),
-            _key: 'state-manager-react-hooks',
-            title: 'Hooks'
-          }
-        ],
-        _key: 'state-manager-react',
-        title: 'React'
-      }
-    ],
-    _key: 'state-manager',
-    title: 'State Manager'
-  }
-]
+const items: SidebarItemProps[] = await getItems()
 ---
 
 <div class='w-72 max-h-screen-minus-header hidden xl:flex flex-col p-4 overflow-y-auto border-r-2 border-slate-800' style='min-height: calc(100vh - 96px)'>

@@ -597,15 +597,15 @@
   resolved "https://registry.yarnpkg.com/@queelag/state-manager/-/state-manager-1.0.12.tgz#f34de39bfcd9504df0d2f9b69aa02c0bfefb1fee"
   integrity sha512-+HocCBd/eB49ytpXZfX+wuc4B4zev66Y67NXzpZDuwBYMuOpKmfmpgR7msazL5npREjPi5JnfetwrgCEj3WAQg==
 
-"@queelag/web-components@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@queelag/web-components/-/web-components-1.0.7.tgz#e1a7b058eefabbd450f30fa5ebb2f3b9d01e3685"
-  integrity sha512-fapxtYxhJFocdwvPiHDaXw0rXHgGF/OJug5wyexZPcafsT3DwjuU/5oXZJzoJDm1fp0dYMYOsVLvlGFlH2GCfQ==
+"@queelag/web-components@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@queelag/web-components/-/web-components-1.0.8.tgz#25b7fe181b297951864cc8c0075dbac7d6bb3c4d"
+  integrity sha512-nM7Kl63YnvkbdEGK4cdvQm2aekulevMsIyGY6lzi9xFLML7JmXGhuokaoUJv95QpwwYBOYvHluXKcblWpBWvKg==
 
-"@queelag/web@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@queelag/web/-/web-1.0.11.tgz#9e13528fffae660156d9275d0b82e7ebbb299fc4"
-  integrity sha512-bMXC9itqMf1y/web2cj9e1MBrih4xSt7KM/HnwQDRkt+Ayu/KVq92Lc8NoQoQQ0HTau8Pxr208GBubeWJrQiDA==
+"@queelag/web@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@queelag/web/-/web-1.0.12.tgz#d85b5c6b6fb8b00416249b36fa5ba06d9dc46d11"
+  integrity sha512-JUoISDYakq5BpyKBgJuz3wz7cCSWXTQ7Vfyz7s8CLF0zm8QqoeqO9Gg2h2pjUM5YLMP5CIawI2bvj4q7uMoYSg==
 
 "@rollup/pluginutils@^4.0.0":
   version "4.2.1"
@@ -736,6 +736,11 @@
   integrity sha512-3TGCfOcy8R8mMQ4CNSNOe3PG66HttvjcLzCoOpvXvDtfWOTi+uT/rxeOKm/qEwbM4SNe1O/PjdiBK2YcTjU4OQ==
   dependencies:
     "@types/unist" "*"
+
+"@types/node@^18.11.9":
+  version "18.11.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.9.tgz#02d013de7058cea16d36168ef2fc653464cfbad4"
+  integrity sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==
 
 "@types/parse5@^6.0.0":
   version "6.0.3"
