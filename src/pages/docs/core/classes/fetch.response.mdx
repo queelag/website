@@ -1,0 +1,31 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: FetchResponse
+---
+
+This class is an enhanced version of the Response class.
+
+- Automatic safe body parsing based on the Content-Type header
+- Supports creating a response from a custom body
+
+### Usage
+
+```ts
+import { Fetch, FetchResponse } from '@aracna/core'
+
+Fetch.get('https://dummyjson.com/products').then((response: FetchResponse) => {
+  // will log the already parsed JSON
+  console.log(response.data)
+})
+```
+
+### Custom Body
+
+```ts
+import { Fetch, FetchResponse } from '@aracna/core'
+
+const response = FetchResponse.from(0)
+
+// will log "0"
+console.log(response.data)
+```

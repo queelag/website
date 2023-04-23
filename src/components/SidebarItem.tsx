@@ -1,7 +1,7 @@
-import { QIcon } from '@queelag/react-components/components/data/Icon'
-import { useObservable } from '@queelag/state-manager-react'
-import { joinElementClasses } from '@queelag/web'
+import { useObservable } from '@aracna/state-manager-react'
+import { joinElementClasses } from '@aracna/web'
 import type { SidebarItemProps } from '../definitions/props'
+import { Icon } from './Icon'
 
 export function SidebarItem(props: SidebarItemProps) {
   const store = useObservable({ active: props.active ?? false, expanded: props.expanded ?? false })
@@ -23,7 +23,7 @@ export function SidebarItem(props: SidebarItemProps) {
       >
         <span>{props.title}</span>
         {props.items && (
-          <QIcon
+          <Icon
             fill='none'
             size={16}
             src={

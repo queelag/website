@@ -8,7 +8,7 @@ This class contains utilities for URLs.
 ### Concatenate
 
 ```ts
-import { URLUtils } from '@queelag/core'
+import { URLUtils } from '@aracna/core'
 
 // will log "https://dummyjson.com/products"
 console.log(URLUtils.concat('https://dummyjson.com/', 'products'))
@@ -17,7 +17,7 @@ console.log(URLUtils.concat('https://dummyjson.com/', 'products'))
 ### Append Search Parameters
 
 ```ts
-import { URLUtils } from '@queelag/core'
+import { URLUtils } from '@aracna/core'
 
 // will log "https://dummyjson.com/products?a=0"
 console.log(
@@ -28,7 +28,7 @@ console.log(
 ### Remove Search Parameters
 
 ```ts
-import { URLUtils } from '@queelag/core'
+import { URLUtils } from '@aracna/core'
 
 // will log "https://dummyjson.com/products"
 console.log(URLUtils.removeSearchParams('https://dummyjson.com/products?a=0'))

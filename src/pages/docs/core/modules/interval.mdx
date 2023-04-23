@@ -8,13 +8,32 @@ This class lets you handle intervals disposal in a new way.
 ### Usage
 
 ```ts
-import { Interval } from '@queelag/core'
+import { Interval } from '@aracna/core'
 
-const name: string = 'interval'
 const fn: Function = () => console.log('Running')
 
 // will start the interval
-Interval.start(name, fn, 100)
+Interval.start(fn, 100)
+
+// will log true
+console.log(Interval.isRunning(fn))
+
+// will stop the interval
+Interval.stop(fn)
+
+// will log false
+console.log(Interval.isRunning(fn))
+```
+
+### Usage With Name
+
+```ts
+import { Interval } from '@aracna/core'
+
+const name: string = 'interval'
+
+// will start the interval
+Interval.start(name, () => console.log('Running'), 100)
 
 // will log true
 console.log(Interval.isRunning(name))

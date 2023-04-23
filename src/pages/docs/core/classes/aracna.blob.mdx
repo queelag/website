@@ -1,0 +1,73 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: AracnaBlob
+---
+
+This class is an enhanced version of Blob.
+
+- Isomorphic
+- Getters for ArrayBuffer, Base64, Text and UInt8Array
+- Empty getter
+- JSON serialization
+
+### Usage
+
+```ts
+import { AracnaBlob } from '@aracna/core'
+
+// will create a new instance of AracnaBlob which has all the features of Blob available plus the custom ones
+const blob = new AracnaBlob(new Blob([]))
+```
+
+### Read Contents
+
+```ts
+import { AracnaBlob } from '@aracna/core'
+
+const blob = new AracnaBlob(new Blob([]))
+
+// will populate the arrayBuffer, base64 and uInt8Array fields
+await blob.resolveArrayBuffer()
+
+console.log(blob.arrayBuffer)
+console.log(blob.base64)
+console.log(blob.uInt8Array)
+
+// will populate the text and uInt8Array fields
+await blob.resolveText()
+
+console.log(blob.text)
+console.log(blob.uInt8Array)
+```
+
+### Empty
+
+```ts
+import { AracnaBlob } from '@aracna/core'
+
+let blob = new AracnaBlob(new Blob([]))
+
+// this will reset the blob value
+blob = AracnaBlob.EMPTY
+```
+
+### JSON Serialization
+
+```ts
+import { AracnaBlob } from '@aracna/core'
+
+const blob = new AracnaBlob(new Blob([]))
+
+// to properly serialize it we need to first resolve the ArrayBuffer or Text
+await blob.resolveArrayBuffer()
+// or await blob.resolveText()
+
+// will also hold the contents since we resolved them earlier
+const deserialized_blob = JSON.stringify(blob)
+
+// will match the original blob 1:1 except for the ID which is randomly generated on each new instance of the class
+const serialized_blob = JSON.parse(deserialized_blob)
+
+// will match
+console.log(blob.uInt8Array, serialized_blob.uInt8Array)
+```

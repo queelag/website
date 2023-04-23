@@ -8,11 +8,11 @@ This class embeds already initalized TextDecoder and TextEncoder for ease of use
 ### Usage
 
 ```ts
-import { TextCodec } from '@queelag/core'
+import { TextCodec } from '@aracna/core'
 
 const encoded: Uint8Array = TextCodec.encode('hello')
 
-// will log Uint8Array
+// will log UInt8Array
 console.log(encoded)
 
 const decoded: Uint8Array = TextCodec.decode(encoded)

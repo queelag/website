@@ -8,10 +8,10 @@ This class lets you handle timeout disposals in a new way.
 ### Set
 
 ```ts
-import { Sleep, Timeout } from '@queelag/core'
+import { Sleep, Timeout } from '@aracna/core'
 
 // will set the timeout
-Timeout.set('timeout', () => console.log('running'), 100)
+Timeout.set(() => console.log('running'), 100)
 
 Sleep.for(100).then(() => {
   // will log "running"
@@ -21,7 +21,25 @@ Sleep.for(100).then(() => {
 ### Clear
 
 ```ts
-import { Sleep, Timeout } from '@queelag/core'
+import { Sleep, Timeout } from '@aracna/core'
+
+const FN = () => console.log('running')
+
+// will set the timeout
+Timeout.set(FN, 100)
+
+Sleep.for(100).then(() => {
+  // will not log
+})
+
+// will clear the timeout
+Timeout.clear(FN)
+```
+
+### Clear With Name
+
+```ts
+import { Sleep, Timeout } from '@aracna/core'
 
 // will set the timeout
 Timeout.set('timeout', () => console.log('running'), 100)

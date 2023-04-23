@@ -8,7 +8,7 @@ This class contains utilities for [Promise](https://developer.mozilla.org/en-US/
 ### Synchronous Chain
 
 ```ts
-import { PromiseUtils } from '@queelag/core'
+import { PromiseUtils } from '@aracna/core'
 
 // will always log 0 before and 1 after
 PromiseUtils.chain(
@@ -20,7 +20,7 @@ PromiseUtils.chain(
 ### Synchronous Truthy Chain
 
 ```ts
-import { PromiseUtils, rc } from '@queelag/core'
+import { PromiseUtils, rc } from '@aracna/core'
 
 // will log 0 and 1 but will not log 2 since the previous promise returned a falsy value
 PromiseUtils.truthyChain(

@@ -1,15 +1,18 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: DateUtils
+title: Date Utils
 ---
 
-This class contains utilities for dates.
+This document describes various Date utility functions.
 
-### Convert any potential date value to milliseconds
+### Get Unix Time
 
 ```ts
-import { DateUtils } from '@queelag/core'
+import { getDateUnixTime } from '@aracna/core'
 
 // will log 1660232042878
-console.log(DateUtils.toMilliseconds('2022-08-11T15:34:02.878Z'))
+console.log(getDateUnixTime('2022-08-11T15:34:02.878Z'))
+
+// will log 16602320428
+console.log(getDateUnixTime('2022-08-11T15:34:02.878Z', 's'))
 ```

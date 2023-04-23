@@ -1,0 +1,16 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: throttle
+---
+
+This function lets you throttle a function so that it doesn't run everytime it's called.
+
+### Usage
+
+```ts
+import { throttle } from '@aracna/core'
+
+document.addEventListener('mousemove', () => {
+  throttle(() => console.log('mouse moved'), 100)
+})
+```

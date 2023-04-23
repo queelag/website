@@ -12,13 +12,13 @@ This class makes handling GraphQL APIs easier by abstracting some essential feat
 ### Base URL
 
 ```ts
-import { GraphQLAPI } from '@queelag/core'
+import { GraphQLAPI, gql } from '@aracna/core'
 
 const DummyAPI: GraphQLAPI = new GraphQLAPI(
   'https://graphqlzero.almansi.me/api'
 )
 
-const GET_USERS_QUERY: string = `
+const GET_USERS_QUERY: string = gql`
   query getUsers {
     users {
       data {
@@ -35,14 +35,14 @@ DummyAPI.handle(GET_USERS_QUERY)
 ### Base Fetch Configuration
 
 ```ts
-import { GraphQLAPI } from '@queelag/core'
+import { GraphQLAPI, gql } from '@aracna/core'
 
 const DummyAPI: GraphQLAPI = new GraphQLAPI(
   'https://graphqlzero.almansi.me/api',
   { headers: { authorization: 'Bearer $token' } }
 )
 
-const GET_USERS_QUERY: string = `
+const GET_USERS_QUERY: string = gql`
   query getUsers {
     users {
       data {
@@ -63,14 +63,15 @@ import {
   FetchError,
   FetchResponse,
   GraphQLAPI,
+  gql,
   RequestMethod
-} from '@queelag/core'
+} from '@aracna/core'
 
 const DummyAPI: GraphQLAPI = new GraphQLAPI(
   'https://graphqlzero.almansi.me/api'
 )
 
-const GET_USERS_QUERY: string = `
+const GET_USERS_QUERY: string = gql`
   query getUsers {
     users {
       data {
@@ -102,7 +103,7 @@ console.log(DummyAPI.status.isPending(RequestMethod.POST, GET_USERS_QUERY))
 ### Custom Configuration
 
 ```ts
-import { FetchResponse, GraphQLAPI, GraphQLAPIConfig } from '@queelag/core'
+import { FetchResponse, GraphQLAPI, GraphQLAPIConfig, gql } from '@aracna/core'
 
 interface DummyAPIConfig extends GraphQLAPIConfig {
   useAuthorization?: boolean
@@ -124,7 +125,7 @@ DummyAPI.handlePending = async <V>(
   return true
 }
 
-const GET_USERS_QUERY: string = `
+const GET_USERS_QUERY: string = gql`
   query getUsers {
     users {
       data {
@@ -141,7 +142,7 @@ DummyAPI.get(GET_USERS_QUERY, { useAuthorization: true })
 ### Status Handlers
 
 ```ts
-import { FetchResponse, GraphQLAPI } from '@queelag/core'
+import { FetchResponse, GraphQLAPI, gql } from '@aracna/core'
 
 const DummyAPI: GraphQLAPI = new GraphQLAPI(
   'https://graphqlzero.almansi.me/api'
@@ -182,7 +183,7 @@ DummyAPI.handleSuccess = async <V, W>(
   return true
 }
 
-const GET_USERS_QUERY: string = `
+const GET_USERS_QUERY: string = gql`
   query getUsers {
     users {
       data {

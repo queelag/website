@@ -12,48 +12,48 @@ This class makes handling REST APIs easier by abstracting some essential feature
 ### Base URL
 
 ```ts
-import { API, FetchResponse } from "@queelag/core";
+import { API, FetchResponse } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/");
+const DummyAPI: API = new API('https://dummyjson.com/')
 
 // will automatically prefix "products" with "https://dummyjson.com/"
-DummyAPI.get("products");
+DummyAPI.get('products')
 ```
 
 ### Base Fetch Configuration
 
 ```ts
-import { API, FetchResponse } from "@queelag/core";
+import { API, FetchResponse } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/", {
+const DummyAPI: API = new API('https://dummyjson.com/', {
   headers: {
-    authorization: "Bearer $token",
-  },
-});
+    authorization: 'Bearer $token'
+  }
+})
 
 // will automatically set the authorization header
-DummyAPI.get("products");
+DummyAPI.get('products')
 ```
 
 ### Status
 
 ```ts
-import { API, FetchError, FetchResponse, RequestMethod } from "@queelag/core";
+import { API, FetchError, FetchResponse, RequestMethod } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/");
+const DummyAPI: API = new API('https://dummyjson.com/')
 
-DummyAPI.get("products")
+DummyAPI.get('products')
   .then((response: FetchResponse) => {
     // will log true
-    console.log(DummyAPI.status.isSuccess(RequestMethod.GET, "products"));
+    console.log(DummyAPI.status.isSuccess(RequestMethod.GET, 'products'))
   })
   .catch((error: FetchError) => {
     // will log true
-    console.log(DummyAPI.status.isError(RequestMethod.GET, "products"));
-  });
+    console.log(DummyAPI.status.isError(RequestMethod.GET, 'products'))
+  })
 
 // will log true
-console.log(DummyAPI.status.isPending(RequestMethod.GET, "products"));
+console.log(DummyAPI.status.isPending(RequestMethod.GET, 'products'))
 ```
 
 ### Advanced Features
@@ -67,13 +67,13 @@ console.log(DummyAPI.status.isPending(RequestMethod.GET, "products"));
 ### Custom Configuration
 
 ```ts
-import { API, APIConfig, FetchResponse } from "@queelag/core";
+import { API, APIConfig, FetchResponse } from '@aracna/core'
 
 interface DummyAPIConfig extends APIConfig {
-  useAuthorization?: boolean;
+  useAuthorization?: boolean
 }
 
-const DummyAPI: API<APIConfig> = new API("https://dummyjson.com/");
+const DummyAPI: API<APIConfig> = new API('https://dummyjson.com/')
 
 DummyAPI.handlePending = async <V>(
   method: RequestMethod,
@@ -82,34 +82,34 @@ DummyAPI.handlePending = async <V>(
   config: T
 ): Promise<boolean> => {
   if (config.useAuthorization) {
-    config.headers = { authorization: "Bearer $token" };
+    config.headers = { authorization: 'Bearer $token' }
   }
 
-  return true;
-};
+  return true
+}
 
 // will automatically perform this request with the authorization header
-DummyAPI.get("products", { useAuthorization: true });
+DummyAPI.get('products', { useAuthorization: true })
 ```
 
 ### Write Method
 
 ```ts
-import { API, FetchResponse, WriteMode } from "@queelag/core";
+import { API, FetchResponse, WriteMode } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/");
+const DummyAPI: API = new API('https://dummyjson.com/')
 
 // if you have the same path for POST and PUT you can use the write method
-DummyAPI.write(WriteMode.CREATE, "products/add");
-DummyAPI.write(WriteMode.UPDATE, "products/1");
+DummyAPI.write(WriteMode.CREATE, 'products/add')
+DummyAPI.write(WriteMode.UPDATE, 'products/1')
 ```
 
 ### Body Transformer
 
 ```ts
-import { API, FetchResponse, WriteMode } from "@queelag/core";
+import { API, FetchResponse, WriteMode } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/");
+const DummyAPI: API = new API('https://dummyjson.com/')
 
 DummyAPI.transformBody = async <V>(
   method: RequestMethod,
@@ -117,23 +117,23 @@ DummyAPI.transformBody = async <V>(
   body: V | undefined,
   config: T
 ): Promise<any> => {
-  if (typeof body === "object") {
-    Reflect.set(body, "default_property", 1);
+  if (typeof body === 'object') {
+    Reflect.set(body, 'default_property', 1)
   }
 
-  return body;
-};
+  return body
+}
 
 // will automatically set "default_property" to "1" in the body object
-DummyAPI.post("products/add", {});
+DummyAPI.post('products/add', {})
 ```
 
 ### Query Parameters Transformer
 
 ```ts
-import { API, FetchResponse, WriteMode } from "@queelag/core";
+import { API, FetchResponse, WriteMode } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/");
+const DummyAPI: API = new API('https://dummyjson.com/')
 
 DummyAPI.transformQueryParameters = async <V>(
   method: RequestMethod,
@@ -141,19 +141,19 @@ DummyAPI.transformQueryParameters = async <V>(
   body: V | undefined,
   config: T
 ): Promise<string> => {
-  return "?default_parameter=1";
-};
+  return '?default_parameter=1'
+}
 
 // will automatically append the "default_parameter" with value "1" to the request URL
-DummyAPI.get("products");
+DummyAPI.get('products')
 ```
 
 ### Status Handler
 
 ```ts
-import { API, FetchResponse, WriteMode } from "@queelag/core";
+import { API, FetchResponse, WriteMode } from '@aracna/core'
 
-const DummyAPI: API = new API("https://dummyjson.com/");
+const DummyAPI: API = new API('https://dummyjson.com/')
 
 DummyAPI.handleError = async <V, W = U>(
   method: RequestMethod,
@@ -162,11 +162,11 @@ DummyAPI.handleError = async <V, W = U>(
   config: T,
   error: FetchError<W>
 ): Promise<boolean> => {
-  window.alert(error.message);
+  window.alert(error.message)
 
   // if you return true it won't be considered as an error
-  return false;
-};
+  return false
+}
 
 DummyAPI.handlePending = async <V>(
   method: RequestMethod,
@@ -174,11 +174,11 @@ DummyAPI.handlePending = async <V>(
   body: V | undefined,
   config: T
 ): Promise<boolean> => {
-  window.alert("PENDING REQUEST ON PATH: " + path);
+  window.alert('PENDING REQUEST ON PATH: ' + path)
 
   // if you return false it will be considered as an error and the request won't be performed
-  return true;
-};
+  return true
+}
 
 DummyAPI.handleSuccess = async <V, W>(
   method: RequestMethod,
@@ -187,11 +187,11 @@ DummyAPI.handleSuccess = async <V, W>(
   config: T,
   response: FetchResponse<V>
 ): Promise<boolean> => {
-  window.alert("SUCCESS REQUEST ON PATH: " + path);
+  window.alert('SUCCESS REQUEST ON PATH: ' + path)
 
   // if you return false it will be considered as an error
-  return true;
-};
+  return true
+}
 
-DummyAPI.get("products");
+DummyAPI.get('products')
 ```

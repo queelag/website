@@ -1,62 +1,71 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: ArrayUtils
+title: Array Utils
 ---
 
-This class contains utilities for arrays.
+This document describes various Array utility functions.
+
+### Shallow Clone
+
+```ts
+import { cloneShallowArray } from '@aracna/core'
+
+const a: number[] = [0, 1]
+const b: number[] = cloneShallowArray(a)
+
+b[0] = 1
+b[1] = 2
+
+// will log [0, 1]
+console.log(a)
+```
 
 ### Symmetric Difference
 
 ```ts
-import { ArrayUtils } from '@queelag/core'
+import { getArraysDifference } from '@aracna/core'
 
 const a: number[] = [0, 1]
 const b: number[] = [1, 2]
 
 // will log [0, 2]
-console.log(ArrayUtils.difference([a, b]))
+console.log(getArraysDifference([a, b]))
 ```
 
 ### Intersection
 
 ```ts
-import { ArrayUtils } from '@queelag/core'
+import { getArraysIntersection } from '@aracna/core'
 
 const a: number[] = [0, 1]
 const b: number[] = [1, 2]
 
 // will log [1]
-console.log(ArrayUtils.intersection([a, b]))
+console.log(getArraysIntersection([a, b]))
 ```
 
 ### Get Last Item
 
 ```ts
-import { ArrayUtils } from '@queelag/core'
+import { getArrayLastItem } from '@aracna/core'
 
 // will log 1
-console.log(ArrayUtils.last([0, 1]))
+console.log(getArrayLastItem([0, 1]))
+
+// will log undefined
+console.log(getArrayLastItem([]))
 
 // will log 0
-console.log(ArrayUtils.last([]), 0)
-```
-
-### Remove Items
-
-```ts
-import { ArrayUtils } from '@queelag/core'
-
-// will log [0]
-console.log(ArrayUtils.remove([0, 1, 2], (value: number) => value > 0))
+console.log(getArrayLastItem([]), 0)
 ```
 
 ### Remove Duplicates
 
 ```ts
-import { ArrayUtils } from '@queelag/core'
+import { removeArrayDuplicates } from '@aracna/core'
 
 // will log [0, 1, 2, 3]
-console.log(ArrayUtils.uniq([0, 1, 2, 2, 3, 3, 3]))
+console.log(removeArrayDuplicates([0, 1, 2, 2, 3, 3, 3]))
 
 interface Item {
   value: number
@@ -64,7 +73,7 @@ interface Item {
 
 // will log [{ value: 0 }, { value: 1 }, { value: 2 }, { value: 3 }]
 console.log(
-  ArrayUtils.uniq(
+  removeArrayDuplicates(
     [
       { value: 0 },
       { value: 1 },
@@ -74,7 +83,34 @@ console.log(
       { value: 3 },
       { value: 3 }
     ],
-    (r: Item[], v: Item) => r.findIndex((w: Item) => w.value === v.value) > -1
+    (array: Item[], item: Item) =>
+      array.findIndex((_item: Item) => _item.value === item.value) > -1
   )
 )
+```
+
+### Remove Items
+
+```ts
+import { removeArrayItems } from '@aracna/core'
+
+// will log [1]
+console.log(removeArrayItems([0, 1, 2], [0, 2]))
+
+// will log [0]
+console.log(
+  removeArrayItems([0, 1, 2], (array: number[], item: number) => item > 0)
+)
+```
+
+### Array Check
+
+```ts
+import { isArray } from '@aracna/core'
+
+// will log true
+console.log(isArray([]))
+
+// will log false
+console.log(isArray({}))
 ```

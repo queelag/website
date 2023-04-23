@@ -15,7 +15,7 @@ This class is a key value based status manager, also used by [API](/docs/core/mo
 ### Usage
 
 ```ts
-import { Sleep, Status } from '@queelag/core'
+import { sleep, Status } from '@aracna/core'
 
 const MainStatus: Status = new Status()
 
@@ -25,7 +25,7 @@ async function main(): Promise<void> {
   // will log true
   console.log(MainStatus.isPending('execution'))
 
-  await Sleep.for(1000)
+  await sleep(1000)
 
   MainStatus.success('execution')
 

@@ -1,24 +1,24 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: ErrorUtils
+title: Error Utils
 ---
 
-This class contains utilities for [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
+This document describes various [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) utility functions.
 
 ### Check Instance
 
 ```ts
-import { ErrorUtils } from '@queelag/core'
+import { isError, isNotError } from '@aracna/core'
 
 // will log true
-console.log(ErrorUtils.is(new Error()))
+console.log(isError(new Error()))
 
 // will log false
-console.log(ErrorUtils.is(0))
+console.log(isError(0))
 
 // will log true
-console.log(ErrorUtils.isNot(0))
+console.log(isNotError(0))
 
 // will log false
-console.log(ErrorUtils.isNot(new Error()))
+console.log(isNotError(new Error()))
 ```

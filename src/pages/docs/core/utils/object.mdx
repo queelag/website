@@ -8,7 +8,7 @@ This class contains utilities for objects.
 ### Clone
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const a: Record<string, number> = { value: 0 }
 const b: Record<string, number> = ObjectUtils.clone(a)
@@ -26,7 +26,7 @@ console.log(b)
 ### Delete Property
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
 
@@ -46,7 +46,7 @@ console.log(object)
 ### Get Property
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
 
@@ -60,7 +60,7 @@ console.log(ObjectUtils.get(object, 'deep.value'))
 ### Merge
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const a: Record<string, number> = { a: 0 }
 const b: Record<string, number> = { b: 1 }
@@ -72,7 +72,7 @@ console.log(ObjectUtils.merge(a, b))
 ### Omit Properties
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const object: Record<string, number> = { a: 0, b: 1, c: 2 }
 
@@ -83,7 +83,7 @@ console.log(ObjectUtils.omit(object, ['a', 'c']))
 ### Pick Properties
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const object: Record<string, number> = { a: 0, b: 1, c: 2 }
 
@@ -94,7 +94,7 @@ console.log(ObjectUtils.pick(object, ['a', 'c']))
 ### Set Property
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const object: Record<string, any> = {}
 
@@ -123,7 +123,7 @@ console.log(object.deep)
 ### To FormData
 
 ```ts
-import { ObjectUtils, Polyfill } from '@queelag/core'
+import { ObjectUtils, Polyfill } from '@aracna/core'
 
 async function main(): Promise<void> {
   await Polyfill.formData()
@@ -139,7 +139,7 @@ async function main(): Promise<void> {
 ### Has Property
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
 
@@ -156,7 +156,7 @@ console.log(ObjectUtils.has(object, 'deep.unknown'))
 ### Has Keys
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 // will log true
 console.log(ObjectUtils.hasKeys({ a: 0 }))
@@ -168,7 +168,7 @@ console.log(ObjectUtils.hasKeys({}))
 ### Has Values
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 // will log true
 console.log(ObjectUtils.hasValues({ a: 0 }))
@@ -180,7 +180,7 @@ console.log(ObjectUtils.hasKeys({}))
 ### Check Type
 
 ```ts
-import { ObjectUtils } from '@queelag/core'
+import { ObjectUtils } from '@aracna/core'
 
 // will log true
 console.log(ObjectUtils.is({}))

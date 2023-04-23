@@ -3,77 +3,141 @@ layout: ../../../../layouts/DocsLayout.astro
 title: Cookie
 ---
 
-This class makes it easier to work with cookies and leverages the cookie module.
+This class abstracts interactions with basic cookie APIs.
 
-### Get
+### Usage
 
 ```ts
-import { Cookie } from '@queelag/core'
+import { Cookie, CookieItem } from '@aracna/core'
 
-const auth_cookies: object = {}
-const auth_cookies_name: string = 'auth'
+interface User {
+  name: string
+}
 
-Cookie.get(auth_cookies_name, auth_cookies)
+const KEY = 'User'
+const MAP = new Map()
 
-// all cookies prefixed with "auth" will be set inside the target object
-console.log(auth_cookies)
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the user inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+
+// will remove the user
+await MyCookie.remove(KEY)
+
+// will log {}
+console.log(await MyCookie.get(KEY))
 ```
 
-### Set
+### Set/Get Value
 
 ```ts
-import { Cookie } from '@queelag/core'
+import { Cookie, CookieItem } from '@aracna/core'
 
-interface AuthCookies {
-  expiration: string
-  token: string
-}
+const KEY = 'User'
+const MAP = new Map()
 
-const auth_cookies: AuthCookies = {
-  expiration: new Date().toISOString(),
-  token: '$token'
-}
-const auth_cookies_name: string = 'auth'
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
 
-// will set each property inside the target object as a cookie prefixed by "auth"
-Cookie.set(auth_cookies_name, auth_cookies)
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
 ```
 
-### Remove
+### Remove Value
 
 ```ts
-import { Cookie } from '@queelag/core'
+import { Cookie, CookieItem } from '@aracna/core'
 
-const auth_cookies_name: string = 'auth'
+const KEY = 'User'
+const MAP = new Map()
 
-// will remove every cookie prefixed with "auth"
-Cookie.remove(auth_cookies_name)
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+
+// will remove the user
+await MyCookie.remove(KEY)
+
+// will log {}
+console.log(await MyCookie.get(KEY))
 ```
 
-### Advanced Usage
-
-You can also do partial operations by picking a set of keys.
+### Copy Value
 
 ```ts
-import { Cookie } from '@queelag/core'
+import { Cookie, CookieItem } from '@aracna/core'
 
-interface AuthCookies {
-  expiration: string
-  token: string
-}
+const KEY = 'User'
+const MAP = new Map()
 
-const auth_cookies: AuthCookies = {
-  expiration: new Date().toISOString(),
-  token: '$token'
-}
-const auth_cookies_name: string = 'auth'
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
 
-// will only set the "token" property
-Cookie.set(auth_cookies_name, auth_cookies, ['token'])
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
 
-// will only get the "token" property
-Cookie.get(auth_cookies_name, auth_cookies, ['token'])
+const user = {}
 
-// will only remove the "token" property
-Cookie.remove(auth_cookies_name, ['token'])
+// will copy each key from the cookie to the user const
+await MyCookie.copy(KEY, user)
+
+// will log { name: "John" }
+console.log(user)
+```
+
+### Clear
+
+```ts
+import { Cookie, CookieItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+
+// will clear all entries inside the cookie
+await MyCookie.clear()
+
+// will log {}
+console.log(await MyCookie.get(KEY))
 ```

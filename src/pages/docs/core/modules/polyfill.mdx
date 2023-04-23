@@ -8,7 +8,7 @@ This class takes care of polyfilling some modules.
 ### Node Blob
 
 ```ts
-import { Polyfill } from '@queelag/core'
+import { Polyfill } from '@aracna/core'
 
 // will log Blob
 Polyfill.blob().then(() => console.log(Blob))
@@ -17,7 +17,7 @@ Polyfill.blob().then(() => console.log(Blob))
 ### Node Fetch
 
 ```ts
-import { Polyfill } from '@queelag/core'
+import { Polyfill } from '@aracna/core'
 
 Polyfill.fetch().then(() => {
   // will log fetch, Headers, Request and Response
@@ -28,7 +28,7 @@ Polyfill.fetch().then(() => {
 ### Node File
 
 ```ts
-import { Polyfill } from '@queelag/core'
+import { Polyfill } from '@aracna/core'
 
 // will log File
 Polyfill.file().then(() => console.log(File))
@@ -37,7 +37,7 @@ Polyfill.file().then(() => console.log(File))
 ### Node FormData
 
 ```ts
-import { Polyfill } from '@queelag/core'
+import { Polyfill } from '@aracna/core'
 
 // will log FormData
 Polyfill.formData().then(() => console.log(FormData))

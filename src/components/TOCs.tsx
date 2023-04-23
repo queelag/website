@@ -1,5 +1,5 @@
-import { getLowestNumber } from '@queelag/core'
-import { joinElementClasses } from '@queelag/web'
+import { getLowestNumber } from '@aracna/core'
+import { joinElementClasses } from '@aracna/web'
 import type { MarkdownHeading } from 'astro'
 import { useEffect, useMemo, useState } from 'react'
 

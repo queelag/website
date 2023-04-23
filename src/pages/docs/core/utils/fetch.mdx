@@ -1,0 +1,71 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: Fetch Utils
+---
+
+This document describes various Fetch utility functions.
+
+### Delete Request Init Header
+
+```ts
+import {
+  deleteFetchRequestInitHeader,
+  getFetchRequestInitHeadersEntries
+} from '@aracna/core'
+
+const init: RequestInit = { headers: { a: '0', b: '1' } }
+deleteFetchRequestInitHeader(init, 'a')
+
+// will log [['b', '1']]
+console.log(getFetchRequestInitHeadersEntries(init))
+```
+
+### Get Request Init Header
+
+```ts
+import { getFetchRequestInitHeader } from '@aracna/core'
+
+const init: RequestInit = { headers: { authorization: 'token' } }
+
+// will log "token"
+console.log(getFetchRequestInitHeader(init, 'authorization'))
+```
+
+### Get Request Init Headers Entries
+
+```ts
+import { getFetchRequestInitHeadersEntries } from '@aracna/core'
+
+const init: RequestInit = { headers: { a: '0', b: '1' } }
+
+// will log [['a', '0'], ['b', '1']]
+console.log(getFetchRequestInitHeadersEntries(init))
+```
+
+### Get Request Init Headers Length
+
+```ts
+import { getFetchRequestInitHeadersLength } from '@aracna/core'
+
+const init: RequestInit = { headers: { a: '0', b: '1' } }
+
+// will log 2
+console.log(getFetchRequestInitHeadersLength(init))
+```
+
+### Set Request Init Header
+
+```ts
+import {
+  getFetchRequestInitHeader,
+  setFetchRequestInitHeader
+} from '@aracna/core'
+
+const init: RequestInit = {}
+
+// will set the header inside the init
+setFetchRequestInitHeader(init, 'authorization', 'token')
+
+// will log "token"
+console.log(getFetchRequestInitHeader(init, 'authorization'))
+```

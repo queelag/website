@@ -1,0 +1,15 @@
+---
+layout: ../../../../layouts/DocsLayout.astro
+title: sleep
+---
+
+This function is useful for adding artificial delays.
+
+### Usage
+
+```ts
+import { sleep } from '@aracna/core'
+
+// will log "hello" after 1s
+sleep(1000).then(() => console.log('hello'))
+```

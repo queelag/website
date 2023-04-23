@@ -8,34 +8,136 @@ This class abstracts interactions with basic storage APIs.
 ### Usage
 
 ```ts
-import { Storage } from '@queelag/core'
+import { Storage, StorageItem } from '@aracna/core'
 
 interface User {
   name: string
 }
 
-enum DiskStorageKey {
-  USER = 'USER'
-}
+const KEY = 'User'
+const MAP = new Map()
 
-const DiskStorage: Storage = new Storage(
-  'DiskStorage',
-  (key: string) => JSON.parse(window.localStorage.getItem(key) || '{}'),
-  (key: string) => window.localStorage.removeItem(key),
-  (key: string, value: string) => window.localStorage.setItem(key, value)
+const MyStorage: Storage = new Storage(
+  'MyStorage',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: StorageItem) => MAP.set(key, value)
 )
 
-const user: User = { name: 'John' }
-
-// will set the user inside the local storage
-DiskStorage.set(DiskStorageKey.USER, user)
+// will set the user inside the storage
+await MyStorage.set(KEY, { name: 'John' })
 
 // will log { name: "John" }
-console.log(DiskStorage.get(DiskStorageKey.USER))
+console.log(await MyStorage.get(KEY))
 
 // will remove the user
-DiskStorage.remove(DiskStorageKey.USER)
+await MyStorage.remove(KEY)
 
 // will log {}
-console.log(DiskStorage.get(DiskStorageKey.USER))
+console.log(await MyStorage.get(KEY))
+```
+
+### Set/Get Value
+
+```ts
+import { Storage, StorageItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyStorage: Storage = new Storage(
+  'MyStorage',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: StorageItem) => MAP.set(key, value)
+)
+
+// will set the value inside the storage
+await MyStorage.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyStorage.get(KEY))
+```
+
+### Remove Value
+
+```ts
+import { Storage, StorageItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyStorage: Storage = new Storage(
+  'MyStorage',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: StorageItem) => MAP.set(key, value)
+)
+
+// will set the value inside the storage
+await MyStorage.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyStorage.get(KEY))
+
+// will remove the user
+await MyStorage.remove(KEY)
+
+// will log {}
+console.log(await MyStorage.get(KEY))
+```
+
+### Copy Value
+
+```ts
+import { Storage, StorageItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyStorage: Storage = new Storage(
+  'MyStorage',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: StorageItem) => MAP.set(key, value)
+)
+
+// will set the value inside the storage
+await MyStorage.set(KEY, { name: 'John' })
+
+const user = {}
+
+// will copy each key from the storage to the user const
+await MyStorage.copy(KEY, user)
+
+// will log { name: "John" }
+console.log(user)
+```
+
+### Clear
+
+```ts
+import { Storage, StorageItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyStorage: Storage = new Storage(
+  'MyStorage',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: StorageItem) => MAP.set(key, value)
+)
+
+// will set the value inside the storage
+await MyStorage.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyStorage.get(KEY))
+
+// will clear all entries inside the storage
+await MyStorage.clear()
+
+// will log {}
+console.log(await MyStorage.get(KEY))
 ```

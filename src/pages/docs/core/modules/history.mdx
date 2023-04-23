@@ -8,7 +8,7 @@ This class lets you keep track of history changes on objects.
 ### Usage
 
 ```ts
-import { History } from '@queelag/core'
+import { History } from '@aracna/core'
 
 interface Store {
   draft: {
@@ -17,24 +17,23 @@ interface Store {
 }
 
 const store: Store = { draft: { text: '' } }
-const store_history_name: string = 'draft'
 
 // will keep track of up to 100 versions of the draft property
-History.track(store_history_name, store, 'draft', 100)
+const history: History = new History(store, 'draft', 100)
 
 store.draft.text = 'hello'
 
 // will push the current version of draft
-History.push(store_history_name)
+history.push()
 
 // will undo the "hello"
-History.undo(store_history_name)
+history.undo()
 
 // will log ""
 console.log(store.draft.text)
 
 // will redo the "hello"
-History.redo(store_history_name)
+history.redo()
 
 // will log "hello"
 console.log(store.draft.text)

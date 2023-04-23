@@ -8,7 +8,7 @@ This class makes it easy to know which environment you're working on, useful for
 ### Get "process.env" Property
 
 ```ts
-import { Environment } from '@queelag/core'
+import { Environment } from '@aracna/core'
 
 // will log "MY_ENV_PROPERTY" value if defined, otherwise will return an empty string for safety
 console.log(Environment.get('MY_ENV_PROPERTY'))
@@ -17,7 +17,7 @@ console.log(Environment.get('MY_ENV_PROPERTY'))
 ### Has "process.env" Property
 
 ```ts
-import { Environment } from '@queelag/core'
+import { Environment } from '@aracna/core'
 
 // will log true if "MY_ENV_PROPERTY" is defined
 console.log(Environment.has('MY_ENV_PROPERTY'))
@@ -28,7 +28,7 @@ console.log(Environment.has('MY_ENV_PROPERTY'))
 Useful for importing a module dynamically without including it into the bundle.
 
 ```ts
-import { Environment } from '@queelag/core'
+import { Environment } from '@aracna/core'
 
 Environment.import('my_ecmascript_module')
 Environment.require('my_commonjs_module')
@@ -40,6 +40,7 @@ Environment.require('my_commonjs_module')
 
 - isBlobDefined
 - isDevelopment
+- isDocumentDefined
 - isFetchDefined
 - isFileDefined
 - isFormDataDefined
@@ -53,6 +54,7 @@ Environment.require('my_commonjs_module')
 
 - isBlobNotDefined
 - isNotDevelopment
+- isDocumentNotDefined
 - isFetchNotDefined
 - isFileNotDefined
 - isFormDataNotDefined
@@ -65,7 +67,7 @@ Environment.require('my_commonjs_module')
 #### Usage
 
 ```ts
-import { Environment } from '@queelag/core'
+import { Environment } from '@aracna/core'
 
 if (Environment.isWindowDefined) {
   console.log('window is defined')
@@ -75,7 +77,7 @@ if (Environment.isWindowDefined) {
 ### NODE_ENV
 
 ```ts
-import { Environment } from '@queelag/core'
+import { Environment } from '@aracna/core'
 
 // will log the "NODE_ENV" property value if defined
 console.log(Environment.NODE_ENV)
