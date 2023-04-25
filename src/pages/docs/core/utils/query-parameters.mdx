@@ -1,15 +1,24 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: QueryParametersUtils
+title: Query Parameters
 ---
 
-This class contains utilities for query parameters.
+This document describes various Query Parameters utility functions.
 
-### To String
+### Serialize
 
 ```ts
-import { QueryParametersUtils } from '@aracna/core'
+import { serializeQueryParameters } from '@aracna/core'
 
 // will log "?a=0&b=1"
-console.log(QueryParametersUtils.toString({ a: 0, b: 1 }))
+console.log(serializeQueryParameters({ a: 0, b: 1 }))
+```
+
+### Deserialize
+
+```ts
+import { deserializeQueryParameters } from '@aracna/core'
+
+// will log { a: "0", b: "1" }
+console.log(deserializeQueryParameters('?a=0&b=1'))
 ```

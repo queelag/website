@@ -1,35 +1,33 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: URLUtils
+title: URL
 ---
 
-This class contains utilities for URLs.
+This document describes various URL utility functions.
 
-### Concatenate
+### Concatenate URL Chunks
 
 ```ts
-import { URLUtils } from '@aracna/core'
+import { concatURL } from '@aracna/core'
 
 // will log "https://dummyjson.com/products"
-console.log(URLUtils.concat('https://dummyjson.com/', 'products'))
+console.log(concatURL('https://dummyjson.com/', 'products'))
 ```
 
 ### Append Search Parameters
 
 ```ts
-import { URLUtils } from '@aracna/core'
+import { appendSearchParamsToURL } from '@aracna/core'
 
 // will log "https://dummyjson.com/products?a=0"
-console.log(
-  URLUtils.appendSearchParams('https://dummyjson.com/products', '?a=0')
-)
+console.log(appendSearchParamsToURL('https://dummyjson.com/products', '?a=0'))
 ```
 
 ### Remove Search Parameters
 
 ```ts
-import { URLUtils } from '@aracna/core'
+import { removeSearchParamsFromURL } from '@aracna/core'
 
 // will log "https://dummyjson.com/products"
-console.log(URLUtils.removeSearchParams('https://dummyjson.com/products?a=0'))
+console.log(removeSearchParamsFromURL('https://dummyjson.com/products?a=0'))
 ```

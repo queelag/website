@@ -1,69 +1,105 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: StringUtils
+title: String
 ---
 
-This class contains utilities for strings.
-
-### Camel Case
-
-```ts
-import { StringUtils } from '@aracna/core'
-
-// will log helloWorld
-console.log(StringUtils.camelCase('hello_world'))
-```
+This document describes various String utility functions.
 
 ### Capitalize
 
 ```ts
-import { StringUtils } from '@aracna/core'
+import { getCapitalizedString } from '@aracna/core'
 
 // will log Hello World
-console.log(StringUtils.capitalize('hello World'))
+console.log(getCapitalizedString('hello World'))
+```
+
+### Camel Case
+
+```ts
+import { getCamelCaseString } from '@aracna/core'
+
+// will log helloWorld
+console.log(getCamelCaseString('hello_world'))
 ```
 
 ### Kebab Case
 
 ```ts
-import { StringUtils } from '@aracna/core'
+import { getKebabCaseString } from '@aracna/core'
 
 // will log hello-world
-console.log(StringUtils.kebabCase('hello_world'))
+console.log(getKebabCaseString('hello_world'))
+```
+
+### Pascal Case
+
+```ts
+import { getPascalCaseString } from '@aracna/core'
+
+// will log Hello World
+console.log(getPascalCaseString('hello_world'))
 ```
 
 ### Snake Case
 
 ```ts
-import { StringUtils } from '@aracna/core'
+import { getSnakeCaseStranger } from '@aracna/core'
 
 // will log hello_world
-console.log(StringUtils.snakeCase('hello-world'))
+console.log(getSnakeCaseStranger('hello-world'))
 ```
 
-### Start Case
+### Is String JSON
 
 ```ts
-import { StringUtils } from '@aracna/core'
+import { isStringJSON } from '@aracna/core'
 
-// will log Hello World
-console.log(StringUtils.startCase('hello_world'))
+// will log true
+console.log(isStringJSON('{}'))
+
+// will log false
+console.log(isStringJSON('hello'))
 ```
 
-### Check JSON Parsability
+### Is String Float
 
 ```ts
-import { StringUtils } from '@aracna/core'
+import { isStringFloat } from '@aracna/core'
 
 // will log true
-console.log(StringUtils.isJSON('{}'))
-
-// will log false
-console.log(StringUtils.isJSON('hello'))
+console.log(isStringFloat('1.5'))
 
 // will log true
-console.log(StringUtils.isNotJSON('hello'))
+console.log(isStringJSON('1'))
 
 // will log false
-console.log(StringUtils.isNotJSON('{}'))
+console.log(isStringJSON('hello'))
+```
+
+### Is String Integer
+
+```ts
+import { isStringInt } from '@aracna/core'
+
+// will log true
+console.log(isStringJSON('1'))
+
+// will log false
+console.log(isStringJSON('1.5'))
+
+// will log false
+console.log(isStringJSON('hello'))
+```
+
+### Is String URL
+
+```ts
+import { isStringURL } from '@aracna/core'
+
+// will log true
+console.log(isStringURL('https://aracna.dariosechi.it'))
+
+// will log false
+console.log(isStringURL('hello'))
 ```

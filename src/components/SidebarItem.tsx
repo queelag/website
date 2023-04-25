@@ -17,7 +17,7 @@ export function SidebarItem(props: SidebarItemProps) {
   return (
     <div className='flex flex-col text-sm'>
       <a
-        className={joinElementClasses('flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-800', props.active && 'bg-slate-900')}
+        className={joinElementClasses('flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-700', props.active && 'bg-slate-800')}
         href={props.items ? undefined : props.href}
         onClick={onClick}
       >

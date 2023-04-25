@@ -1,10 +1,11 @@
 ---
+import { concatURL } from '@aracna/core'
+import type { Dirent } from 'fs'
+import { readdir } from 'fs/promises'
 import type { DocsPageMDXInstance, DocsPageMDXInstanceFrontmatter } from '../definitions/interfaces'
 import type { SidebarItemProps } from '../definitions/props'
+import { mapDirName } from '../utils/fs.utils'
 import { SidebarItem } from './SidebarItem'
-import { readdir } from 'fs/promises'
-import { concatURL, getCapitalizedString } from '@queelag/core'
-import type { Dirent } from 'fs'
 
 const globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/docs/**/*.mdx')
 
@@ -21,7 +22,7 @@ async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[
       item = {
         href: concatURL('/', folders.join('/'), dir.name),
         items: await getItems([...folders, dir.name]),
-        title: getCapitalizedString(dir.name)
+        title: mapDirName(dir.name)
       }
 
       item.expanded = Astro.url.pathname.includes(item.href)
@@ -32,7 +33,7 @@ async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[
     if (dir.isFile()) {
       let glob: DocsPageMDXInstance | undefined
 
-      glob = globs.find((glob: DocsPageMDXInstance) => glob.file.includes(dir.name))
+      glob = globs.find((glob: DocsPageMDXInstance) => glob.file.includes(concatURL(folders.join('/'), dir.name)))
       if (!glob) continue
 
       item = {

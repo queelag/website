@@ -1,26 +1,55 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: FormDataUtils
+title: FormData
 ---
 
-This class contains utilities for [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
+This document describes various [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) utility functions.
 
-### To JSON
+### Serialize
+
+- Converts "bigint", "boolean" and "number" primitive values to string
+- Stringifies object values
 
 ```ts
-import { FormDataUtils, Polyfill } from '@aracna/core'
+import { serializeFormData } from '@aracna/core'
 
-async function main(): Promise<void> {
-  let data: FormData
-
-  await Polyfill.formData()
-
-  data = new FormData()
-  data.append('value', 0)
-
-  // will log { value: 0 }
-  console.log(FormDataUtils.toObject(data))
+const person = {
+  age: 20,
+  features: {
+    eyes: 'Brown',
+    height: 175
+  },
+  name: 'John',
+  picture: new Blob([])
 }
 
-main()
+const form_data = serializeFormData(person)
+
+// will log "20"
+console.log(form_data.get('age'))
+
+// will log "{ "eyes": "Brown", "height": 175 }"
+console.log(form_data.get('features'))
+
+// will log "John"
+console.log(form_data.get('name'))
+
+// will log Blob
+console.log(form_data.get('picture'))
+```
+
+### Deserialize
+
+- Parses stringified object values
+
+```ts
+import { deserializeFormData } from '@aracna/core'
+
+const form_data = new FormData()
+
+form_data.append('features', JSON.stringify({ eyes: 'Brown', height: 175 }))
+form_data.append('name', 'John')
+
+// will log { features: { eyes: "Brown", height: 175 }, name: "John" }
+console.log(deserializeFormData(form_data))
 ```

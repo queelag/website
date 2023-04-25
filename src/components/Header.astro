@@ -1,13 +1,11 @@
 ---
-import { QImage } from '@aracna/react-components/components/data/Image'
-import LOGO_ASSET from '../assets/logo.jpeg'
+import { AracnaLogo } from './AracnaLogo'
 import HeaderSearch from './HeaderSearch.astro'
 ---
 
 <div class='h-24 flex justify-between items-center p-6 border-b-2 border-b-slate-800'>
   <a class='flex items-center gap-4' href='/'>
-    <QImage shape='squircle' size={48} src={LOGO_ASSET} client:load />
-    <span class='text-2xl'>Aracna</span>
+    <AracnaLogo hasText />
   </a>
   <HeaderSearch />
   <!-- <QIcon fill='none' size={32} src='https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg' stroke='white' stroke-width={1} client:load /> -->

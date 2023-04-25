@@ -1,6 +1,6 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: Fetch Utils
+title: Fetch
 ---
 
 This document describes various Fetch utility functions.
@@ -16,7 +16,7 @@ import {
 const init: RequestInit = { headers: { a: '0', b: '1' } }
 deleteFetchRequestInitHeader(init, 'a')
 
-// will log [['b', '1']]
+// will log [["b", "1"]]
 console.log(getFetchRequestInitHeadersEntries(init))
 ```
 
@@ -38,7 +38,7 @@ import { getFetchRequestInitHeadersEntries } from '@aracna/core'
 
 const init: RequestInit = { headers: { a: '0', b: '1' } }
 
-// will log [['a', '0'], ['b', '1']]
+// will log [["a", "0"], ["b", "1"]]
 console.log(getFetchRequestInitHeadersEntries(init))
 ```
 
@@ -49,7 +49,7 @@ import { getFetchRequestInitHeadersLength } from '@aracna/core'
 
 const init: RequestInit = { headers: { a: '0', b: '1' } }
 
-// will log 2
+// will log "2"
 console.log(getFetchRequestInitHeadersLength(init))
 ```
 
@@ -68,4 +68,151 @@ setFetchRequestInitHeader(init, 'authorization', 'token')
 
 // will log "token"
 console.log(getFetchRequestInitHeader(init, 'authorization'))
+```
+
+### Set Request Init Header When Unset
+
+```ts
+import {
+  getFetchRequestInitHeader,
+  setFetchRequestInitHeaderWhenUnset
+} from '@aracna/core'
+
+const init: RequestInit = {}
+
+// will set the header inside the init
+setFetchRequestInitHeaderWhenUnset(init, 'authorization', 'token')
+
+// will log "token"
+console.log(getFetchRequestInitHeader(init, 'authorization'))
+
+// will not set the header since it has already been set before
+setFetchRequestInitHeaderWhenUnset(init, 'authorization', 'token2')
+
+// will still log "token"
+console.log(getFetchRequestInitHeader(init, 'authorization'))
+```
+
+### Has Request Init Header
+
+```ts
+import {
+  hasFetchRequestInitHeader,
+  setFetchRequestInitHeader
+} from '@aracna/core'
+
+const init: RequestInit = {}
+
+// will log false
+console.log(hasFetchRequestInitHeader(init, 'authorization'))
+
+// will set the header inside the init
+setFetchRequestInitHeader(init, 'authorization', 'token')
+
+// will log true
+console.log(hasFetchRequestInitHeader(init, 'authorization'))
+```
+
+### Merge Request Inits
+
+```ts
+import {
+  getFetchRequestInitHeadersEntries,
+  mergeFetchRequestInits
+} from '@aracna/core'
+
+const init_source: RequestInit = { headers: { a: '0' }, method: 'GET' }
+const init_target: RequestInit = { headers: { b: '1' }, method: 'POST' }
+
+const merged_init: RequestInit = mergeFetchRequestInits(
+  init_source,
+  init_target
+)
+
+// will log [["a", "0"], ["b", "1"]]
+console.log(getFetchRequestInitHeadersEntries(merged_init))
+
+// will log "POST"
+console.log(merged_init.method)
+```
+
+### Convert Internal Request Init to Native
+
+- Sets the correct headers based on body type
+- Converts body to string if it's not an object
+- Stringifies body if it's an object
+-
+
+```ts
+import {
+  getFetchRequestInitHeader,
+  toNativeFetchRequestInit
+} from '@aracna/core'
+
+const init: RequestInit = {}
+
+init.body = 0
+let native_init = toNativeFetchRequestInit(init)
+
+// will log "0"
+console.log(native_init.body)
+
+// will log "text/plain"
+console.log(getFetchRequestInitHeader(native_init, 'content-type'))
+
+init.body = { name: 'John' }
+native_init = toNativeFetchRequestInit(init)
+
+// will log "{ "name": "John" }"
+console.log(native_init.body)
+
+// will log "application/json"
+console.log(getFetchRequestInitHeader(native_init, 'content-type'))
+
+init.body = new Blob([])
+native_init = toNativeFetchRequestInit(init)
+
+// will log Blob
+console.log(native_init.body)
+
+// will log "application/octet-stream"
+console.log(getFetchRequestInitHeader(native_init, 'content-type'))
+```
+
+### Make Request Init Loggable
+
+- Deserializes FormData body to make it more readable
+
+```ts
+import { toLoggableFetchRequestInit } from '@aracna/core'
+
+const init: RequestInit = {}
+
+init.body = new FormData()
+init.body.set('name', 'John')
+
+// will log "{ "body": { "name": "John" } }"
+console.log(toLoggableFetchRequestInit(init))
+```
+
+### Make Native Request Init Loggable
+
+- Deserializes FormData body to make it more readable
+- Parses JSON body to make it more readable
+
+```ts
+import { toLoggableFetchRequestInit } from '@aracna/core'
+
+const init: RequestInit = {}
+
+init.body = new FormData()
+init.body.set('name', 'John')
+
+// will log "{ "body": { "name": "John" } }"
+console.log(toLoggableFetchRequestInit(init))
+
+init.body = { name: 'John' }
+
+// will log "{ "body": { "name": "John" } }"
+console.log(toLoggableFetchRequestInit(init))
 ```

@@ -1,36 +1,36 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: PromiseUtils
+title: Promise
 ---
 
-This class contains utilities for [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+This document describes various [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) utility functions.
 
-### Synchronous Chain
+### Chain Synchronously
 
 ```ts
-import { PromiseUtils } from '@aracna/core'
+import { chainPromises } from '@aracna/core'
 
 // will always log 0 before and 1 after
-PromiseUtils.chain(
+chainPromises(
   async () => console.log(0),
   async () => console.log(1)
 )
 ```
 
-### Synchronous Truthy Chain
+### Chain Truthy Synchronously
 
 ```ts
 import { PromiseUtils, rc } from '@aracna/core'
 
 // will log 0 and 1 but will not log 2 since the previous promise returned a falsy value
-PromiseUtils.truthyChain(
+chainTruthyPromises(
   async () => rc(() => console.log(0), true),
   async () => console.log(1),
   async () => console.log(2)
 )
 
 // will log 0 but will not log 1 since the previous promise returned an Error
-PromiseUtils.truthyChain(
+chainTruthyPromises(
   async () => rc(() => console.log(0), true),
   async () => new Error(),
   async () => console.log(1)

@@ -16,7 +16,7 @@ This class is an enhanced version of File.
 import { AracnaFile } from '@aracna/core'
 
 // will create a new instance of AracnaFile which has all the features of File available plus the custom ones
-const file = new AracnaFile(new File([]))
+const file = new AracnaFile(new File([], ''))
 ```
 
 ### Read Contents
@@ -24,7 +24,7 @@ const file = new AracnaFile(new File([]))
 ```ts
 import { AracnaFile } from '@aracna/core'
 
-const file = new AracnaFile(new File([]))
+const file = new AracnaFile(new File([], ''))
 
 // will populate the arrayBuffer, base64 and uInt8Array fields
 await file.resolveArrayBuffer()
@@ -45,7 +45,7 @@ console.log(file.uInt8Array)
 ```ts
 import { AracnaFile } from '@aracna/core'
 
-let file = new AracnaFile(new File([]))
+let file = new AracnaFile(new File([], ''))
 
 // this will reset the file value
 file = AracnaFile.EMPTY
@@ -56,7 +56,7 @@ file = AracnaFile.EMPTY
 ```ts
 import { AracnaFile } from '@aracna/core'
 
-const file = new AracnaFile(new File([]))
+const file = new AracnaFile(new File([], ''))
 
 // to properly serialize it we need to first resolve the ArrayBuffer or Text
 await file.resolveArrayBuffer()

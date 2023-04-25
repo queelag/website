@@ -10,6 +10,48 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@aracna/core@^1.1.18":
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.18.tgz#119d9954729f22b49c402fc9905f4fa01d084cbf"
+  integrity sha512-SZgGnJOrFqtC3eCqrsfQq+2dD+f14zN3kpxyEAuJkA72LeHS5/gbktndDbQNSRABP3T+MxIYc6rl0wnLPw710A==
+  dependencies:
+    "@types/cookie" "^0.5.1"
+    cookie "^0.5.0"
+    nanoid "^3.3.4"
+    node-fetch "^3.2.10"
+    node-fetch-cjs "^3.2.10"
+    rfc4648 "^1.5.2"
+
+"@aracna/react-components@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.8.tgz#b0f1e012e3f0d54dafcf07605e7adf713959bf78"
+  integrity sha512-5cX2Ebtoe61HhvM7zE4z31mtX5FlWCAWgKSUYfJn2VGsKb0GZIEcMPD0pbV6aRF0J4Z+QfAcqZ1q0hs0e6ahiQ==
+
+"@aracna/react@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.9.tgz#dc19207e512ff819d9f2c1ded6e67e499d1e4b0e"
+  integrity sha512-tjh/s/ELHgymoPZWxFHoNiz7bCHam8ahOiKbPXSrSP+Ttdg2hyD7pAKS/vMFyioGQcIFzhiyAYMqDnXOkjHpYw==
+
+"@aracna/state-manager-react@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@aracna/state-manager-react/-/state-manager-react-1.0.11.tgz#243298e701ca498b4b80bbec8c04bfa393525eec"
+  integrity sha512-kt82sN4LXSyFGr+Xwy7HTv/HC7PhUAlF2cQeNx3SGdp1Fl0t7+FPH2d5AME6CGyXHktrZAPWW4PkNQvIVbZfDA==
+
+"@aracna/state-manager@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.13.tgz#3836d7a977278aa9e98e789ed9c7160d1773f3a7"
+  integrity sha512-SsHJR0l5jBOJvezEwCNE/XmQraYeZGDAk+2/5KKrGWzOF0yL1R4mOZ5USpzWiHYawO4orks65yOCBKxVRZ9dOQ==
+
+"@aracna/web-components@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.10.tgz#55b94532dd386962f34c7d60b1b6eb93b8c706ec"
+  integrity sha512-+K06q08j8YpbQaV9e43Y87JrBLbFOPa1euH4boSdMYJ2uxsVly1yR+WssBw0krkkp4XOyzt/B8ehD0M7KJfTTw==
+
+"@aracna/web@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.14.tgz#a77c501c19995686cd4810638f27ee2402c45e87"
+  integrity sha512-cINnOrbAOFKU0QzXrRlRAGeFhrBoBiM4wZAffb6rlOAkkjsmbFSlFxDnay0S0ft7GSRaZbQtWaFHf+hitumXLQ==
+
 "@astrojs/compiler@^0.23.4":
   version "0.23.5"
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.23.5.tgz#ea57a2b994b2930e3b3d2d524f10866698fef4f1"
@@ -564,48 +606,6 @@
   integrity sha512-Ex1sL2BxU+g8MHdAdq9SZKz+pU34o8Zcl9PHWo2WaG9hrnlZme607PU6gnpoAYsDBpHX327+eu60wWUk+d/b+A==
   dependencies:
     tsm "^2.1.4"
-
-"@aracna/core@^1.1.16":
-  version "1.1.16"
-  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.16.tgz#af3d512baa5c67bb7d115d0170808f8f811711b3"
-  integrity sha512-whEi0CYZxp8XHcxBsFIT+U3ZUmITgQHvnSj3LJdV6S5oxuUcGZN4nwKBF6DDl6mq04XDhk4mCxYSb2Y/hZgKXw==
-  dependencies:
-    "@types/cookie" "^0.5.1"
-    cookie "^0.5.0"
-    nanoid "^3.3.4"
-    node-fetch "^3.2.10"
-    node-fetch-cjs "^3.2.10"
-    rfc4648 "^1.5.2"
-
-"@aracna/react-components@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.5.tgz#2f937e75ce62a966c3d5391febfc625f18ad69a4"
-  integrity sha512-BNv9CZrYsDuX9Lc2oSvF/OcgA6WgiQn7hiI9PboPZY8c6rDegoYIszNrVtUppuga3D2mG6pqXFUgV+Fqek6S2g==
-
-"@aracna/react@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.7.tgz#3bf4de72938bfe26f8b8fb73d1f559f74e646583"
-  integrity sha512-xqIDaQGFOAyPZWg2VlYVrIhRtx12d6rRO/ppdgVdtp+1xQ42GdpNPzFeRzxoRjduRDfms3Y2Zz9TgQygGucgCA==
-
-"@aracna/state-manager-react@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@aracna/state-manager-react/-/state-manager-react-1.0.9.tgz#45a0a665172f676bea22cae9c58d38d5405f15f3"
-  integrity sha512-Bq869QadtoMAec2sHQCqKpZS5IQdIX3zJhiyqzufmMuFEFAOnesotdshGl8kxNQehqZeknBYQa4cn8M83zgqdQ==
-
-"@aracna/state-manager@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.12.tgz#f34de39bfcd9504df0d2f9b69aa02c0bfefb1fee"
-  integrity sha512-+HocCBd/eB49ytpXZfX+wuc4B4zev66Y67NXzpZDuwBYMuOpKmfmpgR7msazL5npREjPi5JnfetwrgCEj3WAQg==
-
-"@aracna/web-components@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.7.tgz#e1a7b058eefabbd450f30fa5ebb2f3b9d01e3685"
-  integrity sha512-fapxtYxhJFocdwvPiHDaXw0rXHgGF/OJug5wyexZPcafsT3DwjuU/5oXZJzoJDm1fp0dYMYOsVLvlGFlH2GCfQ==
-
-"@aracna/web@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.11.tgz#9e13528fffae660156d9275d0b82e7ebbb299fc4"
-  integrity sha512-bMXC9itqMf1y/web2cj9e1MBrih4xSt7KM/HnwQDRkt+Ayu/KVq92Lc8NoQoQQ0HTau8Pxr208GBubeWJrQiDA==
 
 "@rollup/pluginutils@^4.0.0":
   version "4.2.1"

@@ -1,111 +1,25 @@
 ---
 layout: ../../../../layouts/DocsLayout.astro
-title: ObjectUtils
+title: Object
 ---
 
-This class contains utilities for objects.
-
-### Clone
-
-```ts
-import { ObjectUtils } from '@aracna/core'
-
-const a: Record<string, number> = { value: 0 }
-const b: Record<string, number> = ObjectUtils.clone(a)
-
-// a won't change since b has been deeply cloned
-b.value++
-
-// will log { value: 0 }
-console.log(a)
-
-// will log { value: 1 }
-console.log(b)
-```
-
-### Delete Property
-
-```ts
-import { ObjectUtils } from '@aracna/core'
-
-const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
-
-// will delete the "shallow" key
-ObjectUtils.delete(object, 'shallow')
-
-// will log { deep: { value: 0 } }
-console.log(object)
-
-// will delete the "deep.value" key
-ObjectUtils.delete(object, 'deep.value')
-
-// will log { deep: {} }
-console.log(object)
-```
-
-### Get Property
-
-```ts
-import { ObjectUtils } from '@aracna/core'
-
-const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
-
-// will log 0
-console.log(ObjectUtils.get(object, 'shallow'))
-
-// will log 0
-console.log(ObjectUtils.get(object, 'deep.value'))
-```
-
-### Merge
-
-```ts
-import { ObjectUtils } from '@aracna/core'
-
-const a: Record<string, number> = { a: 0 }
-const b: Record<string, number> = { b: 1 }
-
-// will log { a: 0, b: 1 }
-console.log(ObjectUtils.merge(a, b))
-```
-
-### Omit Properties
-
-```ts
-import { ObjectUtils } from '@aracna/core'
-
-const object: Record<string, number> = { a: 0, b: 1, c: 2 }
-
-// will log { b: 1 }
-console.log(ObjectUtils.omit(object, ['a', 'c']))
-```
-
-### Pick Properties
-
-```ts
-import { ObjectUtils } from '@aracna/core'
-
-const object: Record<string, number> = { a: 0, b: 1, c: 2 }
-
-// will log { a: 0, c: 2 }
-console.log(ObjectUtils.pick(object, ['a', 'c']))
-```
+This document describes various Object utility functions.
 
 ### Set Property
 
 ```ts
-import { ObjectUtils } from '@aracna/core'
+import { setObjectProperty } from '@aracna/core'
 
 const object: Record<string, any> = {}
 
 // will set the "shallow" property with value 0
-ObjectUtils.set(object, 'shallow', 0)
+setObjectProperty(object, 'shallow', 0)
 
 // will log 0
 console.log(object.shallow)
 
 // will set the "deep.value" property with value 0
-ObjectUtils.set(object, 'deep.value', 0)
+setObjectProperty(object, 'deep.value', 0)
 
 // will log { value: 0 }
 console.log(object.deep)
@@ -114,80 +28,284 @@ console.log(object.deep)
 console.log(object)
 
 // will set the "deep" property with value { value: 1 }
-ObjectUtils.set(object, 'deep', { value: 1 })
+setObjectProperty(object, 'deep', { value: 1 })
 
 // will log { value: 1 }
 console.log(object.deep)
 ```
 
-### To FormData
+### Get Property
 
 ```ts
-import { ObjectUtils, Polyfill } from '@aracna/core'
+import { getObjectProperty } from '@aracna/core'
 
-async function main(): Promise<void> {
-  await Polyfill.formData()
+const object: Record<string, any> = { deep: { value: 0 }, shallow: 0 }
 
-  const object: Record<string, number> = { a: 0 }
-  const data: FormData = ObjectUtils.toFormData(object)
+// will log 0
+console.log(getObjectProperty(object, 'shallow'))
 
-  // will log [["a", "0"]]
-  console.log([...data.entries()])
-}
+// will log 0
+console.log(getObjectProperty(object, 'deep.value'))
+```
+
+### Delete Property
+
+```ts
+import { deleteObjectProperty } from '@aracna/core'
+
+const object: Record<string, any> = { deep: { value: 0 }, shallow: 0 }
+
+// will delete the "shallow" property
+deleteObjectProperty(object, 'shallow')
+
+// will log { deep: { value: 0 } }
+console.log(object)
+
+// will delete the "deep.value" property
+deleteObjectProperty(object, 'deep.value')
+
+// will log { deep: {} }
+console.log(object)
+```
+
+### Copy Property
+
+```ts
+import { copyObjectProperty } from '@aracna/core'
+
+const source: Record<string, any> = { deep: { value: 0 }, shallow: 0 }
+const target: Record<string, any> = {}
+
+// will copy the "shallow" property from source to target
+copyObjectProperty(source, 'shallow', target)
+
+// will log 0
+console.log(object.shallow)
+
+// will copy the "deep" property from source to target
+copyObjectProperty(source, 'deep', target)
+
+// will log 0
+console.log(getObjectProperty(object, 'deep.value'))
 ```
 
 ### Has Property
 
 ```ts
-import { ObjectUtils } from '@aracna/core'
+import { hasObjectProperty } from '@aracna/core'
 
-const object: Record<string, any> = { shallow: 0, deep: { value: 0 } }
-
-// will log true
-console.log(ObjectUtils.has(object, 'shallow'))
+const object: Record<string, any> = { deep: { value: 0 }, shallow: 0 }
 
 // will log true
-console.log(ObjectUtils.has(object, 'deep.value'))
+console.log(hasObjectProperty(object, 'shallow'))
+
+// will log true
+console.log(hasObjectProperty(object, 'deep.value'))
 
 // will log false
-console.log(ObjectUtils.has(object, 'deep.unknown'))
+console.log(hasObjectProperty(object, 'deep.unknown'))
 ```
 
-### Has Keys
+### Omit Properties
 
 ```ts
-import { ObjectUtils } from '@aracna/core'
+import { omitObjectProperties } from '@aracna/core'
 
-// will log true
-console.log(ObjectUtils.hasKeys({ a: 0 }))
+const object: Record<string, number> = { a: 0, b: 1, c: 2 }
 
-// will log false
-console.log(ObjectUtils.hasKeys({}))
+// will log { b: 1 }
+console.log(omitObjectProperties(object, ['a', 'c']))
 ```
 
-### Has Values
+### Pick Properties
 
 ```ts
-import { ObjectUtils } from '@aracna/core'
+import { pickObjectProperties } from '@aracna/core'
 
-// will log true
-console.log(ObjectUtils.hasValues({ a: 0 }))
+const object: Record<string, number> = { a: 0, b: 1, c: 2 }
 
-// will log false
-console.log(ObjectUtils.hasKeys({}))
+// will log { a: 0, c: 2 }
+console.log(pickObjectProperties(object, ['a', 'c']))
 ```
 
-### Check Type
+### Deep Cloning
 
 ```ts
-import { ObjectUtils } from '@aracna/core'
+import { cloneDeepObject } from '@aracna/core'
+
+const object = { deep: { value: 0 }, shallow: 0 }
+const cloned_object = cloneDeepObject(object)
+
+cloned_object.a.b++
+cloned_object.c++
+
+// will log 0
+console.log(object.a.b)
+
+// will log 1
+console.log(object.c)
+```
+
+### Shallow Cloning
+
+```ts
+import { cloneShallowObject } from '@aracna/core'
+
+const object = { a: 0 }
+const cloned_object = cloneShallowObject(object)
+
+cloned_object.a++
+
+// will log 0
+console.log(object.a)
+```
+
+### Flatten
+
+```ts
+import { flattenObject } from '@aracna/core'
+
+const object: Record<string, any> = { deep: { value: 0 }, shallow: 0 }
+
+// will log { "deep.value": 0, shallow: 0 }
+console.log(flattenObject(object))
+```
+
+### Merge
+
+```ts
+import { mergeObjects } from '@aracna/core'
+
+const source: Record<string, number> = { a: 0 }
+const target: Record<string, number> = { b: 1 }
+
+// will log { a: 0, b: 1 }
+console.log(mergeObjects(source, target))
+```
+
+### Deeply Clean Object From Undefined Properties
+
+```ts
+import { deleteDeepObjectUndefinedProperties } from '@aracna/core'
+
+const object: Record<string, any> = {
+  deep: { value: undefined },
+  shallow: undefined
+}
+
+// will log {}
+console.log(deleteDeepObjectUndefinedProperties(object))
+```
+
+### Shallowly Clean Object From Undefined Properties
+
+```ts
+import { deleteShallowObjectUndefinedProperties } from '@aracna/core'
+
+const object: Record<string, number> = { a: undefined }
+
+// will log {}
+console.log(deleteShallowObjectUndefinedProperties(object))
+```
+
+### Is Object
+
+```ts
+import { isObject } from '@aracna/core'
 
 // will log true
-console.log(ObjectUtils.is({}))
+console.log(isObject({}))
 
 // will log false
-console.log(ObjectUtils.is([]))
+console.log(isObject([]))
 
 // will log false
-console.log(ObjectUtils.is(0))
+console.log(isObject(0))
+```
+
+### Is Object Clonable
+
+```ts
+import { isObjectClonable } from '@aracna/core'
+
+// will log true
+console.log(isObjectClonable({}))
+
+// will log true
+console.log(isObjectClonable([]))
+
+// will log false
+console.log(isObjectClonable(null))
+
+// will log false
+console.log(isObjectClonable(0))
+
+// will log false
+console.log(isObjectClonable(new Blob([])))
+```
+
+### Is Object Flattenable
+
+```ts
+import { isObjectFlattenable } from '@aracna/core'
+
+// will log true
+console.log(isObjectFlattenable({}))
+
+// will log true
+console.log(isObjectFlattenable([], { array: true }))
+
+// will log false
+console.log(isObjectFlattenable([]))
+
+// will log false
+console.log(isObjectFlattenable(null))
+
+// will log false
+console.log(isObjectFlattenable(0))
+
+// will log false
+console.log(isObjectFlattenable(new Blob([])))
+```
+
+### Is Object Keys Populated
+
+```ts
+import { isObjectKeysPopulated } from '@aracna/core'
+
+// will log true
+console.log(isObjectKeysPopulated({ a: 0 }))
+
+// will log false
+console.log(isObjectKeysPopulated({}))
+```
+
+### Is Object Values Populated
+
+```ts
+import { isObjectValuesPopulated } from '@aracna/core'
+
+// will log true
+console.log(isObjectValuesPopulated({ a: 0 }))
+
+// will log false
+console.log(isObjectValuesPopulated({}))
+```
+
+### Is Plain Object
+
+```ts
+import { isObjectFlattenable } from '@aracna/core'
+
+// will log true
+console.log(isObjectFlattenable({}))
+
+// will log false
+console.log(isObjectFlattenable(null))
+
+// will log false
+console.log(isObjectFlattenable(0))
+
+// will log false
+console.log(isObjectFlattenable(new Blob([])))
 ```
