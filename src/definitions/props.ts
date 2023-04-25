@@ -3,5 +3,6 @@ export interface SidebarItemProps {
   expanded?: boolean
   href: string
   items?: SidebarItemProps[]
+  order: number
   title: string
 }

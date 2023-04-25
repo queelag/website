@@ -15,13 +15,16 @@ async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[
   dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
   items = []
 
-  for (let dir of dirs) {
-    let item: SidebarItemProps
+  for (let i = 0; i < dirs.length; i++) {
+    let dir: Dirent, item: SidebarItemProps
+
+    dir = dirs[i]
 
     if (dir.isDirectory()) {
       item = {
         href: concatURL('/', folders.join('/'), dir.name),
         items: await getItems([...folders, dir.name]),
+        order: i,
         title: mapDirName(dir.name)
       }
 
@@ -36,8 +39,13 @@ async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[
       glob = globs.find((glob: DocsPageMDXInstance) => glob.file.includes(concatURL(folders.join('/'), dir.name)))
       if (!glob) continue
 
+      if (glob.frontmatter.draft) {
+        continue
+      }
+
       item = {
         href: concatURL('/', folders.join('/'), dir.name).replace('.mdx', ''),
+        order: glob.frontmatter.order ?? i,
         title: glob.frontmatter.title
       }
 
@@ -46,6 +54,8 @@ async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[
       items.push(item)
     }
   }
+
+  items = items.sort((a: SidebarItemProps, b: SidebarItemProps) => a.order - b.order)
 
   return items
 }
