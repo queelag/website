@@ -1,31 +1,12 @@
 ---
-layout: ../../../../../layouts/DocsLayout.astro
+layout: '@/layouts/DocsLayout.astro'
 title: useWhen
 ---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
 
 This hooks runs an effect when the predicate is truthy.
 
 ### Usage
 
-:::tip
-Check your console logs.
-:::
-
-```tsx live
-function App() {
-  const store = useRef(observe({ number: 0 }))
-
-  const onClick = () => {
-    store.current.number++
-  }
-
-  useWhen(
-    () => store.current.number > 0,
-    () => console.log('The number is greater than 0.')
-  )
-
-  return useObserver(() => (
-    <button onClick={onClick}>{store.current.number}</button>
-  ))
-}
-```
+<StackBlitz client:load id='react-ts-qpwe5c' console />

@@ -1,20 +1,12 @@
 ---
-layout: ../../../../../layouts/DocsLayout.astro
+layout: '@/layouts/DocsLayout.astro'
 title: useObservable
 ---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
 
 This hook performs a re-render when any of its properties change.
 
 ### Usage
 
-```tsx live
-function App() {
-  const store = useObservable({ number: 0 })
-
-  const onClick = () => {
-    store.number++
-  }
-
-  return <button onClick={onClick}>{store.number}</button>
-}
-```
+<StackBlitz client:load id='react-ts-shczec' />

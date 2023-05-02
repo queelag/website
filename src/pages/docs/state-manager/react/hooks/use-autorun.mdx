@@ -1,30 +1,12 @@
 ---
-layout: ../../../../../layouts/DocsLayout.astro
+layout: '@/layouts/DocsLayout.astro'
 title: useAutorun
 ---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
 
 This hooks runs an effect when any of the observed properties used inside the effect change.
 
 ### Usage
 
-:::tip
-Check your console logs.
-:::
-
-```tsx live
-function App() {
-  const store = useRef(observe({ number: 0 }))
-
-  const onClick = () => {
-    store.current.number++
-  }
-
-  useAutorun(() => {
-    console.log(store.current.number)
-  })
-
-  return useObserver(() => (
-    <button onClick={onClick}>{store.current.number}</button>
-  ))
-}
-```
+<StackBlitz client:load id='react-ts-gqgcfv' console />

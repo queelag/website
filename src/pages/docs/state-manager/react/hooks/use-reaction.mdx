@@ -1,31 +1,12 @@
 ---
-layout: ../../../../../layouts/DocsLayout.astro
+layout: '@/layouts/DocsLayout.astro'
 title: useReaction
 ---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
 
 This hook runs an effect when the value of the expression changes.
 
 ### Usage
 
-:::tip
-Check your console logs.
-:::
-
-```tsx live
-function App() {
-  const store = useRef(observe({ number: 0 }))
-
-  const onClick = () => {
-    store.current.number++
-  }
-
-  useReaction(
-    () => store.current.number,
-    () => console.log(`The number is ${store.current.number}.`)
-  )
-
-  return useObserver(() => (
-    <button onClick={onClick}>{store.current.number}</button>
-  ))
-}
-```
+<StackBlitz client:load id='react-ts-re8zun' console />

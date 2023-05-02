@@ -2,7 +2,7 @@ import SDK from '@stackblitz/sdk'
 import { useEffect, useRef } from 'react'
 
 interface Props {
-  console?: boolean
+  console?: boolean | 'full'
   id: string
 }
 
@@ -13,7 +13,7 @@ export function StackBlitz(props: Props) {
     if (!ref.current) return
 
     SDK.embedProjectId(ref.current, props.id, {
-      devToolsHeight: props.console ? 50 : undefined,
+      devToolsHeight: props.console === true ? 50 : props.console === 'full' ? 100 : undefined,
       forceEmbedLayout: true,
       height: 640,
       hideExplorer: true,

@@ -1,65 +1,25 @@
 ---
-layout: ../../../../../layouts/DocsLayout.astro
+layout: '@/layouts/DocsLayout.astro'
 title: useMemoObserver
 ---
 
+import { Alert } from '@/components/Alert.tsx'
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+
 This hook performs a re-render when any of the observed properties used inside the render function change.
 
-:::caution
-The difference between this hook and [useObserver](/docs/state-manager/react/hooks/use-observer) is that [useMemoObserver](/docs/state-manager/react/hooks/use-memo-observer) will only react to observable changes, no other property will be able to cause a re-render.
-:::
+<Alert client:load severity='info'>
+  The difference between this hook and
+  [useObserver](/docs/state-manager/react/hooks/use-observer) is that
+  [useMemoObserver](/docs/state-manager/react/hooks/use-memo-observer) will only
+  react to observable changes, no other property will be able to cause a
+  re-render.
+</Alert>
 
 ### Usage
 
-```tsx live
-function App() {
-  const store = useRef(observe({ number: 0 }))
-
-  const onClick = () => {
-    store.current.number++
-  }
-
-  return useMemoObserver(() => (
-    <button onClick={onClick}>{store.current.number}</button>
-  ))
-}
-```
+<StackBlitz client:load id='react-ts-yedutz' />
 
 ### Memo Comparison
 
-```tsx live
-function App() {
-  const store = useRef(observe({ number: 0 }))
-
-  const [memo, setMemo] = useState(true)
-  const [state, setState] = useState(0)
-
-  const onClickNumber = () => {
-    store.current.number++
-  }
-
-  const onClickState = () => {
-    setState((state) => state + 1)
-  }
-
-  const onClickMemo = () => {
-    setMemo((memo) => !memo)
-  }
-
-  return (
-    <div style={{ display: 'flex', gap: 4 }}>
-      <Observer memo={memo}>
-        {() => (
-          <Fragment>
-            <button onClick={onClickNumber}>
-              Observable: {store.current.number}
-            </button>
-            <button onClick={onClickState}>State: {state.toString()}</button>
-          </Fragment>
-        )}
-      </Observer>
-      <button onClick={onClickMemo}>Memo: {memo.toString()}</button>
-    </div>
-  )
-}
-```
+<StackBlitz client:load id='react-ts-gvopzd' />

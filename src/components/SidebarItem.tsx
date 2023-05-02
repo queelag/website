@@ -1,6 +1,6 @@
+import type { SidebarItemProps } from '@/definitions/props'
 import { useObservable } from '@aracna/state-manager-react'
 import { joinElementClasses } from '@aracna/web'
-import type { SidebarItemProps } from '../definitions/props'
 import { Icon } from './Icon'
 
 export function SidebarItem(props: SidebarItemProps) {
