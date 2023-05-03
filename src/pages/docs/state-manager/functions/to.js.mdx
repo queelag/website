@@ -4,9 +4,17 @@ title: toJS
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_TO_JS_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/functions'
 
 Converts the target to a plain object.
 
 ### Usage
 
-<StackBlitz client:load id='typescript-n2c5vh' console />
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
+  files={SB_TO_JS_USAGE_FILES}
+  template='typescript'
+  title='toJS'
+  console
+/>

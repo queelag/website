@@ -4,9 +4,20 @@ title: useObservable
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_USE_OBSERVABLE_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
 This hook performs a re-render when any of its properties change.
 
 ### Usage
 
-<StackBlitz client:load id='react-ts-shczec' />
+<StackBlitz
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/state-manager': 'latest',
+    '@aracna/state-manager-react': 'latest'
+  }}
+  files={SB_USE_OBSERVABLE_USAGE_FILES}
+  template='create-react-app'
+  title='useObservable'
+/>

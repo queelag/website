@@ -4,6 +4,10 @@ title: when
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_WHEN_CALLBACK_FILES,
+  SB_WHEN_PROMISE_FILES
+} from '@/definitions/stack-blitz/state-manager/functions'
 
 Runs an effect or returns a Promise which will be resolved when the predicate is truthy.
 
@@ -11,10 +15,24 @@ Runs an effect or returns a Promise which will be resolved when the predicate is
 
 Runs an effect when the predicate is truthy.
 
-<StackBlitz client:load id='typescript-u2cfqb' console />
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
+  files={SB_WHEN_CALLBACK_FILES}
+  template='typescript'
+  title='reaction'
+  console
+/>
 
 ### Promise
 
 Returns a Promise which will be resolved when the predicate is truthy.
 
-<StackBlitz client:load id='typescript-yc5z8k' console />
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
+  files={SB_WHEN_PROMISE_FILES}
+  template='typescript'
+  title='reaction'
+  console
+/>

@@ -4,9 +4,21 @@ title: useReaction
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_USE_REACTION_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
 This hook runs an effect when the value of the expression changes.
 
 ### Usage
 
-<StackBlitz client:load id='react-ts-re8zun' console />
+<StackBlitz
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/state-manager': 'latest',
+    '@aracna/state-manager-react': 'latest'
+  }}
+  files={SB_USE_REACTION_USAGE_FILES}
+  template='create-react-app'
+  title='useReaction'
+  console
+/>
