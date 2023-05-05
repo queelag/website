@@ -1,7 +1,9 @@
 import type { SidebarItemProps } from '@/definitions/props'
+import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down.js'
+import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up.js'
 import { useObservable } from '@aracna/state-manager-react'
 import { joinElementClasses } from '@aracna/web'
-import { Icon } from './Icon'
+import { Fragment } from 'react'
 
 export function SidebarItem(props: SidebarItemProps) {
   const store = useObservable({ active: props.active ?? false, expanded: props.expanded ?? false })
@@ -22,19 +24,7 @@ export function SidebarItem(props: SidebarItemProps) {
         onClick={onClick}
       >
         <span>{props.title}</span>
-        {props.items && (
-          <Icon
-            fill='none'
-            size={16}
-            src={
-              store.expanded
-                ? 'https://raw.githubusercontent.com/feathericons/feather/master/icons/chevron-up.svg'
-                : 'https://raw.githubusercontent.com/feathericons/feather/master/icons/chevron-down.svg'
-            }
-            stroke='white'
-            stroke-width={2}
-          />
-        )}
+        {props.items && <Fragment>{store.expanded ? <IconFeatherChevronUp stroke='white' /> : <IconFeatherChevronDown stroke='white' />}</Fragment>}
       </a>
       {props.items && store.expanded && (
         <div className='flex flex-col ml-2'>

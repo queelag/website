@@ -1,16 +1,33 @@
 import { html } from '@/functions/html'
-import { parseNumber } from '@aracna/core'
+import { Environment, parseNumber } from '@aracna/core'
 import SDK, { EmbedOptions, ProjectDependencies, ProjectFiles, ProjectTemplate } from '@stackblitz/sdk'
 import { useEffect, useRef } from 'react'
 
 interface Props {
-  console?: boolean | 'full'
+  console?: boolean | number
   dependencies?: ProjectDependencies
   files?: ProjectFiles
   id?: string
   template?: ProjectTemplate
   title?: string
 }
+
+const CSS: string = html`
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #root {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      height: 100vh;
+      justify-content: center;
+    }
+  </style>
+`
 
 export function StackBlitz(props: Props) {
   const ref = useRef<HTMLDivElement>(null)
@@ -23,10 +40,10 @@ export function StackBlitz(props: Props) {
     }
 
     options = {
-      devToolsHeight: props.console === true ? 50 : props.console === 'full' ? 100 : undefined,
+      devToolsHeight: props.console === true ? 50 : typeof props.console === 'number' ? props.console : undefined,
       forceEmbedLayout: true,
       height: parseNumber(getComputedStyle(ref.current).width) / (16 / 9),
-      hideExplorer: false,
+      hideExplorer: Environment.isProduction,
       hideNavigation: true,
       showSidebar: false,
       theme: 'dark'
@@ -55,22 +72,7 @@ export function StackBlitz(props: Props) {
                 }
               </script>
             `,
-            'index.css': html`
-              <style>
-                body {
-                  margin: 0;
-                }
-
-                #root {
-                  align-items: center;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 4px;
-                  height: 100vh;
-                  justify-content: center;
-                }
-              </style>
-            `,
+            'index.css': CSS,
             'index.html': html`<div id="root"></div>`,
             'index.js': html`
               <script>
@@ -95,11 +97,21 @@ export function StackBlitz(props: Props) {
           options.openFile = 'App.tsx'
 
           break
+        case 'html':
+          dependencies = {}
+          files = {
+            'index.css': CSS,
+            'index.html': ``
+          }
+          options.openFile = 'index.html'
+
+          break
         case 'node':
           dependencies = {
             vite: 'latest'
           }
           files = {
+            'index.css': CSS,
             'index.html': html`
               <!DOCTYPE html>
               <html lang="en">
@@ -108,8 +120,10 @@ export function StackBlitz(props: Props) {
                   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                   <title>Document</title>
+                  <link rel="stylesheet" href="./index.css" />
                 </head>
                 <body>
+                  <div id="root"></div>
                   <script type="module" src="./index.ts"></script>
                 </body>
               </html>
@@ -135,23 +149,8 @@ export function StackBlitz(props: Props) {
         case 'typescript':
           dependencies = {}
           files = {
-            'index.css': html`
-              <style>
-                body {
-                  margin: 0;
-                }
-
-                #app {
-                  align-items: center;
-                  display: flex;
-                  flex-direction: column;
-                  gap: 4px;
-                  height: 100vh;
-                  justify-content: center;
-                }
-              </style>
-            `,
-            'index.html': html`<div id="app"></div>`,
+            'index.css': CSS,
+            'index.html': html`<div id="root"></div>`,
             'index.ts': ``
           }
           options.openFile = 'index.ts'
@@ -169,6 +168,11 @@ export function StackBlitz(props: Props) {
         {
           dependencies: { ...dependencies, ...props.dependencies },
           files: { ...files, ...props.files },
+          settings: {
+            compile: {
+              clearConsole: false
+            }
+          },
           template: props.template,
           title: props.title
         },

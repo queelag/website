@@ -16,7 +16,7 @@ export const SB_AUTORUN_USAGE_FILES: ProjectFiles = {
        */
       const store: Store = observe({ value: 0 })
 
-      const app: HTMLElement = document.getElementById('app')
+      const root: HTMLElement = document.getElementById('root')
       const button: HTMLButtonElement = document.createElement('button')
 
       button.addEventListener('click', () => {
@@ -24,7 +24,7 @@ export const SB_AUTORUN_USAGE_FILES: ProjectFiles = {
       })
       button.innerHTML = 'Increase Store Value'
 
-      app.append(button)
+      root.append(button)
 
       /**
        * Everytime the button is clicked and "store.value" is increased the autorun effect will run.
@@ -79,7 +79,7 @@ export const SB_OBSERVE_USAGE_FILES: ProjectFiles = {
        */
       const store: Store = observe({ value: 0 })
 
-      const app: HTMLElement = document.getElementById('app')
+      const root: HTMLElement = document.getElementById('root')
       const button: HTMLButtonElement = document.createElement('button')
 
       button.addEventListener('click', () => {
@@ -87,7 +87,7 @@ export const SB_OBSERVE_USAGE_FILES: ProjectFiles = {
       })
       button.innerHTML = 'Increase Store Value'
 
-      app.append(button)
+      root.append(button)
 
       /**
        * Since you have an observed store, you can now watch it.
@@ -115,7 +115,7 @@ export const SB_REACTION_USAGE_FILES: ProjectFiles = {
        */
       const store: Store = observe({ value: 0 })
 
-      const app: HTMLElement = document.getElementById('app')
+      const root: HTMLElement = document.getElementById('root')
       const button: HTMLButtonElement = document.createElement('button')
 
       button.addEventListener('click', () => {
@@ -123,7 +123,7 @@ export const SB_REACTION_USAGE_FILES: ProjectFiles = {
       })
       button.innerHTML = 'Increase Store Value'
 
-      app.append(button)
+      root.append(button)
 
       /**
        * Everytime the button is clicked and "store.value" is increased the reaction effect will run.
@@ -178,7 +178,7 @@ export const SB_WHEN_CALLBACK_FILES: ProjectFiles = {
        */
       const store: Store = observe({ value: 0 })
 
-      const app: HTMLElement = document.getElementById('app')
+      const root: HTMLElement = document.getElementById('root')
       const button: HTMLButtonElement = document.createElement('button')
 
       button.addEventListener('click', () => {
@@ -186,7 +186,7 @@ export const SB_WHEN_CALLBACK_FILES: ProjectFiles = {
       })
       button.innerHTML = 'Increase Store Value'
 
-      app.append(button)
+      root.append(button)
 
       /**
        * Once "store.value" is higher than 1 the effect will run.
@@ -216,7 +216,7 @@ export const SB_WHEN_PROMISE_FILES: ProjectFiles = {
        */
       const store: Store = observe({ value: 0 })
 
-      const app: HTMLElement = document.getElementById('app')
+      const root: HTMLElement = document.getElementById('root')
       const button: HTMLButtonElement = document.createElement('button')
 
       button.addEventListener('click', () => {
@@ -224,7 +224,7 @@ export const SB_WHEN_PROMISE_FILES: ProjectFiles = {
       })
       button.innerHTML = 'Increase Store Value'
 
-      app.append(button)
+      root.append(button)
 
       /**
        * Once "store.value" is higher than 1 the Promise will resolve.

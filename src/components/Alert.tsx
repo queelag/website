@@ -1,8 +1,8 @@
+import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info.js'
 import type { AlertProps } from '@aracna/react'
-import { AracnaAlert } from '@aracna/react-components/components/feedback/Alert'
+import { AracnaAlert } from '@aracna/react-components/components/feedback/alert.js'
 import type { AlertSeverity, AlertVariant } from '@aracna/web'
 import './Alert.css'
-import { Icon } from './Icon'
 
 type Props = AlertProps & {
   closable?: boolean
@@ -16,17 +16,7 @@ type Props = AlertProps & {
 export function Alert(props: Props) {
   return (
     <AracnaAlert {...props}>
-      <Icon
-        className='stroke-blue-500'
-        fill='none'
-        size={16}
-        src={
-          props.severity === 'info'
-            ? 'https://raw.githubusercontent.com/feathericons/feather/master/icons/info.svg'
-            : 'https://raw.githubusercontent.com/feathericons/feather/master/icons/chevron-down.svg'
-        }
-        stroke-width={2}
-      />
+      {props.severity === 'info' && <IconFeatherInfo className='stroke-blue-500' />}
       <div>{props.children}</div>
     </AracnaAlert>
   )
