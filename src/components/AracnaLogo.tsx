@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { AracnaLogoDrawing } from './AracnaLogoDrawing'
+// import { AracnaLogoDrawing } from './AracnaLogoDrawing'
+import DRAWING from '../assets/smiling-spider.png'
 import { AracnaLogoText } from './AracnaLogoText'
-// import DRAWING from '../assets/logo-drawing.png'
 // import TEXT from '../assets/logo-text.png'
 
 interface Props {
@@ -14,10 +14,10 @@ export function AracnaLogo(props: Props) {
 
   return (
     <div className='flex items-center gap-4'>
-      <AracnaLogoDrawing className='w-16' fill={fill} />
+      {/* <AracnaLogoDrawing className='w-16' fill={fill} /> */}
+      <img className='w-10 invert' src={DRAWING} />
       {props.hasText && <AracnaLogoText className='w-32' fill={fill} />}
-      {/* <img className='w-16' src={DRAWING} />
-      {props.hasText && <img className='w-32' src={TEXT} />} */}
+      {/* {props.hasText && <img className='w-32' src={TEXT} />} */}
     </div>
   )
 }

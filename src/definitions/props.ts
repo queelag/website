@@ -1,8 +1,8 @@
-export interface SidebarItemProps {
+export interface DocumentationSidebarItemProps {
   active?: boolean
   expanded?: boolean
   href: string
-  items?: SidebarItemProps[]
+  items?: DocumentationSidebarItemProps[]
   order: number
   title: string
 }

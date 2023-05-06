@@ -1,0 +1,35 @@
+---
+import Header from '@/components/Header.astro'
+import FUTURA from '@/assets/fonts/futura.ttf'
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Aracna</title>
+    <style>
+      @font-face {
+        font-display: swap;
+        font-family: 'Futura';
+        font-style: normal;
+        font-weight: normal;
+        src: url('/fonts/futura.woff2') format('woff2');
+      }
+
+      body {
+        background: black;
+        color: white;
+        font-family: 'Futura', sans-serif;
+      }
+    </style>
+  </head>
+  <body class='flex justify-center'>
+    <div class='max-w-screen-2xl w-full flex flex-col gap-16 lg:gap-64'>
+      <Header />
+      <slot />
+    </div>
+  </body>
+</html>

@@ -1,11 +1,11 @@
-import type { SidebarItemProps } from '@/definitions/props'
+import type { DocumentationSidebarItemProps } from '@/definitions/props'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down.js'
 import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up.js'
 import { useObservable } from '@aracna/state-manager-react'
 import { joinElementClasses } from '@aracna/web'
 import { Fragment } from 'react'
 
-export function SidebarItem(props: SidebarItemProps) {
+export function DocumentationSidebarItem(props: DocumentationSidebarItemProps) {
   const store = useObservable({ active: props.active ?? false, expanded: props.expanded ?? false })
 
   const onClick = () => {
@@ -28,8 +28,8 @@ export function SidebarItem(props: SidebarItemProps) {
       </a>
       {props.items && store.expanded && (
         <div className='flex flex-col ml-2'>
-          {props.items.map((props: SidebarItemProps, index: number) => (
-            <SidebarItem {...props} key={index} />
+          {props.items.map((props: DocumentationSidebarItemProps, index: number) => (
+            <DocumentationSidebarItem {...props} key={index} />
           ))}
         </div>
       )}

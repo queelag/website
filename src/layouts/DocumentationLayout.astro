@@ -1,6 +1,6 @@
 ---
-import Header from '@/components/Header.astro'
-import Sidebar from '@/components/Sidebar.astro'
+import Header from '@/components/DocumentationHeader.astro'
+import Sidebar from '@/components/DocumentationSidebar.astro'
 import { TOCs } from '@/components/TOCs'
 import { joinElementClasses } from '@aracna/web'
 
@@ -15,8 +15,17 @@ const { frontmatter, headings } = Astro.props
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Aracna Documentation - {frontmatter.title}</title>
     <style is:global>
+      @font-face {
+        font-display: swap;
+        font-family: 'Futura';
+        font-style: normal;
+        font-weight: normal;
+        src: url('/fonts/futura.woff2') format('woff2');
+      }
+
       body {
         @apply bg-gradient-to-b from-slate-900 to-black text-white;
+        font-family: 'Futura', sans-serif;
       }
 
       ::-webkit-scrollbar {

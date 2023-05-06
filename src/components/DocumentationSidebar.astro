@@ -1,22 +1,22 @@
 ---
 import type { DocsPageMDXInstance, DocsPageMDXInstanceFrontmatter } from '@/definitions/interfaces'
-import type { SidebarItemProps } from '@/definitions/props'
+import type { DocumentationSidebarItemProps } from '@/definitions/props'
 import { mapDirName } from '@/utils/fs.utils'
 import { concatURL } from '@aracna/core'
 import type { Dirent } from 'fs'
 import { readdir } from 'fs/promises'
-import { SidebarItem } from './SidebarItem'
+import { DocumentationSidebarItem } from './DocumentationSidebarItem'
 
 const globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/docs/**/*.mdx')
 
-async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[]> {
-  let dirs: Dirent[], items: SidebarItemProps[]
+async function getItems(folders: string[] = ['docs']): Promise<DocumentationSidebarItemProps[]> {
+  let dirs: Dirent[], items: DocumentationSidebarItemProps[]
 
   dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
   items = []
 
   for (let i = 0; i < dirs.length; i++) {
-    let dir: Dirent, item: SidebarItemProps
+    let dir: Dirent, item: DocumentationSidebarItemProps
 
     dir = dirs[i]
 
@@ -55,14 +55,14 @@ async function getItems(folders: string[] = ['docs']): Promise<SidebarItemProps[
     }
   }
 
-  items = items.sort((a: SidebarItemProps, b: SidebarItemProps) => a.order - b.order)
+  items = items.sort((a: DocumentationSidebarItemProps, b: DocumentationSidebarItemProps) => a.order - b.order)
 
   return items
 }
 
-const items: SidebarItemProps[] = await getItems()
+const items: DocumentationSidebarItemProps[] = await getItems()
 ---
 
 <div class='w-72 max-h-screen-minus-header hidden xl:flex flex-col p-4 overflow-y-auto border-r-2 border-slate-800' style='min-height: calc(100vh - 96px)'>
-  {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:load />)}
+  {items.map((props: DocumentationSidebarItemProps) => <DocumentationSidebarItem {...props} client:load />)}
 </div>

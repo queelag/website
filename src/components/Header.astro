@@ -1,12 +1,14 @@
 ---
 import { AracnaLogo } from './AracnaLogo'
-import HeaderSearch from './HeaderSearch.astro'
+import { NavigationMenu } from './NavigationMenu'
+import { IconFeatherMenu } from '@aracna/icons-feather-react/components/menu.js'
 ---
 
-<div class='h-24 flex justify-between items-center p-6 border-b-2 border-b-slate-800'>
+<div class='h-24 flex justify-between items-center p-6'>
   <a class='flex items-center gap-4' href='/'>
     <AracnaLogo hasText />
   </a>
-  <HeaderSearch />
+  <NavigationMenu client:load />
+  <IconFeatherMenu client:load className='lg:hidden' size={32} stroke='white' stroke-width='1.5' />
   <!-- <QIcon fill='none' size={32} src='https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg' stroke='white' stroke-width={1} client:load /> -->
 </div>

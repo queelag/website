@@ -1,0 +1,11 @@
+aracna-menu-item[depth='0'] > div.text {
+  @apply text-xl transition hover:opacity-50;
+}
+
+aracna-menu-item[focused] {
+  @apply outline-none;
+}
+
+aracna-menu-submenu:not([expanded]) {
+  @apply opacity-0 pointer-events-none;
+}
