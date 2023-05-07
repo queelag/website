@@ -1,20 +1,20 @@
 ---
+import Container from '@/components/Container.astro'
 import { EcosystemNetworkChart } from '@/components/EcosystemNetworkChart.jsx'
 import Layout from '@/layouts/Layout.astro'
-// import BLOCKS from '@/assets/illustrations/blocks.png'
 ---
 
 <Layout>
-  <div class='relative flex justify-center items-center px-6 lg:px-12 text-center'>
-    <div class='max-w-screen-lg flex flex-col gap-4'>
+  <Container class='relative flex justify-center items-center' style='height: calc(100vh - 80px)'>
+    <div class='max-w-screen-lg flex flex-col justify-center items-center text-center gap-4'>
       <h1 class='text-6xl'>Make your ECMAScript development experience a breeze</h1>
       <p class='text-2xl text-slate-300'>
         Tired of rewriting the same boring code all over again? Aracna abstracts all the essentials for you without bloating your codebase.
       </p>
     </div>
-    <div class='absolute w-1/2 h-full rounded-full blur-[196px] lg:blur-[256px] bg-blue-400'></div>
-  </div>
-  <div class='flex lg:p-6'>
+    <div class='absolute -z-10 w-96 h-96 rounded-full blur-[256px] bg-blue-400'></div>
+  </Container>
+  <Container>
     <div class='w-full flex flex-col lg:flex-row items-center px-6 lg:px-12 py-12 gap-12 lg:rounded-3xl bg-blue-500'>
       <div class='lg:w-1/2 flex flex-col gap-4'>
         <h2 class='text-6xl'>Seamless modular ecosystem</h2>
@@ -24,9 +24,9 @@ import Layout from '@/layouts/Layout.astro'
         </p>
       </div>
       <div class='w-full lg:w-1/2 h-[512px] flex justify-center items-center'>
-        <!-- <img class='invert w-64 h-64' src={BLOCKS} alt='blocks' /> -->
         <EcosystemNetworkChart client:only />
       </div>
     </div>
-  </div>
+  </Container>
+  <Container class='mt-32' hasMarginTop />
 </Layout>

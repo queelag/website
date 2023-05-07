@@ -1,6 +1,5 @@
 ---
 import Header from '@/components/Header.astro'
-import FUTURA from '@/assets/fonts/futura.ttf'
 ---
 
 <!DOCTYPE html>
@@ -26,8 +25,8 @@ import FUTURA from '@/assets/fonts/futura.ttf'
       }
     </style>
   </head>
-  <body class='flex justify-center'>
-    <div class='max-w-screen-2xl w-full flex flex-col gap-16 lg:gap-64'>
+  <body>
+    <div class='max-w-screen-2xl w-full flex flex-col mx-auto'>
       <Header />
       <slot />
     </div>

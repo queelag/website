@@ -1,0 +1,15 @@
+---
+import { joinElementClasses } from '@aracna/web'
+
+interface Props {
+  class?: string
+  hasMarginTop?: boolean
+  style?: string
+}
+
+const { hasMarginTop, style } = Astro.props
+---
+
+<div class={joinElementClasses('flex justify-center px-6', Astro.props.class, hasMarginTop && 'mt-16 lg:mt-32')} style={style}>
+  <slot />
+</div>

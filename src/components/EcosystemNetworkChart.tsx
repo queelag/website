@@ -1,9 +1,16 @@
 import { Interval } from '@aracna/core'
-import { InputLink, InputNode, ResponsiveNetwork } from '@nivo/network'
-import { useEffect, useState } from 'react'
+import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu.js'
+import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe.js'
+import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
+import type { IconProps } from '@aracna/react'
+import { InputLink, InputNode, NodeProps, ResponsiveNetwork } from '@nivo/network'
+import { ReactElement, useEffect, useState } from 'react'
+import { IconReact } from 'src/icons/IconReact'
+import { NivoNetworkNode } from './NivoNetworkNode'
 
 interface Node extends InputNode {
   color: string
+  icon?: (props: IconProps) => ReactElement
 }
 
 interface Link extends InputLink {
@@ -18,30 +25,37 @@ interface Data {
 const NODES: Node[] = [
   {
     color: '#6296f8',
+    icon: (props: IconProps) => <IconFeatherCpu {...props} />,
     id: 'Core'
   },
   {
     color: '#43e57a',
+    icon: (props: IconProps) => <IconFeatherGlobe {...props} />,
     id: 'Web'
   },
   {
     color: '#43e57a',
+    icon: (props: IconProps) => <IconFeatherGlobe {...props} />,
     id: 'Web Components'
   },
   {
     color: '#ffc001',
+    icon: (props: IconProps) => <IconReact {...props} />,
     id: 'React'
   },
   {
     color: '#ffc001',
+    icon: (props: IconProps) => <IconReact {...props} />,
     id: 'React Components'
   },
   {
     color: '#b386ff',
+    icon: (props: IconProps) => <IconFeatherZap {...props} />,
     id: 'State Manager'
   },
   {
     color: '#b386ff',
+    icon: (props: IconProps) => <IconFeatherZap {...props} />,
     id: 'State Manager React'
   }
 ]
@@ -124,6 +138,7 @@ export function EcosystemNetworkChart() {
     nodes: [],
     links: []
   })
+  const [nodeSize] = useState<number>(32)
 
   useEffect(() => {
     Interval.start(
@@ -150,21 +165,19 @@ export function EcosystemNetworkChart() {
 
   return (
     <ResponsiveNetwork
-      data={data}
-      margin={{ top: 0, right: 48, bottom: 0, left: 0 }}
-      linkDistance={(link: Link) => link.distance}
+      activeNodeSize={nodeSize}
       centeringStrength={1}
-      repulsivity={0}
-      nodeSize={24}
-      activeNodeSize={24 + 4}
+      data={data}
+      inactiveNodeSize={nodeSize}
+      linkDistance={(link: Link) => link.distance}
       linkThickness={2}
-      inactiveNodeSize={24 - 4}
+      margin={{ top: 0, right: 48, bottom: 0, left: 0 }}
+      nodeSize={nodeSize}
       nodeColor={(node: Node) => node.color}
-      //   nodeBorderColor={{
-      //     from: 'color',
-      //     modifiers: [['darker', 0.8]]
-      //   }}
-      //   nodeBorderWidth={2}
+      nodeComponent={(props: NodeProps<Node>) => (
+        <NivoNetworkNode {...props}>{props.node.data.icon && <props.node.data.icon size={nodeSize / 2} />}</NivoNetworkNode>
+      )}
+      repulsivity={0}
       theme={{
         tooltip: {
           chip: {
