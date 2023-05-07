@@ -1,0 +1,38 @@
+---
+import Container from '@/components/Container.astro'
+import { StackBlitz } from '@/components/StackBlitz.jsx'
+import { SB_FETCH_COMPARISON } from '@/definitions/stack-blitz/core/modules.js'
+import Layout from '@/layouts/Layout.astro'
+import { joinElementClasses } from '@aracna/web'
+---
+
+<Layout>
+  <Container class='relative flex justify-center items-center' style='height: calc(100vh - 80px)'>
+    <div class='z-10 max-w-screen-lg w-full flex flex-col justify-center lg:text-center gap-4'>
+      <h1 class='text-6xl'>The pulsating heart of Aracna</h1>
+      <p class='text-2xl text-slate-300'>Exposes many functions, modules and utils that will help you write shorter working code.</p>
+      <button
+        class={joinElementClasses(
+          'self-center flex justify-center items-center px-16 py-8 mt-6 rounded-full bg-gradient-to-tl from-rose-400 to-rose-300',
+          'transition shadow-black hover:shadow-2xl'
+        )}
+      >
+        <span class='text-2xl'>See it in action</span>
+      </button>
+    </div>
+    <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-rose-400'></div>
+  </Container>
+  <Container>
+    <StackBlitz
+      client:load
+      className='rounded-3xl'
+      console={100}
+      dependencies={{ '@aracna/core': 'latest' }}
+      files={SB_FETCH_COMPARISON}
+      openFile={['with-aracna.ts', 'without-aracna.ts']}
+      template='typescript'
+      title='Fetch'
+      view='editor'
+    />
+  </Container>
+</Layout>

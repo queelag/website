@@ -1,15 +1,19 @@
 import { html } from '@/functions/html'
 import { Environment, parseNumber } from '@aracna/core'
-import SDK, { EmbedOptions, ProjectDependencies, ProjectFiles, ProjectTemplate } from '@stackblitz/sdk'
+import { joinElementClasses } from '@aracna/web'
+import SDK, { EmbedOptions, OpenFileOption, ProjectDependencies, ProjectFiles, ProjectTemplate, UiViewOption } from '@stackblitz/sdk'
 import { useEffect, useRef } from 'react'
 
 interface Props {
+  className?: string
   console?: boolean | number
   dependencies?: ProjectDependencies
   files?: ProjectFiles
   id?: string
+  openFile?: OpenFileOption
   template?: ProjectTemplate
   title?: string
+  view?: UiViewOption
 }
 
 const CSS: string = html`
@@ -45,8 +49,10 @@ export function StackBlitz(props: Props) {
       height: parseNumber(getComputedStyle(ref.current).width) / (16 / 9),
       hideExplorer: Environment.isProduction,
       hideNavigation: true,
+      openFile: props.openFile,
       showSidebar: false,
-      theme: 'dark'
+      theme: 'dark',
+      view: props.view
     }
 
     if (props.id) {
@@ -176,10 +182,10 @@ export function StackBlitz(props: Props) {
           template: props.template,
           title: props.title
         },
-        options
+        { ...options, openFile: props.openFile ?? options.openFile }
       )
     }
   }, [])
 
-  return <div className='rounded' ref={ref}></div>
+  return <div className={joinElementClasses('w-full rounded', props.className)} ref={ref}></div>
 }
