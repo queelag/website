@@ -5,6 +5,7 @@ import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu.js'
 import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe.js'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
+import type { IconProps } from '@aracna/react'
 import { IconReact } from 'src/icons/IconReact.jsx'
 
 const LIBRARIES = [
@@ -28,7 +29,7 @@ const LIBRARIES = [
     description: 'Lorem ipsum',
     href: '/react',
     background: MESH_BLUE,
-    icon: IconReact
+    icon: (props: IconProps) => <IconReact {...props} fill='white' />
   },
   {
     name: 'State Manager',
@@ -43,9 +44,12 @@ export function IndexLibrariesSection() {
   return (
     <div className='grid lg:grid-cols-2 gap-6'>
       {LIBRARIES.map((library) => (
-        <a className='flex flex-col rounded-3xl overflow-hidden transition shadow-2xl hover:scale-105 shadow-slate-800 bg-black' href={library.href}>
-          <div className='h-48 flex justify-center items-center' style={{ background: `url(${library.background}) center` }}>
-            <library.icon size={32} stroke='white' stroke-width={1} />
+        <a className='flex flex-col rounded-3xl overflow-hidden transition shadow-2xl shadow-slate-800 bg-black' href={library.href}>
+          <div
+            className='relative h-48 flex justify-center items-center overflow-hidden bg-black'
+            style={{ backgroundImage: `url(${library.background})`, backgroundSize: '100%', backgroundRepeat: 'no-repeat' }}
+          >
+            <library.icon className='z-10' size={32} stroke='white' stroke-width={1} />
           </div>
           <div className='flex flex-col p-10 gap-1'>
             <span className='text-2xl'>{library.name}</span>

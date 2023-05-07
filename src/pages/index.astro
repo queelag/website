@@ -2,13 +2,7 @@
 import Container from '@/components/Container.astro'
 import { EcosystemNetworkChart } from '@/components/EcosystemNetworkChart.jsx'
 import Layout from '@/layouts/Layout.astro'
-import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right.js'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check.js'
-import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu.js'
-import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe.js'
-import { IconReact } from 'src/icons/IconReact.jsx'
-import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
-import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import { IndexLibrariesSection } from 'src/sections/IndexLibrariesSection.jsx'
 
 const ENVS = ['Browser', 'Node.js', 'Hybrid', 'SSR']
@@ -16,13 +10,13 @@ const ENVS = ['Browser', 'Node.js', 'Hybrid', 'SSR']
 
 <Layout>
   <Container class='relative flex justify-center items-center' style='height: calc(100vh - 80px)'>
-    <div class='max-w-screen-lg flex flex-col justify-center lg:text-center gap-4'>
+    <div class='z-10 max-w-screen-lg flex flex-col justify-center lg:text-center gap-4'>
       <h1 class='text-6xl'>Make your ECMAScript development experience a breeze</h1>
       <p class='text-2xl text-slate-300'>
         Tired of rewriting the same boring code all over again? Aracna abstracts all the essentials for you without bloating your codebase.
       </p>
     </div>
-    <div class='absolute -z-10 w-96 h-96 rounded-full blur-[256px] bg-blue-400'></div>
+    <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-blue-400'></div>
   </Container>
   <Container>
     <div class='w-full flex flex-col lg:flex-row items-center lg:rounded-3xl'>
@@ -40,7 +34,7 @@ const ENVS = ['Browser', 'Node.js', 'Hybrid', 'SSR']
     </div>
   </Container>
   <Container class='relative h-screen flex justify-center items-center'>
-    <div class='max-w-screen-lg flex flex-col justify-center lg:items-center lg:text-center gap-4'>
+    <div class='z-10 max-w-screen-lg flex flex-col justify-center lg:items-center lg:text-center gap-4'>
       <h2 class='text-6xl'>Just works everywhere</h2>
       <p class='text-2xl text-slate-300'>
         You can use Aracna libraries in any environment, they are designed and bundled in a way that will make them work even in more complicated codebases.
@@ -60,7 +54,7 @@ const ENVS = ['Browser', 'Node.js', 'Hybrid', 'SSR']
         }
       </div>
     </div>
-    <div class='absolute -z-10 w-96 h-96 rounded-full blur-[256px] bg-lime-400'></div>
+    <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-lime-400'></div>
   </Container>
   <Container class='relative'>
     <IndexLibrariesSection client:load />
