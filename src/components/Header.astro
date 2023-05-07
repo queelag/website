@@ -4,11 +4,11 @@ import { AracnaLogo } from './AracnaLogo'
 import { NavigationMenu } from './NavigationMenu'
 ---
 
-<div class='h-20 flex justify-between items-center px-6'>
+<header class='h-20 flex justify-between items-center px-6'>
   <a class='flex items-center gap-4' href='/'>
     <AracnaLogo hasText />
   </a>
   <NavigationMenu client:load />
   <IconFeatherMenu client:load className='lg:hidden' size={32} stroke='white' stroke-width='1.5' />
   <!-- <QIcon fill='none' size={32} src='https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg' stroke='white' stroke-width={1} client:load /> -->
-</div>
+</header>

@@ -1,4 +1,5 @@
 ---
+import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 ---
 
@@ -19,7 +20,9 @@ import Header from '@/components/Header.astro'
       }
 
       body {
-        background: black;
+        background-color: black;
+        background-image: url('/patterns/noise.png');
+        background-size: 100px;
         color: white;
         font-family: 'Futura', sans-serif;
       }
@@ -29,6 +32,7 @@ import Header from '@/components/Header.astro'
     <div class='max-w-screen-2xl w-full flex flex-col mx-auto'>
       <Header />
       <slot />
+      <Footer />
     </div>
   </body>
 </html>

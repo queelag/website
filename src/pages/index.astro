@@ -2,11 +2,38 @@
 import Container from '@/components/Container.astro'
 import { EcosystemNetworkChart } from '@/components/EcosystemNetworkChart.jsx'
 import Layout from '@/layouts/Layout.astro'
+import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right.js'
+import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check.js'
+
+const ENVS = ['Browser', 'Node.js', 'Hybrid', 'SSR']
+const LIBRARIES = [
+  {
+    name: 'Core',
+    description:
+      'The pulsating heart of Aracna which branches out to all the other libraries, contains many functions, modules and utils that will help you write shorter working code.',
+    href: '/core'
+  },
+  {
+    name: 'Web',
+    description: 'Lorem ipsum',
+    href: '/web'
+  },
+  {
+    name: 'React',
+    description: 'Lorem ipsum',
+    href: '/react'
+  },
+  {
+    name: 'State Manager',
+    description: 'Lorem ipsum',
+    href: '/state-manager'
+  }
+]
 ---
 
 <Layout>
   <Container class='relative flex justify-center items-center' style='height: calc(100vh - 80px)'>
-    <div class='max-w-screen-lg flex flex-col justify-center items-center text-center gap-4'>
+    <div class='max-w-screen-lg flex flex-col justify-center lg:text-center gap-4'>
       <h1 class='text-6xl'>Make your ECMAScript development experience a breeze</h1>
       <p class='text-2xl text-slate-300'>
         Tired of rewriting the same boring code all over again? Aracna abstracts all the essentials for you without bloating your codebase.
@@ -14,11 +41,14 @@ import Layout from '@/layouts/Layout.astro'
     </div>
     <div class='absolute -z-10 w-96 h-96 rounded-full blur-[256px] bg-blue-400'></div>
   </Container>
-  <Container>
-    <div class='w-full flex flex-col lg:flex-row items-center px-6 lg:px-12 py-12 gap-12 lg:rounded-3xl bg-blue-500'>
+  <Container hasMobilePadding={false}>
+    <div
+      class='w-full flex flex-col lg:flex-row items-center px-6 lg:px-12 py-12 gap-12 lg:rounded-3xl bg-blue-500'
+      style='box-shadow: 0 0 128px 0 rgba(98, 150, 248, 0.75)'
+    >
       <div class='lg:w-1/2 flex flex-col gap-4'>
         <h2 class='text-6xl'>Seamless modular ecosystem</h2>
-        <p class='text-2xl text-slate-300'>
+        <p class='text-2xl text-slate-200'>
           Aracna is split into multiple libraries with a clear context, these libraries are fully modular and no unused code will ever spill into your
           production bundle.
         </p>
@@ -28,5 +58,44 @@ import Layout from '@/layouts/Layout.astro'
       </div>
     </div>
   </Container>
-  <Container class='mt-32' hasMarginTop />
+  <Container class='relative h-screen flex justify-center items-center'>
+    <div class='max-w-screen-lg flex flex-col justify-center lg:items-center lg:text-center gap-4'>
+      <h2 class='text-6xl'>Just works everywhere</h2>
+      <p class='text-2xl text-slate-300'>
+        You can use Aracna libraries in any environment, they are designed and bundled in a way that will make them work even in more complicated codebases.
+      </p>
+      <div class='flex flex-col gap-4 mt-8'>
+        {
+          ENVS.map((env: string) => (
+            <div class='flex items-center gap-4 lg:-ml-12'>
+              <div class='w-8 h-8 flex justify-center items-center rounded-full bg-lime-500'>
+                <IconFeatherCheck client:load stroke='white' />
+              </div>
+              <div class='flex flex-col'>
+                <span class='text-2xl'>{env}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class='absolute -z-10 w-96 h-96 rounded-full blur-[256px] bg-lime-400'></div>
+  </Container>
+  <Container hasMobilePadding={false}>
+    <div class='w-full lg:rounded-3xl overflow-hidden bg-black' style='box-shadow: 0 0 128px 0 #334155'>
+      <div class='flex flex-col divide-y divide-slate-800'>
+        {
+          LIBRARIES.map((library) => (
+            <a class='flex justify-between items-center px-6 py-10 lg:px-10 transition bg-black hover:bg-slate-900' href={library.href}>
+              <div class='flex flex-col gap-1'>
+                <span class='text-2xl'>{library.name}</span>
+                <span class='max-w-screen-sm text-slate-300'>{library.description}</span>
+              </div>
+              <IconFeatherChevronRight client:load size={32} stroke='white' stroke-width={1.5} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
 </Layout>
