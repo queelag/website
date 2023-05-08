@@ -1,9 +1,13 @@
-aracna-menu-item[depth='0'] > div.text {
+aracna-menu-item[depth='0'] > .text {
   @apply text-xl transition hover:opacity-50;
 }
 
 aracna-menu-item[focused] {
   @apply outline-none;
+}
+
+aracna-menu-item:not([depth='0'])[focused] {
+  @apply bg-slate-900;
 }
 
 aracna-menu-submenu:not([expanded]) {

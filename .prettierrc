@@ -6,6 +6,13 @@
       "options": {
         "printWidth": 80
       }
+    },
+    {
+      "files": "**/stack-blitz/**/*.ts",
+      "options": {
+        "printWidth": 80,
+        "semi": true
+      }
     }
   ],
   "semi": false,

@@ -1,7 +1,9 @@
 ---
 import Container from '@/components/Container.astro'
-import { StackBlitz } from '@/components/StackBlitz.jsx'
-import { SB_FETCH_COMPARISON } from '@/definitions/stack-blitz/core/modules.js'
+import { StackBlitz } from '@/components/StackBlitz'
+import { SB_TC_COMPARISON_WITH_VANILLA, SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA } from '@/definitions/stack-blitz/core/functions'
+import { SB_FETCH_COMPARISON_WITH_VANILLA, SB_LOCALIZATION_SHOWCASE } from '@/definitions/stack-blitz/core/modules'
+import { SB_UTILS_SHOWCASE } from '@/definitions/stack-blitz/core/utils'
 import Layout from '@/layouts/Layout.astro'
 import { joinElementClasses } from '@aracna/web'
 ---
@@ -22,17 +24,95 @@ import { joinElementClasses } from '@aracna/web'
     </div>
     <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-rose-400'></div>
   </Container>
-  <Container>
+  <Container class='gap-16'>
+    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
+      <h2 class='text-6xl'>Write shorter code</h2>
+      <p class='text-2xl text-slate-300'>
+        In the example below we make a comparison between vanilla Fetch and our own improved implementation.<br /><br />You can quickly notice how the code is
+        shorter and less nested, such a simple and common action should be frictionless for the developer.
+      </p>
+    </div>
+    <StackBlitz
+      client:load
+      className='rounded-3xl'
+      dependencies={{ '@aracna/core': 'latest' }}
+      files={SB_FETCH_COMPARISON_WITH_VANILLA}
+      openFile={['aracna.ts', 'vanilla.ts']}
+      template='typescript'
+      title='Fetch'
+      view='editor'
+    />
+  </Container>
+  <Container class='gap-16' hasMarginTop>
+    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
+      <h2 class='text-6xl'>Nestless try catching</h2>
+      <p class='text-2xl text-slate-300'>
+        One of the core patterns of Aracna is inline try catching, handling errors is one of the biggest offenders in terms of nesting and having a more
+        efficient way to do it can only bring better code.
+      </p>
+    </div>
+    <StackBlitz
+      client:load
+      className='rounded-3xl'
+      dependencies={{ '@aracna/core': 'latest' }}
+      files={SB_TC_COMPARISON_WITH_VANILLA}
+      openFile={['aracna.ts', 'vanilla.ts']}
+      template='typescript'
+      title='tc'
+      view='editor'
+    />
+  </Container>
+  <Container class='gap-16' hasMarginTop>
+    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
+      <h2 class='text-6xl'>Smart intervals and timeouts</h2>
+      <p class='text-2xl text-slate-300'>
+        Tired of saving the ids when setting an interval or a timeout? We got you covered.<br />Just use the callback itself or a string as the key.
+      </p>
+    </div>
+    <StackBlitz
+      client:load
+      className='rounded-3xl'
+      dependencies={{ '@aracna/core': 'latest' }}
+      files={SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA}
+      openFile={['aracna.ts', 'vanilla.ts']}
+      template='typescript'
+      title='Interval & Timeout'
+      view='editor'
+    />
+  </Container>
+  <Container class='gap-16' hasMarginTop>
+    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
+      <h2 class='text-6xl'>Localize your apps</h2>
+      <p class='text-2xl text-slate-300'>
+        Kickstart your product with easy to implement dynamic persistent localization.<br /><br />Even basic projects will require localization at some point,
+        that's why Aracna exposes this module, it's part of the essential tools for any kind of app.
+      </p>
+    </div>
     <StackBlitz
       client:load
       className='rounded-3xl'
       console={100}
-      dependencies={{ '@aracna/core': 'latest' }}
-      files={SB_FETCH_COMPARISON}
-      openFile={['with-aracna.ts', 'without-aracna.ts']}
+      dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+      files={SB_LOCALIZATION_SHOWCASE}
       template='typescript'
-      title='Fetch'
-      view='editor'
+      title='Localization'
+    />
+  </Container>
+  <Container class='gap-16' hasMarginTop>
+    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
+      <h2 class='text-6xl'>Utility functions</h2>
+      <p class='text-2xl text-slate-300'>
+        Everybody just loves utils, Aracna exposes many based on their context.<br />Deep clone objects, convert a string to camel case etc.
+      </p>
+    </div>
+    <StackBlitz
+      client:load
+      className='rounded-3xl'
+      console={100}
+      dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+      files={SB_UTILS_SHOWCASE}
+      template='typescript'
+      title='Localization'
     />
   </Container>
 </Layout>

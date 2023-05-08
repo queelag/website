@@ -8,7 +8,7 @@ import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe.j
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
 import type { IconProps } from '@aracna/react'
 import { joinElementClasses } from '@aracna/web'
-import { IconReact } from 'src/icons/IconReact.jsx'
+import { IconReact } from 'src/icons/IconReact'
 
 const LIBRARIES = [
   {

@@ -1,5 +1,4 @@
 import { html } from '@/functions/html'
-import { Environment, parseNumber } from '@aracna/core'
 import { joinElementClasses } from '@aracna/web'
 import SDK, { EmbedOptions, OpenFileOption, ProjectDependencies, ProjectFiles, ProjectTemplate, UiViewOption } from '@stackblitz/sdk'
 import { useEffect, useRef } from 'react'
@@ -9,6 +8,7 @@ interface Props {
   console?: boolean | number
   dependencies?: ProjectDependencies
   files?: ProjectFiles
+  hideExplorer?: boolean
   id?: string
   openFile?: OpenFileOption
   template?: ProjectTemplate
@@ -46,8 +46,8 @@ export function StackBlitz(props: Props) {
     options = {
       devToolsHeight: props.console === true ? 50 : typeof props.console === 'number' ? props.console : undefined,
       forceEmbedLayout: true,
-      height: parseNumber(getComputedStyle(ref.current).width) / (16 / 9),
-      hideExplorer: Environment.isProduction,
+      height: '100%',
+      hideExplorer: typeof props.hideExplorer === 'boolean' ? props.hideExplorer : true,
       hideNavigation: true,
       openFile: props.openFile,
       showSidebar: false,
@@ -187,5 +187,5 @@ export function StackBlitz(props: Props) {
     }
   }, [])
 
-  return <div className={joinElementClasses('w-full rounded', props.className)} ref={ref}></div>
+  return <div className={joinElementClasses('w-full aspect-video rounded', props.className)} ref={ref}></div>
 }

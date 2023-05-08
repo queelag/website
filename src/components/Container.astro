@@ -12,7 +12,7 @@ const { hasMarginTop, hasMobilePadding, style } = Astro.props
 ---
 
 <div
-  class={joinElementClasses('flex justify-center', Astro.props.class, hasMarginTop && 'mt-16 lg:mt-32', hasMobilePadding === false ? 'lg:px-6' : 'px-6')}
+  class={joinElementClasses('flex flex-col', Astro.props.class, hasMarginTop && 'mt-16 lg:mt-32', hasMobilePadding === false ? 'lg:px-6' : 'px-6')}
   style={style}
 >
   <slot />
