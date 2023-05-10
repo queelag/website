@@ -1,4 +1,5 @@
 ---
+import { CheckedList } from '@/components/CheckedList'
 import Container from '@/components/Container.astro'
 import { EcosystemNetworkChart } from '@/components/EcosystemNetworkChart'
 import Layout from '@/layouts/Layout.astro'
@@ -39,20 +40,7 @@ const ENVS = ['Browser', 'Node.js', 'Hybrid', 'SSR']
       <p class='text-2xl text-slate-300'>
         You can use Aracna libraries in any environment, they are designed and bundled in a way that will make them work even in more complicated codebases.
       </p>
-      <div class='flex flex-col gap-4 mt-8'>
-        {
-          ENVS.map((env: string) => (
-            <div class='flex items-center gap-4 lg:-ml-12'>
-              <div class='w-8 h-8 flex justify-center items-center rounded-full bg-lime-500'>
-                <IconFeatherCheck client:load stroke='white' />
-              </div>
-              <div class='flex flex-col'>
-                <span class='text-2xl'>{env}</span>
-              </div>
-            </div>
-          ))
-        }
-      </div>
+      <CheckedList client:load className='mt-8' itemElementProps={{ className: 'lg:-ml-12' }} items={ENVS} />
     </div>
     <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-lime-400'></div>
   </Container>

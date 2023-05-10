@@ -1,4 +1,7 @@
 ---
+import { CheckedList } from '@/components/CheckedList'
+import { Code } from '@/components/Code'
+import { CodeWindow } from '@/components/CodeWindow'
 import Container from '@/components/Container.astro'
 import { StackBlitz } from '@/components/StackBlitz'
 import { SB_TC_COMPARISON_WITH_VANILLA, SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA } from '@/definitions/stack-blitz/core/functions'
@@ -6,6 +9,26 @@ import { SB_FETCH_COMPARISON_WITH_VANILLA, SB_LOCALIZATION_SHOWCASE } from '@/de
 import { SB_UTILS_SHOWCASE } from '@/definitions/stack-blitz/core/utils'
 import Layout from '@/layouts/Layout.astro'
 import { joinElementClasses } from '@aracna/web'
+
+const MORE_ITEMS: string[] = [
+  'Improves the Blob and File API',
+  'Exposes essential functions like debounce, sleep and throttle',
+  'Encodes and decodes hex, base32 and base64',
+  'Lets you defer promises',
+  'Exposes common environment checks',
+  'Improves the Fetch and FormData API',
+  'Makes it easy to work with REST and GraphQL APIs',
+  'Lets you track object changes and undo/redo them',
+  'Embeds nanoid to quickly generate random IDs',
+  'Improves the setInterval and clearInterval API',
+  'Supports localization out of the box',
+  'Lets you create context based loggers',
+  'Dynamically polyfills the Fetch API in Node environments',
+  'Exposes an API to keep track of status changes',
+  'Simplifies the TextEncoder and TextDecoder API',
+  'Improves the setTimeout and clearTimeout API',
+  'Includes a multitude of utility functions'
+]
 ---
 
 <Layout>
@@ -32,16 +55,7 @@ import { joinElementClasses } from '@aracna/web'
         shorter and less nested, such a simple and common action should be frictionless for the developer.
       </p>
     </div>
-    <StackBlitz
-      client:load
-      className='rounded-3xl'
-      dependencies={{ '@aracna/core': 'latest' }}
-      files={SB_FETCH_COMPARISON_WITH_VANILLA}
-      openFile={['aracna.ts', 'vanilla.ts']}
-      template='typescript'
-      title='Fetch'
-      view='editor'
-    />
+    <CodeWindow client:load files={SB_FETCH_COMPARISON_WITH_VANILLA} language='typescript' />
   </Container>
   <Container class='gap-16' hasMarginTop>
     <div class='max-w-screen-lg w-full flex flex-col gap-4'>
@@ -51,16 +65,7 @@ import { joinElementClasses } from '@aracna/web'
         efficient way to do it can only bring better code.
       </p>
     </div>
-    <StackBlitz
-      client:load
-      className='rounded-3xl'
-      dependencies={{ '@aracna/core': 'latest' }}
-      files={SB_TC_COMPARISON_WITH_VANILLA}
-      openFile={['aracna.ts', 'vanilla.ts']}
-      template='typescript'
-      title='tc'
-      view='editor'
-    />
+    <CodeWindow client:load files={SB_TC_COMPARISON_WITH_VANILLA} language='typescript' />
   </Container>
   <Container class='gap-16' hasMarginTop>
     <div class='max-w-screen-lg w-full flex flex-col gap-4'>
@@ -69,16 +74,7 @@ import { joinElementClasses } from '@aracna/web'
         Tired of saving the ids when setting an interval or a timeout? We got you covered.<br />Just use the callback itself or a string as the key.
       </p>
     </div>
-    <StackBlitz
-      client:load
-      className='rounded-3xl'
-      dependencies={{ '@aracna/core': 'latest' }}
-      files={SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA}
-      openFile={['aracna.ts', 'vanilla.ts']}
-      template='typescript'
-      title='Interval & Timeout'
-      view='editor'
-    />
+    <CodeWindow client:load files={SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA} language='typescript' />
   </Container>
   <Container class='gap-16' hasMarginTop>
     <div class='max-w-screen-lg w-full flex flex-col gap-4'>
@@ -88,15 +84,7 @@ import { joinElementClasses } from '@aracna/web'
         that's why Aracna exposes this module, it's part of the essential tools for any kind of app.
       </p>
     </div>
-    <StackBlitz
-      client:load
-      className='rounded-3xl'
-      console={100}
-      dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
-      files={SB_LOCALIZATION_SHOWCASE}
-      template='typescript'
-      title='Localization'
-    />
+    <CodeWindow client:load files={SB_LOCALIZATION_SHOWCASE} language='typescript' />
   </Container>
   <Container class='gap-16' hasMarginTop>
     <div class='max-w-screen-lg w-full flex flex-col gap-4'>
@@ -105,14 +93,15 @@ import { joinElementClasses } from '@aracna/web'
         Everybody just loves utils, Aracna exposes many based on their context.<br />Deep clone objects, convert a string to camel case etc.
       </p>
     </div>
-    <StackBlitz
-      client:load
-      className='rounded-3xl'
-      console={100}
-      dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
-      files={SB_UTILS_SHOWCASE}
-      template='typescript'
-      title='Localization'
-    />
+    <CodeWindow client:load files={SB_UTILS_SHOWCASE} language='typescript' />
+  </Container>
+  <Container hasMarginTop>
+    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
+      <h2 class='text-6xl'>Interested?</h2>
+      <p class='text-2xl text-slate-300'>
+        What you've seen is just a piece of the core library, you can read the full API in our <a class='underline' href='/docs'>documentation</a>.
+      </p>
+      <!-- <CheckedList client:load className='mt-8' items={MORE_ITEMS} /> -->
+    </div>
   </Container>
 </Layout>
