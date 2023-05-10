@@ -5,7 +5,7 @@ import { CodeWindow } from '@/components/CodeWindow'
 import Container from '@/components/Container.astro'
 import { StackBlitz } from '@/components/StackBlitz'
 import { SB_TC_COMPARISON_WITH_VANILLA, SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA } from '@/definitions/stack-blitz/core/functions'
-import { SB_FETCH_COMPARISON_WITH_VANILLA, SB_LOCALIZATION_SHOWCASE } from '@/definitions/stack-blitz/core/modules'
+import { SB_FETCH_COMPARISON_WITH_VANILLA, SB_FETCH_SHOWCASE, SB_LOCALIZATION_SHOWCASE } from '@/definitions/stack-blitz/core/modules'
 import { SB_UTILS_SHOWCASE } from '@/definitions/stack-blitz/core/utils'
 import Layout from '@/layouts/Layout.astro'
 import { joinElementClasses } from '@aracna/web'
@@ -38,7 +38,7 @@ const MORE_ITEMS: string[] = [
       <p class='text-2xl text-slate-300'>Exposes many functions, modules and utils that will help you write shorter working code.</p>
       <button
         class={joinElementClasses(
-          'self-center flex justify-center items-center px-16 py-8 mt-6 rounded-full bg-gradient-to-tl from-rose-400 to-rose-300',
+          'lg:self-center flex justify-center items-center px-16 py-8 mt-6 rounded-full bg-gradient-to-tl from-rose-400 to-rose-300',
           'transition shadow-black hover:shadow-2xl'
         )}
       >
@@ -48,16 +48,20 @@ const MORE_ITEMS: string[] = [
     <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-rose-400'></div>
   </Container>
   <Container class='gap-16'>
-    <div class='max-w-screen-lg w-full flex flex-col gap-4'>
-      <h2 class='text-6xl'>Write shorter code</h2>
-      <p class='text-2xl text-slate-300'>
-        In the example below we make a comparison between vanilla Fetch and our own improved implementation.<br /><br />You can quickly notice how the code is
-        shorter and less nested, such a simple and common action should be frictionless for the developer.
-      </p>
+    <div class='w-full flex flex-col lg:flex-row items-center gap-16 lg:rounded-3xl'>
+      <div class='lg:w-1/2 flex flex-col gap-4'>
+        <h2 class='text-6xl'>Improved native APIs</h2>
+        <p class='text-2xl text-slate-300'>
+          The main goal of the core package is to simplify common actions and patterns that developer go through, communicating with a REST API is a clear
+          example here.<br /><br />The native Fetch API does not have automatic serialization of requests and responses, Aracna solves that and much more.
+        </p>
+      </div>
+      <div class='relative w-full lg:w-1/2'>
+        <CodeWindow client:load files={SB_FETCH_SHOWCASE} language='typescript' />
+      </div>
     </div>
-    <CodeWindow client:load files={SB_FETCH_COMPARISON_WITH_VANILLA} language='typescript' />
   </Container>
-  <Container class='gap-16' hasMarginTop>
+  <!-- <Container class='gap-16' hasMarginTop>
     <div class='max-w-screen-lg w-full flex flex-col gap-4'>
       <h2 class='text-6xl'>Nestless try catching</h2>
       <p class='text-2xl text-slate-300'>
@@ -94,14 +98,13 @@ const MORE_ITEMS: string[] = [
       </p>
     </div>
     <CodeWindow client:load files={SB_UTILS_SHOWCASE} language='typescript' />
-  </Container>
-  <Container hasMarginTop>
+  </Container> -->
+  <!-- <Container hasMarginTop>
     <div class='max-w-screen-lg w-full flex flex-col gap-4'>
       <h2 class='text-6xl'>Interested?</h2>
       <p class='text-2xl text-slate-300'>
         What you've seen is just a piece of the core library, you can read the full API in our <a class='underline' href='/docs'>documentation</a>.
       </p>
-      <!-- <CheckedList client:load className='mt-8' items={MORE_ITEMS} /> -->
     </div>
-  </Container>
+  </Container> -->
 </Layout>

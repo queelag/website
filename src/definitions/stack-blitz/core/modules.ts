@@ -1,6 +1,39 @@
 import { html } from '@/functions/html.js';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
+export const SB_FETCH_SHOWCASE: ProjectFiles = {
+  'index.ts': html`
+    <script>
+      import { Fetch, FetchError, FetchResponse } from '@aracna/core';
+
+      async function getProducts() {
+        let response: FetchResponse<object> | FetchError;
+
+        response = await Fetch.get('https://dummyjson.com/products');
+        if (response instanceof Error) return;
+
+        // automatically parses the response body, no need to call .json()
+        console.log(response.data);
+      }
+
+      async function createProduct(title: string) {
+        let body: object, response: FetchResponse<object> | FetchError;
+
+        body = {
+          title
+        };
+
+        // automatically serializes the body and sets the correct headers
+        response = await Fetch.post('https://dummyjson.com/products/add', body);
+        if (response instanceof Error) return;
+
+        // automatically parses the response body, no need to call .json()
+        console.log(response.data);
+      }
+    </script>
+  `
+};
+
 export const SB_FETCH_COMPARISON_WITH_VANILLA: ProjectFiles = {
   'aracna.ts': html`
     <script>
