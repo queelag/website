@@ -11,11 +11,11 @@ export const SB_UTILS_SHOWCASE: ProjectFiles = {
 
       cobject.person.name = 'Mike';
 
-      // will still log "John" because cobject was deeply cloned
+      // will still log "John" because object was deeply cloned
       console.log(object.person.name);
 
       // will log "helloWorld"
-      console.log(getCamelCaseString('hello world'));
+      console.log(getCamelCaseString('hello_world'));
     </script>
   `
 };

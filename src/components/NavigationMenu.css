@@ -2,7 +2,8 @@ aracna-menu-item[depth='0'] > .text {
   @apply text-xl transition hover:opacity-50;
 }
 
-aracna-menu-item[focused] {
+aracna-menu-item[focused],
+aracna-menu-item[focused] > a {
   @apply outline-none;
 }
 
