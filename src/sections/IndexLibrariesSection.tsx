@@ -21,7 +21,7 @@ const LIBRARIES = [
   },
   {
     name: 'Web',
-    description: `Focused on making the web better and more accessible.\nCreate ARIA compliant components with ease and leverage the native Browser APIs in a simpler way.`,
+    description: `Make the web better and more accessible.\nCreate ARIA compliant components with ease and leverage the native Browser APIs in a simpler way.`,
     href: '/web',
     background: MESH_MINT,
     icon: IconFeatherGlobe,
@@ -47,10 +47,13 @@ const LIBRARIES = [
 
 export function IndexLibrariesSection() {
   return (
-    <div className='w-full grid lg:grid-cols-2 gap-6'>
+    <div className='max-w-screen-lg w-full grid lg:grid-cols-2 gap-6'>
       {LIBRARIES.map((library) => (
         <a
-          className={joinElementClasses('flex flex-col rounded-3xl overflow-hidden transition shadow-2xl shadow-slate-800 bg-black', 'hover:shadow-slate-600')}
+          className={joinElementClasses(
+            'aspect-square flex flex-col rounded-3xl overflow-hidden transition shadow-2xl shadow-slate-800 bg-black',
+            'hover:shadow-slate-600'
+          )}
           href={library.href}
         >
           <div

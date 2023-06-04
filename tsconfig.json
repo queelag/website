@@ -10,6 +10,7 @@
       "@/definitions/*": ["src/definitions/*"],
       "@/functions/*": ["src/functions/*"],
       "@/layouts/*": ["src/layouts/*"],
+      "@/sections/*": ["src/sections/*"],
       "@/utils/*": ["src/utils/*"]
     }
   }

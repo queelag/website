@@ -1,6 +1,13 @@
 ---
+import { CheckedList } from '@/components/CheckedList'
+import { CodeWindow } from '@/components/CodeWindow'
 import Container from '@/components/Container.astro'
+import { SB_OBSERVE_SHOWCASE } from '@/definitions/stack-blitz/state-manager/functions'
+import { SB_USE_OBSERVABLE_SHOWCASE } from '@/definitions/stack-blitz/state-manager/react/hooks'
 import Layout from '@/layouts/Layout.astro'
+import GetStartedSection from '@/sections/GetStartedSection.astro'
+
+const SUPPORTED_ENVIRONMENTS: string[] = ['Any ES Environment', 'React']
 ---
 
 <Layout title='State Manager'>
@@ -11,4 +18,44 @@ import Layout from '@/layouts/Layout.astro'
     </div>
     <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-seance-400'></div>
   </Container>
+  <Container class='gap-16'>
+    <div class='w-full flex flex-col lg:flex-row items-center gap-16 lg:rounded-3xl'>
+      <div class='lg:w-1/2 flex flex-col gap-4'>
+        <h2 class='text-6xl'>Easy state management</h2>
+        <p class='text-2xl text-slate-300'>
+          Observing and reacting to state changes should be an easy process, but it isn't always the case with certain libraries, our state manager mimics MobX
+          API very closely but with a more modern and lightweight approach.
+        </p>
+      </div>
+      <div class='w-full lg:w-1/2'>
+        <CodeWindow client:load files={SB_OBSERVE_SHOWCASE} language='typescript' />
+      </div>
+    </div>
+  </Container>
+  <Container class='relative h-screen flex justify-center items-center'>
+    <div class='z-10 max-w-screen-lg w-full flex flex-col justify-center lg:items-center lg:text-center gap-4'>
+      <h2 class='text-6xl'>Works everywhere</h2>
+      <p class='text-2xl text-slate-300'>
+        Our state manager simply works everywhere, as long as the Proxy object is supported by the environment. We also have a dedicated library for React,
+        support for other UI frameworks might come in the future.
+      </p>
+      <CheckedList client:load className='mt-8' itemElementProps={{ className: 'lg:-ml-12' }} items={SUPPORTED_ENVIRONMENTS} />
+    </div>
+    <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-lime-400'></div>
+  </Container>
+  <Container class='gap-16'>
+    <div class='w-full flex flex-col lg:flex-row-reverse items-center gap-16 lg:rounded-3xl'>
+      <div class='lg:w-1/2 flex flex-col gap-4'>
+        <h2 class='text-6xl'>React hooks</h2>
+        <p class='text-2xl text-slate-300'>
+          Start managing your state in a fashionly manner thanks to our in-house collection of React hooks, they will make state management look like a joke
+          from now on in your React applications.
+        </p>
+      </div>
+      <div class='w-full lg:w-1/2'>
+        <CodeWindow client:load files={SB_USE_OBSERVABLE_SHOWCASE} language='typescript' />
+      </div>
+    </div>
+  </Container>
+  <GetStartedSection href='/docs/state-manager/get-started' />
 </Layout>

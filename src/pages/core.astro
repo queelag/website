@@ -5,7 +5,7 @@ import Container from '@/components/Container.astro'
 import { SB_FETCH_SHOWCASE } from '@/definitions/stack-blitz/core/modules'
 import { SB_UTILS_SHOWCASE } from '@/definitions/stack-blitz/core/utils'
 import Layout from '@/layouts/Layout.astro'
-import { joinElementClasses } from '@aracna/web'
+import GetStartedSection from '@/sections/GetStartedSection.astro'
 
 const SERIALIZATION_ITEMS: string[] = ['Hex, Base32 and Base64', 'Blob, File and FormData', 'Cookies', 'Query Parameters']
 ---
@@ -56,21 +56,5 @@ const SERIALIZATION_ITEMS: string[] = ['Hex, Base32 and Base64', 'Blob, File and
       </div>
     </div>
   </Container>
-  <Container class='relative flex justify-center items-center' style='height: calc(100vh - 80px)'>
-    <div class='z-10 max-w-screen-lg w-full flex flex-col justify-center lg:text-center gap-4'>
-      <h1 class='text-6xl'>Start using Aracna now</h1>
-      <p class='text-2xl text-slate-300'>Improve your development experience and the quality of your code and products.</p>
-      <a class='lg:self-center' href='/docs/core/get-started'>
-        <button
-          class={joinElementClasses(
-            'flex justify-center items-center px-16 py-8 mt-6 rounded-full bg-gradient-to-tl from-blue-400 to-blue-300',
-            'transition shadow-black hover:shadow-2xl'
-          )}
-        >
-          <span class='text-2xl'>Get Started</span>
-        </button>
-      </a>
-    </div>
-    <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-blue-400'></div>
-  </Container>
+  <GetStartedSection href='/docs/core/get-started' />
 </Layout>
