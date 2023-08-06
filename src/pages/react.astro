@@ -1,0 +1,16 @@
+---
+import Container from '@/components/Container.astro'
+import Layout from '@/layouts/Layout.astro'
+import GetStartedSection from '@/sections/GetStartedSection.astro'
+---
+
+<Layout title='React'>
+  <Container class='relative flex justify-center items-center' style='height: calc(100vh - 80px)'>
+    <div class='z-10 max-w-screen-lg w-full flex flex-col justify-center lg:text-center gap-4'>
+      <h1 class='text-6xl'>Leverage the power of Aracna Web Components in a React fashion.</h1>
+      <p class='text-2xl text-slate-300'>Exposes several essential hooks for your daily needs.</p>
+    </div>
+    <div class='absolute w-96 h-96 rounded-full blur-[256px] bg-blue-400'></div>
+  </Container>
+  <GetStartedSection href='/docs/react/get-started' />
+</Layout>
