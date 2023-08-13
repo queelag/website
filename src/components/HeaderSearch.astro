@@ -1,0 +1,17 @@
+---
+import { IconFeatherSearch } from '@aracna/icons-feather-react/components/search.js';
+import { joinElementClasses } from '@aracna/web';
+---
+
+<div
+  class={joinElementClasses(
+    'w-64 hidden 2xl:flex justify-between items-center px-3 py-2 rounded cursor-pointer border-2 border-slate-800 bg-black',
+    'transition hover:border-slate-700'
+  )}
+>
+  <div class='flex items-center gap-2'>
+    <IconFeatherSearch client:load stroke='white' />
+    <span class='text-slate-400'>Search</span>
+  </div>
+  <div class='flex justify-center items-center px-2 py-1 text-xs rounded border-2 border-slate-800'>CTRL + K</div>
+</div>

@@ -1,0 +1,24 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Cookie
+---
+
+This document describes various cookie utility functions.
+
+### Serialize
+
+```ts
+import { serializeCookie } from '@aracna/core'
+
+// will log "a=0"
+console.log(serializeCookie('a', '0'))
+```
+
+### Deserialize
+
+```ts
+import { deserializeCookie } from '@aracna/core'
+
+// will log { a: "0" }
+console.log(deserializeCookie('a=0'))
+```

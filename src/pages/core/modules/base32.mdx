@@ -1,0 +1,28 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Base32
+---
+
+This is a base32 codec which leverages the rfc4648 module.
+
+### Encode
+
+```ts
+import { Base32 } from '@aracna/core'
+
+const encoded: string = Base32.encode('hello')
+
+// will log "NBSWY3DP"
+console.log(encoded)
+```
+
+### Decode
+
+```ts
+import { Base32 } from '@aracna/core'
+
+const decoded: string = Base32.decode('NBSWY3DP')
+
+// will log "hello"
+console.log(decoded)
+```

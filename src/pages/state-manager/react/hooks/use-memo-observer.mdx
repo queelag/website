@@ -1,0 +1,53 @@
+---
+layout: '@/layouts/Layout.astro'
+title: useMemoObserver
+---
+
+import { Alert } from '@/components/Alert.tsx'
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_USE_MEMO_OBSERVER_USAGE_FILES,
+  SB_USE_MEMO_OBSERVER_COMPARISON_FILES
+} from '@/definitions/stack-blitz/state-manager/react/hooks'
+
+This hook performs a re-render when any of the observed properties used inside the render function change.
+
+<Alert client:load severity='info'>
+  The difference between this hook and
+  [useObserver](/docs/state-manager/react/hooks/use-observer) is that
+  [useMemoObserver](/docs/state-manager/react/hooks/use-memo-observer) will only
+  react to observable changes, no other property will be able to cause a
+  re-render.
+</Alert>
+
+### Usage
+
+<StackBlitz
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/state-manager': 'latest',
+    '@aracna/state-manager-react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_MEMO_OBSERVER_USAGE_FILES}
+  template='create-react-app'
+  title='useMemoObserver'
+/>
+
+### Memo Comparison
+
+<StackBlitz
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/state-manager': 'latest',
+    '@aracna/state-manager-react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_MEMO_OBSERVER_COMPARISON_FILES}
+  template='create-react-app'
+  title='useMemoObserver'
+/>

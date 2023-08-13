@@ -1,0 +1,105 @@
+---
+layout: '@/layouts/Layout.astro'
+title: String
+---
+
+This document describes various String utility functions.
+
+### Capitalize
+
+```ts
+import { getCapitalizedString } from '@aracna/core'
+
+// will log Hello World
+console.log(getCapitalizedString('hello World'))
+```
+
+### Camel Case
+
+```ts
+import { getCamelCaseString } from '@aracna/core'
+
+// will log helloWorld
+console.log(getCamelCaseString('hello_world'))
+```
+
+### Kebab Case
+
+```ts
+import { getKebabCaseString } from '@aracna/core'
+
+// will log hello-world
+console.log(getKebabCaseString('hello_world'))
+```
+
+### Pascal Case
+
+```ts
+import { getPascalCaseString } from '@aracna/core'
+
+// will log Hello World
+console.log(getPascalCaseString('hello_world'))
+```
+
+### Snake Case
+
+```ts
+import { getSnakeCaseStranger } from '@aracna/core'
+
+// will log hello_world
+console.log(getSnakeCaseStranger('hello-world'))
+```
+
+### Is String JSON
+
+```ts
+import { isStringJSON } from '@aracna/core'
+
+// will log true
+console.log(isStringJSON('{}'))
+
+// will log false
+console.log(isStringJSON('hello'))
+```
+
+### Is String Float
+
+```ts
+import { isStringFloat } from '@aracna/core'
+
+// will log true
+console.log(isStringFloat('1.5'))
+
+// will log true
+console.log(isStringJSON('1'))
+
+// will log false
+console.log(isStringJSON('hello'))
+```
+
+### Is String Integer
+
+```ts
+import { isStringInt } from '@aracna/core'
+
+// will log true
+console.log(isStringJSON('1'))
+
+// will log false
+console.log(isStringJSON('1.5'))
+
+// will log false
+console.log(isStringJSON('hello'))
+```
+
+### Is String URL
+
+```ts
+import { isStringURL } from '@aracna/core'
+
+// will log true
+console.log(isStringURL('https://aracna.dariosechi.it'))
+
+// will log false
+console.log(isStringURL('hello'))
+```

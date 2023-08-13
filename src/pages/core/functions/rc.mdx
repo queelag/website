@@ -1,0 +1,15 @@
+---
+layout: '@/layouts/Layout.astro'
+title: rc
+---
+
+This function returns a custom value, "rc" stands for return custom.
+
+### Usage
+
+```ts
+import { rc } from '@aracna/core'
+
+// will log 1
+console.log(rc(() => 0, 1))
+```

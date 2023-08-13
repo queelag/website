@@ -1,0 +1,103 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Logger
+---
+
+This class lets you create scoped loggers with prettier prints.
+
+### Levels
+
+- Verbose
+- Debug
+- Info
+- Warn
+- Error
+
+### Usage
+
+```ts
+import { Logger } from '@aracna/core'
+
+const MainLogger: Logger = new Logger('Main', 'debug')
+
+function main(): void {
+  let text: string, struct: object
+
+  text = 'hello'
+
+  // will log "main -> The text variable has been set to hello."
+  MainLogger.debug('main', `The text variable has been set to ${text}.`)
+
+  struct = { number: 0 }
+
+  // will log "main -> The struct variable has been set. -> { number: 0 }"
+  MainLogger.debug('main', 'The struct variable has been set.', struct)
+}
+```
+
+### Set Level
+
+```ts
+import { Logger, LoggerLevel } from '@aracna/core'
+
+const MainLogger: Logger = new Logger('Main', 'debug')
+
+function main(): void {
+  // will log "main -> running"
+  MainLogger.debug('main', 'running')
+
+  // will set the level to "info"
+  MainLogger.setLevel('info')
+
+  // will not log
+  MainLogger.debug('main', 'running')
+
+  // will log "main -> running"
+  MainLogger.info('main', 'running')
+}
+```
+
+### Disable
+
+```ts
+import { Logger, LoggerLevel } from '@aracna/core'
+
+const MainLogger: Logger = new Logger('Main', 'debug')
+
+function main(): void {
+  // will log "main -> running"
+  MainLogger.debug('main', 'running')
+
+  // will disable the logger
+  MainLogger.disable()
+
+  // will not log
+  MainLogger.debug('main', 'running')
+}
+```
+
+### Set Level From Environment
+
+```ts
+import { Logger, LoggerLevel } from '@aracna/core'
+
+process.env.LOGGER_MAIN_LEVEL = 'error'
+
+const MainLogger: Logger = new Logger('Main')
+
+// will log "error"
+console.log(MainLogger.level)
+```
+
+### Set Status From Environment
+
+```ts
+import { Logger } from '@aracna/core'
+
+process.env.LOGGER_MAIN_STATUS = 'off'
+
+const MainLogger: Logger = new Logger('Main')
+
+// will log "off"
+console.log(MainLogger.status)
+```

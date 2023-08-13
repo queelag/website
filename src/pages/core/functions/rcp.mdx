@@ -1,0 +1,15 @@
+---
+layout: '@/layouts/Layout.astro'
+title: rcp
+---
+
+This function returns a custom promise value, "rcp" stands for return custom promise.
+
+### Usage
+
+```ts
+import { rcp } from '@aracna/core'
+
+// will log 1
+rcp(async () => 0, 1).then((value: number) => console.log(value))
+```

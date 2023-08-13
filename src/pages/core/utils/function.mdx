@@ -1,0 +1,18 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Function
+---
+
+This document describes various Function utility functions.
+
+### Check if any value is instanceof a class
+
+```ts
+import { isInstanceOf } from '@aracna/core'
+
+// will log false
+console.log(isInstanceOf(0, Blob))
+
+// will log true
+console.log(isInstanceOf(new Blob([]), Blob))
+```

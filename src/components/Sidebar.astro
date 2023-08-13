@@ -1,0 +1,87 @@
+---
+import type { DocsPageMDXInstance, DocsPageMDXInstanceFrontmatter } from '@/definitions/interfaces'
+import type { SidebarItemProps } from '@/definitions/props'
+import { mapDirName } from '@/utils/fs.utils'
+import { Environment, concatURL, tcp } from '@aracna/core'
+import type { MDXInstance } from 'astro'
+import type { Dirent } from 'fs'
+import { readFile, readdir, writeFile } from 'fs/promises'
+import { SidebarItem } from './SidebarItem'
+
+async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
+  let globs: MDXInstance<DocsPageMDXInstanceFrontmatter>[], dirs: Dirent[], items: SidebarItemProps[]
+
+  globs = []
+
+  if (Environment.isDevelopment) {
+    let cache
+
+    cache = await tcp(() => readFile('pages_globs_cache.json', 'utf8'))
+
+    if (typeof cache === 'string') {
+      globs = JSON.parse(cache)
+    }
+  }
+
+  if (globs.length <= 0) {
+    globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/**/*.mdx')
+  }
+
+  dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
+  items = []
+
+  for (let i = 0; i < dirs.length; i++) {
+    let ent: Dirent, item: SidebarItemProps
+
+    ent = dirs[i]
+
+    if (ent.isDirectory()) {
+      item = {
+        href: concatURL('/', folders.join('/'), ent.name),
+        items: await getItems([...folders, ent.name]),
+        order: i,
+        title: mapDirName(ent.name)
+      }
+
+      item.expanded = folders.length <= 0 ? true : Astro.url.pathname.includes(item.href)
+
+      items.push(item)
+    }
+
+    if (ent.isFile()) {
+      let glob: DocsPageMDXInstance | undefined
+
+      glob = globs.find((glob: DocsPageMDXInstance) => glob.file.includes(concatURL(folders.join('/'), ent.name)))
+      if (!glob) continue
+
+      if (glob.frontmatter.draft) {
+        continue
+      }
+
+      item = {
+        href: concatURL('/', folders.join('/'), ent.name === 'index.mdx' ? '' : ent.name).replace('.mdx', ''),
+        order: glob.frontmatter.order ?? i,
+        title: glob.frontmatter.title
+      }
+
+      item.active = item.href === Astro.url.pathname
+
+      items.push(item)
+    }
+  }
+
+  items = items.sort((a: SidebarItemProps, b: SidebarItemProps) => a.order - b.order)
+
+  if (Environment.isDevelopment) {
+    await writeFile('pages_globs_cache.json', JSON.stringify(globs, null, 2), 'utf8')
+  }
+
+  return items
+}
+
+const items: SidebarItemProps[] = await getItems()
+---
+
+<div class='sticky top-24 left-0 w-72 hidden xl:flex flex-col' style='height: calc(100vh - 96px)'>
+  {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:load />)}
+</div>

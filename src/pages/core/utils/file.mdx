@@ -1,0 +1,51 @@
+---
+layout: '@/layouts/Layout.astro'
+title: File
+---
+
+This document describes various File utility functions.
+
+### Serialize
+
+```ts
+import { AracnaFile, serializeFile } from '@aracna/core'
+
+const aracna_file = new AracnaFile(new File([], ''))
+const file = serializeFile(aracna_file)
+
+// will log the File instance that was inside aracna_file
+console.log(file)
+```
+
+### Deserialize
+
+```ts
+import { AracnaFile, deserializeFile } from '@aracna/core'
+
+const file = new File([], '')
+const aracna_file = deserializeFile(file)
+
+// will log the AracnaFile instance with the file inside of it
+console.log(aracna_file)
+```
+
+### Deserialize With Resolution
+
+```ts
+import { AracnaFile, deserializeFile } from '@aracna/core'
+
+const file = new File([], '')
+const aracna_file = deserializeFile(file, {
+  resolveArrayBuffer: true,
+  resolveText: true
+})
+
+// will log the AracnaFile instance with the file inside of it
+console.log(aracna_file)
+
+// will log the resolved ArrayBuffer
+console.log(aracna_file.arrayBuffer)
+
+// will log the resolved text
+console.log(aracna_file.text)
+```

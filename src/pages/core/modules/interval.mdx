@@ -1,0 +1,46 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Interval
+---
+
+This class lets you handle intervals disposal in a new way.
+
+### Usage
+
+```ts
+import { Interval } from '@aracna/core'
+
+const fn: Function = () => console.log('Running')
+
+// will start the interval
+Interval.start(fn, 100)
+
+// will log true
+console.log(Interval.isRunning(fn))
+
+// will stop the interval
+Interval.stop(fn)
+
+// will log false
+console.log(Interval.isRunning(fn))
+```
+
+### Usage With Name
+
+```ts
+import { Interval } from '@aracna/core'
+
+const name: string = 'interval'
+
+// will start the interval
+Interval.start(name, () => console.log('Running'), 100)
+
+// will log true
+console.log(Interval.isRunning(name))
+
+// will stop the interval
+Interval.stop(name)
+
+// will log false
+console.log(Interval.isRunning(name))
+```

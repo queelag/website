@@ -1,14 +1,15 @@
 ---
-import { IconFeatherMenu } from '@aracna/icons-feather-react/components/menu.js'
-import { AracnaLogo } from './AracnaLogo'
-import { NavigationMenu } from './NavigationMenu'
+import { HEADER_HEIGHT } from '@/definitions/constants';
+import { IconFeatherMenu } from '@aracna/icons-feather-react/components/menu.js';
+import { AracnaLogo } from './AracnaLogo';
+import HeaderSearch from './HeaderSearch.astro';
 ---
 
-<header class='h-20 flex justify-between items-center px-6'>
-  <a class='flex items-center gap-4' href='/'>
+<header class='fixed top-0 left-0 right-0 z-40 flex justify-between items-center px-6 bg-opacity-50 backdrop-blur-3xl bg-black' style={`height: ${HEADER_HEIGHT}px`}>
+  <a href='/'>
     <AracnaLogo hasText />
   </a>
-  <NavigationMenu client:load />
-  <IconFeatherMenu client:load className='lg:hidden' size={32} stroke='white' stroke-width='1.5' />
-  <!-- <QIcon fill='none' size={32} src='https://raw.githubusercontent.com/feathericons/feather/master/icons/menu.svg' stroke='white' stroke-width={1} client:load /> -->
+  <HeaderSearch />
+  <IconFeatherMenu client:load className='lg:hidden' size={24} stroke='white' stroke-width='1.5' />
 </header>
+<div style={`height: ${HEADER_HEIGHT}px`}></div>

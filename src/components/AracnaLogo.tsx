@@ -16,7 +16,7 @@ export function AracnaLogo(props: Props) {
     <div className='flex items-center gap-4'>
       {/* <AracnaLogoDrawing className='w-16' fill={fill} /> */}
       <img className='w-10 invert' src={DRAWING} />
-      {props.hasText && <AracnaLogoText className='w-32' fill={fill} />}
+      {props.hasText && <AracnaLogoText className='w-32 h-auto' fill={fill} />}
       {/* {props.hasText && <img className='w-32' src={TEXT} />} */}
     </div>
   )

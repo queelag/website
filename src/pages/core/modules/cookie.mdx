@@ -1,0 +1,143 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Cookie
+---
+
+This class abstracts interactions with basic cookie APIs.
+
+### Usage
+
+```ts
+import { Cookie, CookieItem } from '@aracna/core'
+
+interface User {
+  name: string
+}
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the user inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+
+// will remove the user
+await MyCookie.remove(KEY)
+
+// will log {}
+console.log(await MyCookie.get(KEY))
+```
+
+### Set/Get Value
+
+```ts
+import { Cookie, CookieItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+```
+
+### Remove Value
+
+```ts
+import { Cookie, CookieItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+
+// will remove the user
+await MyCookie.remove(KEY)
+
+// will log {}
+console.log(await MyCookie.get(KEY))
+```
+
+### Copy Value
+
+```ts
+import { Cookie, CookieItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+const user = {}
+
+// will copy each key from the cookie to the user const
+await MyCookie.copy(KEY, user)
+
+// will log { name: "John" }
+console.log(user)
+```
+
+### Clear
+
+```ts
+import { Cookie, CookieItem } from '@aracna/core'
+
+const KEY = 'User'
+const MAP = new Map()
+
+const MyCookie: Cookie = new Cookie(
+  'MyCookie',
+  (key: string) => MAP.get(key),
+  (key: string) => MAP.delete(key),
+  (key: string, value: CookieItem) => MAP.set(key, value)
+)
+
+// will set the value inside the cookie
+await MyCookie.set(KEY, { name: 'John' })
+
+// will log { name: "John" }
+console.log(await MyCookie.get(KEY))
+
+// will clear all entries inside the cookie
+await MyCookie.clear()
+
+// will log {}
+console.log(await MyCookie.get(KEY))
+```

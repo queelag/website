@@ -17,3 +17,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# cache
+sidebar_items_cache.json

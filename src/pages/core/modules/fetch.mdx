@@ -1,0 +1,26 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Fetch
+---
+
+This class makes fetch a breeze to use by having the following features.
+
+- Cleaner API
+- Node Polyfilling
+- Response Data Parsing
+- Automatic Request Headers
+- Blob, File and FormData Compatibility
+
+### Usage
+
+```ts
+import { Fetch, FetchResponse } from '@aracna/core'
+
+Fetch.get('https://dummyjson.com/products').then((response: FetchResponse) => {
+  // will log the already parsed JSON
+  console.log(response.data)
+})
+
+// will automatically set the approriate headers based on the type of the body, in this case a JSON
+Fetch.post('https://dummyjson.com/products/add', {})
+```

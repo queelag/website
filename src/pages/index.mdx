@@ -1,0 +1,24 @@
+---
+layout: '@/layouts/Layout.astro'
+order: -1
+---
+
+import { CheckedList } from '@/components/CheckedList.tsx'
+import { LibrariesCardsBlock } from '@/blocks/LibrariesCardsBlock.tsx'
+
+# Make your ECMAScript development experience a breeze
+
+Tired of rewriting the same boring code all over again? Aracna abstracts all the essentials for you without bloating your codebase.
+
+## Seamless modular ecosystem
+
+Aracna is split into multiple libraries with a clear context, these libraries are fully modular and no unused code will ever spill into your
+production bundle.
+
+<LibrariesCardsBlock client:load />
+
+## Just works everywhere
+
+You can use Aracna libraries in any environment, they are designed and bundled in a way that will make them work even in more complicated codebases.
+
+<CheckedList client:load items={['Browser', 'Node.js', 'Hybrid', 'SSR']} />

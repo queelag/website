@@ -1,0 +1,35 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Status
+---
+
+This class is a key value based status manager, also used by [API](/docs/core/modules/api) and [GraphQLAPI](/docs/core/modules/graphql-api).
+
+### States
+
+- IDLE
+- PENDING
+- SUCCESS
+- ERROR
+
+### Usage
+
+```ts
+import { sleep, Status } from '@aracna/core'
+
+const MainStatus: Status = new Status()
+
+async function main(): Promise<void> {
+  MainStatus.pending('execution')
+
+  // will log true
+  console.log(MainStatus.isPending('execution'))
+
+  await sleep(1000)
+
+  MainStatus.success('execution')
+
+  // will log true
+  console.log(MainStatus.isSuccess('execution'))
+}
+```

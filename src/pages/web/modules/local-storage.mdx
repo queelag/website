@@ -1,0 +1,138 @@
+---
+layout: '@/layouts/Layout.astro'
+title: LocalStorage
+---
+
+This class implements [Storage](/docs/core/modules/storage) using the [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API.
+
+### Get
+
+```ts
+import { LocalStorage } from '@aracna/core'
+
+interface Store {
+  user: {
+    name: string
+  }
+}
+
+enum LocalStorageKey {
+  USER = 'USER'
+}
+
+const store: Store = { user: { name: 'John' } }
+
+// will set the user inside the local storage so we can retrieve it later
+LocalStorage.set(LocalStorageKey.USER, store, 'user')
+
+// will get the user from the local storage and update "store.user" with its value
+LocalStorage.get(LocalStorageKey.USER, store, 'user')
+
+// will log { name: "John" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+```
+
+### Set
+
+```ts
+import { LocalStorage } from '@aracna/core'
+
+interface Store {
+  user: {
+    name: string
+  }
+}
+
+enum LocalStorageKey {
+  USER = 'USER'
+}
+
+const store: Store = { user: { name: 'John' } }
+
+// will set the user inside the local storage
+LocalStorage.set(LocalStorageKey.USER, store, 'user')
+
+// will log { name: "John" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+
+store.user.name = 'Doe'
+
+// will set the updated user inside the local storage
+LocalStorage.set(LocalStorageKey.USER, JSON.stringify(store.user))
+
+// will log { name: "Doe" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+```
+
+### Remove
+
+```ts
+import { LocalStorage } from '@aracna/core'
+
+interface Store {
+  user: {
+    name: string
+  }
+}
+
+enum LocalStorageKey {
+  USER = 'USER'
+}
+
+const store: Store = { user: { name: 'John' } }
+
+// will set the user inside the local storage
+LocalStorage.set(LocalStorageKey.USER, store, 'user')
+
+// will log { name: "John" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+
+// will remove the user from the local storage
+LocalStorage.remove(LocalStorageKey.USER)
+
+// will log {}
+console.log(LocalStorage.get(LocalStorageKey.USER))
+```
+
+### Advanced Usage
+
+```ts
+import { LocalStorage } from '@aracna/core'
+
+interface Store {
+  user: {
+    name: string
+    surname: string
+  }
+}
+
+enum LocalStorageKey {
+  USER = 'USER'
+}
+
+const store: Store = { user: { name: 'John', surname: 'Doe' } }
+
+// will set only the name key of the user object
+LocalStorage.set(LocalStorageKey.USER, store, 'user', ['name'])
+
+// will log { name: "John" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+
+// will set only the surname key of the user object
+LocalStorage.set(LocalStorageKey.USER, store, 'user', ['surname'])
+
+// will log { name: "John", surname: "Doe" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+
+// will log { surname: "Doe" }
+console.log(LocalStorage.get(LocalStorageKey.USER, ['surname']))
+
+// will only update the "store.user.name" with its stored value
+LocalStorage.get(LocalStorageKey.USER, store, 'user', ['name'])
+
+// will only remove the name key
+LocalStorage.remove(LocalStorageKey.USER, ['name'])
+
+// will log { surname: "Doe" }
+console.log(LocalStorage.get(LocalStorageKey.USER))
+```

@@ -1,0 +1,24 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Error
+---
+
+This document describes various [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) utility functions.
+
+### Check Instance
+
+```ts
+import { isError, isNotError } from '@aracna/core'
+
+// will log true
+console.log(isError(new Error()))
+
+// will log false
+console.log(isError(0))
+
+// will log true
+console.log(isNotError(0))
+
+// will log false
+console.log(isNotError(new Error()))
+```

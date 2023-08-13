@@ -1,0 +1,19 @@
+---
+layout: '@/layouts/Layout.astro'
+title: gql
+---
+
+This function is a mock equivalent of the gql function from the official graphql package, it just triggers automatic formatting with tools like prettier.
+
+### Usage
+
+```ts
+import { gql } from '@aracna/core'
+
+// will get tools support like the real function
+export const GET_DOCUMENTS = gql`
+  query getDocuments {
+    name
+  }
+`
+```

@@ -1,0 +1,22 @@
+---
+layout: '@/layouts/Layout.astro'
+title: ma
+---
+
+This function makes a function asynchronous, "ma" stands for make async.
+
+### Usage
+
+```ts
+import { ma } from '@aracna/core'
+
+// will be async
+function sync() {
+  console.log('hello')
+}
+
+const made_async = ma(() => sync())
+
+// will log hello asynchronously
+made_async()
+```

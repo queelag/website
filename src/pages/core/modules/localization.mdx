@@ -1,0 +1,137 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Localization
+---
+
+This class makes it possible to localize your application.
+
+### Usage
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en', [
+  { data: { title: 'My application' }, language: 'en' },
+  { data: { title: 'La mia applicazione' }, language: 'it' }
+])
+
+// will log "My application"
+console.log(MyLocalization.get('title'))
+```
+
+### Add Language Packs
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en')
+
+MyLocalization.add(
+  { data: { title: 'My application' }, language: 'en' },
+  { data: { title: 'La mia applicazione' }, language: 'it' }
+)
+```
+
+### Get Localized String
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en', [
+  { data: { title: 'My application' }, language: 'en' },
+  { data: { title: 'La mia applicazione' }, language: 'it' }
+])
+
+// will log "My application"
+console.log(MyLocalization.get('title'))
+
+// will log "La mia applicazione"
+console.log(MyLocalization.get('it', 'title'))
+
+MyLocalization.language = 'it'
+
+// will log "La mia applicazione"
+console.log(MyLocalization.get('title'))
+```
+
+### Variables
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en', [
+  {
+    data: {
+      shallow: 'My name is {name}',
+      deep: 'John is {john.age} years old, Mario is {mario.age} years old'
+    },
+    language: 'en'
+  },
+  {
+    data: {
+      shallow: 'Il mio nome è {name}',
+      deep: 'Mario ha {mario.age} anni, John ha {john.age} anni'
+    },
+    language: 'it'
+  }
+])
+
+// will log "My name is John"
+MyLocalization.get('shallow', { name: 'John' })
+
+// will log "Il mio nome è Mario"
+MyLocalization.get('it', 'shallow', { name: 'Mario' })
+
+// will log "John is 20 years old, Mario is 30 years old"
+MyLocalization.get('deep', { john: { age: 20 }, mario: { age: 30 } })
+
+// will log "Mario ha 30 anni, John ha 20 anni"
+MyLocalization.get('it', 'deep', { john: { age: 20 }, mario: { age: 30 } })
+```
+
+### Global Variables
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en', [
+  { data: { planet: 'My planet name is {planet.name}' }, language: 'en' }
+])
+
+// will log "My planet name is {planet.name}"
+MyLocalization.get('planet')
+
+// will set the variables as global
+MyLocalization.setVariables({ planet: { name: 'Earth' } })
+
+// will log "My planet name is Earth"
+MyLocalization.get('planet')
+```
+
+### Set Language
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en')
+
+// will set "en" as the language
+MyLocalization.setLanguage('en')
+
+// will set "it" as the language
+MyLocalization.setLanguage('it')
+```
+
+### Store Language
+
+```ts
+import { Localization } from '@aracna/core'
+
+const MyLocalization = new Localization('en')
+
+// will set "en" as the language and store it if a storage has been defined
+MyLocalization.storeLanguage('en')
+
+// will set "it" as the language and store it if a storage has been defined
+MyLocalization.storeLanguage('it')
+```

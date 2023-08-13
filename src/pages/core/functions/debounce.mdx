@@ -1,0 +1,17 @@
+---
+layout: '@/layouts/Layout.astro'
+title: debounce
+---
+
+This function will run the target function only if the target function hasn't be called for the specified amount of time.
+
+### Usage
+
+```ts
+import { debounce } from '@aracna/core'
+
+document.addEventListener('mousemove', () => {
+  // if you don't move your mouse for 500ms and then you move it again the target function will be executed
+  debounce(() => console.log('searching'), 500)
+})
+```

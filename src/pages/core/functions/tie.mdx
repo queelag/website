@@ -1,0 +1,18 @@
+---
+layout: '@/layouts/Layout.astro'
+title: tie
+---
+
+This function throws if the instance of the value is Error, "tie" stands for throw if error.
+
+### Usage
+
+```ts
+import { tie } from '@aracna/core'
+
+// will not throw
+tie(0)
+
+// will throw
+tie(new Error())
+```

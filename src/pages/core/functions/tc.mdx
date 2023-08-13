@@ -1,0 +1,22 @@
+---
+layout: '@/layouts/Layout.astro'
+title: tc
+---
+
+This function makes try catching less verbose, "tc" stands for try catch.
+
+### Usage
+
+```ts
+import { tc } from '@aracna/core'
+
+// will log 0
+console.log(tc(() => 0))
+
+// will log Error
+console.log(
+  tc(() => {
+    throw new Error()
+  })
+)
+```
