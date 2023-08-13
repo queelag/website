@@ -1,10 +1,60 @@
 import { html } from '@/functions/html.js';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
+export const SB_DEBOUNCE_FN_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { debounce } from '@aracna/core';
+
+      function doSomething() {
+        console.log('Doing something...');
+      }
+
+      const debouncedDoSomething = debounce(doSomething, 1000);
+
+      debouncedDoSomething(); // This will execute immediately
+      debouncedDoSomething(); // This will be ignored
+      debouncedDoSomething(); // This will be ignored
+
+      setTimeout(() => {
+        debouncedDoSomething(); // This will execute after 1000ms
+      }, 2000);
+    </script>
+  `
+};
+
+export const SB_DEBOUNCE_NAME_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { debounce } from '@aracna/core';
+
+      const debouncedDoSomething = debounce(
+        'doSomething',
+        () => {
+          console.log('Doing something...');
+        },
+        1000
+      );
+
+      debouncedDoSomething(); // This will execute immediately
+      debouncedDoSomething(); // This will be ignored
+      debouncedDoSomething(); // This will be ignored
+
+      setTimeout(() => {
+        debouncedDoSomething(); // This will execute after 1000ms
+      }, 2000);
+    </script>
+  `
+};
+
+export const SB_GQL: ProjectFiles = {
+  'index.js':
+    "import { gql } from '@aracna/core';\n\nconst GET_USERS_QUERY = gql`\n  query getUsers {\n    users {\n      id\n      name\n      email\n    }\n  }\n`"
+};
+
 export const SB_TC_COMPARISON_WITH_VANILLA: ProjectFiles = {
   'aracna.ts': html`
     <script>
-      import { tc } from '@aracna/core';
 
       function willThrow(): void {
         throw new Error();
@@ -38,7 +88,6 @@ export const SB_TC_COMPARISON_WITH_VANILLA: ProjectFiles = {
 export const SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA: ProjectFiles = {
   'aracna.ts': html`
     <script>
-      import { Interval, Timeout } from '@aracna/core';
 
       function fn(): void {}
 

@@ -3,17 +3,20 @@ layout: '@/layouts/Layout.astro'
 title: gql
 ---
 
-This function is a mock equivalent of the gql function from the official graphql package, it just triggers automatic formatting with tools like prettier.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_GQL } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **gql** function is a hack that is used to trigger code formatting on GraphQL queries. When a GraphQL query is written as a template string literal, it can be difficult to format the query properly, since the text of the query is spread across multiple lines and may contain whitespace and other formatting characters.
 
-```ts
-import { gql } from '@aracna/core'
+By passing the query through the **gql** function, the query is reduced to a single string that can be easily formatted using standard code formatting tools. This makes it easier to write and maintain GraphQL queries in a codebase.
 
-// will get tools support like the real function
-export const GET_DOCUMENTS = gql`
-  query getDocuments {
-    name
-  }
-`
-```
+## Usage
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GQL}
+  template='javascript'
+  title='gql'
+  console={100}
+/>

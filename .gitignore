@@ -19,4 +19,4 @@ pnpm-debug.log*
 .DS_Store
 
 # cache
-sidebar_items_cache.json
+pages_globs_cache.json
