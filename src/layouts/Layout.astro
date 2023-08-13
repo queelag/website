@@ -48,7 +48,7 @@ const { frontmatter, headings } = Astro.props
     <Header />
     <div class='relative max-w-screen-2xl flex mx-auto'>
       <Sidebar />
-      <div class='flex-1 px-6 2xl:px-12'>
+      <div class='flex-1 px-6 xl:px-12'>
         <div class={joinElementClasses('prose prose-invert max-w-none pb-6', 'prose-pre:border-2 prose-pre:border-slate-800 prose-pre:bg-black')}>
           {frontmatter.title && <h1>{frontmatter.title}</h1>}
           <div class='pb-6'>

@@ -1,7 +1,9 @@
 import { html } from '@/functions/html'
+import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
 import { joinElementClasses } from '@aracna/web'
 import SDK, { EmbedOptions, OpenFileOption, ProjectDependencies, ProjectFiles, ProjectTemplate, UiViewOption } from '@stackblitz/sdk'
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
+import { CodeWindow } from './CodeWindow'
 
 interface Props {
   className?: string
@@ -35,11 +37,16 @@ const CSS: string = html`
 
 export function StackBlitz(props: Props) {
   const ref = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(false)
+
+  const onClickActivate = () => {
+    setActive((active: boolean) => !active)
+  }
 
   useEffect(() => {
     let options: EmbedOptions
 
-    if (!ref.current) {
+    if (!active || !ref.current) {
       return
     }
 
@@ -112,6 +119,16 @@ export function StackBlitz(props: Props) {
           options.openFile = 'index.html'
 
           break
+        case 'javascript':
+          dependencies = {}
+          files = {
+            'index.css': CSS,
+            'index.html': html`<div id="root"></div>`,
+            'index.js': ``
+          }
+          options.openFile = 'index.js'
+
+          break
         case 'node':
           dependencies = {
             vite: 'latest'
@@ -119,7 +136,7 @@ export function StackBlitz(props: Props) {
           files = {
             'index.css': CSS,
             'index.html': html`
-              <!DOCTYPE html>
+              <!doctype html>
               <html lang="en">
                 <head>
                   <meta charset="UTF-8" />
@@ -185,7 +202,26 @@ export function StackBlitz(props: Props) {
         { ...options, openFile: props.openFile ?? options.openFile }
       )
     }
-  }, [])
+  }, [active])
 
-  return <div className={joinElementClasses('w-full aspect-video rounded', props.className)} ref={ref}></div>
+  return (
+    <Fragment>
+      {active === false && (
+        <CodeWindow
+          buttons={
+            <Fragment>
+              <IconFeatherZap
+                className='cursor-pointer rounded-full transition ring-slate-700 hover:ring-4 hover:bg-slate-700'
+                onClick={onClickActivate}
+                stroke='white'
+              />
+            </Fragment>
+          }
+          files={props.files ?? {}}
+          language={props.template ?? ''}
+        />
+      )}
+      {active === true && <div className={joinElementClasses('w-full aspect-video rounded', props.className)} ref={ref}></div>}
+    </Fragment>
+  )
 }

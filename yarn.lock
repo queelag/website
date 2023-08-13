@@ -41,10 +41,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.23.tgz#a31c7c11e68b0e1861b23d2187108f0cf5a59f0e"
   integrity sha512-QXF1Ymbs/p+X0BxXN3q9Oejpwc4Zj9XtVxmrYylO8+Av6s4OqMjHKQEX4p488ybtPYBi00mdKqVu8zaqV6IkmA==
 
-"@aracna/react@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.21.tgz#129b302c7e126f4f9ce35169f2b1d9f37f8437af"
-  integrity sha512-iTtSxrqqW9jkK3vLLq2ju582TBrGuW1IDz5XGucZjPVHAzJad17XiixgWTKUVW7nxwZhJ7Q/vg6bn8D+K9ktOg==
+"@aracna/react@^1.0.22":
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.22.tgz#9eefc04c92bd15269c3cf6f540514ce42c048712"
+  integrity sha512-7Fx8gsax1PIln+7xRBeRp5AX1wDm5suS0t2gfYOHMbE+uSw19ddPtzLkk/i3Z975puDO2y2jROZVKa9rKMf90Q==
 
 "@aracna/state-manager-react@^1.0.20":
   version "1.0.20"

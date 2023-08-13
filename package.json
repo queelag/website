@@ -14,7 +14,7 @@
     "@aracna/core": "^1.1.29",
     "@aracna/icons-feather-react": "^1.0.4",
     "@aracna/icons-feather-web": "^1.0.6",
-    "@aracna/react": "^1.0.21",
+    "@aracna/react": "^1.0.22",
     "@aracna/react-components": "^1.0.23",
     "@aracna/state-manager": "^1.0.24",
     "@aracna/state-manager-react": "^1.0.20",
