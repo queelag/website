@@ -15,36 +15,32 @@ const LIBRARIES = [
     description: `The pulsating heart of Aracna.\n\nExposes many functions, modules and utils that will help you write shorter working code.`,
     href: '/core/get-started',
     background: MESH_ROSE,
-    border: 'border-rose-500',
     icon: IconFeatherCpu,
-    hover: 'hover:shadow-rose-300'
+    ring: 'ring-rose-400'
   },
   {
     name: 'Web',
     description: `Make the web better and more accessible.\n\nCreate ARIA compliant components with ease and leverage the native Browser APIs in a simpler way.`,
     href: '/web/get-started',
     background: MESH_MINT,
-    border: 'border-mint-500',
     icon: IconFeatherGlobe,
-    hover: 'hover:shadow-mint-300'
+    ring: 'ring-mint-400'
   },
   {
     name: 'React',
     description: 'Leverage the power of Aracna Web Components in a React fashion.\n\nExposes several essential hooks for your daily needs.',
     href: '/react/get-started',
     background: MESH_BLUE,
-    border: 'border-blue-500',
     icon: (props: IconProps) => <IconReact {...props} fill='white' />,
-    hover: 'hover:shadow-blue-400'
+    ring: 'ring-blue-400'
   },
   {
     name: 'State Manager',
     description: 'Observe and watch changes in a functional way.\n\nSupports React out of the box with a full toolkit of hooks.',
     href: '/state-manager/get-started',
     background: MESH_SEANCE,
-    border: 'border-seance-500',
     icon: IconFeatherZap,
-    hover: 'hover:shadow-seance-400'
+    ring: 'ring-seance-400'
   }
 ]
 
@@ -53,8 +49,12 @@ export function LibrariesCardsBlock() {
     <div className='max-w-screen-lg w-full grid lg:grid-cols-2 gap-6 mt-12 not-prose'>
       {LIBRARIES.map((library) => (
         <a
-          className={joinElementClasses('flex flex-col gap-4 p-6 rounded-3xl overflow-hidden transition border-2 border-slate-800 bg-black')}
+          className={joinElementClasses(
+            'flex flex-col gap-4 p-6 rounded-3xl overflow-hidden shadow-lg ring-offset-2 ring-offset-black transition border-2 border-slate-800 bg-black hover:ring-4',
+            library.ring
+          )}
           href={library.href}
+          key={library.href}
         >
           <library.icon size={32} stroke='white' stroke-width={0.75} />
           <div className='flex flex-col gap-1'>

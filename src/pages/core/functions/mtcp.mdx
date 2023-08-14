@@ -3,19 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: mtcp
 ---
 
-This function makes an async function error safe, "mtcp" stands for make try catch promise.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_MTCP } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **mtcp** function stands for "make try catch promise", and it is a utility function that takes a function that returns a promise as its argument and returns a new function that wraps the original function in a try-catch block.
 
-```ts
-import { mtc } from '@aracna/core'
+The **mtcp** function is a simple but powerful tool for making functions that return promises more robust and error-tolerant. By wrapping a function that returns a promise in a try-catch block, the **mtcp** function allows errors to be caught and handled gracefully, making it easier to write and maintain reliable code.
 
-async function will_throw() {
-  throw new Error()
-}
-
-const will_throw_safely = mtcp(() => will_throw())
-
-// will not throw and just return the error safely
-console.log(await will_throw_safely())
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_MTCP}
+  template='javascript'
+  title='mtcp'
+  console={100}
+/>

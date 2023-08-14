@@ -3,20 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: tc
 ---
 
-This function makes try catching less verbose, "tc" stands for try catch.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_TC } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **tc** function is a TypeScript utility function that takes a function as an argument, calls it, and returns the result of the function or the error that was thrown. The name **tc** is short for "try catch", which reflects the function's purpose.
 
-```ts
-import { tc } from '@aracna/core'
+The **tc** function is a simple but useful utility function that can be used to call a function inside a try-catch block and handle errors in a custom way. By using **tc** instead of manually writing try-catch blocks, you can make your code more concise and easier to read.
 
-// will log 0
-console.log(tc(() => 0))
-
-// will log Error
-console.log(
-  tc(() => {
-    throw new Error()
-  })
-)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TC}
+  template='javascript'
+  title='tc'
+  console={100}
+/>

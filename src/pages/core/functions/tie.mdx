@@ -3,16 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: tie
 ---
 
-This function throws if the instance of the value is Error, "tie" stands for throw if error.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_TIE } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **tie** function is a utility function that stands for "throw inline error". It takes a value of type **T** or an **Error** object as input and returns the value of type **T**. If an **Error** object is passed in, the function throws the error instead of returning the value.
 
-```ts
-import { tie } from '@aracna/core'
+The **tie** function is a simple utility function that allows you to throw an error inline if a certain condition is met. This can be useful when you want to handle errors in a concise and readable way.
 
-// will not throw
-tie(0)
-
-// will throw
-tie(new Error())
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TIE}
+  template='javascript'
+  title='tie'
+  console={100}
+/>

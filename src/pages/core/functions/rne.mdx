@@ -3,13 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: rne
 ---
 
-This function returns a new error, "rne" stands for return new error.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_RNE } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **rne** function is a TypeScript utility function that creates a new Error object with a specified message and options, and returns it. The name **rne** is short for "return new error", which reflects the function's purpose.
 
-```ts
-import { rne } from '@aracna/core'
+The **rne** function is a simple but useful utility function that can be used to create and return a new Error object with a specified message and options. By using **rne** instead of manually creating a new Error object, you can make your code more concise and easier to read.
 
-// will log an Error instance with "error" message
-console.log(rne('error'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_RNE}
+  template='javascript'
+  title='rne'
+  console={100}
+/>

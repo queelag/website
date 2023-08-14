@@ -8,7 +8,10 @@ interface Props {
 
 export function TOCs(props: Props) {
   const [active, setActive] = useState<string>()
-  const headings = useMemo(() => props.headings.filter((heading: MarkdownHeading) => heading.depth > 1), [props.headings])
+  const headings = useMemo(
+    () => [{ depth: 2, slug: '', text: 'Overview' }, ...props.headings.filter((heading: MarkdownHeading) => heading.depth > 1)],
+    [props.headings]
+  )
 
   const onClickHeading = (heading: MarkdownHeading) => {
     setActive(heading.slug)
@@ -35,6 +38,10 @@ export function TOCs(props: Props) {
     })
 
     for (let heading of headings) {
+      if (heading.slug.length <= 0) {
+        continue
+      }
+
       const element = document.querySelector(`#${heading.slug}`)
       if (!element) continue
 

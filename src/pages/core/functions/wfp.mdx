@@ -3,23 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: wfp
 ---
 
-This function waits for the target async function to return a truthy value or an error, "wfp" stands for wait for promise.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_WFP } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **wfp** function stands for "wait for promise". It is a utility function that can be used to wait for a **Promise** to resolve to a truthy value.
 
-```ts
-import { sleep, wfp } from '@aracna/core'
+The **wfp** function provides a convenient way to wait for a **Promise** to resolve to a truthy value with a timeout.
 
-let a = false
-
-async function check() {
-  return a
-}
-
-sleep(1000).then(() => {
-  a = true
-})
-
-// will stop waiting after 1s since a becomes truthy
-console.log(await wfp(() => check()))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_WFP}
+  template='javascript'
+  title='wfp'
+  console={100}
+/>

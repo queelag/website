@@ -3,23 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: wf
 ---
 
-This function waits for the target function to return a truthy value or an error, "wf" stands for wait for.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_WF } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **wf** function is a utility function that stands for "wait for". It takes a function **fn**, a time interval **ms**, and a timeout **timeout** as input and waits for the function to return a truthy value within the specified timeout.
 
-```ts
-import { sleep, wf } from '@aracna/core'
+The **wf** function is a simple utility function that allows you to wait for a function to return a truthy value within a specified timeout. This can be useful when you need to wait for an asynchronous operation to complete before continuing with your code.
 
-let a = false
-
-function check() {
-  return a
-}
-
-sleep(1000).then(() => {
-  a = true
-})
-
-// will stop waiting after 1s since a becomes truthy
-console.log(await wf(() => check()))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_WF}
+  template='javascript'
+  title='wf'
+  console={100}
+/>

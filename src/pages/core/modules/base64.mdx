@@ -3,26 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: Base64
 ---
 
-This is a base64 codec which leverages the rfc4648 module.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_BASE64 } from '@/definitions/stack-blitz/core/modules'
 
-### Encode
+The **Base64** class provides static methods for encoding and decoding data using the Base64 encoding scheme. The Base64 encoding scheme represents binary data as a sequence of 64 symbols (A-Z, a-z, 0-9, +, and /).
 
-```ts
-import { Base64 } from '@aracna/core'
+The **Base64** class is a simple and useful utility class that provides a convenient way to encode and decode binary data using the Base64 encoding scheme.
 
-const encoded: string = Base64.encode('hello')
-
-// will log "aGVsbG8="
-console.log(encoded)
-```
-
-### Decode
-
-```ts
-import { Base64 } from '@aracna/core'
-
-const decoded: string = Base64.decode('aGVsbG8=')
-
-// will log "hello"
-console.log(decoded)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_BASE64}
+  template='javascript'
+  title='Base64'
+  console={100}
+/>

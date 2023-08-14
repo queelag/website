@@ -3,19 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: mtc
 ---
 
-This function makes a function error safe, "mtc" stands for make try catch.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_MTC } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **mtc** function stands for "make try catch", and it is a utility function that takes a function as its argument and returns a new function that wraps the original function in a try-catch block.
 
-```ts
-import { mtc } from '@aracna/core'
+The **mtc** function is a simple but powerful tool for making functions more robust and error-tolerant. By wrapping a function in a try-catch block, the **mtc** function allows errors to be caught and handled gracefully, making it easier to write and maintain reliable code.
 
-function will_throw() {
-  throw new Error()
-}
-
-const will_throw_safely = mtc(() => will_throw())
-
-// will not throw and just return the error safely
-console.log(will_throw_safely())
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_MTC}
+  template='javascript'
+  title='mtc'
+  console={100}
+/>

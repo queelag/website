@@ -3,195 +3,150 @@ layout: '@/layouts/Layout.astro'
 title: API
 ---
 
-This class makes handling REST APIs easier by abstracting some essential features.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_API_BASE_URL,
+  SB_API_CONFIG,
+  SB_API_STATUS,
+  SB_API_TRANSFORM_BODY,
+  SB_API_TRANSFORM_QUERY_PARAMETERS,
+  SB_API_HANDLE_ERROR,
+  SB_API_HANDLE_PENDING,
+  SB_API_HANDLE_SUCCESS
+} from '@/definitions/stack-blitz/core/modules'
 
-- Base URL
-- Base Fetch Configuration
-- Status
+The **API** class provides a way to make HTTP requests to a server. It has methods for handling different types of HTTP requests (e.g., **connect**, **delete**, **get**, etc.). The class also has properties for storing the base URL of the server and configuration options for the requests.
 
-### Base URL
+The **API** class provides a convenient way to make HTTP requests to a server with TypeScript. By using the **API** class, you can handle different types of HTTP requests and configuration options in a concise and readable way.
 
-```ts
-import { API, FetchResponse } from '@aracna/core'
+## Isomorphic
 
-const DummyAPI: API = new API('https://dummyjson.com/')
+The **API** class is isomorphic because it uses the **Polyfill** class to polyfill the **fetch**, **Blob**, **File**, and **FormData** APIs. This allows the **API** class to work in both server-side and client-side environments, even if those environments do not support these APIs natively.
 
-// will automatically prefix "products" with "https://dummyjson.com/"
-DummyAPI.get('products')
-```
+By polyfilling these APIs, the **API** class can work in both server-side and client-side environments, making it isomorphic. This means that you can use the same code to make HTTP requests from both the server and the client, reducing code duplication and making your code more maintainable.
 
-### Base Fetch Configuration
+## Base URL
 
-```ts
-import { API, FetchResponse } from '@aracna/core'
+In the context of the **API** class, **baseURL** is a property that represents the base URL of the server that the class will make HTTP requests to.
 
-const DummyAPI: API = new API('https://dummyjson.com/', {
-  headers: {
-    authorization: 'Bearer $token'
-  }
-})
+For example, if the baseURL **property** is set to **"https://example.com/api/"** and the path argument passed to the get method is **"users"**, the full URL of the resource to request will be **"https://example.com/api/users"**.
 
-// will automatically set the authorization header
-DummyAPI.get('products')
-```
+By setting the **baseURL** property, you can avoid having to repeat the base URL in every request. This can make your code more concise and easier to read.
 
-### Status
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_BASE_URL}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-```ts
-import { API, FetchError, FetchResponse, RequestMethod } from '@aracna/core'
+## Default Configuration
 
-const DummyAPI: API = new API('https://dummyjson.com/')
+In the constructor of the **API** class, the **config** parameter is an optional object that represents the default configuration options for all HTTP requests made with the **API** instance.
 
-DummyAPI.get('products')
-  .then((response: FetchResponse) => {
-    // will log true
-    console.log(DummyAPI.status.isSuccess(RequestMethod.GET, 'products'))
-  })
-  .catch((error: FetchError) => {
-    // will log true
-    console.log(DummyAPI.status.isError(RequestMethod.GET, 'products'))
-  })
+The **config** object can contain properties such as **headers**, **credentials**, **mode**, **cache**, **redirect**, **referrer**, **referrerPolicy**, **integrity**, **keepalive**, **signal**, **window**, and more. These properties allow you to customize the behavior of all HTTP requests made with the **API** instance, such as setting custom headers, specifying the cache mode, or setting the referrer policy.
 
-// will log true
-console.log(DummyAPI.status.isPending(RequestMethod.GET, 'products'))
-```
+When creating a new instance of the **API** class, you can pass a **config** object as the second argument to the constructor to specify the default configuration options for all HTTP requests made with that instance.
 
-### Advanced Features
+By using the **config** parameter in the constructor, we can set default configuration options for all HTTP requests made with the **API** instance, which can save us from having to repeat the same configuration options in every request.
 
-- Custom Configuration
-- Write Method
-- Body Transformer
-- Query Parameters Transformer
-- Status Handlers
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_CONFIG}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-### Custom Configuration
+## Status
 
-```ts
-import { API, APIConfig, FetchResponse } from '@aracna/core'
+In the API class, the **status** instance is an instance of the **Status** class, which is used to keep track of the status of HTTP requests made with the **API** instance.
 
-interface DummyAPIConfig extends APIConfig {
-  useAuthorization?: boolean
-}
+By keeping track of the status of HTTP requests, the **Status** class allows you to monitor the progress of requests and handle them appropriately based on their status. For example, you could display a loading spinner while a request is pending, or display an error message if a request fails.
 
-const DummyAPI: API<APIConfig> = new API('https://dummyjson.com/')
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_STATUS}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-DummyAPI.handlePending = async <V>(
-  method: RequestMethod,
-  path: string,
-  body: V | undefined,
-  config: T
-): Promise<boolean> => {
-  if (config.useAuthorization) {
-    config.headers = { authorization: 'Bearer $token' }
-  }
+## Transform Body
 
-  return true
-}
+The **transformBody** method in the **API** class is a hook that allows you to transform the request body before it is sent to the server.
 
-// will automatically perform this request with the authorization header
-DummyAPI.get('products', { useAuthorization: true })
-```
+The **transformBody** method should return the transformed request body. If you don't want to transform the request body, you can simply return the original **body** argument.
 
-### Write Method
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_TRANSFORM_BODY}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-```ts
-import { API, FetchResponse, WriteMode } from '@aracna/core'
+## Transform Query Parameters
 
-const DummyAPI: API = new API('https://dummyjson.com/')
+The **transformQueryParameters** method in the **API** class is a hook that allows you to transform the query parameters of a request before it is sent to the server.
 
-// if you have the same path for POST and PUT you can use the write method
-DummyAPI.write(WriteMode.CREATE, 'products/add')
-DummyAPI.write(WriteMode.UPDATE, 'products/1')
-```
+The **transformQueryParameters** method should return the transformed query parameters as a string. If you don't want to transform the query parameters, you can simply return an empty string.
 
-### Body Transformer
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_TRANSFORM_QUERY_PARAMETERS}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-```ts
-import { API, FetchResponse, WriteMode } from '@aracna/core'
+## Handle Error
 
-const DummyAPI: API = new API('https://dummyjson.com/')
+The **handleError** method in the **API** class is a hook that allows you to handle errors that occur during an HTTP request.
 
-DummyAPI.transformBody = async <V>(
-  method: RequestMethod,
-  path: string,
-  body: V | undefined,
-  config: T
-): Promise<any> => {
-  if (typeof body === 'object') {
-    Reflect.set(body, 'default_property', 1)
-  }
+The **handleError** method should return a boolean value indicating whether the error was handled or not. If you return **true**, the **handle** method will not throw the error and will instead return a **FetchError** object. If you return **false**, the **handle** method will re-throw the error.
 
-  return body
-}
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_HANDLE_ERROR}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-// will automatically set "default_property" to "1" in the body object
-DummyAPI.post('products/add', {})
-```
+## Handle Pending
 
-### Query Parameters Transformer
+The **handlePending** method in the **API** class is a hook that allows you to handle pending HTTP requests.
 
-```ts
-import { API, FetchResponse, WriteMode } from '@aracna/core'
+The **handlePending** method should return a boolean value indicating whether the pending request was handled or not. If you return **true**, the **handle** method will not throw an error and will instead return a **FetchError** object. If you return **false**, the **handle** method will continue with the request.
 
-const DummyAPI: API = new API('https://dummyjson.com/')
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_HANDLE_PENDING}
+  template='javascript'
+  title='API'
+  console={100}
+/>
 
-DummyAPI.transformQueryParameters = async <V>(
-  method: RequestMethod,
-  path: string,
-  body: V | undefined,
-  config: T
-): Promise<string> => {
-  return '?default_parameter=1'
-}
+## Handle Success
 
-// will automatically append the "default_parameter" with value "1" to the request URL
-DummyAPI.get('products')
-```
+The **handleSuccess** method in the **API** class is a hook that allows you to handle successful HTTP responses.
 
-### Status Handler
+The **handleSuccess** method should return a boolean value indicating whether the response was handled or not. If you return **true**, the **handle** method will not throw an error and will instead return the **response** object. If you return **false**, the handle method will throw a **FetchError** object.
 
-```ts
-import { API, FetchResponse, WriteMode } from '@aracna/core'
-
-const DummyAPI: API = new API('https://dummyjson.com/')
-
-DummyAPI.handleError = async <V, W = U>(
-  method: RequestMethod,
-  path: string,
-  body: V | undefined,
-  config: T,
-  error: FetchError<W>
-): Promise<boolean> => {
-  window.alert(error.message)
-
-  // if you return true it won't be considered as an error
-  return false
-}
-
-DummyAPI.handlePending = async <V>(
-  method: RequestMethod,
-  path: string,
-  body: V | undefined,
-  config: T
-): Promise<boolean> => {
-  window.alert('PENDING REQUEST ON PATH: ' + path)
-
-  // if you return false it will be considered as an error and the request won't be performed
-  return true
-}
-
-DummyAPI.handleSuccess = async <V, W>(
-  method: RequestMethod,
-  path: string,
-  body: W | undefined,
-  config: T,
-  response: FetchResponse<V>
-): Promise<boolean> => {
-  window.alert('SUCCESS REQUEST ON PATH: ' + path)
-
-  // if you return false it will be considered as an error
-  return true
-}
-
-DummyAPI.get('products')
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_API_HANDLE_SUCCESS}
+  template='javascript'
+  title='API'
+  console={100}
+/>

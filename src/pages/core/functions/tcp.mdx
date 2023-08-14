@@ -3,20 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: tcp
 ---
 
-This function makes try catching promises less verbose, "tcp" stands for try catch promise.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_TCP } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The **tcp** function is a TypeScript utility function that takes a function that returns a **Promise** as an argument, calls it, and returns the result of the function or the error that was thrown. The name **tcp** is short for "try catch promise", which reflects the function's purpose.
 
-```ts
-import { tcp } from '@aracna/core'
+The **tcp** function is a simple but useful utility function that can be used to call a function that returns a **Promise** inside a try-catch block and handle errors in a custom way. By using **tcp** instead of manually writing try-catch blocks, you can make your code more concise and easier to read.
 
-// will log 0
-console.log(tcp(async () => 0))
-
-// will log Error
-console.log(
-  tcp(async () => {
-    throw new Error()
-  })
-)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TCP}
+  template='javascript'
+  title='tcp'
+  console={100}
+/>

@@ -208,15 +208,12 @@ export function StackBlitz(props: Props) {
     <Fragment>
       {active === false && (
         <CodeWindow
-          buttons={
-            <Fragment>
-              <IconFeatherZap
-                className='cursor-pointer rounded-full transition ring-slate-700 hover:ring-4 hover:bg-slate-700'
-                onClick={onClickActivate}
-                stroke='white'
-              />
-            </Fragment>
-          }
+          buttons={[
+            {
+              icon: IconFeatherZap,
+              onClick: onClickActivate
+            }
+          ]}
           files={props.files ?? {}}
           language={props.template ?? ''}
         />

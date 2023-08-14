@@ -3,4 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: ma
 ---
 
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_MA } from '@/definitions/stack-blitz/core/functions'
+
 The **ma** function is a utility function that stands for "make async". It takes a synchronous function **fn** as its argument and returns a new function that is asynchronous and returns a **Promise**.
+
+The **ma** function is a simple but powerful tool for making synchronous functions asynchronous, and for composing asynchronous functions together in an asynchronous programming style.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_MA}
+  template='javascript'
+  title='ma'
+  console={100}
+/>

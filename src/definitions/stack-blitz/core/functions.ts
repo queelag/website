@@ -10,7 +10,7 @@ export const SB_DEBOUNCE_FN_AS_KEY: ProjectFiles = {
         console.log('Doing something...');
       }
 
-      const debouncedDoSomething = debounce(doSomething, 1000);
+      const debouncedDoSomething = () => debounce(doSomething, 1000);
 
       debouncedDoSomething(); // This will execute immediately
       debouncedDoSomething(); // This will be ignored
@@ -28,13 +28,14 @@ export const SB_DEBOUNCE_NAME_AS_KEY: ProjectFiles = {
     <script>
       import { debounce } from '@aracna/core';
 
-      const debouncedDoSomething = debounce(
-        'doSomething',
-        () => {
-          console.log('Doing something...');
-        },
-        1000
-      );
+      const debouncedDoSomething = () =>
+        debounce(
+          'doSomething',
+          () => {
+            console.log('Doing something...');
+          },
+          1000
+        );
 
       debouncedDoSomething(); // This will execute immediately
       debouncedDoSomething(); // This will be ignored
@@ -52,73 +53,341 @@ export const SB_GQL: ProjectFiles = {
     "import { gql } from '@aracna/core';\n\nconst GET_USERS_QUERY = gql`\n  query getUsers {\n    users {\n      id\n      name\n      email\n    }\n  }\n`"
 };
 
-export const SB_TC_COMPARISON_WITH_VANILLA: ProjectFiles = {
-  'aracna.ts': html`
+export const SB_MA: ProjectFiles = {
+  'index.js': html`
     <script>
+      import { ma } from '@aracna/core';
 
-      function willThrow(): void {
-        throw new Error();
+      function add(a, b) {
+        return a + b;
       }
 
-      // tc is straight forward, type safe and won't cause nesting
-      const value: void | Error = tc(() => willThrow());
+      const asyncAdd = ma(add);
 
-      if (value instanceof Error) {
-        // handle error
-      }
-    </script>
-  `,
-  'vanilla.ts': html`
-    <script>
-      function willThrow(): void {
-        throw new Error();
-      }
-
-      // now in vanilla es you would just try catch it
-      try {
-        willThrow();
-      } catch (error) {
-        // handle error
-      }
-      // but this try catch made you nest your code by one level
+      asyncAdd(2, 3).then((result) => {
+        console.log(result); // This will log "5"
+      });
     </script>
   `
 };
 
-export const SB_INTERVAL_AND_TIMEOUT_COMPARISON_WITH_VANILLA: ProjectFiles = {
-  'aracna.ts': html`
+export const SB_MTC: ProjectFiles = {
+  'index.js': html`
     <script>
+      import { mtc } from '@aracna/core';
 
-      function fn(): void {}
+      function divide(a, b) {
+        if (b === 0) {
+          throw new Error('Cannot divide by zero');
+        }
+        return a / b;
+      }
 
-      // set the interval to run fn every second
-      Interval.start(fn, 1000);
+      const safeDivide = mtc(divide);
 
-      // clear the interval
-      Interval.stop(fn);
-
-      // set the timeout to run fn after 1 second
-      Timeout.set(fn, 1000);
-
-      // clear the timeout
-      Timeout.unset(fn);
+      console.log(safeDivide(10, 2)); // This will log "5"
+      console.log(safeDivide(10, 0)); // This will log an Error object
     </script>
-  `,
-  'vanilla.ts': html`
+  `
+};
+
+export const SB_MTCP: ProjectFiles = {
+  'index.js': html`
     <script>
-      function fn(): void {}
+      import { mtcp } from '@aracna/core';
 
-      // need to define a variable to save the id
-      const intervalID: number = setInterval(fn, 1000);
+      async function divide(a, b) {
+        if (b === 0) {
+          throw new Error('Cannot divide by zero');
+        }
+        return a / b;
+      }
 
-      // clear the interval
-      clearInterval(intervalID);
+      const safeDivide = mtcp(divide);
 
-      // need to define a variable to save the id
-      const timeoutID: number = setTimeout(fn, 1000);
+      safeDivide(10, 2).then((result) => {
+        console.log(result); // This will log "5"
+      });
 
-      // clear the timeout
-      clearTimeout(timeoutID);
+      safeDivide(10, 0).then((error) => {
+        console.log(error); // This will log an Error object
+      });
+    </script>
+  `
+};
+
+export const SB_NOOP: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { noop } from '@aracna/core';
+
+      function doSomething(callback) {
+        // Perform some operation
+        callback();
+      }
+
+      doSomething(noop);
+    </script>
+  `
+};
+
+export const SB_RC: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { rc } from '@aracna/core';
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      const result = rc(() => add(2, 3), 10);
+
+      console.log(result); // This will log "10"
+    </script>
+  `
+};
+
+export const SB_RCP: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { rcp } from '@aracna/core';
+
+      async function multiply(a, b) {
+        return a * b;
+      }
+
+      const result = rcp(() => multiply(5, 3), 0);
+
+      result.then((value) => {
+        console.log(value); // This will log "0"
+      });
+    </script>
+  `
+};
+
+export const SB_RNE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { rne } from '@aracna/core';
+
+      function divide(a, b) {
+        if (b === 0) {
+          return rne('Cannot divide by zero');
+        } else {
+          return a / b;
+        }
+      }
+
+      const result1 = divide(10, 2);
+      console.log(result1); // This will log "5"
+
+      const result2 = divide(10, 0);
+      console.log(result2.message); // This will log "Cannot divide by zero"
+    </script>
+  `
+};
+
+export const SB_RV: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { rv } from '@aracna/core';
+
+      function multiply(a, b) {
+        return a * b;
+      }
+
+      rv(() => multiply(5, 3));
+      console.log(rv()); // This will log "undefined"
+    </script>
+  `
+};
+
+export const SB_RVP: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { rvp } from '@aracna/core';
+
+      function logMessage(message) {
+        console.log(message);
+      }
+
+      rvp(() => logMessage('Hello, world!')).then(() =>
+        console.log('Promise resolved')
+      );
+    </script>
+  `
+};
+
+export const SB_SLEEP: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { sleep } from '@aracna/core';
+
+      console.log('Before sleep');
+      sleep(2000).then(() => {
+        console.log('After sleep');
+      });
+    </script>
+  `
+};
+
+export const SB_TC: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { tc } from '@aracna/core';
+
+      function divide(a, b) {
+        return tc(() => {
+          if (b === 0) {
+            throw new Error('Cannot divide by zero');
+          }
+
+          return a / b;
+        });
+      }
+
+      console.log(divide(10, 2)); // Output: 5
+      console.log(divide(10, 0)); // Output: Error: Cannot divide by zero
+    </script>
+  `
+};
+
+export const SB_TCP: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { tcp } from '@aracna/core';
+
+      function divide(a, b) {
+        return tcp(async () => {
+          if (b === 0) {
+            throw new Error('Cannot divide by zero');
+          }
+
+          return a / b;
+        });
+      }
+
+      divide(10, 2).then((result) => {
+        console.log(result); // Output: 5
+      });
+      divide(10, 0).then((result) => {
+        console.log(result); // Output: Error: Cannot divide by zero
+      });
+    </script>
+  `
+};
+
+export const SB_THROTTLE_FN_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { throttle } from '@aracna/core';
+
+      function logMessage(message) {
+        console.log(message);
+      }
+
+      const throttledLogMessage = throttle(logMessage, 1000);
+
+      throttledLogMessage('Hello, world!');
+      throttledLogMessage('Hello again!');
+    </script>
+  `
+};
+
+export const SB_THROTTLE_NAME_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { throttle } from '@aracna/core';
+
+      const throttledFunction = throttle(
+        'myFunction',
+        () => {
+          console.log('This function is throttled!');
+        },
+        500
+      );
+
+      throttledFunction();
+      throttledFunction();
+      throttledFunction();
+    </script>
+  `
+};
+
+export const SB_TIE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { tie } from '@aracna/core';
+
+      function divide(a, b) {
+        if (b === 0) {
+          return tie(new Error('Cannot divide by zero'));
+        }
+
+        return a / b;
+      }
+
+      console.log(divide(10, 2)); // Output: 5
+      console.log(divide(10, 0)); // Throws an error: Cannot divide by zero
+    </script>
+  `
+};
+
+export const SB_TNE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { tne } from '@aracna/core';
+
+      function divide(a, b) {
+        if (b === 0) {
+          tne('Cannot divide by zero');
+        }
+
+        return a / b;
+      }
+
+      console.log(divide(10, 2)); // Output: 5
+      console.log(divide(10, 0)); // Throws an error: Cannot divide by zero
+    </script>
+  `
+};
+
+export const SB_WF: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { wf } from '@aracna/core';
+
+      async function waitForCondition(condition) {
+        await wf(() => condition());
+        console.log('Condition met');
+      }
+
+      waitForCondition(() => {
+        const randomNumber = Math.floor(Math.random() * 100);
+        console.log(randomNumber);
+
+        return randomNumber > 50;
+      });
+    </script>
+  `
+};
+
+export const SB_WFP: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { wfp } from '@aracna/core';
+
+      async function waitForCondition(condition) {
+        await wfp(() => condition());
+        console.log('Condition met');
+      }
+
+      waitForCondition(async () => {
+        const randomNumber = Math.floor(Math.random() * 100);
+        console.log(randomNumber);
+
+        return randomNumber > 50;
+      });
     </script>
   `
 };

@@ -3,26 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: Base32
 ---
 
-This is a base32 codec which leverages the rfc4648 module.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_BASE32 } from '@/definitions/stack-blitz/core/modules'
 
-### Encode
+The **Base32** class provides static methods for encoding and decoding data using the Base32 encoding scheme. The Base32 encoding scheme represents binary data as a sequence of 32 symbols (A-Z and 2-7).
 
-```ts
-import { Base32 } from '@aracna/core'
+The **Base32** class is a simple and useful utility class that provides a convenient way to encode and decode binary data using the Base32 encoding scheme.
 
-const encoded: string = Base32.encode('hello')
-
-// will log "NBSWY3DP"
-console.log(encoded)
-```
-
-### Decode
-
-```ts
-import { Base32 } from '@aracna/core'
-
-const decoded: string = Base32.decode('NBSWY3DP')
-
-// will log "hello"
-console.log(decoded)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_BASE32}
+  template='javascript'
+  title='Base32'
+  console={100}
+/>

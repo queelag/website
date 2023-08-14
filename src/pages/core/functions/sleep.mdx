@@ -3,13 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: sleep
 ---
 
-This function is useful for adding artificial delays.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_SLEEP } from '@/definitions/stack-blitz/core/functions'
 
-### Usage
+The asynchronous function called **sleep** takes a single argument **ms** of type **number**. The purpose of this function is to pause the execution of the program for a specified number of milliseconds.
 
-```ts
-import { sleep } from '@aracna/core'
+The **sleep** function is a simple but useful utility function that can be used to pause the execution of a program for a specified number of milliseconds. By using the **sleep** function, you can make your code more readable and easier to understand.
 
-// will log "hello" after 1s
-sleep(1000).then(() => console.log('hello'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SLEEP}
+  template='javascript'
+  title='rvp'
+  console={100}
+/>
