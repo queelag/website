@@ -738,3 +738,181 @@ export const SB_LOCALIZATION_STORAGE: ProjectFiles = {
     </script>
   `
 };
+
+export const SB_LOGGER: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Logger } from '@aracna/core';
+
+      const logger = new Logger('logger');
+
+      logger.warn('warn log');
+      logger.error('error log');
+    </script>
+  `
+};
+
+export const SB_LOGGER_SEPARATOR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Logger } from '@aracna/core';
+
+      const logger = new Logger('logger');
+      logger.separator = ' ~> ';
+
+      logger.warn('multi', 'part', 'log');
+    </script>
+  `
+};
+
+export const SB_LOGGER_STATUS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Logger } from '@aracna/core';
+
+      const logger = new Logger('logger');
+
+      logger.disable();
+      logger.warn('warn log'); // will not log
+
+      logger.enable();
+      logger.warn('warn log'); // will log
+    </script>
+  `
+};
+
+export const SB_LOGGER_ENVIRONMENT: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Logger } from '@aracna/core';
+
+      process.env.LOGGER_APP_LEVEL = 'verbose';
+      process.env.LOGGER_APP_STATUS = 'on';
+
+      const logger = new Logger('APP');
+
+      logger.verbose('verbose log');
+    </script>
+  `
+};
+
+export const SB_POLYFILL_FETCH: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Polyfill } from '@aracna/core';
+
+      (async () => {
+        await Polyfill.fetch();
+
+        // will log fetch, Headers, Request, Response
+        console.log(fetch, Headers, Request, Response);
+      })();
+    </script>
+  `
+};
+
+export const SB_POLYFILL_BLOB: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Polyfill } from '@aracna/core';
+
+      (async () => {
+        await Polyfill.blob();
+        console.log(Blob); // will log Blob
+      })();
+    </script>
+  `
+};
+
+export const SB_POLYFILL_FILE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Polyfill } from '@aracna/core';
+
+      (async () => {
+        await Polyfill.file();
+        console.log(File); // will log File
+      })();
+    </script>
+  `
+};
+
+export const SB_POLYFILL_FORM_DATA: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Polyfill } from '@aracna/core';
+
+      (async () => {
+        await Polyfill.formData();
+        console.log(FormData); // will log FormData
+      })();
+    </script>
+  `
+};
+
+export const SB_STATUS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Status } from '@aracna/core';
+
+      const status = new Status();
+
+      status.pending('test');
+      console.log(status.get('test')); // will log "PENDING"
+
+      status.error('test');
+      console.log(status.get('test')); // will log "ERROR"
+
+      status.pending('test');
+      console.log(status.get('test')); // will log "SUCCESS"
+    </script>
+  `
+};
+
+export const SB_STATUS_IS_GETTERS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Status } from '@aracna/core';
+
+      const status = new Status();
+
+      status.idle('t1');
+      console.log(status.isIdle('t1')); // will log true
+
+      status.pending('t2');
+      console.log(status.isPending('t2')); // will log true
+
+      console.log(status.areSomeIdle('t1', 't2')); // will log true
+      console.log(status.areSomePending('t1', 't2')); // will log true
+
+      status.pending('t1');
+      console.log(status.isPending('t1')); // will log true
+
+      console.log(status.isEveryIdle('t1', 't2')); // will log false
+      console.log(status.isEveryPending('t1', 't2')); // will log true
+    </script>
+  `
+};
+
+export const SB_STORAGE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Storage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new Storage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        await storage.set('item', { name: 'John', surname: 'Doe' });
+        console.log(await storage.get('item')); // will log { name: "John", surname: "Doe" }
+      })();
+    </script>
+  `
+};

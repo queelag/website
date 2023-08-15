@@ -35,7 +35,9 @@ export function SidebarItem(props: SidebarItemProps) {
         href={props.items ? undefined : props.href}
         onClick={onClick}
       >
-        <span>{props.title}</span>
+        <span className='flex items-center gap-2'>
+          <span>{props.title}</span>
+        </span>
         {props.items && expandable && (
           <Fragment>{store.expanded ? <IconFeatherChevronUp stroke='white' /> : <IconFeatherChevronDown stroke='white' />}</Fragment>
         )}
