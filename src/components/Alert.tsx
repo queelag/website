@@ -1,3 +1,4 @@
+import { IconFeatherAlertTriangle } from '@aracna/icons-feather-react/components/alert-triangle.js'
 import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info.js'
 import type { AlertProps } from '@aracna/react'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert.js'
@@ -16,6 +17,7 @@ type Props = AlertProps & {
 export function Alert(props: Props) {
   return (
     <AracnaAlert {...props}>
+      {props.severity === 'warning' && <IconFeatherAlertTriangle className='stroke-amber-500' />}
       {props.severity === 'info' && <IconFeatherInfo className='stroke-blue-500' />}
       <div>{props.children}</div>
     </AracnaAlert>

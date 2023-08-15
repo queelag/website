@@ -1,3 +1,7 @@
 aracna-alert {
-  @apply flex items-center gap-4 leading-tight px-4 border-2 rounded bg-slate-800 border-slate-700;
+  @apply w-full inline-flex items-center gap-4 leading-tight px-4 border-2 rounded bg-slate-900 border-slate-700;
+}
+
+aracna-alert icon-feather-alert-triangle {
+  @apply mt-[3px];
 }

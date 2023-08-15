@@ -4,13 +4,24 @@ title: Cookie
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_COOKIE_SET } from '@/definitions/stack-blitz/core/modules'
+import {
+  SB_COOKIE_GET,
+  SB_COOKIE_SET,
+  SB_COOKIE_REMOVE,
+  SB_COOKIE_CLEAR,
+  SB_COOKIE_COPY,
+  SB_COOKIE_SERIALIZE_KV,
+  SB_COOKIE_SERIALIZE_K_IK_V
+} from '@/definitions/stack-blitz/core/modules'
+import { Alert } from '@/components/Alert.tsx'
 
 The **Cookie** class provides methods for working with cookies in a web browser or server environment. The **Cookie** class has several methods for getting, setting, and removing cookies, as well as a constructor for creating new Cookie instances.
 
 The **Cookie** class is a useful utility class for working with cookies in a web browser or server environment. It provides a convenient way to get, set, and remove cookie values, as well as serialize and deserialize cookie values.
 
 ## Set
+
+The **set** function in the **Cookie** class is an asynchronous method that takes a prefix string **key**, an object of type **CookieItem** **item**, and optionally an object of type **CookieSerializeOptions** **options** and an array of keys **keys**. If **keys** is not provided, all the keys in the **item** object will be set as cookies with keys that start with the **key** prefix. If **keys** is provided, only the keys in the **keys** array will be set as cookies. The **options** object can be used to set additional options for the cookie serialization process.
 
 <StackBlitz
   client:load
@@ -23,12 +34,59 @@ The **Cookie** class is a useful utility class for working with cookies in a web
 
 ## Get
 
+The **get** method of the **Cookie** class is used to retrieve a cookie item from the cookie with a given key prefix. The **key** parameter is a string that represents the prefix of the cookie keys to retrieve.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_COOKIE_GET}
+  template='javascript'
+  title='Cookie'
+  console={100}
+/>
+
 ## Remove
+
+The **remove** method of the **Cookie** class is used to remove one or more cookie items from the cookie with a given key prefix. The **key** parameter is a string that represents the prefix of the cookie keys to remove. The **options** parameter is an optional object that can be used to specify options for the cookie. The **keys** parameter is an optional array of strings that represents the specific keys to remove from the cookie item.
+
+<StackBlitz
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_COOKIE_REMOVE}
+  template='javascript'
+  title='Cookie'
+  console={100}
+/>
 
 ## Clear
 
+The **clear** method of the **Cookie** class is used to remove all cookie items from the cookie. The **options** parameter is an optional object that can be used to specify options for the cookie.
+
+<Alert client:load severity='warning'>
+  Note that the **clear** method removes all key-value pairs from the cookie,
+  and does not take a **key** or **keys** parameter like the **remove** method.
+</Alert>
+
+<StackBlitz
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_COOKIE_CLEAR}
+  template='javascript'
+  title='Cookie'
+  console={100}
+/>
+
 ## Copy
 
-## Serialization
+The **copy** method of the **Cookie** class is used to copy one or more cookie items from the cookie with a given key prefix to a target object. The **key** parameter is a string that represents the prefix of the cookie keys to copy. The **target** parameter is an object where the cookie items will be copied. The **keys** parameter is an optional array of strings that represents the specific keys to copy from the cookie item.
 
-## Deserialization
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_COOKIE_COPY}
+  template='javascript'
+  title='Cookie'
+  console={100}
+/>

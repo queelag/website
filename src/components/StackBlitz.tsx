@@ -208,6 +208,7 @@ export function StackBlitz(props: Props) {
     <Fragment>
       {active === false && (
         <CodeWindow
+          className={props.className}
           buttons={[
             {
               icon: IconFeatherZap,

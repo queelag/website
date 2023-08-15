@@ -3,22 +3,18 @@ layout: '@/layouts/Layout.astro'
 title: DeferredPromise
 ---
 
-This class extends a Promise and makes it deferrable.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_DEFERRED_PROMISE } from '@/definitions/stack-blitz/core/modules'
 
-### Usage
+The **DeferredPromise** class is a module that handles deferred promises. It is used to create a promise that can be resolved or rejected at a later time. The class has a **Promise** instance and a **PromiseState** property that represents the state of the promise. The **PromiseState** is an enumeration that has three possible values: **PENDING**, **FULFILLED**, and **REJECTED**.
 
-```ts
-import { DeferredPromise } from '@aracna/core'
+The **DeferredPromise** class also has a **instance** property that represents the **Promise** instance. This property can be used to chain other promise methods to the **DeferredPromise** instance.
 
-const promise: DeferredPromise<number> = new DeferredPromise()
-
-async function main(): Promise<void> {
-  // will log 1
-  console.log(await promise.instance)
-}
-
-main()
-
-// will resolve the promise after 1s
-setTimeout(() => promise.resolve(1), 1000)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DEFERRED_PROMISE}
+  template='javascript'
+  title='DeferredPromise'
+  console={100}
+/>

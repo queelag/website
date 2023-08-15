@@ -6,18 +6,16 @@ export const SB_DEBOUNCE_FN_AS_KEY: ProjectFiles = {
     <script>
       import { debounce } from '@aracna/core';
 
-      function doSomething() {
-        console.log('Doing something...');
+      function fn() {
+        console.log('fn ran', Date.now());
       }
 
-      const debouncedDoSomething = () => debounce(doSomething, 1000);
-
-      debouncedDoSomething(); // This will execute immediately
-      debouncedDoSomething(); // This will be ignored
-      debouncedDoSomething(); // This will be ignored
+      debounce(fn, 1000); // will be ignored
+      debounce(fn, 1000); // will be ignored
+      debounce(fn, 1000); // will run after 1s
 
       setTimeout(() => {
-        debouncedDoSomething(); // This will execute after 1000ms
+        debounce(fn, 1000); // will run after 2s
       }, 2000);
     </script>
   `
@@ -28,21 +26,14 @@ export const SB_DEBOUNCE_NAME_AS_KEY: ProjectFiles = {
     <script>
       import { debounce } from '@aracna/core';
 
-      const debouncedDoSomething = () =>
-        debounce(
-          'doSomething',
-          () => {
-            console.log('Doing something...');
-          },
-          1000
-        );
+      const ID = 'dfn';
 
-      debouncedDoSomething(); // This will execute immediately
-      debouncedDoSomething(); // This will be ignored
-      debouncedDoSomething(); // This will be ignored
+      debounce(ID, () => console.log('fn1 ran', Date.now()), 1000); // will be ignored
+      debounce(ID, () => console.log('fn2 ran', Date.now()), 1000); // will be ignored
+      debounce(ID, () => console.log('fn3 ran', Date.now()), 1000); // will run after 1s
 
       setTimeout(() => {
-        debouncedDoSomething(); // This will execute after 1000ms
+        debounce(ID, () => console.log('fn4 ran', Date.now()), 1000); // will run after 2s
       }, 2000);
     </script>
   `
@@ -58,15 +49,15 @@ export const SB_MA: ProjectFiles = {
     <script>
       import { ma } from '@aracna/core';
 
-      function add(a, b) {
-        return a + b;
-      }
+      (async () => {
+        let add, result;
 
-      const asyncAdd = ma(add);
+        add = ma((a, b) => a + b);
+        result = add(1, 2);
 
-      asyncAdd(2, 3).then((result) => {
-        console.log(result); // This will log "5"
-      });
+        console.log(result); // will log Promise
+        console.log(await result); // will log 3
+      })();
     </script>
   `
 };
@@ -76,17 +67,20 @@ export const SB_MTC: ProjectFiles = {
     <script>
       import { mtc } from '@aracna/core';
 
-      function divide(a, b) {
-        if (b === 0) {
-          throw new Error('Cannot divide by zero');
-        }
-        return a / b;
-      }
+      (async () => {
+        let divide;
 
-      const safeDivide = mtc(divide);
+        divide = mtc((a, b) => {
+          if (b === 0) {
+            throw new Error('cannot divide by zero');
+          }
 
-      console.log(safeDivide(10, 2)); // This will log "5"
-      console.log(safeDivide(10, 0)); // This will log an Error object
+          return a / b;
+        });
+
+        console.log(divide(3, 2)); // will log 1.5
+        console.log(divide(1, 0)); // will log Error
+      })();
     </script>
   `
 };
@@ -96,22 +90,20 @@ export const SB_MTCP: ProjectFiles = {
     <script>
       import { mtcp } from '@aracna/core';
 
-      async function divide(a, b) {
-        if (b === 0) {
-          throw new Error('Cannot divide by zero');
-        }
-        return a / b;
-      }
+      (async () => {
+        let divide;
 
-      const safeDivide = mtcp(divide);
+        divide = mtcp(async (a, b) => {
+          if (b === 0) {
+            throw new Error('cannot divide by zero');
+          }
 
-      safeDivide(10, 2).then((result) => {
-        console.log(result); // This will log "5"
-      });
+          return a / b;
+        });
 
-      safeDivide(10, 0).then((error) => {
-        console.log(error); // This will log an Error object
-      });
+        console.log(await divide(3, 2)); // will log 1.5
+        console.log(await divide(1, 0)); // will log Error
+      })();
     </script>
   `
 };
@@ -121,12 +113,11 @@ export const SB_NOOP: ProjectFiles = {
     <script>
       import { noop } from '@aracna/core';
 
-      function doSomething(callback) {
-        // Perform some operation
+      function fn(callback) {
         callback();
       }
 
-      doSomething(noop);
+      fn(noop); // will do nothing
     </script>
   `
 };
@@ -140,9 +131,7 @@ export const SB_RC: ProjectFiles = {
         return a + b;
       }
 
-      const result = rc(() => add(2, 3), 10);
-
-      console.log(result); // This will log "10"
+      console.log(rc(() => add(1, 2), 0)); // will log 0
     </script>
   `
 };
@@ -152,15 +141,13 @@ export const SB_RCP: ProjectFiles = {
     <script>
       import { rcp } from '@aracna/core';
 
-      async function multiply(a, b) {
-        return a * b;
-      }
+      (async () => {
+        async function add(a, b) {
+          return a + b;
+        }
 
-      const result = rcp(() => multiply(5, 3), 0);
-
-      result.then((value) => {
-        console.log(value); // This will log "0"
-      });
+        console.log(await rcp(() => add(1, 2), 0)); // will log 0
+      })();
     </script>
   `
 };
@@ -172,17 +159,14 @@ export const SB_RNE: ProjectFiles = {
 
       function divide(a, b) {
         if (b === 0) {
-          return rne('Cannot divide by zero');
-        } else {
-          return a / b;
+          return rne('cannot divide by zero');
         }
+
+        return a / b;
       }
 
-      const result1 = divide(10, 2);
-      console.log(result1); // This will log "5"
-
-      const result2 = divide(10, 0);
-      console.log(result2.message); // This will log "Cannot divide by zero"
+      console.log(divide(3, 2)); // will log 1.5
+      console.log(divide(1, 0)); // will log Error
     </script>
   `
 };
@@ -192,12 +176,11 @@ export const SB_RV: ProjectFiles = {
     <script>
       import { rv } from '@aracna/core';
 
-      function multiply(a, b) {
-        return a * b;
+      function add(a, b) {
+        return a + b;
       }
 
-      rv(() => multiply(5, 3));
-      console.log(rv()); // This will log "undefined"
+      console.log(rv(() => add(1, 2))); // will log undefined
     </script>
   `
 };
@@ -207,13 +190,13 @@ export const SB_RVP: ProjectFiles = {
     <script>
       import { rvp } from '@aracna/core';
 
-      function logMessage(message) {
-        console.log(message);
-      }
+      (async () => {
+        async function add(a, b) {
+          return a + b;
+        }
 
-      rvp(() => logMessage('Hello, world!')).then(() =>
-        console.log('Promise resolved')
-      );
+        console.log(await rvp(() => add(1, 2))); // will log undefined
+      })();
     </script>
   `
 };
@@ -223,10 +206,11 @@ export const SB_SLEEP: ProjectFiles = {
     <script>
       import { sleep } from '@aracna/core';
 
-      console.log('Before sleep');
-      sleep(2000).then(() => {
-        console.log('After sleep');
-      });
+      (async () => {
+        console.log('before sleep', Date.now());
+        await sleep(2000);
+        console.log('after sleep', Date.now());
+      })();
     </script>
   `
 };
@@ -237,17 +221,15 @@ export const SB_TC: ProjectFiles = {
       import { tc } from '@aracna/core';
 
       function divide(a, b) {
-        return tc(() => {
-          if (b === 0) {
-            throw new Error('Cannot divide by zero');
-          }
+        if (b === 0) {
+          throw new Error('cannot divide by zero');
+        }
 
-          return a / b;
-        });
+        return a / b;
       }
 
-      console.log(divide(10, 2)); // Output: 5
-      console.log(divide(10, 0)); // Output: Error: Cannot divide by zero
+      console.log(tc(() => divide(3, 1))); // will log 1.5
+      console.log(tc(() => divide(1, 0))); // will log Error
     </script>
   `
 };
@@ -257,22 +239,18 @@ export const SB_TCP: ProjectFiles = {
     <script>
       import { tcp } from '@aracna/core';
 
-      function divide(a, b) {
-        return tcp(async () => {
+      (async () => {
+        async function divide(a, b) {
           if (b === 0) {
-            throw new Error('Cannot divide by zero');
+            throw new Error('cannot divide by zero');
           }
 
           return a / b;
-        });
-      }
+        }
 
-      divide(10, 2).then((result) => {
-        console.log(result); // Output: 5
-      });
-      divide(10, 0).then((result) => {
-        console.log(result); // Output: Error: Cannot divide by zero
-      });
+        console.log(await tcp(() => divide(3, 1))); // will log 1.5
+        console.log(await tcp(() => divide(1, 0))); // will log Error
+      })();
     </script>
   `
 };
@@ -282,14 +260,15 @@ export const SB_THROTTLE_FN_AS_KEY: ProjectFiles = {
     <script>
       import { throttle } from '@aracna/core';
 
-      function logMessage(message) {
-        console.log(message);
+      function fn() {
+        console.log('fn ran', Date.now());
       }
 
-      const throttledLogMessage = throttle(logMessage, 1000);
+      throttle(fn, 1000); // will run
+      throttle(fn, 1000); // will be ignored
+      throttle(fn, 1000); // will be ignored
 
-      throttledLogMessage('Hello, world!');
-      throttledLogMessage('Hello again!');
+      setTimeout(() => throttle(fn, 1000), 2000); // will run after 2s
     </script>
   `
 };
@@ -299,17 +278,15 @@ export const SB_THROTTLE_NAME_AS_KEY: ProjectFiles = {
     <script>
       import { throttle } from '@aracna/core';
 
-      const throttledFunction = throttle(
-        'myFunction',
-        () => {
-          console.log('This function is throttled!');
-        },
-        500
-      );
+      const ID = 'dfn';
 
-      throttledFunction();
-      throttledFunction();
-      throttledFunction();
+      throttle(ID, () => console.log('fn1 ran', Date.now()), 1000); // will run
+      throttle(ID, () => console.log('fn2 ran', Date.now()), 1000); // will be ignored
+      throttle(ID, () => console.log('fn3 ran', Date.now()), 1000); // will be ignored
+
+      setTimeout(() => {
+        throttle(ID, () => console.log('fn4 ran', Date.now()), 1000); // will run after 2s
+      }, 2000);
     </script>
   `
 };
@@ -321,14 +298,14 @@ export const SB_TIE: ProjectFiles = {
 
       function divide(a, b) {
         if (b === 0) {
-          return tie(new Error('Cannot divide by zero'));
+          return tie(new Error('cannot divide by zero'));
         }
 
         return a / b;
       }
 
-      console.log(divide(10, 2)); // Output: 5
-      console.log(divide(10, 0)); // Throws an error: Cannot divide by zero
+      console.log(divide(3, 2)); // will log 1.5
+      console.log(divide(1, 0)); // will log Error: cannot divide by zero
     </script>
   `
 };
@@ -340,14 +317,14 @@ export const SB_TNE: ProjectFiles = {
 
       function divide(a, b) {
         if (b === 0) {
-          tne('Cannot divide by zero');
+          tne('cannot divide by zero');
         }
 
         return a / b;
       }
 
-      console.log(divide(10, 2)); // Output: 5
-      console.log(divide(10, 0)); // Throws an error: Cannot divide by zero
+      console.log(divide(3, 2)); // will log 5
+      console.log(divide(1, 0)); // will throw Error: Cannot divide by zero
     </script>
   `
 };
@@ -357,17 +334,18 @@ export const SB_WF: ProjectFiles = {
     <script>
       import { wf } from '@aracna/core';
 
-      async function waitForCondition(condition) {
-        await wf(() => condition());
-        console.log('Condition met');
-      }
+      (async () => {
+        await wf(() => {
+          let random;
 
-      waitForCondition(() => {
-        const randomNumber = Math.floor(Math.random() * 100);
-        console.log(randomNumber);
+          random = Math.random();
+          console.log(random);
 
-        return randomNumber > 50;
-      });
+          return random > 0.5;
+        });
+
+        console.log('condition met');
+      })();
     </script>
   `
 };
@@ -377,17 +355,18 @@ export const SB_WFP: ProjectFiles = {
     <script>
       import { wfp } from '@aracna/core';
 
-      async function waitForCondition(condition) {
-        await wfp(() => condition());
-        console.log('Condition met');
-      }
+      (async () => {
+        await wfp(async () => {
+          let random;
 
-      waitForCondition(async () => {
-        const randomNumber = Math.floor(Math.random() * 100);
-        console.log(randomNumber);
+          random = Math.random();
+          console.log(random);
 
-        return randomNumber > 50;
-      });
+          return random > 0.5;
+        });
+
+        console.log('condition met');
+      })();
     </script>
   `
 };

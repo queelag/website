@@ -6,18 +6,16 @@ export const SB_API_BASE_URL: ProjectFiles = {
     <script>
       import { API } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
+      const api = new API('https://dummyjson.com/');
 
-      // Make a GET request to "https://example.com/api/users"
-      api
-        .get('users')
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        let response;
+
+        response = await api.get('test');
+        if (response instanceof Error) return;
+
+        console.log(response.data); // will log { status: "ok", method: "GET" }
+      })();
     </script>
   `
 };
@@ -27,22 +25,20 @@ export const SB_API_CONFIG: ProjectFiles = {
     <script>
       import { API } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/" and a default "Authorization" header
-      const api = new API('https://example.com/api/', {
+      const api = new API('https://dummyjson.com/', {
         headers: {
-          Authorization: 'Bearer my-token'
+          authorization: 'Bearer my-token'
         }
       });
 
-      // Make a GET request to "https://example.com/api/users" with the default "Authorization" header
-      api
-        .get('users')
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        let response;
+
+        response = await api.get('test');
+        if (response instanceof Error) return;
+
+        console.log(response.data); // will log { status: "ok", method: "GET" }
+      })();
     </script>
   `
 };
@@ -50,22 +46,29 @@ export const SB_API_CONFIG: ProjectFiles = {
 export const SB_API_STATUS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, RequestMethod } from '@aracna/core';
+      import { API, wf } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
+      const api = new API('https://dummyjson.com/');
 
-      // Make a GET request to "https://example.com/api/users"
-      api
-        .get('users')
-        .then((response) => {
-          console.log(api.status.get('GET', 'users')); // This will log "SUCCESS"
-        })
-        .catch((error) => {
-          console.log(api.status.get('GET', 'users')); // This will log "ERROR"
+      (async () => {
+        console.log(api.status.get('GET', 'test')); // will log "IDLE"
+
+        api.get('test').then(() => {
+          console.log(api.status.get('GET', 'test')); // will log "SUCCESS"
         });
 
-      console.log(api.status.get('GET', 'users')); // This will log "PENDING"
+        console.log(api.status.get('GET', 'test')); // will log "PENDING"
+
+        await wf(() => api.status.isSuccess('GET', 'test'));
+
+        console.log(api.status.get('GET', 'unknown')); // will log "IDLE"
+
+        api.get('unknown').then(() => {
+          console.log(api.status.get('GET', 'unknown')); // will log "ERROR"
+        });
+
+        console.log(api.status.get('GET', 'unknown')); // will log "PENDING"
+      })();
     </script>
   `
 };
@@ -73,32 +76,32 @@ export const SB_API_STATUS: ProjectFiles = {
 export const SB_API_TRANSFORM_BODY: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, RequestMethod } from '@aracna/core';
+      import { API } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
+      class MyAPI extends API {
+        async transformBody(method, path, body, config) {
+          body.firstName = body.name.split(' ')[0];
+          body.lastName = body.name.split(' ')[1];
 
-      // Define a function to transform the request body into JSON format
-      async function transformBody(method, path, body, config) {
-        if (typeof body === 'object') {
-          return JSON.stringify(body);
+          return body;
         }
-
-        return body;
       }
 
-      // Set the "transformBody" method of the API instance to our custom function
-      api.transformBody = transformBody;
+      const api = new MyAPI('https://dummyjson.com/');
 
-      // Make a POST request to "https://example.com/api/users" with a JSON request body
-      api
-        .post('users', { name: 'John Doe', email: 'john.doe@example.com' })
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        let body, response;
+
+        body = {
+          email: 'john.doe@email.com',
+          name: 'John Doe'
+        };
+
+        response = await api.post('users/add', body);
+        if (response instanceof Error) return;
+
+        console.log(response.data);
+      })();
     </script>
   `
 };
@@ -106,34 +109,33 @@ export const SB_API_TRANSFORM_BODY: ProjectFiles = {
 export const SB_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, RequestMethod } from '@aracna/core';
+      import { API, serializeQueryParameters } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
+      class MyAPI extends API {
+        async transformQueryParameters(method, path, body, config) {
+          if (config.query.limit === 0) {
+            delete config.query.limit;
+          }
 
-      // Define a function to transform the query parameters into a URL-encoded string
-      async function transformQueryParameters(method, path, body, config) {
-        if (typeof config.query === 'object') {
-          return new URLSearchParams(query).toString();
+          return serializeQueryParameters(config.query);
         }
-
-        return config.query ?? '';
       }
 
-      // Set the "transformQueryParameters" method of the API instance to our custom function
-      api.transformQueryParameters = transformQueryParameters;
+      const api = new MyAPI('https://dummyjson.com/');
 
-      // Make a GET request to "https://example.com/api/users?name=John%20Doe&email=john.doe%40example.com"
-      api
-        .get('users', {
-          config: { name: 'John Doe', email: 'john.doe@example.com' }
-        })
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        let query, response;
+
+        query = {
+          limit: 0,
+          select: ['email', 'firstName', 'lastName']
+        };
+
+        response = await api.get('users', { query });
+        if (response instanceof Error) return;
+
+        console.log(response.data);
+      })();
     </script>
   `
 };
@@ -141,35 +143,24 @@ export const SB_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
 export const SB_API_HANDLE_ERROR: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, RequestMethod } from '@aracna/core';
+      import { API } from '@aracna/core';
 
-      class MyCustomError extends Error {}
+      class MyAPI extends API {
+        async handleError(method, path, body, config, error) {
+          if (path === 'unknown') {
+            return true;
+          }
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
-
-      // Define a function to handle a specific type of error
-      async function handleError(method, path, body, config, error) {
-        if (error instanceof MyCustomError) {
-          // Handle the error
-          return true;
+          return false;
         }
-
-        return false;
       }
 
-      // Set the "handleError" method of the API instance to our custom function
-      api.handleError = handleError;
+      const api = new MyAPI('https://dummyjson.com/');
 
-      // Make a GET request to "https://example.com/api/users"
-      api
-        .get('users')
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        await api.get('unknown');
+        console.log(api.status.get('GET', 'unknown')); // will log "SUCCESS"
+      })();
     </script>
   `
 };
@@ -177,29 +168,26 @@ export const SB_API_HANDLE_ERROR: ProjectFiles = {
 export const SB_API_HANDLE_PENDING: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, RequestMethod } from '@aracna/core';
+      import { API } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
+      class MyAPI extends API {
+        async handlePending(method, path, body, config) {
+          if (path === 'users') {
+            return false;
+          }
 
-      // Define a function to always handle pending requests
-      async function handlePending(method, path, body, config) {
-        // Always handle pending requests
-        return true;
+          return true;
+        }
       }
 
-      // Set the "handlePending" method of the API instance to our custom function
-      api.handlePending = handlePending;
+      const api = new MyAPI('https://dummyjson.com/');
 
-      // Make a GET request to "https://example.com/api/users"
-      api
-        .get('users')
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        let response;
+
+        response = await api.get('users');
+        console.log(response); // will log Error
+      })();
     </script>
   `
 };
@@ -207,34 +195,26 @@ export const SB_API_HANDLE_PENDING: ProjectFiles = {
 export const SB_API_HANDLE_SUCCESS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, RequestMethod } from '@aracna/core';
+      import { API } from '@aracna/core';
 
-      // Create a new instance of the API class with a base URL of "https://example.com/api/"
-      const api = new API('https://example.com/api/');
+      class MyAPI extends API {
+        async handleSuccess(method, path, body, config, response) {
+          if (path === 'users') {
+            return false;
+          }
 
-      // Define a function to handle successful responses
-      async function handleSuccess(method, path, body, config, response) {
-        // Check if the response status code is 200
-        if (response.status === 200) {
-          // Handle the successful response
           return true;
         }
-
-        return false;
       }
 
-      // Set the "handleSuccess" method of the API instance to our custom function
-      api.handleSuccess = handleSuccess;
+      const api = new MyAPI('https://dummyjson.com/');
 
-      // Make a GET request to "https://example.com/api/users"
-      api
-        .get('users')
-        .then((response) => {
-          // Handle the response
-        })
-        .catch((error) => {
-          // Handle the error
-        });
+      (async () => {
+        let response;
+
+        response = await api.get('users');
+        console.log(response); // will log Error
+      })();
     </script>
   `
 };
@@ -244,20 +224,17 @@ export const SB_BASE16: ProjectFiles = {
     <script>
       import { Base16 } from '@aracna/core';
 
-      // Define a binary data array
-      const binaryData = new Uint8Array([
+      let binary, encoded, decoded;
+
+      binary = new Uint8Array([
         72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
       ]);
 
-      // Encode the binary data as a Base16-encoded string
-      const encodedString = Base16.encode(binaryData);
+      encoded = Base16.encode(binary);
+      console.log(encoded); // will log "48656C6C6F20576F726C64"
 
-      console.log(encodedString); // Output: "48656C6C6F20576F726C64"
-
-      // Decode the Base16-encoded string into binary data
-      const decodedArray = Base16.decode(encodedString);
-
-      console.log(decodedArray); // Output: Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+      decoded = Base16.decode(encoded);
+      console.log(decoded); // will log Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
     </script>
   `
 };
@@ -267,20 +244,17 @@ export const SB_BASE32: ProjectFiles = {
     <script>
       import { Base32 } from '@aracna/core';
 
-      // Define a binary data array
-      const binaryData = new Uint8Array([
+      let binary, encoded, decoded;
+
+      binary = new Uint8Array([
         72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
       ]);
 
-      // Encode the binary data as a Base32-encoded string
-      const encodedString = Base32.encode(binaryData);
+      encoded = Base32.encode(binary);
+      console.log(encoded); // will log "JBSWY3DPEBLW64TMMQQQ===="
 
-      console.log(encodedString); // Output: "JBSWY3DPEBLW64TMMQQQ===="
-
-      // Decode the Base32-encoded string into binary data
-      const decodedArray = Base32.decode(encodedString);
-
-      console.log(decodedArray); // Output: Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+      decoded = Base32.decode(encoded);
+      console.log(decoded); // will log Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
     </script>
   `
 };
@@ -290,20 +264,17 @@ export const SB_BASE64: ProjectFiles = {
     <script>
       import { Base64 } from '@aracna/core';
 
-      // Define a binary data array
-      const binaryData = new Uint8Array([
+      let binary, encoded, decoded;
+
+      binary = new Uint8Array([
         72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
       ]);
 
-      // Encode the binary data as a Base64-encoded string
-      const encodedString = Base64.encode(binaryData);
+      encoded = Base64.encode(binary);
+      console.log(encoded); // will log "SGVsbG8gV29ybGQ="
 
-      console.log(encodedString); // Output: "SGVsbG8gV29ybGQ="
-
-      // Decode the Base64-encoded string into binary data
-      const decodedArray = Base64.decode(encodedString);
-
-      console.log(decodedArray); // Output: Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
+      decoded = Base64.decode(encoded);
+      console.log(decoded); // will og Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
     </script>
   `
 };
@@ -312,6 +283,458 @@ export const SB_COOKIE_SET: ProjectFiles = {
   'index.js': html`
     <script>
       import { Cookie } from '@aracna/core';
+
+      const cookie = new Cookie(
+        'cookie',
+        async () => document.cookie,
+        async (cookies) => {
+          document.cookie = cookies;
+        }
+      );
+
+      (async () => {
+        let item, options;
+
+        item = {
+          name: 'john',
+          surname: 'doe'
+        };
+
+        options = {
+          sameSite: 'none',
+          secure: true
+        };
+
+        await cookie.set('item', item, options);
+        console.log(document.cookie); // will log "item_name=john; item_surname=doe"
+      })();
+    </script>
+  `
+};
+
+export const SB_COOKIE_GET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Cookie } from '@aracna/core';
+
+      const cookie = new Cookie(
+        'cookie',
+        async () => document.cookie,
+        async (cookies) => {
+          document.cookie = cookies;
+        }
+      );
+
+      (async () => {
+        let item, options;
+
+        item = {
+          name: 'john',
+          surname: 'doe'
+        };
+
+        options = {
+          sameSite: 'none',
+          secure: true
+        };
+
+        await cookie.set('item', item, options);
+        console.log(await cookie.get('item')); // will log { name: "john", surname: "doe" }
+      })();
+    </script>
+  `
+};
+
+export const SB_COOKIE_REMOVE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Cookie } from '@aracna/core';
+
+      const cookie = new Cookie(
+        'cookie',
+        async () => document.cookie,
+        async (cookies) => {
+          document.cookie = cookies;
+        }
+      );
+
+      (async () => {
+        let item, options;
+
+        item = {
+          name: 'john',
+          surname: 'doe'
+        };
+
+        options = {
+          sameSite: 'none',
+          secure: true
+        };
+
+        await cookie.set('item', item, options);
+        console.log(document.cookie); // will log "item_name=john; item_surname=doe"
+
+        await cookie.remove('item', options);
+        console.log(document.cookie); // will log ""
+      })();
+    </script>
+  `
+};
+
+export const SB_COOKIE_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Cookie } from '@aracna/core';
+
+      const cookie = new Cookie(
+        'cookie',
+        async () => document.cookie,
+        async (cookies) => {
+          document.cookie = cookies;
+        }
+      );
+
+      (async () => {
+        let item, options;
+
+        item = {
+          name: 'john',
+          surname: 'doe'
+        };
+
+        options = {
+          sameSite: 'none',
+          secure: true
+        };
+
+        await cookie.set('item1', item, options);
+        await cookie.set('item2', item, options);
+        console.log(document.cookie); // will log "item1_name=john; item1_surname=doe; item2_name=john; item2_surname=doe;"
+
+        await cookie.clear(options);
+        console.log(document.cookie); // will log ""
+      })();
+    </script>
+  `
+};
+
+export const SB_COOKIE_COPY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Cookie } from '@aracna/core';
+
+      const cookie = new Cookie(
+        'cookie',
+        async () => document.cookie,
+        async (cookies) => {
+          document.cookie = cookies;
+        }
+      );
+
+      (async () => {
+        let item, options, target;
+
+        item = {
+          name: 'john',
+          surname: 'doe'
+        };
+
+        options = {
+          sameSite: 'none',
+          secure: true
+        };
+
+        target = {};
+
+        await cookie.set('item', item, options);
+        await cookie.copy('item', target);
+
+        console.log(target); // will log { name: "john", surname: "doe" }
+      })();
+    </script>
+  `
+};
+
+export const SB_DEFERRED_PROMISE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { DeferredPromise } from '@aracna/core';
+
+      (async () => {
+        let promise;
+
+        promise = new DeferredPromise();
+        console.log('promise created', Date.now());
+
+        setTimeout(() => promise.resolve(), 1000);
+
+        await promise.instance;
+        console.log('promise resolved', Date.now());
+      })();
+    </script>
+  `
+};
+
+export const SB_ENVIRONMENT: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Environment } from '@aracna/core';
+
+      console.log(Environment.isDocumentDefined); // will log true
+      console.log(Environment.isWindowDefined); // will log true
+    </script>
+  `
+};
+
+export const SB_FETCH: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Fetch } from '@aracna/core';
+
+      (async () => {
+        let response;
+
+        response = await Fetch.get('https://dummyjson.com/users');
+        if (response instanceof Error) return;
+
+        console.log(response.data);
+      })();
+    </script>
+  `
+};
+
+export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { GraphQLAPI } from '@aracna/core';
+
+      const api = new GraphQLAPI('https://graphqlzero.almansi.me/api');
+
+      (async () => {
+        let query, response;
+
+        query =
+          'query getUsers($limit: Int) { users(options: { paginate: { limit: $limit } }) { data { email id name username } } }';
+
+        response = await api.query(query);
+        if (response instanceof Error) return;
+
+        console.log(response.data);
+      })();
+    </script>
+  `
+};
+
+export const SB_GRAPHQL_API_MUTATION: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { GraphQLAPI } from '@aracna/core';
+
+      const api = new GraphQLAPI('https://graphqlzero.almansi.me/api');
+
+      (async () => {
+        let query, variables, response;
+
+        query =
+          'mutation createUser($email: String!, $name: String!, $username: String!) { createUser(input: { email: $email, name: $name, username: $username }) { email id name username } }';
+
+        variables = {
+          email: 'john.doe@email.com',
+          name: 'John Doe',
+          username: 'john.doe'
+        };
+
+        response = await api.mutation(query, variables);
+        if (response instanceof Error) return;
+
+        console.log(response.data);
+      })();
+    </script>
+  `
+};
+
+export const SB_ID: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { ID } from '@aracna/core';
+
+      console.log(ID.generate()); // will log a 32 chars random alphanumeric string
+    </script>
+  `
+};
+
+export const SB_ID_ALPHABET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { ID } from '@aracna/core';
+
+      console.log(ID.generate({ alphabet: '0123456789' })); // will log a 32 chars random numeric string
+    </script>
+  `
+};
+
+export const SB_ID_PREFIX_SUFFIX_SEPARATOR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { ID } from '@aracna/core';
+
+      console.log(ID.generate({ prefix: 'pre' })); // will logs pre_...
+      console.log(ID.generate({ suffix: 'post' })); // will logs ..._post
+      console.log(ID.generate({ prefix: 'pre', separator: '-' })); // will logs pre-...
+    </script>
+  `
+};
+
+export const SB_ID_SIZE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { ID } from '@aracna/core';
+
+      console.log(ID.generate({ size: 8 })); // will log a 8 chars random alphanumeric string
+    </script>
+  `
+};
+
+export const SB_INTERVAL_FN_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Interval } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      Interval.start(fn, 1000);
+
+      setTimeout(() => Interval.stop(fn), 2500);
+    </script>
+  `
+};
+
+export const SB_INTERVAL_NAME_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Interval } from '@aracna/core';
+
+      const ID = 'interval';
+
+      Interval.start(ID, () => console.log('running', Date.now()), 1000);
+
+      setTimeout(() => Interval.stop(ID), 2500);
+    </script>
+  `
+};
+
+export const SB_INTERVAL_AUTORUN: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Interval } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      Interval.start(fn, 1000, true); // will run fn instantly
+
+      setTimeout(() => Interval.stop(fn), 2500);
+    </script>
+  `
+};
+
+export const SB_INTERVAL_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Interval } from '@aracna/core';
+
+      Interval.start(() => console.log('running i1', Date.now()), 1000);
+      Interval.start(() => console.log('running i2', Date.now()), 1000);
+
+      setTimeout(() => Interval.clear(), 2500);
+    </script>
+  `
+};
+
+export const SB_LOCALIZATION_PACKS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Localization } from '@aracna/core';
+
+      const localization = new Localization('en', [
+        { data: { hello: 'Hello' }, language: 'en' }
+      ]);
+
+      localization.push({ data: { hello: 'Ciao' }, language: 'it' });
+      console.log(localization.packs); // will log both packs
+    </script>
+  `
+};
+
+export const SB_LOCALIZATION_GET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Localization } from '@aracna/core';
+
+      const localization = new Localization('en', [
+        { data: { hello: 'Hello' }, language: 'en' },
+        { data: { hello: 'Ciao' }, language: 'it' }
+      ]);
+
+      console.log(localization.get('hello')); // will log "Hello"
+      console.log(localization.get('it', 'hello')); // will log "Ciao"
+
+      localization.setLanguage('it');
+      console.log(localization.get('hello')); // will log "Ciao"
+    </script>
+  `
+};
+
+export const SB_LOCALIZATION_VARIABLES: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Localization } from '@aracna/core';
+
+      const localization = new Localization('en', [
+        { data: { hello: 'Hello {name}' }, language: 'en' },
+        { data: { hello: 'Ciao {name}' }, language: 'it' }
+      ]);
+
+      console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+      console.log(localization.get('it', 'hello', { name: 'Mario' })); // will log "Ciao Mario"
+
+      localization.variables.name = 'Unknown';
+
+      console.log(localization.get('hello')); // will log "Hello Unknown"
+    </script>
+  `
+};
+
+export const SB_LOCALIZATION_STORAGE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Localization } from '@aracna/core';
+      import { LocalStorage } from '@aracna/web';
+
+      const localization = new Localization(
+        'en',
+        [
+          { data: { hello: 'Hello {name}' }, language: 'en' },
+          { data: { hello: 'Ciao {name}' }, language: 'it' }
+        ],
+        LocalStorage
+      );
+
+      (async () => {
+        console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+
+        await localization.storeLanguage('it');
+        console.log(localization.get('hello', { name: 'Mario' })); // will log "Ciao Mario"
+
+        localization.setLanguage('en');
+        console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+
+        await localization.initialize();
+        console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+      })();
     </script>
   `
 };

@@ -3,24 +3,22 @@ layout: '@/layouts/Layout.astro'
 title: Fetch
 ---
 
-This class makes fetch a breeze to use by having the following features.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_FETCH } from '@/definitions/stack-blitz/core/modules'
 
-- Cleaner API
-- Node Polyfilling
-- Response Data Parsing
-- Automatic Request Headers
-- Blob, File and FormData Compatibility
+The **Fetch** class provides a convenient and flexible way to make HTTP requests using the **fetch** API. The class provides several static methods for making HTTP requests with different HTTP methods and request options, and handles network errors and retries automatically. The class also provides several polyfills for the **fetch** API, ensuring that the **fetch** API is available in all environments.
 
-### Usage
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_FETCH}
+  template='javascript'
+  title='Fetch'
+  console={100}
+/>
 
-```ts
-import { Fetch, FetchResponse } from '@aracna/core'
+## Isomorphic
 
-Fetch.get('https://dummyjson.com/products').then((response: FetchResponse) => {
-  // will log the already parsed JSON
-  console.log(response.data)
-})
+The **Fetch** class is isomorphic because it uses the **Polyfill** class to polyfill the **fetch**, **Blob**, **File**, and **FormData** APIs. This allows the **API** class to work in both server-side and client-side environments, even if those environments do not support these APIs natively.
 
-// will automatically set the approriate headers based on the type of the body, in this case a JSON
-Fetch.post('https://dummyjson.com/products/add', {})
-```
+By polyfilling these APIs, the **Fetch** class can work in both server-side and client-side environments, making it isomorphic. This means that you can use the same code to make HTTP requests from both the server and the client, reducing code duplication and making your code more maintainable.

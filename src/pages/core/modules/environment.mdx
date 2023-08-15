@@ -3,82 +3,28 @@ layout: '@/layouts/Layout.astro'
 title: Environment
 ---
 
-This class makes it easy to know which environment you're working on, useful for hybrid modules and SSR applications.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_ENVIRONMENT } from '@/definitions/stack-blitz/core/modules'
 
-### Get "process.env" Property
+The **Environment** class is used to check the current environment and the availability of certain global objects or functions.
 
-```ts
-import { Environment } from '@aracna/core'
+- **isBlobDefined**
+- **isDevelopment**
+- **isDocumentDefined**
+- **isFetchDefined**
+- **isFileDefined**
+- **isFormDataDefined**
+- **isJest**
+- **isProduction**
+- **isTest**
+- **isProcessDefined**
+- **isWindowDefined**
 
-// will log "MY_ENV_PROPERTY" value if defined, otherwise will return an empty string for safety
-console.log(Environment.get('MY_ENV_PROPERTY'))
-```
-
-### Has "process.env" Property
-
-```ts
-import { Environment } from '@aracna/core'
-
-// will log true if "MY_ENV_PROPERTY" is defined
-console.log(Environment.has('MY_ENV_PROPERTY'))
-```
-
-### Import/Require
-
-Useful for importing a module dynamically without including it into the bundle.
-
-```ts
-import { Environment } from '@aracna/core'
-
-Environment.import('my_ecmascript_module')
-Environment.require('my_commonjs_module')
-```
-
-### Getters
-
-#### Positive
-
-- isBlobDefined
-- isDevelopment
-- isDocumentDefined
-- isFetchDefined
-- isFileDefined
-- isFormDataDefined
-- isJest
-- isProduction
-- isTest
-- isProcessDefined
-- isWindowDefined
-
-#### Negative
-
-- isBlobNotDefined
-- isNotDevelopment
-- isDocumentNotDefined
-- isFetchNotDefined
-- isFileNotDefined
-- isFormDataNotDefined
-- isJestNotDefined
-- isNotProduction
-- isNotTest
-- isProcessNotDefined
-- isWindowNotDefined
-
-#### Usage
-
-```ts
-import { Environment } from '@aracna/core'
-
-if (Environment.isWindowDefined) {
-  console.log('window is defined')
-}
-```
-
-### NODE_ENV
-
-```ts
-import { Environment } from '@aracna/core'
-
-// will log the "NODE_ENV" property value if defined
-console.log(Environment.NODE_ENV)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_ENVIRONMENT}
+  template='javascript'
+  title='Environment'
+  console={100}
+/>

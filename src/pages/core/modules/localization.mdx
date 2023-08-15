@@ -3,135 +3,76 @@ layout: '@/layouts/Layout.astro'
 title: Localization
 ---
 
-This class makes it possible to localize your application.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_LOCALIZATION_PACKS,
+  SB_LOCALIZATION_GET,
+  SB_LOCALIZATION_VARIABLES,
+  SB_LOCALIZATION_STORAGE
+} from '@/definitions/stack-blitz/core/modules'
 
-### Usage
+The **Localization** class is used to manage localization packs for a project. It provides methods for adding new packs and retrieving localized strings.
 
-```ts
-import { Localization } from '@aracna/core'
+The **Localization** class can also store the language. The language is passed as an argument to the constructor, and is stored as a property of the class instance. The **initialize** method is used to copy the **Localization** instance to the storage object, and it copies the language property as well
 
-const MyLocalization = new Localization('en', [
-  { data: { title: 'My application' }, language: 'en' },
-  { data: { title: 'La mia applicazione' }, language: 'it' }
-])
+## Packs
 
-// will log "My application"
-console.log(MyLocalization.get('title'))
-```
+In the **Localization** class, packs can be set from the constructor and also added with the **push** method.
 
-### Add Language Packs
+Overall, the **Localization** class provides flexibility in managing localization packs by allowing packs to be set from the constructor and also added with the **push** method. This allows for easy initialization of the **Localization** instance with pre-existing localized strings, as well as adding new localized strings dynamically.
 
-```ts
-import { Localization } from '@aracna/core'
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_LOCALIZATION_PACKS}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>
 
-const MyLocalization = new Localization('en')
+## Localize
 
-MyLocalization.add(
-  { data: { title: 'My application' }, language: 'en' },
-  { data: { title: 'La mia applicazione' }, language: 'it' }
-)
-```
+The **get** method in the **Localization** class is used to retrieve a localized string from a localization pack. It takes in a path to the localized string as the only argument.
 
-### Get Localized String
+The **get** method with only a path argument is a simplified version of the method that allows for easy retrieval of localized strings with variable substitution.
 
-```ts
-import { Localization } from '@aracna/core'
+When called with a **language** and a **path**, the method retrieves the localization pack for the specified language, and if it doesn't exist, it returns the path. If the localized string exists in the pack, the method checks for any variables in the string using a regular expression. If variables are found, the method replaces them with their corresponding values from the localization variables object. The method then returns the localized string with the variables replaced.
 
-const MyLocalization = new Localization('en', [
-  { data: { title: 'My application' }, language: 'en' },
-  { data: { title: 'La mia applicazione' }, language: 'it' }
-])
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_LOCALIZATION_GET}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>
 
-// will log "My application"
-console.log(MyLocalization.get('title'))
+## Variables
 
-// will log "La mia applicazione"
-console.log(MyLocalization.get('it', 'title'))
+The **get** method with variables allows for easy retrieval of localized strings with variable substitution, making it easy to customize the localized strings for different use cases.
 
-MyLocalization.language = 'it'
+If the localized string contains variables, the method replaces them with their corresponding values from the localization variables object. The variables are specified in the localized string using curly braces, for example **\{name\}**. The method uses a regular expression to find all variables in the string, and then replaces them with their corresponding values from the localization variables object.
 
-// will log "La mia applicazione"
-console.log(MyLocalization.get('title'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_LOCALIZATION_VARIABLES}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>
 
-### Variables
+## Storage
 
-```ts
-import { Localization } from '@aracna/core'
+In the **Localization** class, the **storage** property is used to store the **Localization** instance in a persistent storage. The **storage** property is set when the **initialize** method is called, and it is used to store the **Localization** instance in a persistent storage using the **set** method of the storage object.
 
-const MyLocalization = new Localization('en', [
-  {
-    data: {
-      shallow: 'My name is {name}',
-      deep: 'John is {john.age} years old, Mario is {mario.age} years old'
-    },
-    language: 'en'
-  },
-  {
-    data: {
-      shallow: 'Il mio nome è {name}',
-      deep: 'Mario ha {mario.age} anni, John ha {john.age} anni'
-    },
-    language: 'it'
-  }
-])
+The **storeLanguage** method is used to set the language of the **Localization** instance and store it in the persistent storage. It takes in a language as an argument, sets the language property of the **Localization** instance, and stores the instance in the persistent storage using the set method of the storage object.
 
-// will log "My name is John"
-MyLocalization.get('shallow', { name: 'John' })
-
-// will log "Il mio nome è Mario"
-MyLocalization.get('it', 'shallow', { name: 'Mario' })
-
-// will log "John is 20 years old, Mario is 30 years old"
-MyLocalization.get('deep', { john: { age: 20 }, mario: { age: 30 } })
-
-// will log "Mario ha 30 anni, John ha 20 anni"
-MyLocalization.get('it', 'deep', { john: { age: 20 }, mario: { age: 30 } })
-```
-
-### Global Variables
-
-```ts
-import { Localization } from '@aracna/core'
-
-const MyLocalization = new Localization('en', [
-  { data: { planet: 'My planet name is {planet.name}' }, language: 'en' }
-])
-
-// will log "My planet name is {planet.name}"
-MyLocalization.get('planet')
-
-// will set the variables as global
-MyLocalization.setVariables({ planet: { name: 'Earth' } })
-
-// will log "My planet name is Earth"
-MyLocalization.get('planet')
-```
-
-### Set Language
-
-```ts
-import { Localization } from '@aracna/core'
-
-const MyLocalization = new Localization('en')
-
-// will set "en" as the language
-MyLocalization.setLanguage('en')
-
-// will set "it" as the language
-MyLocalization.setLanguage('it')
-```
-
-### Store Language
-
-```ts
-import { Localization } from '@aracna/core'
-
-const MyLocalization = new Localization('en')
-
-// will set "en" as the language and store it if a storage has been defined
-MyLocalization.storeLanguage('en')
-
-// will set "it" as the language and store it if a storage has been defined
-MyLocalization.storeLanguage('it')
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCALIZATION_STORAGE}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>

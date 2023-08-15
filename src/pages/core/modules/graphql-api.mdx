@@ -3,195 +3,40 @@ layout: '@/layouts/Layout.astro'
 title: GraphQLAPI
 ---
 
-This class makes handling GraphQL APIs easier by abstracting some essential features.
-
-- Base URL
-- Base Fetch Configuration
-- Status
-
-### Base URL
-
-```ts
-import { GraphQLAPI, gql } from '@aracna/core'
-
-const DummyAPI: GraphQLAPI = new GraphQLAPI(
-  'https://graphqlzero.almansi.me/api'
-)
-
-const GET_USERS_QUERY: string = gql`
-  query getUsers {
-    users {
-      data {
-        id
-      }
-    }
-  }
-`
-
-// will automatically run this query against "https://graphqlzero.almansi.me/api"
-DummyAPI.handle(GET_USERS_QUERY)
-```
-
-### Base Fetch Configuration
-
-```ts
-import { GraphQLAPI, gql } from '@aracna/core'
-
-const DummyAPI: GraphQLAPI = new GraphQLAPI(
-  'https://graphqlzero.almansi.me/api',
-  { headers: { authorization: 'Bearer $token' } }
-)
-
-const GET_USERS_QUERY: string = gql`
-  query getUsers {
-    users {
-      data {
-        id
-      }
-    }
-  }
-`
-
-// will automatically run this query with the authorization header
-DummyAPI.handle(GET_USERS_QUERY)
-```
-
-### Status
-
-```ts
+import { StackBlitz } from '@/components/StackBlitz.tsx'
 import {
-  FetchError,
-  FetchResponse,
-  GraphQLAPI,
-  gql,
-  RequestMethod
-} from '@aracna/core'
+  SB_GRAPHQL_API_QUERY,
+  SB_GRAPHQL_API_MUTATION
+} from '@/definitions/stack-blitz/core/modules'
 
-const DummyAPI: GraphQLAPI = new GraphQLAPI(
-  'https://graphqlzero.almansi.me/api'
-)
+The **GraphQLAPI** class extends the [**API**](/core/modules/api) class and provides a convenient way to make GraphQL API requests using the **fetch** API. The **API** class provides a set of methods for making HTTP requests, while the **GraphQLAPI** class provides additional functionality for making GraphQL API requests.
 
-const GET_USERS_QUERY: string = gql`
-  query getUsers {
-    users {
-      data {
-        id
-      }
-    }
-  }
-`
+## Query
 
-DummyAPI.get(GET_USERS_QUERY)
-  .then((response: FetchResponse) => {
-    // will log true
-    console.log(DummyAPI.status.isSuccess(RequestMethod.POST, GET_USERS_QUERY))
-  })
-  .catch((error: FetchError) => {
-    // will log true
-    console.log(DummyAPI.status.isError(RequestMethod.POST, GET_USERS_QUERY))
-  })
+The **query** method defined in the **GraphQLAPI** class is used to make a GraphQL query to the server using the **POST** HTTP method. In GraphQL, a query is a string that defines the data that the client wants to retrieve from the server.
 
-// will log true
-console.log(DummyAPI.status.isPending(RequestMethod.POST, GET_USERS_QUERY))
-```
+The **query** method provides a convenient way to make a GraphQL query to the server using the **POST** HTTP method. The method takes a **query** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **query** argument is a string that contains the GraphQL query to be sent to the server, and can be used to retrieve specific data from the server based on the client's needs.
 
-### Advanced Features
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GRAPHQL_API_QUERY}
+  template='javascript'
+  title='GraphQLAPI'
+  console={100}
+/>
 
-- Custom Configuration
-- Status Handlers
+## Mutation
 
-### Custom Configuration
+The **mutation** method defined in the **GraphQLAPI** class is used to make a GraphQL mutation to the server using the **POST** HTTP method.
 
-```ts
-import { FetchResponse, GraphQLAPI, GraphQLAPIConfig, gql } from '@aracna/core'
+The **mutation** method provides a convenient way to make a GraphQL mutation to the server using the **POST** HTTP method. The method takes a **mutation** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **mutation** argument is a string that contains the GraphQL mutation to be sent to the server, and can be used to modify data on the server based on the client's needs.
 
-interface DummyAPIConfig extends GraphQLAPIConfig {
-  useAuthorization?: boolean
-}
-
-const DummyAPI: GraphQLAPI<DummyAPIConfig> = new GraphQLAPI(
-  'https://graphqlzero.almansi.me/api'
-)
-
-DummyAPI.handlePending = async <V>(
-  query: string,
-  variables: V | undefined,
-  config: T
-): Promise<boolean> => {
-  if (config.useAuthorization) {
-    config.headers = { authorization: 'Bearer $token' }
-  }
-
-  return true
-}
-
-const GET_USERS_QUERY: string = gql`
-  query getUsers {
-    users {
-      data {
-        id
-      }
-    }
-  }
-`
-
-// will automatically perform this request with the authorization header
-DummyAPI.get(GET_USERS_QUERY, { useAuthorization: true })
-```
-
-### Status Handlers
-
-```ts
-import { FetchResponse, GraphQLAPI, gql } from '@aracna/core'
-
-const DummyAPI: GraphQLAPI = new GraphQLAPI(
-  'https://graphqlzero.almansi.me/api'
-)
-
-DummyAPI.handleError = async <V, W = U>(
-  query: string,
-  variables: V | undefined,
-  config: T,
-  error: FetchError<W>
-): Promise<boolean> => {
-  window.alert(error.message)
-
-  // if you return true it won't be considered as an error
-  return false
-}
-
-DummyAPI.handlePending = async <V>(
-  query: string,
-  variables: V | undefined,
-  config: T
-): Promise<boolean> => {
-  window.alert('PENDING REQUEST FOR QUERY: ' + query)
-
-  // if you return false it will be considered as an error and the request won't be performed
-  return true
-}
-
-DummyAPI.handleSuccess = async <V, W>(
-  query: string,
-  variables: W | undefined,
-  config: T,
-  response: FetchResponse<V>
-): Promise<boolean> => {
-  window.alert('SUCCESS REQUEST FOR QUERY: ' + query)
-
-  // if you return false it will be considered as an error
-  return true
-}
-
-const GET_USERS_QUERY: string = gql`
-  query getUsers {
-    users {
-      data {
-        id
-      }
-    }
-  }
-`
-
-DummyAPI.get(GET_USERS_QUERY)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GRAPHQL_API_MUTATION}
+  template='javascript'
+  title='GraphQLAPI'
+  console={100}
+/>
