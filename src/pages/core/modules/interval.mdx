@@ -11,11 +11,11 @@ import {
   SB_INTERVAL_CLEAR
 } from '@/definitions/stack-blitz/core/modules'
 
-The **Interval** class provides a set of static methods to manage intervals in JavaScript. The class abstracts and simplifies the use of the **setInterval** and **clearInterval** functions by using a **Map** object to store the intervals and their keys, and by providing a set of static methods to start, stop, clear, and check the status of intervals.
+The **Interval** class provides a set of static methods to manage intervals in ECMAScript. The class abstracts and simplifies the use of the **setInterval** and **clearInterval** functions by using a **Map** object to store the intervals and their keys, and by providing a set of static methods to start, stop, clear, and check the status of intervals.
 
 ## Function as Key
 
-The **start** and **stop** methods of the **Interval** class provide a convenient way to start and stop intervals in JavaScript applications by using a **Map** object to store the intervals and their keys, and by providing a set of static methods to manage the intervals. When using only the **fn** and **ms** arguments, the **start** method uses **fn** as key for the interval and stores it in the **Map** object, making it easy to identify and manage the interval using the **stop** method.
+The **start** and **stop** methods of the **Interval** class provide a convenient way to start and stop intervals in ECMAScript applications by using a **Map** object to store the intervals and their keys, and by providing a set of static methods to manage the intervals. When using only the **fn** and **ms** arguments, the **start** method uses **fn** as key for the interval and stores it in the **Map** object, making it easy to identify and manage the interval using the **stop** method.
 
 <StackBlitz
   client:load
@@ -41,7 +41,7 @@ When using the **name**, **fn**, and **ms** arguments, the **start** method gene
 
 ## Clear
 
-The **clear** method of the **Interval** class provides a convenient way to clear all intervals that have been started using the **start** method in JavaScript applications. This makes it easy to manage intervals and prevent memory leaks by clearing them when they are no longer needed.
+The **clear** method of the **Interval** class provides a convenient way to clear all intervals that have been started using the **start** method in ECMAScript applications. This makes it easy to manage intervals and prevent memory leaks by clearing them when they are no longer needed.
 
 <StackBlitz
   client:load
@@ -54,7 +54,7 @@ The **clear** method of the **Interval** class provides a convenient way to clea
 
 ## Autorun
 
-The **autorun** parameter provides a convenient way to execute an interval immediately after starting it in JavaScript applications. This can be useful in situations where you want to execute an interval as soon as possible, such as when initializing a timer or animation.
+The **autorun** parameter provides a convenient way to execute an interval immediately after starting it in ECMAScript applications. This can be useful in situations where you want to execute an interval as soon as possible, such as when initializing a timer or animation.
 
 <StackBlitz
   client:load

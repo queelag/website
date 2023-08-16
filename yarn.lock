@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aracna/core@^1.1.33":
-  version "1.1.33"
-  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.33.tgz#f57997b81c140624e54992f2b046ad9098c0fad1"
-  integrity sha512-aCpSAEqV2RuQQlZBR3NnQBI4/lqZrU5RNHXHrcAI3A9HuZALKBom5u7oX3S72+uCUXFznSs2hRkl2cL0iANQbw==
+"@aracna/core@^1.1.34":
+  version "1.1.34"
+  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.34.tgz#a864268b7095f568ebdeeecacc5262b4864062b6"
+  integrity sha512-R3Q0ltr9jml5oabhsYl0u8q0ZnAe4VM++IrCiIZWm2LaccPg/zwdAsutONq/m0XEcTOiQy06xu8M5N6XSLs9nA==
   dependencies:
     "@types/cookie" "^0.5.1"
     cookie "^0.5.0"
@@ -61,10 +61,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.28.tgz#4c71f27447c23b6c2b1aed2d83f4cb28290abb4a"
   integrity sha512-CHslYuamgQOEs9lb4gjuXC1tYZ9vamW3O89xcGvs96Ckkf62KVu6e2XgAjUSlKabeu41fVqsIjHbXSeIAq7VYg==
 
-"@aracna/web@^1.0.28":
-  version "1.0.28"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.28.tgz#0ee03d7283f79deaeb9cc897a9ca23f8186c5129"
-  integrity sha512-HZ1HnSBksu3rNrDvL6OA2dFG4t1Iqc2QyxGqqiP1lywbdocLOZDsJFgl8cip8OXoDt1f2ZKoxKLcMj3ohgEreA==
+"@aracna/web@^1.0.29":
+  version "1.0.29"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.29.tgz#b0023126b1248873672787980d005faed4865e5d"
+  integrity sha512-Xe5L4x0kZ7oxlVDTWD2Dgc6ePsLC/nfCdK8s1un5RG4McVlIc6GEbiBj7y3W3O3ehqQ6jcdzILGah0Ww+TXyhg==
 
 "@astrojs/compiler@^1.0.1", "@astrojs/compiler@^1.4.2", "@astrojs/compiler@^1.8.0":
   version "1.8.1"

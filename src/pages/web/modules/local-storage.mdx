@@ -5,7 +5,7 @@ title: LocalStorage
 
 This class implements [Storage](/docs/core/modules/storage) using the [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API.
 
-### Get
+## Get
 
 ```ts
 import { LocalStorage } from '@aracna/core'
@@ -32,7 +32,7 @@ LocalStorage.get(LocalStorageKey.USER, store, 'user')
 console.log(LocalStorage.get(LocalStorageKey.USER))
 ```
 
-### Set
+## Set
 
 ```ts
 import { LocalStorage } from '@aracna/core'
@@ -64,7 +64,7 @@ LocalStorage.set(LocalStorageKey.USER, JSON.stringify(store.user))
 console.log(LocalStorage.get(LocalStorageKey.USER))
 ```
 
-### Remove
+## Remove
 
 ```ts
 import { LocalStorage } from '@aracna/core'
@@ -94,7 +94,7 @@ LocalStorage.remove(LocalStorageKey.USER)
 console.log(LocalStorage.get(LocalStorageKey.USER))
 ```
 
-### Advanced Usage
+## Advanced Usage
 
 ```ts
 import { LocalStorage } from '@aracna/core'

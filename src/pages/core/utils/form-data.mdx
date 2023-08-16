@@ -3,53 +3,36 @@ layout: '@/layouts/Layout.astro'
 title: FormData
 ---
 
-This document describes various [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_SERIALIZE_FORM_DATA,
+  SB_DESERIALIZE_FORM_DATA
+} from '@/definitions/stack-blitz/core/utils'
 
-### Serialize
+FormData utils are a set of utility functions that are designed to make working with **FormData** objects in ECMAScript easier and more efficient. **FormData** is a built-in ECMAScript object that provides a way to construct and send data in the format of a **multipart/form-data** request. This format is commonly used to submit forms that contain files, such as images or documents, to a server.
 
-- Converts "bigint", "boolean" and "number" primitive values to string
-- Stringifies object values
+## Serialize
 
-```ts
-import { serializeFormData } from '@aracna/core'
+The **serializeFormData** function is used to create a **FormData** object from a ECMAScript object. The function takes a ECMAScript object as input and returns a **FormData** object.
 
-const person = {
-  age: 20,
-  features: {
-    eyes: 'Brown',
-    height: 175
-  },
-  name: 'John',
-  picture: new Blob([])
-}
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SERIALIZE_FORM_DATA}
+  template='javascript'
+  title='serializeFormData'
+  console={100}
+/>
 
-const form_data = serializeFormData(person)
+## Deserialize
 
-// will log "20"
-console.log(form_data.get('age'))
+The **deserializeFormData** function is used to create a ECMAScript object from a **FormData** object. The function takes a **FormData** object as input and returns a ECMAScript object.
 
-// will log "{ "eyes": "Brown", "height": 175 }"
-console.log(form_data.get('features'))
-
-// will log "John"
-console.log(form_data.get('name'))
-
-// will log Blob
-console.log(form_data.get('picture'))
-```
-
-### Deserialize
-
-- Parses stringified object values
-
-```ts
-import { deserializeFormData } from '@aracna/core'
-
-const form_data = new FormData()
-
-form_data.append('features', JSON.stringify({ eyes: 'Brown', height: 175 }))
-form_data.append('name', 'John')
-
-// will log { features: { eyes: "Brown", height: 175 }, name: "John" }
-console.log(deserializeFormData(form_data))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DESERIALIZE_FORM_DATA}
+  template='javascript'
+  title='deserializeFormData'
+  console={100}
+/>

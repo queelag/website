@@ -2,3 +2,21 @@
 layout: '@/layouts/Layout.astro'
 title: TextCodec
 ---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_TEXT_CODEC } from '@/definitions/stack-blitz/core/modules'
+
+The **TextCodec** class provides a simple and flexible interface for encoding and decoding text using the **TextEncoder** and **TextDecoder** APIs.
+
+The **encode** method provides a useful interface for encoding a string to a **Uint8Array** using the **TextEncoder** API.
+
+The **decode** method provides a useful interface for decoding a **Uint8Array** to a string using the **TextDecoder** API. The **decode** method also has an optional **options** parameter that can be used to specify additional decoding options, such as the **stream** option, which indicates that the input is a stream and should be decoded incrementally.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TEXT_CODEC}
+  template='javascript'
+  title='TextCodec'
+  console={100}
+/>

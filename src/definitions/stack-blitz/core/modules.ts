@@ -578,9 +578,9 @@ export const SB_ID_PREFIX_SUFFIX_SEPARATOR: ProjectFiles = {
     <script>
       import { ID } from '@aracna/core';
 
-      console.log(ID.generate({ prefix: 'pre' })); // will logs pre_...
-      console.log(ID.generate({ suffix: 'post' })); // will logs ..._post
-      console.log(ID.generate({ prefix: 'pre', separator: '-' })); // will logs pre-...
+      console.log(ID.generate({ prefix: 'pre' })); // will log pre_...
+      console.log(ID.generate({ suffix: 'post' })); // will log ..._post
+      console.log(ID.generate({ prefix: 'pre', separator: '-' })); // will log pre-...
     </script>
   `
 };
@@ -894,7 +894,30 @@ export const SB_STATUS_IS_GETTERS: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE: ProjectFiles = {
+export const SB_STORAGE_SET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Storage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new Storage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        await storage.set('item', { name: 'John', surname: 'Doe' });
+        console.log(sm.get('item')); // will log { name: "John", surname: "Doe" }
+      })();
+    </script>
+  `
+};
+
+export const SB_STORAGE_GET: ProjectFiles = {
   'index.js': html`
     <script>
       import { Storage } from '@aracna/core';
@@ -913,6 +936,176 @@ export const SB_STORAGE: ProjectFiles = {
         await storage.set('item', { name: 'John', surname: 'Doe' });
         console.log(await storage.get('item')); // will log { name: "John", surname: "Doe" }
       })();
+    </script>
+  `
+};
+
+export const SB_STORAGE_REMOVE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Storage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new Storage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        await storage.set('item', { name: 'John', surname: 'Doe' });
+        console.log(sm.has('item')); // will log true
+
+        await storage.remove('item');
+        console.log(sm.has('item')); // will log false
+      })();
+    </script>
+  `
+};
+
+export const SB_STORAGE_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Storage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new Storage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        await storage.set('item1', { name: 'John', surname: 'Doe' });
+        await storage.set('item2', { name: 'Paul', surname: 'Smith' });
+        console.log(sm.has('item1'), sm.has('item2')); // will log true, true
+
+        await storage.clear();
+        console.log(sm.has('item1'), sm.has('item2')); // will log false, false
+      })();
+    </script>
+  `
+};
+
+export const SB_STORAGE_COPY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Storage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new Storage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        let target;
+
+        await storage.set('item', { name: 'John', surname: 'Doe' });
+
+        target = {};
+        await storage.copy('item', target);
+
+        console.log(target); // will log { name: "John", surname: "Doe" }
+      })();
+    </script>
+  `
+};
+
+export const SB_STORAGE_HAS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Storage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new Storage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        await storage.set('item', { name: 'John', surname: 'Doe' });
+        console.log(await storage.has('item')); // will log true
+      })();
+    </script>
+  `
+};
+
+export const SB_TEXT_CODEC: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { TextCodec } from '@aracna/core';
+
+      const encoded = TextCodec.encode('Hello');
+      console.log(encoded); // will log [72, 101, 108, 108, 111]
+
+      const decoded = TextCodec.decode(encoded);
+      console.log(decoded); // will log "Hello"
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_FN_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Timeout } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      Timeout.set(fn, 1000);
+      console.log('timeout set', Date.now());
+
+      setTimeout(() => {
+        Timeout.set(fn, 1000);
+        Timeout.unset(fn); // will not run anymore after 1s
+      }, 2000);
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_NAME_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Timeout } from '@aracna/core';
+
+      const ID = 'timeout';
+
+      Timeout.set(ID, () => console.log('running t1', Date.now()), 1000);
+      console.log('timeout set', Date.now());
+
+      setTimeout(() => {
+        Timeout.set(ID, () => console.log('running t2', Date.now()), 1000);
+        Timeout.unset(ID); // will not run anymore after 1s
+      }, 2000);
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Timeout } from '@aracna/core';
+
+      Timeout.set(() => console.log('running t1', Date.now()), 1000);
+      Timeout.set(() => console.log('running t2', Date.now()), 1000);
+
+      Timeout.clear(); // both timeouts will not run
     </script>
   `
 };

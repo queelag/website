@@ -3,16 +3,20 @@ layout: '@/layouts/Layout.astro'
 title: Date
 ---
 
-This document describes various Date utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_GET_DATE_UNIX_TIME } from '@/definitions/stack-blitz/core/utils'
 
-### Get Unix Time
+Date utils are a set of utility functions that are designed to make working with dates and times in ECMAScript easier and more efficient. Dates and times are a fundamental part of many web applications, and are used for a variety of purposes such as scheduling, logging, and data analysis.
 
-```ts
-import { getDateUnixTime } from '@aracna/core'
+## Get Unix Time
 
-// will log 1660232042878
-console.log(getDateUnixTime('2022-08-11T15:34:02.878Z'))
+The **getDateUnixTime** function is used to convert a date string, number, or **Date** object into a Unix timestamp. The function takes a date value and an optional unit of time (**'ms'** or **'s'**) as input, and returns the Unix timestamp in milliseconds or seconds, depending on the specified unit of time.
 
-// will log 16602320428
-console.log(getDateUnixTime('2022-08-11T15:34:02.878Z', 's'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_DATE_UNIX_TIME}
+  template='javascript'
+  title='getDateUnixTime'
+  console={100}
+/>

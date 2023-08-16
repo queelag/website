@@ -3,49 +3,36 @@ layout: '@/layouts/Layout.astro'
 title: File
 ---
 
-This document describes various File utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_SERIALIZE_FILE,
+  SB_DESERIALIZE_FILE
+} from '@/definitions/stack-blitz/core/utils'
 
-### Serialize
+File utils are a set of utility functions that are designed to make working with **File** objects in ECMAScript easier and more efficient. **File** objects are used to represent files in web applications, such as images, audio files, and other types of media.
 
-```ts
-import { AracnaFile, serializeFile } from '@aracna/core'
+## Serialize
 
-const aracna_file = new AracnaFile(new File([], ''))
-const file = serializeFile(aracna_file)
+The **serializeFile** function is used to create a new **File** object from an **AracnaFile** object. The function takes two parameters: an **AracnaFile** object and an optional **EndingType** parameter that can be used to control the line endings of the serialized file.
 
-// will log the File instance that was inside aracna_file
-console.log(file)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SERIALIZE_FILE}
+  template='javascript'
+  title='serializeFile'
+  console={100}
+/>
 
-### Deserialize
+## Deserialize
 
-```ts
-import { AracnaFile, deserializeFile } from '@aracna/core'
+The **deserializeFile** function is used to create an **AracnaFile** object from a **File** object. The **AracnaFile** class is defined elsewhere in the codebase and provides additional functionality for working with files, such as resolving the contents of the file as an array buffer or text.
 
-const file = new File([], '')
-const aracna_file = deserializeFile(file)
-
-// will log the AracnaFile instance with the file inside of it
-console.log(aracna_file)
-```
-
-### Deserialize With Resolution
-
-```ts
-import { AracnaFile, deserializeFile } from '@aracna/core'
-
-const file = new File([], '')
-const aracna_file = deserializeFile(file, {
-  resolveArrayBuffer: true,
-  resolveText: true
-})
-
-// will log the AracnaFile instance with the file inside of it
-console.log(aracna_file)
-
-// will log the resolved ArrayBuffer
-console.log(aracna_file.arrayBuffer)
-
-// will log the resolved text
-console.log(aracna_file.text)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DESERIALIZE_FILE}
+  template='javascript'
+  title='deserializeFile'
+  console={100}
+/>

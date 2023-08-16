@@ -3,114 +3,106 @@ layout: '@/layouts/Layout.astro'
 title: Array
 ---
 
-This document describes various Array utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_CLONE_SHALLOW_ARRAY,
+  SB_GET_ARRAYS_DIFFERENCE,
+  SB_GET_ARRAYS_INTERSECTION,
+  SB_GET_ARRAY_LAST_ITEM,
+  SB_REMOVE_ARRAY_DUPLICATES,
+  SB_REMOVE_ARRAY_ITEMS,
+  SB_IS_ARRAY
+} from '@/definitions/stack-blitz/core/utils'
 
-### Shallow Clone
+Array utils are a set of utility functions that are designed to make working with arrays in ECMAScript easier and more efficient. These functions provide a variety of useful features, such as cloning arrays, finding the difference and intersection between arrays, and removing duplicates from arrays.
 
-```ts
-import { cloneShallowArray } from '@aracna/core'
+## Shallow Clone
 
-const a: number[] = [0, 1]
-const b: number[] = cloneShallowArray(a)
+The **cloneShallowArray** function is used to create a shallow copy of an array. It takes an array of type **T[]** as input and returns a new array of type **T[]**.
 
-b[0] = 1
-b[1] = 2
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_CLONE_SHALLOW_ARRAY}
+  template='javascript'
+  title='cloneShallowArray'
+  console={100}
+/>
 
-// will log [0, 1]
-console.log(a)
-```
+## Symmetric Difference
 
-### Symmetric Difference
+The **getArraysDifference** function is used to return the symmetric difference between two or more arrays. The function takes an array of arrays of type **T[][]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
 
-```ts
-import { getArraysDifference } from '@aracna/core'
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ARRAYS_DIFFERENCE}
+  template='javascript'
+  title='getArraysDifference'
+  console={100}
+/>
 
-const a: number[] = [0, 1]
-const b: number[] = [1, 2]
+## Intersection
 
-// will log [0, 2]
-console.log(getArraysDifference([a, b]))
-```
+The **getArraysIntersection** function is used to return the intersection between two or more arrays. The function takes an array of arrays of type **T[][]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
 
-### Intersection
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ARRAYS_INTERSECTION}
+  template='javascript'
+  title='getArraysIntersection'
+  console={100}
+/>
 
-```ts
-import { getArraysIntersection } from '@aracna/core'
+## Get Last Item
 
-const a: number[] = [0, 1]
-const b: number[] = [1, 2]
+The **getArrayLastItem** function is used to get the last item of an array. The function takes an array of type **T[]** as input and returns the last element of the array of type **T**. The function also takes an optional fallback value of type **T**, which is returned if the array is empty.
 
-// will log [1]
-console.log(getArraysIntersection([a, b]))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ARRAY_LAST_ITEM}
+  template='javascript'
+  title='getArrayLastItem'
+  console={100}
+/>
 
-### Get Last Item
+## Remove Duplicates
 
-```ts
-import { getArrayLastItem } from '@aracna/core'
+The **removeArrayDuplicates** function is used to remove duplicates from an array. The function takes an array of type **T[]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
 
-// will log 1
-console.log(getArrayLastItem([0, 1]))
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_REMOVE_ARRAY_DUPLICATES}
+  template='javascript'
+  title='removeArrayDuplicates'
+  console={100}
+/>
 
-// will log undefined
-console.log(getArrayLastItem([]))
+## Remove Items
 
-// will log 0
-console.log(getArrayLastItem([]), 0)
-```
+The **removeArrayItems** function is used to remove items from an array based on a given condition. The function takes an array of type **T[]** as input and returns a new array of type **T[]**. The function also takes an optional array of items to remove and an optional **ArrayRemoves** function as input.
 
-### Remove Duplicates
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_REMOVE_ARRAY_ITEMS}
+  template='javascript'
+  title='removeArrayItems'
+  console={100}
+/>
 
-```ts
-import { removeArrayDuplicates } from '@aracna/core'
+## Array Check
 
-// will log [0, 1, 2, 3]
-console.log(removeArrayDuplicates([0, 1, 2, 2, 3, 3, 3]))
+The **isArray** function is used to check whether a given value is an array. The function takes any value as input and returns a boolean value indicating whether the input value is an array.
 
-interface Item {
-  value: number
-}
-
-// will log [{ value: 0 }, { value: 1 }, { value: 2 }, { value: 3 }]
-console.log(
-  removeArrayDuplicates(
-    [
-      { value: 0 },
-      { value: 1 },
-      { value: 2 },
-      { value: 2 },
-      { value: 3 },
-      { value: 3 },
-      { value: 3 }
-    ],
-    (array: Item[], item: Item) =>
-      array.findIndex((_item: Item) => _item.value === item.value) > -1
-  )
-)
-```
-
-### Remove Items
-
-```ts
-import { removeArrayItems } from '@aracna/core'
-
-// will log [1]
-console.log(removeArrayItems([0, 1, 2], [0, 2]))
-
-// will log [0]
-console.log(
-  removeArrayItems([0, 1, 2], (array: number[], item: number) => item > 0)
-)
-```
-
-### Array Check
-
-```ts
-import { isArray } from '@aracna/core'
-
-// will log true
-console.log(isArray([]))
-
-// will log false
-console.log(isArray({}))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_ARRAY}
+  template='javascript'
+  title='isArray'
+  console={100}
+/>

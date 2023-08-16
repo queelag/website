@@ -3,16 +3,20 @@ layout: '@/layouts/Layout.astro'
 title: Emoji
 ---
 
-This document describes various emoji utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_GET_EMOJI_FROM_COUNTRY_CODE } from '@/definitions/stack-blitz/core/utils'
 
-### Get Flag From Country Code
+Emoji utils are a set of utility functions that are designed to make working with emojis in ECMAScript easier and more efficient. Emojis are graphical symbols that are used to represent emotions, objects, and other concepts in digital communication.
 
-```ts
-import { getEmojiFromCountryCode } from '@aracna/core'
+## Get Flag From Country Code
 
-// will log 🇮🇹
-console.log(getEmojiFromCountryCode('IT'))
+The **getEmojiFromCountryCode** function is used to generate a flag emoji from a two-letter country code. The function takes a string representing a two-letter country code as input, and returns a string representing the corresponding flag emoji.
 
-// will log 🇩🇪
-console.log(getEmojiFromCountryCode('DE'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_EMOJI_FROM_COUNTRY_CODE}
+  template='javascript'
+  title='getEmojiFromCountryCode'
+  console={100}
+/>

@@ -3,16 +3,20 @@ layout: '@/layouts/Layout.astro'
 title: Function
 ---
 
-This document describes various Function utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_IS_INSTANCE_OF } from '@/definitions/stack-blitz/core/utils'
 
-### Check if any value is instanceof a class
+Function utils are a set of utility functions that are used to work with functions in a programming language. These utility functions can be used to manipulate function arguments and return values, check if a value is an instance of a function, or perform other operations related to functions.
 
-```ts
-import { isInstanceOf } from '@aracna/core'
+## Check Instance
 
-// will log false
-console.log(isInstanceOf(0, Blob))
+The **isInstanceOf** function is a utility function for checking if a value is an instance of a given function. The function takes two parameters: a value to check and a function to compare against. The function returns a boolean value indicating whether the value is an instance of the function.
 
-// will log true
-console.log(isInstanceOf(new Blob([]), Blob))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_INSTANCE_OF}
+  template='javascript'
+  title='isInstanceOf'
+  console={100}
+/>

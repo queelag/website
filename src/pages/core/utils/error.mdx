@@ -3,22 +3,22 @@ layout: '@/layouts/Layout.astro'
 title: Error
 ---
 
-This document describes various [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_IS_ERROR } from '@/definitions/stack-blitz/core/utils'
 
-### Check Instance
+Error utils are a set of utility functions that are designed to make working with errors in ECMAScript easier and more efficient. Errors are a common occurrence in web applications, and can be caused by a variety of factors such as invalid user input, network issues, or programming errors.
 
-```ts
-import { isError, isNotError } from '@aracna/core'
+## Check Instance
 
-// will log true
-console.log(isError(new Error()))
+The **isError** function is used to check whether a given value is an **Error** object. The function takes any value as input and returns a boolean value indicating whether the input value is an Error object.
 
-// will log false
-console.log(isError(0))
+The **isNotError** function is used to check whether a given value is not an **Error** object. The function takes any value as input and returns a boolean value indicating whether the input value is not an Error object.
 
-// will log true
-console.log(isNotError(0))
-
-// will log false
-console.log(isNotError(new Error()))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_ERROR}
+  template='javascript'
+  title='isError'
+  console={100}
+/>

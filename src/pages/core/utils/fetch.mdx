@@ -3,216 +3,162 @@ layout: '@/layouts/Layout.astro'
 title: Fetch
 ---
 
-This document describes various Fetch utility functions.
-
-### Delete Request Init Header
-
-```ts
+import { StackBlitz } from '@/components/StackBlitz.tsx'
 import {
-  deleteFetchRequestInitHeader,
-  getFetchRequestInitHeadersEntries
-} from '@aracna/core'
-
-const init: RequestInit = { headers: { a: '0', b: '1' } }
-deleteFetchRequestInitHeader(init, 'a')
-
-// will log [["b", "1"]]
-console.log(getFetchRequestInitHeadersEntries(init))
-```
-
-### Get Request Init Header
-
-```ts
-import { getFetchRequestInitHeader } from '@aracna/core'
-
-const init: RequestInit = { headers: { authorization: 'token' } }
-
-// will log "token"
-console.log(getFetchRequestInitHeader(init, 'authorization'))
-```
-
-### Get Request Init Headers Entries
-
-```ts
-import { getFetchRequestInitHeadersEntries } from '@aracna/core'
-
-const init: RequestInit = { headers: { a: '0', b: '1' } }
-
-// will log [["a", "0"], ["b", "1"]]
-console.log(getFetchRequestInitHeadersEntries(init))
-```
-
-### Get Request Init Headers Length
-
-```ts
-import { getFetchRequestInitHeadersLength } from '@aracna/core'
-
-const init: RequestInit = { headers: { a: '0', b: '1' } }
-
-// will log "2"
-console.log(getFetchRequestInitHeadersLength(init))
-```
-
-### Set Request Init Header
-
-```ts
-import {
-  getFetchRequestInitHeader,
-  setFetchRequestInitHeader
-} from '@aracna/core'
-
-const init: RequestInit = {}
-
-// will set the header inside the init
-setFetchRequestInitHeader(init, 'authorization', 'token')
-
-// will log "token"
-console.log(getFetchRequestInitHeader(init, 'authorization'))
-```
-
-### Set Request Init Header When Unset
-
-```ts
-import {
-  getFetchRequestInitHeader,
-  setFetchRequestInitHeaderWhenUnset
-} from '@aracna/core'
-
-const init: RequestInit = {}
-
-// will set the header inside the init
-setFetchRequestInitHeaderWhenUnset(init, 'authorization', 'token')
-
-// will log "token"
-console.log(getFetchRequestInitHeader(init, 'authorization'))
-
-// will not set the header since it has already been set before
-setFetchRequestInitHeaderWhenUnset(init, 'authorization', 'token2')
-
-// will still log "token"
-console.log(getFetchRequestInitHeader(init, 'authorization'))
-```
-
-### Has Request Init Header
-
-```ts
-import {
-  hasFetchRequestInitHeader,
-  setFetchRequestInitHeader
-} from '@aracna/core'
-
-const init: RequestInit = {}
-
-// will log false
-console.log(hasFetchRequestInitHeader(init, 'authorization'))
-
-// will set the header inside the init
-setFetchRequestInitHeader(init, 'authorization', 'token')
-
-// will log true
-console.log(hasFetchRequestInitHeader(init, 'authorization'))
-```
-
-### Merge Request Inits
-
-```ts
-import {
-  getFetchRequestInitHeadersEntries,
-  mergeFetchRequestInits
-} from '@aracna/core'
-
-const init_source: RequestInit = { headers: { a: '0' }, method: 'GET' }
-const init_target: RequestInit = { headers: { b: '1' }, method: 'POST' }
-
-const merged_init: RequestInit = mergeFetchRequestInits(
-  init_source,
-  init_target
-)
-
-// will log [["a", "0"], ["b", "1"]]
-console.log(getFetchRequestInitHeadersEntries(merged_init))
-
-// will log "POST"
-console.log(merged_init.method)
-```
-
-### Convert Internal Request Init to Native
-
-- Sets the correct headers based on body type
-- Converts body to string if it's not an object
-- Stringifies body if it's an object
--
-
-```ts
-import {
-  getFetchRequestInitHeader,
-  toNativeFetchRequestInit
-} from '@aracna/core'
-
-const init: RequestInit = {}
-
-init.body = 0
-let native_init = toNativeFetchRequestInit(init)
-
-// will log "0"
-console.log(native_init.body)
-
-// will log "text/plain"
-console.log(getFetchRequestInitHeader(native_init, 'content-type'))
-
-init.body = { name: 'John' }
-native_init = toNativeFetchRequestInit(init)
-
-// will log "{ "name": "John" }"
-console.log(native_init.body)
-
-// will log "application/json"
-console.log(getFetchRequestInitHeader(native_init, 'content-type'))
-
-init.body = new Blob([])
-native_init = toNativeFetchRequestInit(init)
-
-// will log Blob
-console.log(native_init.body)
-
-// will log "application/octet-stream"
-console.log(getFetchRequestInitHeader(native_init, 'content-type'))
-```
-
-### Make Request Init Loggable
-
-- Deserializes FormData body to make it more readable
-
-```ts
-import { toLoggableFetchRequestInit } from '@aracna/core'
-
-const init: RequestInit = {}
-
-init.body = new FormData()
-init.body.set('name', 'John')
-
-// will log "{ "body": { "name": "John" } }"
-console.log(toLoggableFetchRequestInit(init))
-```
-
-### Make Native Request Init Loggable
-
-- Deserializes FormData body to make it more readable
-- Parses JSON body to make it more readable
-
-```ts
-import { toLoggableFetchRequestInit } from '@aracna/core'
-
-const init: RequestInit = {}
-
-init.body = new FormData()
-init.body.set('name', 'John')
-
-// will log "{ "body": { "name": "John" } }"
-console.log(toLoggableFetchRequestInit(init))
-
-init.body = { name: 'John' }
-
-// will log "{ "body": { "name": "John" } }"
-console.log(toLoggableFetchRequestInit(init))
-```
+  SB_DELETE_FETCH_REQUEST_INIT_HEADER,
+  SB_GET_FETCH_REQUEST_INIT_HEADER,
+  SB_GET_FETCH_REQUEST_INIT_HEADERS_ENTRIES,
+  SB_GET_FETCH_REQUEST_INIT_HEADERS_LENGTH,
+  SB_SET_FETCH_REQUEST_INIT_HEADER,
+  SB_SET_FETCH_REQUEST_INIT_HEADER_WHEN_UNSET,
+  SB_HAS_FETCH_REQUEST_INIT_HEADER,
+  SB_MERGE_FETCH_REQUEST_INITS,
+  SB_TO_NATIVE_FETCH_REQUEST_INIT,
+  SB_TO_LOGGABLE_FETCH_REQUEST_INIT,
+  SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT
+} from '@/definitions/stack-blitz/core/utils'
+
+Fetch utils are a set of utility functions that are designed to make working with the Fetch API in ECMAScript easier and more efficient. The Fetch API is a modern interface for fetching resources over the network, and is commonly used in web applications to make HTTP requests to servers.
+
+## Delete Request Init Header
+
+The **deleteFetchRequestInitHeader** function is used to delete a specific header from a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to delete as input, and returns a new **FetchRequestInit** object with the specified header removed.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DELETE_FETCH_REQUEST_INIT_HEADER}
+  template='javascript'
+  title='deleteFetchRequestInitHeader'
+  console={100}
+/>
+
+## Get Request Init Header
+
+The **getFetchRequestInitHeader** function is used to retrieve the value of a specific header from a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to retrieve as input, and returns the value of the specified header as a string.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_FETCH_REQUEST_INIT_HEADER}
+  template='javascript'
+  title='getFetchRequestInitHeader'
+  console={100}
+/>
+
+## Get Request Init Headers Entries
+
+The **getFetchRequestInitHeadersEntries** function is used to retrieve an array of **[name, value]** pairs representing the headers of a **FetchRequestInit** object. The function takes a **FetchRequestInit** object as input, and returns an array of **[name, value]** pairs representing the headers of the input object.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_FETCH_REQUEST_INIT_HEADERS_ENTRIES}
+  template='javascript'
+  title='getFetchRequestInitHeadersEntries'
+  console={100}
+/>
+
+## Get Request Init Headers Length
+
+The **getFetchRequestInitHeadersLength** function is used to retrieve the number of headers in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object as input, and returns the number of headers in the **headers** property of the input object.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_FETCH_REQUEST_INIT_HEADERS_LENGTH}
+  template='javascript'
+  title='getFetchRequestInitHeadersLength'
+  console={100}
+/>
+
+## Set Request Init Header
+
+The **setFetchRequestInitHeader** function is used to set the value of a specific header in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object, a string representing the name of the header to set, and a string representing the value of the header as input. The function returns a new **FetchRequestInit** object with the specified header set to the specified value.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SET_FETCH_REQUEST_INIT_HEADER}
+  template='javascript'
+  title='setFetchRequestInitHeader'
+  console={100}
+/>
+
+## Set Request Init Header When Unset
+
+The **setFetchRequestInitHeaderWhenUnset** function is used to set the value of a specific header in a **FetchRequestInit** object, but only if the header is not already set. The function takes a **FetchRequestInit** object, a string representing the name of the header to set, and a string representing the value of the header as input. The function returns a new **FetchRequestInit** object with the specified header set to the specified value, but only if the header was not already set in the input object.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SET_FETCH_REQUEST_INIT_HEADER_WHEN_UNSET}
+  template='javascript'
+  title='setFetchRequestInitHeaderWhenUnset'
+  console={100}
+/>
+
+## Has Request Init Header
+
+The **hasFetchRequestInitHeader** function is used to check whether a specific header is set in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to check as input, and returns a boolean value indicating whether the specified header is set in the input object.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_HAS_FETCH_REQUEST_INIT_HEADER}
+  template='javascript'
+  title='hasFetchRequestInitHeader'
+  console={100}
+/>
+
+## Merge Request Inits
+
+The **mergeFetchRequestInits** function is used to merge two **FetchRequestInit** objects into a single object. The function takes two **FetchRequestInit** objects as input, and returns a new **FetchRequestInit** object that contains the merged headers and other properties of the input objects.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_MERGE_FETCH_REQUEST_INITS}
+  template='javascript'
+  title='mergeFetchRequestInits'
+  console={100}
+/>
+
+## Convert Internal Request Init to Native
+
+The **toNativeFetchRequestInit** function is used to convert a **FetchRequestInit** object to a native **RequestInit** object. The function takes a **FetchRequestInit** object as input, and returns a new **RequestInit** object with the same properties as the input object.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TO_NATIVE_FETCH_REQUEST_INIT}
+  template='javascript'
+  title='toNativeFetchRequestInit'
+  console={100}
+/>
+
+## Make Request Init Loggable
+
+The **toLoggableFetchRequestInit** function is used to convert a **FetchRequestInit** object to a loggable object that can be used for debugging or logging purposes. The function takes a **FetchRequestInit** object as input, and returns a new object with the same properties as the input object, but with the **headers** property converted to an array of **[name, value]** pairs.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TO_LOGGABLE_FETCH_REQUEST_INIT}
+  template='javascript'
+  title='toLoggableFetchRequestInit'
+  console={100}
+/>
+
+## Make Native Request Init Loggable
+
+The **toLoggableNativeFetchRequestInit** function is used to convert a native **RequestInit** object to a loggable object that can be used for debugging or logging purposes. The function takes a **RequestInit** object as input, and returns a new object with the same properties as the input object, but with the **headers** property converted to an array of **[name, value]** pairs.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT}
+  template='javascript'
+  title='toLoggableNativeFetchRequestInit'
+  console={100}
+/>

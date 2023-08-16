@@ -3,36 +3,36 @@ layout: '@/layouts/Layout.astro'
 title: Promise
 ---
 
-This document describes various [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_CHAIN_PROMISES,
+  SB_CHAIN_TRUTHY_PROMISES
+} from '@/definitions/stack-blitz/core/utils'
 
-### Chain Synchronously
+Promise utils are a set of utility functions that are designed to make working with Promises in ECMAScript easier and more efficient.
 
-```ts
-import { chainPromises } from '@aracna/core'
+## Chain Synchronously
 
-// will always log 0 before and 1 after
-chainPromises(
-  async () => console.log(0),
-  async () => console.log(1)
-)
-```
+The **chainPromises** function is a utility function that allows you to execute a sequence of asynchronous functions in a controlled manner. The function takes any number of functions that return Promises as arguments using the rest parameter syntax, and executes them in sequence using a **for** loop and the **await** keyword.
 
-### Chain Truthy Synchronously
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_CHAIN_PROMISES}
+  template='javascript'
+  title='chainPromises'
+  console={100}
+/>
 
-```ts
-import { PromiseUtils, rc } from '@aracna/core'
+## Chain Truthy Synchronously
 
-// will log 0 and 1 but will not log 2 since the previous promise returned a falsy value
-chainTruthyPromises(
-  async () => rc(() => console.log(0), true),
-  async () => console.log(1),
-  async () => console.log(2)
-)
+The **chainTruthyPromises** function is a utility function that allows you to execute a sequence of asynchronous functions in a controlled manner and check whether each Promise resolves to a truthy value. The function takes any number of functions that return Promises as arguments using the rest parameter syntax, and executes them in sequence using a for loop and the await keyword.
 
-// will log 0 but will not log 1 since the previous promise returned an Error
-chainTruthyPromises(
-  async () => rc(() => console.log(0), true),
-  async () => new Error(),
-  async () => console.log(1)
-)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_CHAIN_TRUTHY_PROMISES}
+  template='javascript'
+  title='chainTruthyPromises'
+  console={100}
+/>

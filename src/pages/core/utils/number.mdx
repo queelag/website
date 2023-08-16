@@ -3,124 +3,176 @@ layout: '@/layouts/Layout.astro'
 title: Number
 ---
 
-This document describes various Number utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_GET_ABSOLUTE_NUMBER,
+  SB_GET_HIGHEST_NUMBER,
+  SB_GET_LIMITED_NUMBER,
+  SB_GET_LOWEST_NUMBER,
+  SB_GET_NUMBER_PERCENTAGE,
+  SB_GET_NUMBERS_DISTANCE,
+  SB_IS_NUMBER_EVEN,
+  SB_IS_NUMBER_MULTIPLE_OF,
+  SB_IS_NUMBER_ODD,
+  SB_PARSE_BIG_INT,
+  SB_PARSE_NUMBER,
+  SB_TO_FIXED_NUMBER
+} from '@/definitions/stack-blitz/core/utils'
 
-### Get Absolute Number
+Number utils are a set of utility functions that are used to work with numbers in a programming language. These utility functions can be used to perform mathematical calculations, manipulate numeric data, or analyze numeric data in an application.
 
-```ts
-import { getAbsoluteNumber } from '@aracna/core'
+## Get Absolute Number
 
-// will log 1
-console.log(getAbsoluteNumber(-1))
-```
+The **getAbsoluteNumber** function is a utility function that returns the absolute value of a number. The function takes a number as input and returns the absolute value of that number.
 
-### Calculate Distance Between Numbers
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ABSOLUTE_NUMBER}
+  template='javascript'
+  title='getAbsoluteNumber'
+  console={100}
+/>
 
-```ts
-import { getNumbersDistance } from '@aracna/core'
+## Calculate Distance Between Numbers
 
-// will log 2
-console.log(getNumbersDistance(3, 5))
-```
+The **getNumbersDistance** function is a utility function that returns the distance between two numbers. The function takes two numbers as input and returns the absolute difference between the two numbers.
 
-### Get Number Limited Between a Maximum and a Minimum
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_NUMBERS_DISTANCE}
+  template='javascript'
+  title='getNumbersDistance'
+  console={100}
+/>
 
-```ts
-import { getLimitedNumber } from '@aracna/core'
+## Get Number Limited Between a Maximum and a Minimum
 
-// will log 3
-console.log(getLimitedNumber(5, 1, 3))
-```
+The **getLimitedNumber** function is a utility function that limits a number to a specified range. The function takes three parameters: a number to limit, a minimum value, and a maximum value. If the input number is within the specified range, the function returns the input number. Otherwise, the function returns the closest value within the range.
 
-### Calculate Percentage
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_LIMITED_NUMBER}
+  template='javascript'
+  title='getLimitedNumber'
+  console={100}
+/>
 
-```ts
-import { getNumberPercentage } from '@aracna/core'
+## Calculate Percentage
 
-// will log 75%
-console.log(getNumberPercentage(75))
-```
+The **getNumberPercentage** function is a utility function that calculates the percentage of a number relative to a range. The function takes four parameters: a number to calculate the percentage of, a minimum value, a maximum value, and a boolean value indicating whether to round the percentage to the nearest integer.
 
-### Pick Highest Number
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_NUMBER_PERCENTAGE}
+  template='javascript'
+  title='getNumberPercentage'
+  console={100}
+/>
 
-```ts
-import { getHighestNumber } from '@aracna/core'
+## Get Highest Number
 
-// will log 2
-console.log(getHighestNumber(0, 1, 2))
-```
+The **getHighestNumber** function is a utility function that returns the highest number in an array of numbers. The function can be called with either an array of numbers or a variable number of arguments, each representing a number.
 
-### Pick Lowest Number
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_HIGHEST_NUMBER}
+  template='javascript'
+  title='getHighestNumber'
+  console={100}
+/>
 
-```ts
-import { getLowestNumber } from '@aracna/core'
+## Get Lowest Number
 
-// will log 0
-console.log(getLowestNumber(0, 1, 2))
-```
+The **getLowestNumber** function is a utility function that returns the lowest number in an array of numbers. The function can be called with either an array of numbers or a variable number of arguments, each representing a number.
 
-### Parse BigInt
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_LOWEST_NUMBER}
+  template='javascript'
+  title='getLowestNumber'
+  console={100}
+/>
 
-```ts
-import { parseBigInt } from '@aracna/core'
+## Parse BigInt
 
-// will log 1n
-console.log(parseBigInt('1'))
-```
+The **parseBigInt** function is a utility function that parses a value into a BigInt. The function takes two parameters: a value to parse and an optional fallback value to return if the parsing fails.
 
-### Parse Number
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_PARSE_BIG_INT}
+  template='javascript'
+  title='parseBigInt'
+  console={100}
+/>
 
-```ts
-import { parseNumber } from '@aracna/core'
+## Parse Number
 
-// will log 5
-console.log(parseNumber('5'))
+The **parseNumber** function is a utility function that parses a value into a number. The function takes two parameters: a value to parse and an optional fallback value to return if the parsing fails
 
-// will log 2.5
-console.log(parseNumber('2.5'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_PARSE_NUMBER}
+  template='javascript'
+  title='parseNumber'
+  console={100}
+/>
 
-### To Fixed Number
+## To Fixed Number
 
-```ts
-import { toFixedNumber } from '@aracna/core'
+The **toFixedNumber** function is a utility function that formats a number to a fixed number of decimal places and returns the result as a number. The function takes two parameters: a number to format and the number of decimal places to include in the formatted number.
 
-// will log 2
-console.log(toFixedNumber(2.5, 0))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TO_FIXED_NUMBER}
+  template='javascript'
+  title='toFixedNumber'
+  console={100}
+/>
 
-### Check Evenness
+## Check Evenness
 
-```ts
-import { isNumberEven } from '@aracna/core'
+The **isNumberEven** function is a utility function that checks whether a number is even. The function takes a number as input and returns a boolean value indicating whether the number is even.
 
-// will log true
-console.log(isNumberEven(0))
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_NUMBER_EVEN}
+  template='javascript'
+  title='isNumberEven'
+  console={100}
+/>
 
-// will log false
-console.log(isNumberEven(1))
-```
+## Check Oddness
 
-### Check Oddness
+The **isNumberOdd** function is a utility function that checks whether a number is odd. The function takes a number as input and returns a boolean value indicating whether the number is odd.
 
-```ts
-import { isNumberOdd } from '@aracna/core'
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_NUMBER_ODD}
+  template='javascript'
+  title='isNumberOdd'
+  console={100}
+/>
 
-// will log true
-console.log(isNumberOdd(1))
+## Multiple Of
 
-// will log false
-console.log(isNumberOdd(2))
-```
+The **isNumberMultipleOf** function is a utility function that checks whether a number is a multiple of another number. The function takes two numbers as input: the number to check and the number to check for multiples of. The function returns a boolean value indicating whether the first number is a multiple of the second number.
 
-### Multiple Of
-
-```ts
-import { isNumberMultipleOf } from '@aracna/core'
-
-// will log true
-console.log(isNumberMultipleOf(4, 2))
-
-// will log false
-console.log(isNumberMultipleOf(5, 2))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_NUMBER_MULTIPLE_OF}
+  template='javascript'
+  title='isNumberMultipleOf'
+  console={100}
+/>

@@ -1,6 +1,7 @@
 import { omitObjectProperties } from '@aracna/core'
 import { joinElementClasses } from '@aracna/web'
 import Prism from 'prismjs'
+import 'prismjs/components/prism-bash.min.js'
 import 'prismjs/components/prism-typescript.min.js'
 import { useEffect, useRef } from 'react'
 import './Code.css'

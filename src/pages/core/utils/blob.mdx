@@ -3,49 +3,36 @@ layout: '@/layouts/Layout.astro'
 title: Blob
 ---
 
-This document describes various Blob utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_SERIALIZE_BLOB,
+  SB_DESERIALIZE_BLOB
+} from '@/definitions/stack-blitz/core/utils'
 
-### Serialize
+Blob utils are a set of utility functions that are designed to make working with **Blob** objects in ECMAScript easier and more efficient. **Blob** objects are used to represent binary data in web applications, such as images, audio files, and other types of media.
 
-```ts
-import { AracnaBlob, serializeBlob } from '@aracna/core'
+## Serialize
 
-const aracna_blob = new AracnaBlob(new Blob([]))
-const blob = serializeBlob(aracna_blob)
+The **serializeBlob** function used to serialize an **AracnaBlob** object into a new **Blob** object. The function takes an **AracnaBlob** object and an optional **EndingType** value as input, and returns a new **Blob** object. The **EndingType** value is used to specify the line endings of the serialized **Blob**.
 
-// will log the Blob instance that was inside aracna_blob
-console.log(blob)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SERIALIZE_BLOB}
+  template='javascript'
+  title='serializeBlob'
+  console={100}
+/>
 
-### Deserialize
+## Deserialize
 
-```ts
-import { AracnaBlob, deserializeBlob } from '@aracna/core'
+The **deserializeBlob** function is used to deserialize a **Blob** object into an **AracnaBlob** object. The function takes a **Blob** object and an optional **DeserializeBlobOptions** object as input, and returns a new **AracnaBlob** object. The **DeserializeBlobOptions** object is used to specify whether the **ArrayBuffer** and/or text content of the **Blob** should be resolved during deserialization.
 
-const blob = new Blob([])
-const aracna_blob = deserializeBlob(blob)
-
-// will log the AracnaBlob instance with the blob inside of it
-console.log(aracna_blob)
-```
-
-### Deserialize With Resolution
-
-```ts
-import { AracnaBlob, deserializeBlob } from '@aracna/core'
-
-const blob = new Blob([])
-const aracna_blob = deserializeBlob(blob, {
-  resolveArrayBuffer: true,
-  resolveText: true
-})
-
-// will log the AracnaBlob instance with the blob inside of it
-console.log(aracna_blob)
-
-// will log the resolved ArrayBuffer
-console.log(aracna_blob.arrayBuffer)
-
-// will log the resolved text
-console.log(aracna_blob.text)
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DESERIALIZE_BLOB}
+  template='javascript'
+  title='deserializeBlob'
+  console={100}
+/>

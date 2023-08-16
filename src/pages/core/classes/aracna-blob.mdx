@@ -83,11 +83,11 @@ The **uInt8Array** getter is a convenient way to get the binary data of a blob.
 
 When an **AracnaBlob** object is serialized to **JSON**, the resulting **JSON** object contains the following properties:
 
-- type: The MIME type of the blob.
-- base64: The base64-encoded string representation of the blob.
-- uInt8Array: An array of numbers representing the contents of the Uint8Array returned by the uInt8Array getter.
-- id: A unique identifier for the **AracnaBlob** object.
-- text: The text content of the blob, if any.
+- **type**: The MIME type of the blob.
+- **base64**: The base64-encoded string representation of the blob.
+- **uInt8Array**: An array of numbers representing the contents of the Uint8Array returned by the uInt8Array getter.
+- **id**: A unique identifier for the **AracnaBlob** object.
+- **text**: The text content of the blob, if any.
 
 When an **AracnaBlob** object is deserialized from **JSON**, a new **AracnaBlob** object is created using the **Blob** constructor with the type and base64 properties of the **JSON** object. The uInt8Array, id, and text properties of the **JSON** object are then used to set the corresponding properties of the new **AracnaBlob** object.
 
