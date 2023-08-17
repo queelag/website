@@ -15,56 +15,56 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aracna/core@^1.1.34":
-  version "1.1.34"
-  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.34.tgz#a864268b7095f568ebdeeecacc5262b4864062b6"
-  integrity sha512-R3Q0ltr9jml5oabhsYl0u8q0ZnAe4VM++IrCiIZWm2LaccPg/zwdAsutONq/m0XEcTOiQy06xu8M5N6XSLs9nA==
+"@aracna/core@^1.1.39":
+  version "1.1.39"
+  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.39.tgz#d7921c99d8780588546d9a1d3086883346e563e8"
+  integrity sha512-QrNutmqjbYhQvqz4QtCxTjal3wrvVTGvvz8/eAYefQJV0D46sRb3eJei7xaCceFjm2CogYkKDEDArcaVT/R2wg==
   dependencies:
     "@types/cookie" "^0.5.1"
     cookie "^0.5.0"
-    nanoid "3.3.6"
-    node-fetch "^3.3.1"
+    nanoid "^3.3.6"
+    node-fetch "^3.3.2"
     rfc4648 "^1.5.2"
 
-"@aracna/icons-feather-react@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.4.tgz#6f27211730015dafc395b4bcb50baa56ea191ded"
-  integrity sha512-n26wPmWlERPzvI5/zfJ+TdKir/uCCO83jWDEawgtda8KvuT/zeD7ie74oABwIxNMwX59l4od7w4pw1E+q2CCSg==
+"@aracna/icons-feather-react@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.5.tgz#93870c124d0cfed79e09413495626fd59f577ac3"
+  integrity sha512-Q+Tga2C4aj+f8WlMf+AEWNCwyCWZsf4azZXN9TVVyGsTcgPnHjJb+kk5Pe8aveosivT/Ni3CI3uGjy0TRHzw+w==
 
-"@aracna/icons-feather-web@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.6.tgz#75a04f18b91101a7e489d4b47a3d50db16437e0d"
-  integrity sha512-tDUNREDUi2nHGEK8q8edZFAY2bGsft1XeNQFDTRyCm3avppReC1zJLEdV0/Ntr5O4wL9FoWrd+M+/7bJIiU/Ew==
+"@aracna/icons-feather-web@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.7.tgz#02cdfd41cddedb60794f231dcb9b8ab287b994de"
+  integrity sha512-6YgHoS9NUHl3SRlu5D0FcsCFosX155y658tLxqOseXheDKTo9LG35sLCu0gcyD/4zvw36yJPtVZtvIlHX9xEMQ==
 
-"@aracna/react-components@^1.0.23":
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.23.tgz#a31c7c11e68b0e1861b23d2187108f0cf5a59f0e"
-  integrity sha512-QXF1Ymbs/p+X0BxXN3q9Oejpwc4Zj9XtVxmrYylO8+Av6s4OqMjHKQEX4p488ybtPYBi00mdKqVu8zaqV6IkmA==
-
-"@aracna/react@^1.0.22":
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.22.tgz#9eefc04c92bd15269c3cf6f540514ce42c048712"
-  integrity sha512-7Fx8gsax1PIln+7xRBeRp5AX1wDm5suS0t2gfYOHMbE+uSw19ddPtzLkk/i3Z975puDO2y2jROZVKa9rKMf90Q==
-
-"@aracna/state-manager-react@^1.0.20":
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/@aracna/state-manager-react/-/state-manager-react-1.0.20.tgz#f9e5fb984094edaf5376aea2e4ed68696b4b4cdb"
-  integrity sha512-xty/KTYbPqP4/DPTQHNNUwPzyKzhNEivQvUqM8Y3XoWxVmpX6MfkvMBxZpnm3oy15CG18LllqkM7iQdA9tN4hw==
-
-"@aracna/state-manager@^1.0.24":
+"@aracna/react-components@^1.0.24":
   version "1.0.24"
-  resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.24.tgz#8d1cad75f2179f2573bf8b88ca3f5be7469f17c3"
-  integrity sha512-6gitRCvYXwWyA6udAWrlvCrG4RmtvIrKhKeWTJJjufSuum4L0wZa6TPWwnab4VRGVC3rciaB1g8AwBeu+BRxpQ==
+  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.24.tgz#d2977faaea8c5e7f8d8c614c85f9efba7093e4cc"
+  integrity sha512-lW8R/I4VL7g6D9Zv/4R3va4uuamKh+wdXcUdj6l6Q50b9cHLLykaqft8doh2kja0vi0Pkbb6lO2CeUIpk6eKVw==
 
-"@aracna/web-components@^1.0.28":
-  version "1.0.28"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.28.tgz#4c71f27447c23b6c2b1aed2d83f4cb28290abb4a"
-  integrity sha512-CHslYuamgQOEs9lb4gjuXC1tYZ9vamW3O89xcGvs96Ckkf62KVu6e2XgAjUSlKabeu41fVqsIjHbXSeIAq7VYg==
+"@aracna/react@^1.0.24":
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.24.tgz#e34819b6af5a128a8232ca87a03bb188a059089e"
+  integrity sha512-eIQdmJjheJQ3bXwQLcphh0DT/IeFwSFAb/MepJaL/+bF1DZh0W7zNq9DR+bgGkP7qoA9+HhtJebOIpfD7gQkZg==
 
-"@aracna/web@^1.0.29":
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.29.tgz#b0023126b1248873672787980d005faed4865e5d"
-  integrity sha512-Xe5L4x0kZ7oxlVDTWD2Dgc6ePsLC/nfCdK8s1un5RG4McVlIc6GEbiBj7y3W3O3ehqQ6jcdzILGah0Ww+TXyhg==
+"@aracna/state-manager-react@^1.0.22":
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/@aracna/state-manager-react/-/state-manager-react-1.0.22.tgz#5dbdbaed44d7b8ef410f88dc7d5aaf558be17ccd"
+  integrity sha512-hPt8lMFrtys9ZWjsDqNd8umPk3XcK9Gttd3Woe0wv/L/JstEcZ0TJB5646EHHG84xVhBc0OOaG5wnchF3JcohA==
+
+"@aracna/state-manager@^1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.26.tgz#0bf8c9ad8fc8fde09fe465e8f2ed1124c3172aaa"
+  integrity sha512-FBZHKowrkfI+LxHnRurKs3oYu/bKxyoVkuK3wC6aBVOBDrfMhY1SIY0sirXhhJToHW3rMdZBkHD6jgfuQ7xEFA==
+
+"@aracna/web-components@^1.0.32":
+  version "1.0.32"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.32.tgz#f9a2157a0219d7f18a24316ecd5c975eb6f7a2a8"
+  integrity sha512-QEw1mLFYxz4phe4qnXOqQnAkiOJnxQufiJsr5sKMbzIQQ+m28G1MxxAmVvVuVkcXSeECnj9spY0+R3WqTb8E7w==
+
+"@aracna/web@^1.0.33":
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.33.tgz#4bd3f3de6bf661e8dd2f05e752614efd2b3134fa"
+  integrity sha512-onYnza1M4VF3AZjNvYBfxdcg+6qZHI4wqjppRAermb3ke8++n4Rwx5ilyJSHkh6CTUZBA9VQv3d30++dL4BinQ==
 
 "@astrojs/compiler@^1.0.1", "@astrojs/compiler@^1.4.2", "@astrojs/compiler@^1.8.0":
   version "1.8.1"
@@ -3270,7 +3270,7 @@ mz@^2.7.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
-nanoid@3.3.6, nanoid@^3.3.6:
+nanoid@^3.3.6:
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
@@ -3292,7 +3292,7 @@ node-domexception@^1.0.0:
   resolved "https://registry.yarnpkg.com/node-domexception/-/node-domexception-1.0.0.tgz#6888db46a1f71c0b76b3f7555016b63fe64766e5"
   integrity sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==
 
-node-fetch@^3.3.1:
+node-fetch@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.3.2.tgz#d1e889bacdf733b4ff3b2b243eb7a12866a0b78b"
   integrity sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==
