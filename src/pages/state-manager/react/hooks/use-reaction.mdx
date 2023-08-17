@@ -4,11 +4,11 @@ title: useReaction
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_USE_REACTION_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
+import { SB_USE_REACTION } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-This hook runs an effect when the value of the expression changes.
+The **useReaction** hook is a custom hook that is designed to be used with React functional components. It is used for registering a reaction to observable data and triggering a side effect when the observable data changes.
 
-## Usage
+The **useReaction** hook takes two arguments: the first is a function that returns a value based on the observable data, and the second is a function that is executed when the observable data changes.
 
 <StackBlitz
   client:load
@@ -19,8 +19,8 @@ This hook runs an effect when the value of the expression changes.
     '@aracna/state-manager-react': 'latest',
     '@aracna/web': 'latest'
   }}
-  files={SB_USE_REACTION_USAGE_FILES}
-  template='create-react-app'
+  files={SB_USE_REACTION}
+  template='react'
   title='useReaction'
   console
 />

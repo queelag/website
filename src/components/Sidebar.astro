@@ -43,7 +43,9 @@ async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
         title: mapDirName(ent.name)
       }
 
-      item.expanded = folders.length <= 0 ? true : Astro.url.pathname.includes(item.href)
+      // item.active = Astro.url.pathname.startsWith(item.href)
+      item.expanded = Astro.url.pathname.includes(item.href)
+      // item.expanded = folders.length <= 0 ? true : Astro.url.pathname.includes(item.href)
 
       items.push(item)
     }
@@ -82,6 +84,6 @@ async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
 const items: SidebarItemProps[] = await getItems()
 ---
 
-<div class='sticky top-24 left-0 min-w-[256px] hidden xl:flex flex-col pl-6' style='height: calc(100vh - 96px)'>
+<div class='sticky top-24 left-0 min-w-[280px] hidden xl:flex flex-col pl-6' style='height: calc(100vh - 96px)'>
   {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:load />)}
 </div>

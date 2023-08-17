@@ -3,13 +3,20 @@ layout: '@/layouts/Layout.astro'
 title: Document
 ---
 
-This document describes various [Document](https://developer.mozilla.org/en-US/docs/Web/API/Document) utility functions.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_CREATE_DOCUMENT_ELEMENT } from '@/definitions/stack-blitz/web/utils'
+
+Document utils are a set of utility functions that are used to work with the **document** object in the browser environment. The **document** object represents the web page loaded in the current browser window or tab, and provides a way to interact with the HTML elements on the page.
 
 ## Create Element
 
-```ts
-import { createDocumentElement } from '@aracna/core'
+The **createDocumentElement** function is used to create new elements in the **document** object in the browser environment. The function is a generic function that takes a **tagName** parameter and an optional **options** parameter.
 
-// will log the div element if document is defined, otherwise it will return an empty object
-console.log(createDocumentElement('div'))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CREATE_DOCUMENT_ELEMENT}
+  template='javascript'
+  title='createDocumentElement'
+  console={100}
+/>

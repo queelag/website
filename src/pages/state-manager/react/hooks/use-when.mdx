@@ -4,11 +4,11 @@ title: useWhen
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_USE_WHEN_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
+import { SB_USE_WHEN } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-This hooks runs an effect when the predicate is truthy.
+The **useWhen** hook is a custom hook that is designed to be used with React functional components. It is used for registering a reaction to observable data and triggering a side effect when the predicate function returns true.
 
-## Usage
+The **useWhen** hook takes two arguments: a **predicate** function and an **effect** function. The **predicate** function is used to determine whether the **effect** function should be executed. If the **predicate** function returns **true**, the **effect** function is executed. If the **predicate** function returns **false**, the **effect** function is not executed.
 
 <StackBlitz
   client:load
@@ -19,8 +19,8 @@ This hooks runs an effect when the predicate is truthy.
     '@aracna/state-manager-react': 'latest',
     '@aracna/web': 'latest'
   }}
-  files={SB_USE_WHEN_USAGE_FILES}
-  template='create-react-app'
+  files={SB_USE_WHEN}
+  template='react'
   title='useWhen'
   console
 />

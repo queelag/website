@@ -1,0 +1,22 @@
+---
+layout: '@/layouts/Layout.astro'
+title: useSafeRef
+---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_USE_SAFE_REF } from '@/definitions/stack-blitz/react/functions'
+
+The **useSafeRef** hook is a custom React hook that returns a mutable ref object that references a DOM element created using the **document.createElement** method. The hook takes in two parameters: **tagName**, which is a string that specifies the tag name of the element to be created, and **options**, which is an optional object that specifies the options for the element creation.
+
+<StackBlitz
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_SAFE_REF}
+  template='react'
+  title='createElementComponent'
+  console
+/>

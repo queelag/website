@@ -4,11 +4,11 @@ title: useObservable
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_USE_OBSERVABLE_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
+import { SB_USE_OBSERVABLE } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-This hook performs a re-render when any of its properties change.
+The **useObservable** hook is a custom hook that is designed to be used with React functional components. It is used for observing changes to observable data and returning the current state of the observable object.
 
-## Usage
+The **useObservable** hook takes two arguments: the first is the target object to observe, and the second is an optional array of keys to observe. If no keys are provided, all keys in the target object will be observed.
 
 <StackBlitz
   client:load
@@ -19,7 +19,7 @@ This hook performs a re-render when any of its properties change.
     '@aracna/state-manager-react': 'latest',
     '@aracna/web': 'latest'
   }}
-  files={SB_USE_OBSERVABLE_USAGE_FILES}
-  template='create-react-app'
+  files={SB_USE_OBSERVABLE}
+  template='react'
   title='useObservable'
 />

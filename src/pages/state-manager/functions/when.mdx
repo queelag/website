@@ -5,34 +5,34 @@ title: when
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
 import {
-  SB_WHEN_CALLBACK_FILES,
-  SB_WHEN_PROMISE_FILES
+  SB_WHEN_CALLBACK,
+  SB_WHEN_PROMISE
 } from '@/definitions/stack-blitz/state-manager/functions'
 
-Runs an effect or returns a Promise which will be resolved when the predicate is truthy.
+The **when** function is used to create a watcher that observes an observable until a certain condition is met, and then runs an effect function.
 
 ## Callback
 
-Runs an effect when the predicate is truthy.
+When the **when** function is called with two arguments, **predicate** and **effect**, it creates a watcher that observes the **predicate** function until it returns a truthy value. Once the **predicate** function returns a truthy value, the **effect** function is run.
 
 <StackBlitz
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
-  files={SB_WHEN_CALLBACK_FILES}
-  template='typescript'
-  title='reaction'
-  console
+  files={SB_WHEN_CALLBACK}
+  template='javascript'
+  title='when'
+  console={100}
 />
 
 ## Promise
 
-Returns a Promise which will be resolved when the predicate is truthy.
+When the **when** function is called with only the **predicate** argument, it returns a promise that resolves when the condition specified by the **predicate** function is met.
 
 <StackBlitz
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
-  files={SB_WHEN_PROMISE_FILES}
-  template='typescript'
-  title='reaction'
-  console
+  files={SB_WHEN_PROMISE}
+  template='javascript'
+  title='when'
+  console={100}
 />

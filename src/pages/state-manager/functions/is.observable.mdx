@@ -4,17 +4,15 @@ title: isObservable
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_IS_OBSERVABLE_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/functions'
+import { SB_IS_OBSERVABLE } from '@/definitions/stack-blitz/state-manager/functions'
 
-Checks if T is an observable.
-
-## Usage
+The **isObservable** function takes a single argument called **target** which is of type **T extends object**. The purpose of this function is to determine whether an object is an observable or not.
 
 <StackBlitz
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
-  files={SB_IS_OBSERVABLE_USAGE_FILES}
-  template='typescript'
+  files={SB_IS_OBSERVABLE}
+  template='javascript'
   title='isObservable'
-  console
+  console={100}
 />

@@ -219,6 +219,28 @@ export const SB_API_HANDLE_SUCCESS: ProjectFiles = {
   `
 };
 
+export const SB_APPEARENCE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Appearence } from '@aracna/core';
+
+      const appearence = new Appearence((theme) => {
+        document.querySelector('html').className = theme;
+      });
+
+      // will log true or false depending on your system theme
+      console.log(appearence.isThemeDark);
+      // will log true or false depending on your system theme
+      console.log(appearence.isThemeLight);
+
+      appearence.setTheme('dark');
+
+      // will log "dark"
+      console.log(appearence.theme);
+    </script>
+  `
+};
+
 export const SB_BASE16: ProjectFiles = {
   'index.js': html`
     <script>
@@ -1106,6 +1128,52 @@ export const SB_TIMEOUT_CLEAR: ProjectFiles = {
       Timeout.set(() => console.log('running t2', Date.now()), 1000);
 
       Timeout.clear(); // both timeouts will not run
+    </script>
+  `
+};
+
+export const SB_TYPEAHEAD: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Typeahead } from '@aracna/core';
+
+      const typeahead = new Typeahead((item) => {
+        console.log(item);
+      });
+
+      const input = document.createElement('input');
+      const items = ['apple', 'banana', 'cherry'];
+
+      input.addEventListener('keydown', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        typeahead.handle(event.key, items);
+      });
+
+      document.getElementById('root').append(input);
+    </script>
+  `
+};
+
+export const SB_VISIBILITY_CONTROLLER: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { VisibilityController } from '@aracna/core';
+
+      const controller = new VisibilityController();
+
+      (async () => {
+        await controller.show('dialog');
+
+        // will log true
+        console.log(controller.isVisible('dialog'));
+
+        await controller.hide('dialog');
+
+        // will log true
+        console.log(controller.isHidden('dialog'));
+      })();
     </script>
   `
 };

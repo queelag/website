@@ -4,11 +4,11 @@ title: useObserver
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_USE_OBSERVER_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
+import { SB_USE_OBSERVER } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-This hook performs a re-render when any of the observerd properties used inside the render function change.
+The **useObserver** hook is a custom hook that is designed to be used with React functional components. It is used for observing changes to observable data and re-rendering the component when necessary.
 
-## Usage
+The **useObserver** hook takes two arguments: a function that returns a React node, and a boolean value that indicates whether the observer should use memoization. The function is executed whenever the observer detects a change to the observable data, and the resulting React node is returned to the component.
 
 <StackBlitz
   client:load
@@ -19,7 +19,7 @@ This hook performs a re-render when any of the observerd properties used inside 
     '@aracna/state-manager-react': 'latest',
     '@aracna/web': 'latest'
   }}
-  files={SB_USE_OBSERVER_USAGE_FILES}
-  template='create-react-app'
+  files={SB_USE_OBSERVER}
+  template='react'
   title='useObserver'
 />

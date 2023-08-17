@@ -3,136 +3,98 @@ layout: '@/layouts/Layout.astro'
 title: LocalStorage
 ---
 
-This class implements [Storage](/docs/core/modules/storage) using the [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_STORAGE_SET,
+  SB_STORAGE_GET,
+  SB_STORAGE_REMOVE,
+  SB_STORAGE_CLEAR,
+  SB_STORAGE_COPY,
+  SB_STORAGE_HAS
+} from '@/definitions/stack-blitz/core/modules'
 
-## Get
-
-```ts
-import { LocalStorage } from '@aracna/core'
-
-interface Store {
-  user: {
-    name: string
-  }
-}
-
-enum LocalStorageKey {
-  USER = 'USER'
-}
-
-const store: Store = { user: { name: 'John' } }
-
-// will set the user inside the local storage so we can retrieve it later
-LocalStorage.set(LocalStorageKey.USER, store, 'user')
-
-// will get the user from the local storage and update "store.user" with its value
-LocalStorage.get(LocalStorageKey.USER, store, 'user')
-
-// will log { name: "John" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
-```
+The **Storage** class is an abstraction for any storage API, such as **localStorage** and **sessionStorage**. It provides a simple and flexible interface for working with a storage, allowing for getting, setting, removing, and copying items, as well as updating specific keys in an item.
 
 ## Set
 
-```ts
-import { LocalStorage } from '@aracna/core'
+The **set** method sets an item in the storage by its key, and optionally updates specific keys in the item. The method takes two parameters: **key** and **item**. The **key** parameter is a string that represents the key of the item to be set in the storage. The **item** parameter is an object that represents the item to be set in the storage.
 
-interface Store {
-  user: {
-    name: string
-  }
-}
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_STORAGE_SET}
+  template='javascript'
+  title='Storage'
+  console={100}
+/>
 
-enum LocalStorageKey {
-  USER = 'USER'
-}
+## Get
 
-const store: Store = { user: { name: 'John' } }
+The **get** method retrieves an item from the storage by its key. The method takes one parameter: **key**, which is a string that represents the key of the item to be retrieved from the storage.
 
-// will set the user inside the local storage
-LocalStorage.set(LocalStorageKey.USER, store, 'user')
-
-// will log { name: "John" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
-
-store.user.name = 'Doe'
-
-// will set the updated user inside the local storage
-LocalStorage.set(LocalStorageKey.USER, JSON.stringify(store.user))
-
-// will log { name: "Doe" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_STORAGE_GET}
+  template='javascript'
+  title='Storage'
+  console={100}
+/>
 
 ## Remove
 
-```ts
-import { LocalStorage } from '@aracna/core'
+The **remove** method removes an item from the storage by its key, and optionally removes specific keys from the item. The method takes two parameters: **key** and **keys**. The **key** parameter is a string that represents the key of the item to be removed from the storage. The **keys** parameter is an optional array of strings that represent the keys to be removed from the item.
 
-interface Store {
-  user: {
-    name: string
-  }
-}
+If the **keys** parameter is not provided, the entire item is removed from the storage. If the **keys** parameter is provided, only the specified keys in the item are removed, and the updated item is set back in the storage.
 
-enum LocalStorageKey {
-  USER = 'USER'
-}
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_STORAGE_REMOVE}
+  template='javascript'
+  title='Storage'
+  console={100}
+/>
 
-const store: Store = { user: { name: 'John' } }
+## Clear
 
-// will set the user inside the local storage
-LocalStorage.set(LocalStorageKey.USER, store, 'user')
+The **clear** method clears all items from the storage.
 
-// will log { name: "John" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_STORAGE_CLEAR}
+  template='javascript'
+  title='Storage'
+  console={100}
+/>
 
-// will remove the user from the local storage
-LocalStorage.remove(LocalStorageKey.USER)
+## Copy
 
-// will log {}
-console.log(LocalStorage.get(LocalStorageKey.USER))
-```
+The **copy** method copies an item from the storage to a target object, and optionally copies specific keys from the item. The method takes three parameters: **key**, **target**, and **keys**. The **key** parameter is a string that represents the key of the item to be copied from the storage. The **target** parameter is an object that represents the target object to which the item is to be copied. The **keys** parameter is an optional array of strings that represent the keys to be copied from the item.
 
-## Advanced Usage
+If the **keys** parameter is not provided, all keys in the item are copied to the target object. If **the** keys parameter is provided, only the specified keys in the item are copied to the target object.
 
-```ts
-import { LocalStorage } from '@aracna/core'
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_STORAGE_COPY}
+  template='javascript'
+  title='Storage'
+  console={100}
+/>
 
-interface Store {
-  user: {
-    name: string
-    surname: string
-  }
-}
+## Has
 
-enum LocalStorageKey {
-  USER = 'USER'
-}
+The **has** method checks if an item with the specified key exists in the storage, and optionally checks if specific keys exist in the item. The method takes two parameters: **key** and **keys**. The **key** parameter is a string that represents the key of the item to be checked in the storage. The **keys** parameter is an optional array of strings that represent the keys to be checked in the item.
 
-const store: Store = { user: { name: 'John', surname: 'Doe' } }
+If the **keys** parameter is not provided, the method checks if an item with the specified key exists in the storage. If the **keys** parameter is provided, the method checks if the specified keys exist in the item.
 
-// will set only the name key of the user object
-LocalStorage.set(LocalStorageKey.USER, store, 'user', ['name'])
-
-// will log { name: "John" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
-
-// will set only the surname key of the user object
-LocalStorage.set(LocalStorageKey.USER, store, 'user', ['surname'])
-
-// will log { name: "John", surname: "Doe" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
-
-// will log { surname: "Doe" }
-console.log(LocalStorage.get(LocalStorageKey.USER, ['surname']))
-
-// will only update the "store.user.name" with its stored value
-LocalStorage.get(LocalStorageKey.USER, store, 'user', ['name'])
-
-// will only remove the name key
-LocalStorage.remove(LocalStorageKey.USER, ['name'])
-
-// will log { surname: "Doe" }
-console.log(LocalStorage.get(LocalStorageKey.USER))
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_STORAGE_HAS}
+  template='javascript'
+  title='Storage'
+  console={100}
+/>

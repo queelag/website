@@ -35,6 +35,17 @@ export function CodeWindow(props: Props) {
     ],
     [props.buttons]
   )
+  const language = useMemo(() => {
+    switch (props.language) {
+      case 'react':
+      case 'vite-react':
+        return 'jsx'
+      case 'vite':
+        return 'javascript'
+      default:
+        return props.language
+    }
+  }, [props.language])
 
   return (
     <div className={joinElementClasses('not-prose flex flex-col rounded border-2 border-slate-800', props.className)}>
@@ -57,7 +68,7 @@ export function CodeWindow(props: Props) {
         </div>
       </div>
       {props.children && (
-        <Code className='p-6 text-sm' language={props.language}>
+        <Code className='p-6 text-sm' language={language}>
           {props.children}
         </Code>
       )}
@@ -70,7 +81,7 @@ export function CodeWindow(props: Props) {
                   <span>{name}</span>
                 </div>
               )}
-              <Code className='text-sm' language={props.language}>
+              <Code className='text-sm' language={language}>
                 {content}
               </Code>
             </div>

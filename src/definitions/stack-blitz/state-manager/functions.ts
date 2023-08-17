@@ -1,257 +1,134 @@
 import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
-export const SB_AUTORUN_USAGE_FILES: ProjectFiles = {
-  'index.ts': html`
+export const SB_AUTORUN: ProjectFiles = {
+  'index.js': html`
     <script>
       import { autorun, observe } from '@aracna/state-manager';
-      import './index.css';
 
-      interface Store {
-        value: number;
-      }
+      const store = observe({ value: 0 });
 
-      /**
-       * Define the observed store.
-       */
-      const store: Store = observe({ value: 0 });
-
-      const root: HTMLElement = document.getElementById('root');
-      const button: HTMLButtonElement = document.createElement('button');
-
-      button.addEventListener('click', () => {
-        store.value++;
-      });
-      button.innerHTML = 'Increase Store Value';
-
-      root.append(button);
-
-      /**
-       * Everytime the button is clicked and "store.value" is increased the autorun effect will run.
-       */
       autorun(() => {
+        // will log every second
         console.log(store.value);
       });
+
+      setInterval(() => {
+        store.value++;
+      }, 1000);
     </script>
   `
 };
 
-export const SB_IS_OBSERVABLE_USAGE_FILES: ProjectFiles = {
-  'index.ts': html`
+export const SB_IS_OBSERVABLE: ProjectFiles = {
+  'index.js': html`
     <script>
       import { isObservable, observe } from '@aracna/state-manager';
-      import './index.css';
 
-      interface Store {
-        value: number;
-      }
+      const store = observe({ value: 0 });
 
-      /**
-       * Define the observed store.
-       */
-      const store: Store = observe({ value: 0 });
-
-      /**
-       * Will log true
-       */
+      // will log true
       console.log(isObservable(store));
-
-      /**
-       * Will log false
-       */
-      console.log(isObservable({}));
     </script>
   `
 };
 
-export const SB_OBSERVE_SHOWCASE: ProjectFiles = {
-  'index.ts': html`
+export const SB_OBSERVE: ProjectFiles = {
+  'index.js': html`
     <script>
       import { autorun, observe } from '@aracna/state-manager';
 
-      interface Store {
-        value: number;
-      }
-
-      // make objects observables with a single straightforward function
-      const store: Store = observe({ value: 0 });
+      const store = observe({ value: 0 });
 
       autorun(() => {
-        // store.value will log everytime it changes
+        // will log every second
         console.log(store.value);
       });
-    </script>
-  `
-};
 
-export const SB_OBSERVE_USAGE_FILES: ProjectFiles = {
-  'index.ts': html`
-    <script>
-      import { autorun, observe } from '@aracna/state-manager';
-      import './index.css';
-
-      interface Store {
-        value: number;
-      }
-
-      /**
-       * Define the store and make it observable through the observe function.
-       */
-      const store: Store = observe({ value: 0 });
-
-      const root: HTMLElement = document.getElementById('root');
-      const button: HTMLButtonElement = document.createElement('button');
-
-      button.addEventListener('click', () => {
+      setInterval(() => {
         store.value++;
-      });
-      button.innerHTML = 'Increase Store Value';
-
-      root.append(button);
-
-      /**
-       * Since you have an observed store, you can now watch it.
-       * The simplest watcher is autorun, every time "store.value" changes it will run.
-       */
-      autorun(() => {
-        console.log(store.value);
-      });
+      }, 1000);
     </script>
   `
 };
 
-export const SB_REACTION_USAGE_FILES: ProjectFiles = {
-  'index.ts': html`
+export const SB_REACTION: ProjectFiles = {
+  'index.js': html`
     <script>
       import { observe, reaction } from '@aracna/state-manager';
-      import './index.css';
 
-      interface Store {
-        value: number;
-      }
+      const store = observe({ value: 0 });
 
-      /**
-       * Define the observed store.
-       */
-      const store: Store = observe({ value: 0 });
-
-      const root: HTMLElement = document.getElementById('root');
-      const button: HTMLButtonElement = document.createElement('button');
-
-      button.addEventListener('click', () => {
-        store.value++;
-      });
-      button.innerHTML = 'Increase Store Value';
-
-      root.append(button);
-
-      /**
-       * Everytime the button is clicked and "store.value" is increased the reaction effect will run.
-       */
       reaction(
         () => store.value,
         () => {
+          // will log every second
           console.log(store.value);
         }
       );
+
+      setInterval(() => {
+        store.value++;
+      }, 1000);
     </script>
   `
 };
 
-export const SB_TO_JS_USAGE_FILES: ProjectFiles = {
-  'index.ts': html`
+export const SB_TO_JS: ProjectFiles = {
+  'index.js': html`
     <script>
       import { isObservable, observe, toJS } from '@aracna/state-manager';
-      import './index.css';
 
-      interface Store {
-        value: number;
-      }
-
-      /**
-       * Define the observed store.
-       */
-      const store: Store = observe({ value: 0 });
+      const store = observe({ value: 0 });
       console.log(store, isObservable(store));
 
-      /**
-       * Save the plain store into its own variable.
-       */
-      const plain_store: Store = toJS(store);
-      console.log(plain_store, isObservable(plain_store));
+      const plain = toJS(store);
+      console.log(plain, isObservable(plain));
     </script>
   `
 };
 
-export const SB_WHEN_CALLBACK_FILES: ProjectFiles = {
-  'index.ts': html`
+export const SB_WHEN_CALLBACK: ProjectFiles = {
+  'index.js': html`
     <script>
       import { observe, when } from '@aracna/state-manager';
-      import './index.css';
 
-      interface Store {
-        value: number;
-      }
+      const store = observe({ value: 0 });
+      console.log('observing', Date.now());
 
-      /**
-       * Define the observed store.
-       */
-      const store: Store = observe({ value: 0 });
-
-      const root: HTMLElement = document.getElementById('root');
-      const button: HTMLButtonElement = document.createElement('button');
-
-      button.addEventListener('click', () => {
-        store.value++;
-      });
-      button.innerHTML = 'Increase Store Value';
-
-      root.append(button);
-
-      /**
-       * Once "store.value" is higher than 1 the effect will run.
-       */
       when(
         () => store.value > 1,
         () => {
-          console.log(store.value);
+          // will log after 2s
+          console.log(store.value, Date.now());
         }
       );
+
+      setInterval(() => {
+        store.value++;
+      }, 1000);
     </script>
   `
 };
 
-export const SB_WHEN_PROMISE_FILES: ProjectFiles = {
-  'index.ts': html`
+export const SB_WHEN_PROMISE: ProjectFiles = {
+  'index.js': html`
     <script>
       import { observe, when } from '@aracna/state-manager';
-      import './index.css';
 
-      interface Store {
-        value: number;
-      }
+      const store = observe({ value: 0 });
+      console.log('observing', Date.now());
 
-      /**
-       * Define the observed store.
-       */
-      const store: Store = observe({ value: 0 });
+      (async () => {
+        await when(() => store.value > 1);
 
-      const root: HTMLElement = document.getElementById('root');
-      const button: HTMLButtonElement = document.createElement('button');
+        // will log 2 after 2s
+        console.log(store.value, Date.now());
+      })();
 
-      button.addEventListener('click', () => {
+      setInterval(() => {
         store.value++;
-      });
-      button.innerHTML = 'Increase Store Value';
-
-      root.append(button);
-
-      /**
-       * Once "store.value" is higher than 1 the Promise will resolve.
-       */
-      when(() => store.value > 1).then(() => {
-        console.log(store.value);
-      });
+      }, 1000);
     </script>
   `
 };

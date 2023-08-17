@@ -1,0 +1,28 @@
+---
+layout: '@/layouts/Layout.astro'
+title: useLifeCycle
+---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_USE_LIFE_CYCLE } from '@/definitions/stack-blitz/react/functions'
+
+The useLifeCycle hook is a custom React hook that returns a mutable ref object that holds the current lifecycle state of the component.
+
+The **CONSTRUCTED** value represents the constructed state of the component, which is the state of the component before it is mounted to the DOM.
+
+The **MOUNTED** value represents the mounted state of the component, which is the state of the component after it is mounted to the DOM.
+
+The **UNMOUNTED** value represents the unmounted state of the component, which is the state of the component after it is unmounted from the DOM.
+
+<StackBlitz
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_LIFE_CYCLE}
+  template='react'
+  title='useLifeCycle'
+  console
+/>

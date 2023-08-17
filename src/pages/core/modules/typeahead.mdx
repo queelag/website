@@ -1,0 +1,20 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Typeahead
+---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_TYPEAHEAD } from '@/definitions/stack-blitz/core/modules'
+
+The **Typeahead** class provides functionality for implementing a typeahead search feature. It can be useful in a variety of contexts, such as searching for items in a large dataset or providing autocomplete suggestions for user input.
+
+The **Typeahead** class constructor takes three parameters: a callback function to be called when a match is found, a predicate function for matching items, and an optional debounce time value.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TYPEAHEAD}
+  template='javascript'
+  title='Typeahead'
+  console={100}
+/>

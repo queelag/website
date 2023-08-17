@@ -1,0 +1,57 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Element
+---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_DEFINE_CUSTOM_ELEMENT,
+  SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE,
+  SB_JOIN_ELEMENT_CLASSES,
+  SB_SCROLL_ELEMENT_INTO_VIEW
+} from '@/definitions/stack-blitz/web/utils'
+
+Element utils are a set of utility functions that are used to work with HTML elements in the browser environment. These functions can be used to define custom elements, join CSS class names, convert values to compatible CSS styles, set and remove element attributes, and define attributes in an immutable way.
+
+## Define Custom Element
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_DEFINE_CUSTOM_ELEMENT}
+  template='javascript'
+  title='defineCustomElement'
+  console={100}
+/>
+
+## Get Style Compatible Value
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE}
+  template='javascript'
+  title='getElementStyleCompatibleValue'
+  console={100}
+/>
+
+## Join Classes
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_JOIN_ELEMENT_CLASSES}
+  template='javascript'
+  title='joinElementClasses'
+  console={100}
+/>
+
+## Scroll Into View
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_SCROLL_ELEMENT_INTO_VIEW}
+  template='javascript'
+  title='scrollElementIntoView'
+/>

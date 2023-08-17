@@ -4,11 +4,11 @@ title: useAutorun
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_USE_AUTORUN_USAGE_FILES } from '@/definitions/stack-blitz/state-manager/react/hooks'
+import { SB_USE_AUTORUN } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-This hooks runs an effect when any of the observed properties used inside the effect change.
+The **useAutorun** hook is a custom hook that is designed to be used with React functional components. It provides a way to automatically re-run a function whenever one of its dependencies changes.
 
-## Usage
+The **useAutorun** hook takes a single argument, which is a function that will be executed whenever one of its dependencies changes. This function is passed to the **autorun** function from the **@aracna/state-manager** package, which is responsible for tracking the dependencies and re-running the function when necessary.
 
 <StackBlitz
   client:load
@@ -19,8 +19,8 @@ This hooks runs an effect when any of the observed properties used inside the ef
     '@aracna/state-manager-react': 'latest',
     '@aracna/web': 'latest'
   }}
-  files={SB_USE_AUTORUN_USAGE_FILES}
-  template='create-react-app'
+  files={SB_USE_AUTORUN}
+  template='react'
   title='useAutorun'
   console
 />
