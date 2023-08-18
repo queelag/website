@@ -8,14 +8,13 @@ import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
 import { ComponentLifeCycle, useLifeCycle } from '@aracna/react'
 import { useObservable } from '@aracna/state-manager-react'
 import { SessionStorage, joinElementClasses } from '@aracna/web'
-import { Fragment } from 'react'
+import { Fragment, useMemo } from 'react'
 import { IconReact } from 'src/icons/IconReact'
 
 export function SidebarItem(props: SidebarItemProps) {
   const life = useLifeCycle()
   const store = useObservable({ active: props.active ?? false, expanded: props.expanded ?? false })
-  // const expandable = (props.href.match(/\//g)?.length ?? 0) > 1
-  const expandable = props.items?.length !== 0
+  const expandable = useMemo(() => props.items?.length !== 0, [props.items])
 
   if (life.current === ComponentLifeCycle.CONSTRUCTED) {
     SessionStorage.copy(props.href, store)
@@ -49,10 +48,18 @@ export function SidebarItem(props: SidebarItemProps) {
     }
   }
 
+  const hasIcon = () => {
+    return typeof renderIcon() === 'object'
+  }
+
   return (
     <div className={'flex flex-col gap-px font-medium'}>
       <a
-        className={joinElementClasses('flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-700', props.active && 'bg-slate-800')}
+        className={joinElementClasses(
+          'flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-700',
+          !hasIcon() && 'ml-4',
+          props.active && 'bg-slate-800'
+        )}
         href={props.items ? undefined : props.href}
         onClick={onClick}
       >

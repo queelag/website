@@ -5,15 +5,15 @@ title: LocalStorage
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
 import {
-  SB_STORAGE_SET,
-  SB_STORAGE_GET,
-  SB_STORAGE_REMOVE,
-  SB_STORAGE_CLEAR,
-  SB_STORAGE_COPY,
-  SB_STORAGE_HAS
-} from '@/definitions/stack-blitz/core/modules'
+  SB_LOCAL_STORAGE_SET,
+  SB_LOCAL_STORAGE_GET,
+  SB_LOCAL_STORAGE_REMOVE,
+  SB_LOCAL_STORAGE_CLEAR,
+  SB_LOCAL_STORAGE_COPY,
+  SB_LOCAL_STORAGE_HAS
+} from '@/definitions/stack-blitz/web/modules'
 
-The **Storage** class is an abstraction for any storage API, such as **localStorage** and **sessionStorage**. It provides a simple and flexible interface for working with a storage, allowing for getting, setting, removing, and copying items, as well as updating specific keys in an item.
+The **LocalStorage** object handles CRUD operations on the **localStorage** property in the browser environment. It can be used to get and set items in the **localStorage** property, as well as to check if an item exists and to remove an item from the **localStorage** property.
 
 ## Set
 
@@ -21,10 +21,10 @@ The **set** method sets an item in the storage by its key, and optionally update
 
 <StackBlitz
   client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_SET}
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_SET}
   template='javascript'
-  title='Storage'
+  title='LocalStorage'
   console={100}
 />
 
@@ -34,10 +34,10 @@ The **get** method retrieves an item from the storage by its key. The method tak
 
 <StackBlitz
   client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_GET}
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_GET}
   template='javascript'
-  title='Storage'
+  title='LocalStorage'
   console={100}
 />
 
@@ -49,10 +49,10 @@ If the **keys** parameter is not provided, the entire item is removed from the s
 
 <StackBlitz
   client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_REMOVE}
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_REMOVE}
   template='javascript'
-  title='Storage'
+  title='LocalStorage'
   console={100}
 />
 
@@ -62,10 +62,10 @@ The **clear** method clears all items from the storage.
 
 <StackBlitz
   client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_CLEAR}
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_CLEAR}
   template='javascript'
-  title='Storage'
+  title='LocalStorage'
   console={100}
 />
 
@@ -77,10 +77,10 @@ If the **keys** parameter is not provided, all keys in the item are copied to th
 
 <StackBlitz
   client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_COPY}
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_COPY}
   template='javascript'
-  title='Storage'
+  title='LocalStorage'
   console={100}
 />
 
@@ -92,9 +92,9 @@ If the **keys** parameter is not provided, the method checks if an item with the
 
 <StackBlitz
   client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_HAS}
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_HAS}
   template='javascript'
-  title='Storage'
+  title='LocalStorage'
   console={100}
 />

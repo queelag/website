@@ -3,34 +3,64 @@ layout: '@/layouts/Layout.astro'
 title: Image
 ---
 
-This class contains utilities for images.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_CACHE_IMAGE_ELEMENT,
+  SB_CACHE_IMAGE_SRC,
+  SB_GET_IMAGE_ELEMENT_BASE64,
+  SB_GET_IMAGE_SRC_BASE64
+} from '@/definitions/stack-blitz/web/utils'
 
-## To Base64
+Image utils are a set of utility functions that are used to work with images in the browser environment. They can help to reduce the amount of network traffic and improve the performance of web applications by caching images in memory and converting them to base64-encoded data.
 
-```ts
-import { ImageUtils } from '@aracna/core'
+## Get Source Base64
 
-const image: HTMLImageElement = document.createElement('img')
+The **getImageSrcBase64** function is used to get the base64-encoded data of an image by its source URL. This can be useful for caching images in memory or for sending images over the network in a base64-encoded format.
 
-image.onload = () => {
-  // will log the base64 of the image
-  console.log(ImageUtils.toBase64(image))
-}
-image.src = 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg'
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_IMAGE_SRC_BASE64}
+  template='javascript'
+  title='getImageSrcBase64'
+  console={100}
+/>
 
-document.body.appendChild(image)
-```
+## Get Element Base64
 
-## Preload
+The **getImageElementBase64** function is used to get the base64-encoded data of an HTML image element. This can be useful for caching images in memory or for sending images over the network in a base64-encoded format.
 
-```ts
-import { ImageUtils } from '@aracna/core'
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_IMAGE_ELEMENT_BASE64}
+  template='javascript'
+  title='getImageElementBase64'
+  console={100}
+/>
 
-// will log true if the images have been cached
-console.log(
-  ImageUtils.preload([
-    'https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/1280px-Gatto_europeo4.jpg'
-  ])
-)
-```
+## Cache Source
+
+The **cacheImageSrc** function is used to cache an image by its source URL in memory by adding it to a **CACHE_IMAGES** map with the image source as the key and the base64-encoded image data as the value. This can help to reduce the amount of network traffic and improve the performance of web applications by allowing images to be loaded from memory instead of being reloaded from the network.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CACHE_IMAGE_SRC}
+  template='javascript'
+  title='cacheImageSrc'
+  console={100}
+/>
+
+## Cache Element
+
+The **cacheImageElement** function is used to cache an HTML image element in memory by adding it to a **CACHE_IMAGES** map with the image source as the key and the base64-encoded image data as the value. This can help to reduce the amount of network traffic and improve the performance of web applications by allowing images to be loaded from memory instead of being reloaded from the network.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CACHE_IMAGE_ELEMENT}
+  template='javascript'
+  title='cacheImageElement'
+  console={100}
+/>

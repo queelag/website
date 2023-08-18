@@ -3,84 +3,66 @@ layout: '@/layouts/Layout.astro'
 title: WebSocket
 ---
 
-This class makes it easier to work with web sockets on the client by having the following features.
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import {
+  SB_WEB_SOCKET_OPEN,
+  SB_WEB_SOCKET_CLOSE,
+  SB_WEB_SOCKET_SEND,
+  SB_WEB_SOCKET_RECEIVE
+} from '@/definitions/stack-blitz/web/modules'
 
-- Improved Connection Open/Close
-- Safe Send Message
-- Smart Message Data Transformation
+The **WebSocket** class is used to create and manage WebSocket connections in the browser environment. The class takes several parameters including the name of the WebSocket, the URL to connect to, and callback functions for various WebSocket events.
+
+WebSockets are a protocol for creating real-time, two-way communication channels between a client (usually a web browser) and a server. Unlike traditional HTTP requests, which are one-way and require the client to initiate a new request for each update, WebSockets allow for continuous, bidirectional communication between the client and server.
 
 ## Open Connection
 
-```ts
-import { WebSocket } from '@aracna/core'
+The **open** function is used to open the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
 
-async function main(): Promise<void> {
-  let ws: WebSocket
-
-  ws = new WebSocket(
-    'PieSocket',
-    'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-  )
-
-  // will open the connection
-  await ws.open()
-
-  ws.onMessage = (event: MessageEvent) => {
-    // will log "Hello world!"
-    console.log(event.data)
-  }
-}
-
-main()
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_OPEN}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>
 
 ## Close Connection
 
-```ts
-import { WebSocket } from '@aracna/core'
+The **close** function is used to close the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
 
-async function main(): Promise<void> {
-  let ws: WebSocket
-
-  ws = new WebSocket(
-    'PieSocket',
-    'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-  )
-
-  // will open the connection
-  await ws.open()
-
-  // will close the connection
-  await ws.close()
-}
-
-main()
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_CLOSE}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>
 
 ## Send Message
 
-```ts
-import { WebSocket } from '@aracna/core'
+The **send** function is used to send data over a WebSocket connection. It takes one parameter, **data**, which is the data to send over the WebSocket connection.
 
-async function main(): Promise<void> {
-  let ws: WebSocket
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_SEND}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>
 
-  ws = new WebSocket(
-    'PieSocket',
-    'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-  )
+## Receive Message
 
-  // will open the connection
-  await ws.open()
+The **onMessage** event is used to handle incoming data over a WebSocket connection. It is a callback function that takes one parameter, **event**, which is a **MessageEvent** object containing the incoming data.
 
-  ws.onMessage = (event: MessageEvent) => {
-    // will log "Hello world!" or "hello" after sending our message
-    console.log(event.data)
-  }
-
-  // will send "hello"
-  ws.send('hello')
-}
-
-main()
-```
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_RECEIVE}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>

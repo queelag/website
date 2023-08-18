@@ -2,3 +2,21 @@
 layout: '@/layouts/Layout.astro'
 title: String
 ---
+
+import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { SB_IS_STRING_SVG } from '@/definitions/stack-blitz/web/utils'
+
+String utils are a set of utility functions that are used to work with strings in the browser environment. They can help to simplify the process of checking if a string is an SVG image, truncating a string to a specified length, and capitalizing the first letter of a string.
+
+## Is String SVG
+
+The **isStringSVG** function is used to check if a given string is an SVG image. This can be useful for validating user input or for determining the type of content that is being loaded into a web application.
+
+<StackBlitz
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_IS_STRING_SVG}
+  template='javascript'
+  title='isStringSVG'
+  console={100}
+/>
