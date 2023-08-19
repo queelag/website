@@ -23,7 +23,7 @@ export function Code(props: Props) {
     }
 
     Prism.highlightElement(ref.current)
-  }, [])
+  }, [props.code, props.language])
 
   return (
     <pre {...omitObjectProperties(props, ['code', 'language'])}>

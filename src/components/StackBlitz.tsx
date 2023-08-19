@@ -1,5 +1,5 @@
 import { html } from '@/functions/html'
-import { Environment } from '@aracna/core'
+import { Environment, omitObjectProperties } from '@aracna/core'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
 import { joinElementClasses } from '@aracna/web'
 import SDK, { EmbedOptions, OpenFileOption, ProjectDependencies, ProjectFiles, ProjectTemplate, UiViewOption } from '@stackblitz/sdk'
@@ -78,7 +78,7 @@ export function StackBlitz(props: Props) {
           files = {
             'App.jsx': html`
               <script>
-                export default function App() {
+                export function App() {
                   return null
                 }
               </script>
@@ -87,17 +87,13 @@ export function StackBlitz(props: Props) {
             'index.html': html`<div id="root"></div>`,
             'index.js': html`
               <script>
-                import * as React from 'react'
-                import { StrictMode } from 'react'
+                import React, { StrictMode } from 'react'
                 import { createRoot } from 'react-dom/client'
 
                 import { App } from './App'
                 import './index.css'
 
-                const rootElement = document.getElementById('root')
-                const root = createRoot(rootElement)
-
-                root.render(
+                createRoot(document.getElementById('root')).render(
                   <StrictMode>
                     <App />
                   </StrictMode>
@@ -173,7 +169,7 @@ export function StackBlitz(props: Props) {
           files = {
             'App.jsx': html`
               <script>
-                export default function App() {
+                export function App() {
                   return null
                 }
               </script>
@@ -203,10 +199,7 @@ export function StackBlitz(props: Props) {
                 import { App } from './App'
                 import './index.css'
 
-                const rootElement = document.getElementById('root')
-                const root = createRoot(rootElement)
-
-                root.render(
+                createRoot(document.getElementById('root')).render(
                   <StrictMode>
                     <App />
                   </StrictMode>
@@ -255,7 +248,7 @@ export function StackBlitz(props: Props) {
         ref.current,
         {
           dependencies,
-          files: { ...files, ...props.files },
+          files: { ...files, ...omitObjectProperties(props.files, ['index.html']) },
           settings: {
             compile: {
               clearConsole: false

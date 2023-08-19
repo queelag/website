@@ -4,9 +4,7 @@ title: Avatar
 ---
 
 import { StackBlitz } from '@/components/StackBlitz.tsx'
-import { SB_AVATAR_USAGE_FILES } from '@/definitions/stack-blitz/web/components/data'
-
-## Usage
+import { SB_AVATAR } from '@/definitions/stack-blitz/web/components/data'
 
 <StackBlitz
   client:load
@@ -17,7 +15,8 @@ import { SB_AVATAR_USAGE_FILES } from '@/definitions/stack-blitz/web/components/
     lit: 'latest',
     'lit-html': 'latest'
   }}
-  files={SB_AVATAR_USAGE_FILES}
+  files={SB_AVATAR}
+  openFile='index.html'
   template='vite'
   title='Avatar'
 />

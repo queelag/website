@@ -1,7 +1,8 @@
+import { getArrayLastItem } from '@aracna/core'
 import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/clipboard.js'
 import { AracnaButton } from '@aracna/react-components/components/input/button.js'
 import { joinElementClasses } from '@aracna/web'
-import { useMemo, type ReactNode } from 'react'
+import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { Code } from './Code'
 
 interface Button {
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export function CodeWindow(props: Props) {
+  const [active, setActive] = useState<number>(0)
   const buttons = useMemo(
     () => [
       ...(props.buttons ?? []),
@@ -35,17 +37,28 @@ export function CodeWindow(props: Props) {
     ],
     [props.buttons]
   )
-  const language = useMemo(() => {
-    switch (props.language) {
-      case 'react':
-      case 'vite-react':
-        return 'jsx'
-      case 'vite':
+
+  const getLanguage = (name: string): string => {
+    let extension: string | undefined
+
+    extension = getArrayLastItem(name.split('.'))
+    if (!extension) return ''
+
+    switch (extension) {
+      case 'html':
+        return 'html'
+      case 'js':
         return 'javascript'
-      default:
-        return props.language
+      case 'jsx':
+        return 'jsx'
     }
-  }, [props.language])
+
+    return ''
+  }
+
+  const onClickFile = (index: number) => {
+    setActive(index)
+  }
 
   return (
     <div className={joinElementClasses('not-prose flex flex-col rounded border-2 border-slate-800', props.className)}>
@@ -68,25 +81,27 @@ export function CodeWindow(props: Props) {
         </div>
       </div>
       {props.children && (
-        <Code className='p-6 text-sm' language={language}>
+        <Code className='p-6 text-sm' language={props.language}>
           {props.children}
         </Code>
       )}
       {props.files && (
-        <div className='flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-800'>
-          {Object.entries(props.files).map(([name, content]: [string, string]) => (
-            <div className='w-full flex flex-col p-6 gap-2' key={name}>
-              {props.files && Object.entries(props.files).length >= 2 && (
-                <div className='self-end px-4 py-1 rounded-full bg-slate-900'>
-                  <span>{name}</span>
-                </div>
-              )}
-              <Code className='text-sm' language={language}>
-                {content}
-              </Code>
+        <Fragment>
+          <Code className='p-6 text-sm' language={getLanguage(Object.keys(props.files)[active])}>
+            {Object.values(props.files)[active]}
+          </Code>
+          {Object.keys(props.files).length >= 2 && (
+            <div className='self-end flex px-6 pb-6'>
+              <div className='flex rounded overflow-hidden divide-x divide-slate-700'>
+                {Object.keys(props.files).map((name: string, index: number) => (
+                  <AracnaButton className='px-4 py-2 bg-slate-900 hover:bg-slate-800' key={name} onClick={() => onClickFile(index)}>
+                    <span className='text-xs'>{name}</span>
+                  </AracnaButton>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
+          )}
+        </Fragment>
       )}
     </div>
   )

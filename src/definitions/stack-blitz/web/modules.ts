@@ -361,10 +361,7 @@ export const SB_WEB_SOCKET_OPEN: ProjectFiles = {
       import { WebSocket } from '@aracna/web';
 
       (async () => {
-        const ws = new WebSocket(
-          'PieSocket',
-          'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-        );
+        const ws = new WebSocket('PieSocket', 'wss://ws.postman-echo.com/raw');
         await ws.open();
 
         // will log true
@@ -380,10 +377,7 @@ export const SB_WEB_SOCKET_CLOSE: ProjectFiles = {
       import { WebSocket } from '@aracna/web';
 
       (async () => {
-        const ws = new WebSocket(
-          'PieSocket',
-          'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-        );
+        const ws = new WebSocket('PieSocket', 'wss://ws.postman-echo.com/raw');
         await ws.open();
 
         // will log true
@@ -404,10 +398,7 @@ export const SB_WEB_SOCKET_SEND: ProjectFiles = {
       import { WebSocket } from '@aracna/web';
 
       (async () => {
-        const ws = new WebSocket(
-          'PieSocket',
-          'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-        );
+        const ws = new WebSocket('PieSocket', 'wss://ws.postman-echo.com/raw');
         await ws.open();
 
         // will send "Hello"
@@ -423,17 +414,15 @@ export const SB_WEB_SOCKET_RECEIVE: ProjectFiles = {
       import { WebSocket } from '@aracna/web';
 
       (async () => {
-        const ws = new WebSocket(
-          'PieSocket',
-          'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-        );
+        const ws = new WebSocket('PieSocket', 'wss://ws.postman-echo.com/raw');
 
         ws.onMessage = (event) => {
-          // will log "Hello world!" or "hello"
+          // will log "Hello"
           console.log(event.data);
         };
 
         await ws.open();
+        ws.send('Hello');
       })();
     </script>
   `
