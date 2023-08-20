@@ -3,12 +3,12 @@ layout: '@/layouts/Layout.astro'
 title: useDispatch
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_USE_DISPATCH } from '@/definitions/stack-blitz/react/functions'
 
 The **useDispatch** hook is a custom React hook that returns a function that can be used to dispatch an action to a reducer. The hook takes in an optional **onDispatch** function that is called after the reducer is called.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',

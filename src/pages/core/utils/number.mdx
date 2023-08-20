@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Number
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_GET_ABSOLUTE_NUMBER,
   SB_GET_HIGHEST_NUMBER,
@@ -25,7 +25,7 @@ Number utils are a set of utility functions that are used to work with numbers i
 
 The **getAbsoluteNumber** function is a utility function that returns the absolute value of a number. The function takes a number as input and returns the absolute value of that number.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_ABSOLUTE_NUMBER}
@@ -38,7 +38,7 @@ The **getAbsoluteNumber** function is a utility function that returns the absolu
 
 The **getNumbersDistance** function is a utility function that returns the distance between two numbers. The function takes two numbers as input and returns the absolute difference between the two numbers.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_NUMBERS_DISTANCE}
@@ -51,7 +51,7 @@ The **getNumbersDistance** function is a utility function that returns the dista
 
 The **getLimitedNumber** function is a utility function that limits a number to a specified range. The function takes three parameters: a number to limit, a minimum value, and a maximum value. If the input number is within the specified range, the function returns the input number. Otherwise, the function returns the closest value within the range.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_LIMITED_NUMBER}
@@ -64,7 +64,7 @@ The **getLimitedNumber** function is a utility function that limits a number to 
 
 The **getNumberPercentage** function is a utility function that calculates the percentage of a number relative to a range. The function takes four parameters: a number to calculate the percentage of, a minimum value, a maximum value, and a boolean value indicating whether to round the percentage to the nearest integer.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_NUMBER_PERCENTAGE}
@@ -77,7 +77,7 @@ The **getNumberPercentage** function is a utility function that calculates the p
 
 The **getHighestNumber** function is a utility function that returns the highest number in an array of numbers. The function can be called with either an array of numbers or a variable number of arguments, each representing a number.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_HIGHEST_NUMBER}
@@ -90,7 +90,7 @@ The **getHighestNumber** function is a utility function that returns the highest
 
 The **getLowestNumber** function is a utility function that returns the lowest number in an array of numbers. The function can be called with either an array of numbers or a variable number of arguments, each representing a number.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_LOWEST_NUMBER}
@@ -103,7 +103,7 @@ The **getLowestNumber** function is a utility function that returns the lowest n
 
 The **parseBigInt** function is a utility function that parses a value into a BigInt. The function takes two parameters: a value to parse and an optional fallback value to return if the parsing fails.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_PARSE_BIG_INT}
@@ -116,7 +116,7 @@ The **parseBigInt** function is a utility function that parses a value into a Bi
 
 The **parseNumber** function is a utility function that parses a value into a number. The function takes two parameters: a value to parse and an optional fallback value to return if the parsing fails
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_PARSE_NUMBER}
@@ -129,7 +129,7 @@ The **parseNumber** function is a utility function that parses a value into a nu
 
 The **toFixedNumber** function is a utility function that formats a number to a fixed number of decimal places and returns the result as a number. The function takes two parameters: a number to format and the number of decimal places to include in the formatted number.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TO_FIXED_NUMBER}
@@ -142,7 +142,7 @@ The **toFixedNumber** function is a utility function that formats a number to a 
 
 The **isNumberEven** function is a utility function that checks whether a number is even. The function takes a number as input and returns a boolean value indicating whether the number is even.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_NUMBER_EVEN}
@@ -155,7 +155,7 @@ The **isNumberEven** function is a utility function that checks whether a number
 
 The **isNumberOdd** function is a utility function that checks whether a number is odd. The function takes a number as input and returns a boolean value indicating whether the number is odd.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_NUMBER_ODD}
@@ -168,7 +168,7 @@ The **isNumberOdd** function is a utility function that checks whether a number 
 
 The **isNumberMultipleOf** function is a utility function that checks whether a number is a multiple of another number. The function takes two numbers as input: the number to check and the number to check for multiples of. The function returns a boolean value indicating whether the first number is a multiple of the second number.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_NUMBER_MULTIPLE_OF}

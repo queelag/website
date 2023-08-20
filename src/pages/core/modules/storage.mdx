@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Storage
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_STORAGE_SET,
   SB_STORAGE_GET,
@@ -19,7 +19,7 @@ The **Storage** class is an abstraction for any storage API, such as **localStor
 
 The **set** method sets an item in the storage by its key, and optionally updates specific keys in the item. The method takes two parameters: **key** and **item**. The **key** parameter is a string that represents the key of the item to be set in the storage. The **item** parameter is an object that represents the item to be set in the storage.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STORAGE_SET}
@@ -32,7 +32,7 @@ The **set** method sets an item in the storage by its key, and optionally update
 
 The **get** method retrieves an item from the storage by its key. The method takes one parameter: **key**, which is a string that represents the key of the item to be retrieved from the storage.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STORAGE_GET}
@@ -47,7 +47,7 @@ The **remove** method removes an item from the storage by its key, and optionall
 
 If the **keys** parameter is not provided, the entire item is removed from the storage. If the **keys** parameter is provided, only the specified keys in the item are removed, and the updated item is set back in the storage.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STORAGE_REMOVE}
@@ -60,7 +60,7 @@ If the **keys** parameter is not provided, the entire item is removed from the s
 
 The **clear** method clears all items from the storage.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STORAGE_CLEAR}
@@ -75,7 +75,7 @@ The **copy** method copies an item from the storage to a target object, and opti
 
 If the **keys** parameter is not provided, all keys in the item are copied to the target object. If **the** keys parameter is provided, only the specified keys in the item are copied to the target object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STORAGE_COPY}
@@ -90,7 +90,7 @@ The **has** method checks if an item with the specified key exists in the storag
 
 If the **keys** parameter is not provided, the method checks if an item with the specified key exists in the storage. If the **keys** parameter is provided, the method checks if the specified keys exist in the item.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STORAGE_HAS}

@@ -3,14 +3,14 @@ layout: '@/layouts/Layout.astro'
 title: sleep
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_SLEEP } from '@/definitions/stack-blitz/core/functions'
 
 The asynchronous function called **sleep** takes a single argument **ms** of type **number**. The purpose of this function is to pause the execution of the program for a specified number of milliseconds.
 
 The **sleep** function is a simple but useful utility function that can be used to pause the execution of a program for a specified number of milliseconds. By using the **sleep** function, you can make your code more readable and easier to understand.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SLEEP}

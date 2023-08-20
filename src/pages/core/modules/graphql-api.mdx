@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: GraphQLAPI
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_GRAPHQL_API_QUERY,
   SB_GRAPHQL_API_MUTATION
@@ -17,7 +17,7 @@ The **query** method defined in the **GraphQLAPI** class is used to make a Graph
 
 The **query** method provides a convenient way to make a GraphQL query to the server using the **POST** HTTP method. The method takes a **query** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **query** argument is a string that contains the GraphQL query to be sent to the server, and can be used to retrieve specific data from the server based on the client's needs.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GRAPHQL_API_QUERY}
@@ -32,7 +32,7 @@ The **mutation** method defined in the **GraphQLAPI** class is used to make a Gr
 
 The **mutation** method provides a convenient way to make a GraphQL mutation to the server using the **POST** HTTP method. The method takes a **mutation** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **mutation** argument is a string that contains the GraphQL mutation to be sent to the server, and can be used to modify data on the server based on the client's needs.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GRAPHQL_API_MUTATION}

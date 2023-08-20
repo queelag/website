@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: ID
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_ID,
   SB_ID_ALPHABET,
@@ -15,7 +15,7 @@ The **ID** class provides a set of static methods and properties for generating 
 
 The **ID** class provides a convenient way to generate unique identifiers using a customizable alphabet, separator, size, and other options. The class uses the [**nanoid**](https://github.com/ai/nanoid) library to generate random identifiers and provides a simple API for generating identifiers with different options.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ID}
@@ -28,7 +28,7 @@ The **ID** class provides a convenient way to generate unique identifiers using 
 
 The **alphabet** argument of the **generate** method provides a convenient way to generate unique identifiers with a custom alphabet by passing a string to the argument that specifies the characters to use in the identifier.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ID_ALPHABET}
@@ -47,7 +47,7 @@ The **suffix** argument is an optional string that is appended to the end of the
 
 The **separator** argument is an optional string that is used to join the prefix, random part, and suffix of the generated identifier. If the **separator** argument is not provided, the method uses the default separator defined in the ID class.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ID_PREFIX_SUFFIX_SEPARATOR}
@@ -60,7 +60,7 @@ The **separator** argument is an optional string that is used to join the prefix
 
 The **size** argument of the **generate** method provides a convenient way to generate unique identifiers with a custom size by passing a number to the argument that specifies the length of the random part of the identifier.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ID_SIZE}

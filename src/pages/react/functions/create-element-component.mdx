@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: createElementComponent
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_CREATE_ELEMENT_COMPONENT,
   SB_CREATE_BASE_ELEMENT_COMPONENT,
@@ -20,7 +20,7 @@ The **createElementComponent** function is a utility function that creates a Rea
 - **Props**: A generic type parameter that extends the **ElementComponentProps** interface and specifies the props of the React component.
 - **Key**: A generic type parameter that extends the **keyof** **HTMLElementTagNameMap** interface and specifies the tag name of the DOM element.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',
@@ -42,7 +42,7 @@ The **createBaseElementComponent** function takes in several generic type parame
 - **Props**: A generic type that extends the **ElementComponentProps** interface and specifies the props of the React component.
 - **Key**: A generic type that extends the **keyof** **HTMLElementTagNameMap** interface and specifies the tag name of the DOM element.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',
@@ -65,7 +65,7 @@ The **createFloatingElementComponent** function creates a React component that r
 - **Props**: A generic type that extends the **ElementComponentProps** interface and specifies the props of the React component.
 - **Key**: A generic type that extends the **keyof** **HTMLElementTagNameMap** interface and specifies the tag name of the floating DOM element.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',
@@ -88,7 +88,7 @@ The **createFocusTrapElementComponent** function creates a React component that 
 - **Props**: A generic type that extends the **ElementComponentProps** interface and specifies the props of the React component.
 - **Key**: A generic type that extends the **keyof** **HTMLElementTagNameMap** interface and specifies the tag name of the focus trap DOM element.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',
@@ -111,7 +111,7 @@ The **createFormFieldElementComponent** function creates a React component that 
 - **Props**: A generic type that extends the **ElementComponentProps** interface and specifies the props of the React component.
 - **Key**: A generic type that extends the **keyof** **HTMLElementTagNameMap** interface and specifies the tag name of the form field DOM element.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',

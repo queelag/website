@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Localization
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_LOCALIZATION_PACKS,
   SB_LOCALIZATION_GET,
@@ -21,7 +21,7 @@ In the **Localization** class, packs can be set from the constructor and also ad
 
 Overall, the **Localization** class provides flexibility in managing localization packs by allowing packs to be set from the constructor and also added with the **push** method. This allows for easy initialization of the **Localization** instance with pre-existing localized strings, as well as adding new localized strings dynamically.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_LOCALIZATION_PACKS}
@@ -38,7 +38,7 @@ The **get** method with only a path argument is a simplified version of the meth
 
 When called with a **language** and a **path**, the method retrieves the localization pack for the specified language, and if it doesn't exist, it returns the path. If the localized string exists in the pack, the method checks for any variables in the string using a regular expression. If variables are found, the method replaces them with their corresponding values from the localization variables object. The method then returns the localized string with the variables replaced.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_LOCALIZATION_GET}
@@ -53,7 +53,7 @@ The **get** method with variables allows for easy retrieval of localized strings
 
 If the localized string contains variables, the method replaces them with their corresponding values from the localization variables object. The variables are specified in the localized string using curly braces, for example **\{name\}**. The method uses a regular expression to find all variables in the string, and then replaces them with their corresponding values from the localization variables object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_LOCALIZATION_VARIABLES}
@@ -68,7 +68,7 @@ In the **Localization** class, the **storage** property is used to store the **L
 
 The **storeLanguage** method is used to set the language of the **Localization** instance and store it in the persistent storage. It takes a language as an argument, sets the language property of the **Localization** instance, and stores the instance in the persistent storage using the set method of the storage object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_LOCALIZATION_STORAGE}

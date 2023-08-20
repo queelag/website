@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: WebSocket
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_WEB_SOCKET_OPEN,
   SB_WEB_SOCKET_CLOSE,
@@ -19,7 +19,7 @@ WebSockets are a protocol for creating real-time, two-way communication channels
 
 The **open** function is used to open the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_WEB_SOCKET_OPEN}
@@ -32,7 +32,7 @@ The **open** function is used to open the WebSocket connection. It is an asynchr
 
 The **close** function is used to close the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_WEB_SOCKET_CLOSE}
@@ -45,7 +45,7 @@ The **close** function is used to close the WebSocket connection. It is an async
 
 The **send** function is used to send data over a WebSocket connection. It takes one parameter, **data**, which is the data to send over the WebSocket connection.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_WEB_SOCKET_SEND}
@@ -58,7 +58,7 @@ The **send** function is used to send data over a WebSocket connection. It takes
 
 The **onMessage** event is used to handle incoming data over a WebSocket connection. It is a callback function that takes one parameter, **event**, which is a **MessageEvent** object containing the incoming data.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_WEB_SOCKET_RECEIVE}

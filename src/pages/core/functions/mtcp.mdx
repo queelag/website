@@ -3,14 +3,14 @@ layout: '@/layouts/Layout.astro'
 title: mtcp
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_MTCP } from '@/definitions/stack-blitz/core/functions'
 
 The **mtcp** function stands for "make try catch promise", and it is a utility function that takes a function that returns a promise as its argument and returns a new function that wraps the original function in a try-catch block.
 
 The **mtcp** function is a simple but powerful tool for making functions that return promises more robust and error-tolerant. By wrapping a function that returns a promise in a try-catch block, the **mtcp** function allows errors to be caught and handled gracefully, making it easier to write and maintain reliable code.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_MTCP}

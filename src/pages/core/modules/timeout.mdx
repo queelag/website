@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Timeout
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_TIMEOUT_FN_AS_KEY,
   SB_TIMEOUT_NAME_AS_KEY,
@@ -18,7 +18,7 @@ The **set** method can be called with two arguments: **fn** and **ms**. When cal
 
 The **unset** method is used to clear a timeout that was previously set using the **set** method. The **unset** method takes a **TimeoutMapKey** as input, which is the key that was used to set the timeout.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TIMEOUT_FN_AS_KEY}
@@ -33,7 +33,7 @@ The **set** method can be called with three arguments: **name**, **fn**, and **m
 
 The **unset** method is used to clear a timeout that was previously set using the **set** method. The **unset** method takes a **TimeoutMapKey** as input, which is the key that was used to set the timeout.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TIMEOUT_NAME_AS_KEY}
@@ -46,7 +46,7 @@ The **unset** method is used to clear a timeout that was previously set using th
 
 The **clear** method is used to clear all timeouts that were previously set using the **set** method.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TIMEOUT_CLEAR}

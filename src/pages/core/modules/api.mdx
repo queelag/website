@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: API
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_API_BASE_URL,
   SB_API_CONFIG,
@@ -31,7 +31,7 @@ For example, if the baseURL **property** is set to **"https://example.com/api/"*
 
 By setting the **baseURL** property, you can avoid having to repeat the base URL in every request. This can make your code more concise and easier to read.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_BASE_URL}
@@ -50,7 +50,7 @@ When creating a new instance of the **API** class, you can pass a **config** obj
 
 By using the **config** parameter in the constructor, we can set default configuration options for all HTTP requests made with the **API** instance, which can save us from having to repeat the same configuration options in every request.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_CONFIG}
@@ -65,7 +65,7 @@ In the API class, the **status** instance is an instance of the **Status** class
 
 By keeping track of the status of HTTP requests, the **Status** class allows you to monitor the progress of requests and handle them appropriately based on their status. For example, you could display a loading spinner while a request is pending, or display an error message if a request fails.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_STATUS}
@@ -80,7 +80,7 @@ The **transformBody** method in the **API** class is a hook that allows you to t
 
 The **transformBody** method should return the transformed request body. If you don't want to transform the request body, you can simply return the original **body** argument.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_TRANSFORM_BODY}
@@ -95,7 +95,7 @@ The **transformQueryParameters** method in the **API** class is a hook that allo
 
 The **transformQueryParameters** method should return the transformed query parameters as a string. If you don't want to transform the query parameters, you can simply return an empty string.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_TRANSFORM_QUERY_PARAMETERS}
@@ -110,7 +110,7 @@ The **handleError** method in the **API** class is a hook that allows you to han
 
 The **handleError** method should return a boolean value indicating whether the error was handled or not. If you return **true**, the **handle** method will not throw the error and will instead return a **FetchError** object. If you return **false**, the **handle** method will re-throw the error.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_HANDLE_ERROR}
@@ -125,7 +125,7 @@ The **handlePending** method in the **API** class is a hook that allows you to h
 
 The **handlePending** method should return a boolean value indicating whether the pending request was handled or not. If you return **true**, the **handle** method will not throw an error and will instead return a **FetchError** object. If you return **false**, the **handle** method will continue with the request.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_HANDLE_PENDING}
@@ -140,7 +140,7 @@ The **handleSuccess** method in the **API** class is a hook that allows you to h
 
 The **handleSuccess** method should return a boolean value indicating whether the response was handled or not. If you return **true**, the **handle** method will not throw an error and will instead return the **response** object. If you return **false**, the handle method will throw a **FetchError** object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_API_HANDLE_SUCCESS}

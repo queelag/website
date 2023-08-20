@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: DocumentCookie
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_DOCUMENT_COOKIE_GET,
   SB_DOCUMENT_COOKIE_SET,
@@ -19,7 +19,7 @@ The **DocumentCookie** object handles CRUD operations on the document.cookie pro
 
 The **set** function in the **DocumentCookie** object is an asynchronous method that takes a prefix string **key**, an object of type **CookieItem** **item**, and optionally an object of type **CookieSerializeOptions** **options** and an array of keys **keys**. If **keys** is not provided, all the keys in the **item** object will be set as cookies with keys that start with the **key** prefix. If **keys** is provided, only the keys in the **keys** array will be set as cookies. The **options** object can be used to set additional options for the cookie serialization process.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_DOCUMENT_COOKIE_SET}
@@ -32,7 +32,7 @@ The **set** function in the **DocumentCookie** object is an asynchronous method 
 
 The **get** method of the **DocumentCookie** object is used to retrieve a cookie item from the cookie with a given key prefix. The **key** parameter is a string that represents the prefix of the cookie keys to retrieve.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_DOCUMENT_COOKIE_GET}
@@ -45,7 +45,7 @@ The **get** method of the **DocumentCookie** object is used to retrieve a cookie
 
 The **remove** method of the **DocumentCookie** object is used to remove one or more cookie items from the cookie with a given key prefix. The **key** parameter is a string that represents the prefix of the cookie keys to remove. The **options** parameter is an optional object that can be used to specify options for the cookie. The **keys** parameter is an optional array of strings that represents the specific keys to remove from the cookie item.
 
-<StackBlitz
+<CodeBlock
   client:load
   className='mt-6'
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
@@ -64,7 +64,7 @@ The **clear** method of the **DocumentCookie** object is used to remove all cook
   and does not take a **key** or **keys** parameter like the **remove** method.
 </Alert>
 
-<StackBlitz
+<CodeBlock
   client:load
   className='mt-6'
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
@@ -78,7 +78,7 @@ The **clear** method of the **DocumentCookie** object is used to remove all cook
 
 The **copy** method of the **DocumentCookie** object is used to copy one or more cookie items from the cookie with a given key prefix to a target object. The **key** parameter is a string that represents the prefix of the cookie keys to copy. The **target** parameter is an object where the cookie items will be copied. The **keys** parameter is an optional array of strings that represents the specific keys to copy from the cookie item.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_DOCUMENT_COOKIE_COPY}

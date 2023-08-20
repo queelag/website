@@ -4,7 +4,7 @@ title: AracnaBlob
 ---
 
 import { Alert } from '@/components/Alert.tsx'
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_ARACNA_BLOB_RESOLVE_ARRAY_BUFFER,
   SB_ARACNA_BLOB_RESOLVE_TEXT,
@@ -23,7 +23,7 @@ The **resolveArrayBuffer** function in the **AracnaBlob** class resolves the **B
 
 When the **AracnaBlob** object is created, it contains a **Blob** object that represents the binary data of the file. However, the **Blob** object does not provide direct access to the binary data in the form of an **ArrayBuffer**. Instead, you need to call the arrayBuffer method on the Blob object to get an **ArrayBuffer** containing the binary data.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_BLOB_RESOLVE_ARRAY_BUFFER}
@@ -38,7 +38,7 @@ The **resolveText** function is a method of the **AracnaBlob** class that resolv
 
 The **resolveText** function is a convenient way to read the text content of a blob.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_BLOB_RESOLVE_TEXT}
@@ -53,7 +53,7 @@ The **base64** getter is a property of the **AracnaBlob** class that returns the
 
 The **base64** getter is a convenient way to get the base64-encoded string representation of binary data.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_BLOB_BASE64}
@@ -68,7 +68,7 @@ The **uInt8Array** getter is a property of the **AracnaBlob** class that returns
 
 The **uInt8Array** getter is a convenient way to get the binary data of a blob.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_BLOB_UINT8ARRAY}
@@ -97,7 +97,7 @@ When an **AracnaBlob** object is deserialized from **JSON**, a new **AracnaBlob*
   property.
 </Alert>
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_BLOB_SERIALIZATION}

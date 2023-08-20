@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: AracnaFile
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_ARACNA_FILE_EXTRA_GETTERS,
   SB_ARACNA_FILE_SERIALIZATION
@@ -20,7 +20,7 @@ The **webkitRelativePath** getter returns the path of the file relative to the d
 
 These getters are used to retrieve information about the file object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_FILE_EXTRA_GETTERS}
@@ -37,7 +37,7 @@ To serialize an **AracnaFile** object, you can call the **JSON.stringify** metho
 
 To deserialize a JSON string into an **AracnaFile** object, you can pass the JSON object to the **AracnaFile** constructor. The **AracnaFile** constructor takes either a **File** object or a JSON object that represents a file. If a JSON object is passed to the constructor, a new **File** object is created from the JSON object and stored in the file property of the **AracnaFile** object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_FILE_SERIALIZATION}

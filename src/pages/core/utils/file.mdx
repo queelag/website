@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: File
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_SERIALIZE_FILE,
   SB_DESERIALIZE_FILE
@@ -15,7 +15,7 @@ File utils are a set of utility functions that are designed to make working with
 
 The **serializeFile** function is used to create a new **File** object from an **AracnaFile** object. The function takes two parameters: an **AracnaFile** object and an optional **EndingType** parameter that can be used to control the line endings of the serialized file.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SERIALIZE_FILE}
@@ -28,7 +28,7 @@ The **serializeFile** function is used to create a new **File** object from an *
 
 The **deserializeFile** function is used to create an **AracnaFile** object from a **File** object. The **AracnaFile** class is defined elsewhere in the codebase and provides additional functionality for working with files, such as resolving the contents of the file as an array buffer or text.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DESERIALIZE_FILE}

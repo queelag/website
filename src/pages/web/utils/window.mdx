@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Window
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_GET_WINDOW_BOUNDING_CLIENT_RECT } from '@/definitions/stack-blitz/web/utils'
 
 Window utils are a set of utility functions that are used to work with the browser window in the browser environment. They can help to simplify the process of getting the size and position of the window, as well as the width and height of the window.
@@ -12,7 +12,7 @@ Window utils are a set of utility functions that are used to work with the brows
 
 The **getWindowBoundingClientRect** function is used to get the bounding rectangle of the browser window. This can be useful for determining the size and position of the window, which can be used for various purposes such as positioning elements or calculating dimensions
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_GET_WINDOW_BOUNDING_CLIENT_RECT}

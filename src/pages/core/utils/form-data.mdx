@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: FormData
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_SERIALIZE_FORM_DATA,
   SB_DESERIALIZE_FORM_DATA
@@ -15,7 +15,7 @@ FormData utils are a set of utility functions that are designed to make working 
 
 The **serializeFormData** function is used to create a **FormData** object from a ECMAScript object. The function takes a ECMAScript object as input and returns a **FormData** object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SERIALIZE_FORM_DATA}
@@ -28,7 +28,7 @@ The **serializeFormData** function is used to create a **FormData** object from 
 
 The **deserializeFormData** function is used to create a ECMAScript object from a **FormData** object. The function takes a **FormData** object as input and returns a ECMAScript object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DESERIALIZE_FORM_DATA}

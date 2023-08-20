@@ -3,14 +3,14 @@ layout: '@/layouts/Layout.astro'
 title: tne
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_TNE } from '@/definitions/stack-blitz/core/functions'
 
 The **tne** function is a utility function that stands for "throw new error". It takes an optional **message** string and an optional **options** object as input and throws a new **Error** object with the provided message and options.
 
 The **tne** function is a simple utility function that allows you to throw a new **Error** object with a custom message and options. This can be useful when you want to handle errors in a concise and readable way.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TNE}

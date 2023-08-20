@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Promise
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_CHAIN_PROMISES,
   SB_CHAIN_TRUTHY_PROMISES
@@ -15,7 +15,7 @@ Promise utils are a set of utility functions that are designed to make working w
 
 The **chainPromises** function is a utility function that allows you to execute a sequence of asynchronous functions in a controlled manner. The function takes any number of functions that return Promises as arguments using the rest parameter syntax, and executes them in sequence using a **for** loop and the **await** keyword.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_CHAIN_PROMISES}
@@ -28,7 +28,7 @@ The **chainPromises** function is a utility function that allows you to execute 
 
 The **chainTruthyPromises** function is a utility function that allows you to execute a sequence of asynchronous functions in a controlled manner and check whether each Promise resolves to a truthy value. The function takes any number of functions that return Promises as arguments using the rest parameter syntax, and executes them in sequence using a for loop and the await keyword.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_CHAIN_TRUTHY_PROMISES}

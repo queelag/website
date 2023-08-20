@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Cookie
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_SERIALIZE_COOKIE,
   SB_DESERIALIZE_COOKIE
@@ -15,7 +15,7 @@ Cookie utils are a set of utility functions that are designed to make working wi
 
 The **serializeCookie** function is used to serialize a cookie name-value pair into a **Set-Cookie** header string. The function takes a cookie name, value, and an optional **CookieSerializeOptions** object as input, and returns a string. The **CookieSerializeOptions** object is used to specify serialization options for the cookie string.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SERIALIZE_COOKIE}
@@ -28,7 +28,7 @@ The **serializeCookie** function is used to serialize a cookie name-value pair i
 
 The **deserializeCookie** function is used to parse an HTTP cookie header string and return an object of all cookie name-value pairs. The function takes a cookie string and an optional **CookieParseOptions** object as input, and returns a **CookieObject** interface. The **CookieParseOptions** object is used to specify parsing options for the cookie string.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DESERIALIZE_COOKIE}

@@ -3,12 +3,12 @@ layout: '@/layouts/Layout.astro'
 title: reaction
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_REACTION } from '@/definitions/stack-blitz/state-manager/functions'
 
 The **reaction** function takes two arguments: **expression** and **effect**. The purpose of this function is to observe changes to an observable and run an effect function in response to those changes.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
   files={SB_REACTION}

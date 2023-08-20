@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: URL
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_CONCAT_URL,
   SB_APPEND_SEARCH_PARAMS_TO_URL,
@@ -16,7 +16,7 @@ URL utilities are a set of functions that provide useful functionality for worki
 
 The **concatURL** function is a utility function that takes one or more URL segments as input and concatenates them into a single URL string. The function removes any extra slashes between segments and trims whitespace.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_CONCAT_URL}
@@ -29,7 +29,7 @@ The **concatURL** function is a utility function that takes one or more URL segm
 
 The **appendSearchParamsToURL** function is a utility function that takes a URL string and a set of search parameters as input and appends the parameters to the URL as a query string. The function handles cases where the URL already contains a query string and removes any duplicate or unnecessary characters.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_APPEND_SEARCH_PARAMS_TO_URL}
@@ -42,7 +42,7 @@ The **appendSearchParamsToURL** function is a utility function that takes a URL 
 
 The **removeSearchParamsFromURL** function is a utility function that takes a URL string as input and removes any query string parameters from the URL. The function returns the modified URL string.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_REMOVE_SEARCH_PARAMS_FROM_URL}

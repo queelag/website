@@ -3,12 +3,12 @@ layout: '@/layouts/Layout.astro'
 title: toJS
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_TO_JS } from '@/definitions/stack-blitz/state-manager/functions'
 
 The **toJS** function takes a single argument called **target** which is of type **T extends object**. The purpose of this function is to create a plain object from an observable object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
   files={SB_TO_JS}

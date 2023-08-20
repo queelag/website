@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Polyfill
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_POLYFILL_BLOB,
   SB_POLYFILL_FETCH,
@@ -19,7 +19,7 @@ The **Polyfill** class provides a convenient way to polyfill certain browser API
 
 The **fetch** method provides a convenient way to polyfill the **fetch** API in non-browser environments using the **node-fetch** module. The method can be used to ensure that code that relies on the **fetch** API can run correctly in a variety of environments.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_POLYFILL_FETCH}
@@ -32,7 +32,7 @@ The **fetch** method provides a convenient way to polyfill the **fetch** API in 
 
 The **blob** method provides a convenient way to polyfill the **Blob** API in non-browser environments using the **node-fetch** module. The method can be used to ensure that code that relies on the **Blob** API can run correctly in a variety of environments.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_POLYFILL_BLOB}
@@ -45,7 +45,7 @@ The **blob** method provides a convenient way to polyfill the **Blob** API in no
 
 The **file** method provides a convenient way to polyfill the **File** API in non-browser environments using the **node-fetch** module. The method can be used to ensure that code that relies on the **File** API can run correctly in a variety of environments.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_POLYFILL_FILE}
@@ -58,7 +58,7 @@ The **file** method provides a convenient way to polyfill the **File** API in no
 
 The **formData** method provides a convenient way to polyfill the **FormData** API in non-browser environments using the **node-fetch** module. The method can be used to ensure that code that relies on the **FormData** API can run correctly in a variety of environments.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_POLYFILL_FORM_DATA}

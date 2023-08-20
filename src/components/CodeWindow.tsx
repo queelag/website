@@ -10,12 +10,11 @@ interface Button {
   onClick: () => any
 }
 
-interface Props {
+interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   buttons?: Button[]
   children?: ReactNode
-  className?: string
   files?: Record<string, string>
-  language: string
+  language?: string
 }
 
 export function CodeWindow(props: Props) {
@@ -80,7 +79,7 @@ export function CodeWindow(props: Props) {
           ))}
         </div>
       </div>
-      {props.children && (
+      {props.children && props.language && (
         <Code className='p-6 text-sm' language={props.language}>
           {props.children}
         </Code>
@@ -92,9 +91,13 @@ export function CodeWindow(props: Props) {
           </Code>
           {Object.keys(props.files).length >= 2 && (
             <div className='self-end flex px-6 pb-6'>
-              <div className='flex rounded overflow-hidden divide-x divide-slate-700'>
+              <div className='flex rounded overflow-hidden divide-x divide-black ring-2 ring-slate-800 ring-offset-2 ring-offset-black'>
                 {Object.keys(props.files).map((name: string, index: number) => (
-                  <AracnaButton className='px-4 py-2 bg-slate-900 hover:bg-slate-800' key={name} onClick={() => onClickFile(index)}>
+                  <AracnaButton
+                    className={joinElementClasses('px-4 py-2 hover:bg-slate-800', index === active && 'bg-slate-900')}
+                    key={name}
+                    onClick={() => onClickFile(index)}
+                  >
                     <span className='text-xs'>{name}</span>
                   </AracnaButton>
                 ))}

@@ -3,14 +3,14 @@ layout: '@/layouts/Layout.astro'
 title: rne
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_RNE } from '@/definitions/stack-blitz/core/functions'
 
 The **rne** function is a ECMAScript utility function that creates a new Error object with a specified message and options, and returns it. The name **rne** is short for "return new error", which reflects the function's purpose.
 
 The **rne** function is a simple but useful utility function that can be used to create and return a new Error object with a specified message and options. By using **rne** instead of manually creating a new Error object, you can make your code more concise and easier to read.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_RNE}

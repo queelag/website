@@ -3,14 +3,14 @@ layout: '@/layouts/Layout.astro'
 title: wf
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_WF } from '@/definitions/stack-blitz/core/functions'
 
 The **wf** function is a utility function that stands for "wait for". It takes a function **fn**, a time interval **ms**, and a timeout **timeout** as input and waits for the function to return a truthy value within the specified timeout.
 
 The **wf** function is a simple utility function that allows you to wait for a function to return a truthy value within a specified timeout. This can be useful when you need to wait for an asynchronous operation to complete before continuing with your code.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_WF}

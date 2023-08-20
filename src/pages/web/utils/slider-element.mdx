@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Slider Element
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_GET_SLIDER_THUMB_ELEMENT_PERCENTAGE,
   SB_GET_SLIDER_THUMB_ELEMENT_STYLE_LEFT,
@@ -16,7 +16,7 @@ Slider element utils are a set of utility functions that are used to work with s
 
 The **getSliderThumbElementPercentage** function is used to get the percentage of the slider that the thumb should be positioned at based on a given value, minimum value, maximum value, and number of decimals. This can be useful for positioning the slider thumb element dynamically based on user input or other factors.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_GET_SLIDER_THUMB_ELEMENT_PERCENTAGE}
@@ -29,7 +29,7 @@ The **getSliderThumbElementPercentage** function is used to get the percentage o
 
 The **getSliderThumbElementStyleLeft** function is used to get the left position of the slider thumb element based on a given percentage and orientation. This can be useful for positioning the slider thumb element dynamically based on user input or other factors.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_GET_SLIDER_THUMB_ELEMENT_STYLE_LEFT}
@@ -42,7 +42,7 @@ The **getSliderThumbElementStyleLeft** function is used to get the left position
 
 The **getSliderThumbElementStyleTop** function is used to get the top position of the slider thumb element based on a given percentage and orientation. This can be useful for positioning the slider thumb element dynamically based on user input or other factors.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_GET_SLIDER_THUMB_ELEMENT_STYLE_TOP}

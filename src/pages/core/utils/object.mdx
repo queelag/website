@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Object
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_CLONE_DEEP_OBJECT,
   SB_CLONE_SHALLOW_OBJECT,
@@ -30,7 +30,7 @@ Object utils are a set of utility functions that are used to manipulate objects 
 
 The **setObjectProperty** function is a utility function that sets a property on an object. The function takes three parameters: the object to modify, the key of the property to set, and the value to set the property to.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SET_OBJECT_PROPERTY}
@@ -43,7 +43,7 @@ The **setObjectProperty** function is a utility function that sets a property on
 
 The **getObjectProperty** function is a utility function that retrieves a property from an object. The function takes two parameters: the object to retrieve the property from, and the key of the property to retrieve.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_OBJECT_PROPERTY}
@@ -56,7 +56,7 @@ The **getObjectProperty** function is a utility function that retrieves a proper
 
 The **deleteObjectProperty** function is a utility function that deletes a property from an object. The function takes two parameters: the object to delete the property from, and the key of the property to delete.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DELETE_OBJECT_PROPERTY}
@@ -69,7 +69,7 @@ The **deleteObjectProperty** function is a utility function that deletes a prope
 
 The **copyObjectProperty** function is a utility function that copies a property from one object to another. The function takes three parameters: the source object to copy the property from, the key of the property to copy, and the target object to copy the property to.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_COPY_OBJECT_PROPERTY}
@@ -82,7 +82,7 @@ The **copyObjectProperty** function is a utility function that copies a property
 
 The **hasObjectProperty** function is a utility function that checks whether an object has a specified property. The function takes two parameters: the object to check, and the key of the property to check.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_HAS_OBJECT_PROPERTY}
@@ -95,7 +95,7 @@ The **hasObjectProperty** function is a utility function that checks whether an 
 
 The **omitObjectProperties** function is a utility function that creates a new object with all properties of the original object except for the specified properties. The function takes two parameters: the object to omit properties from, and an array of keys of the properties to omit.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_OMIT_OBJECT_PROPERTIES}
@@ -108,7 +108,7 @@ The **omitObjectProperties** function is a utility function that creates a new o
 
 The **pickObjectProperties** function is a utility function that creates a new object with only the specified properties from the original object. The function takes two parameters: the object to pick properties from, and an array of keys of the properties to pick.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_PICK_OBJECT_PROPERTIES}
@@ -121,7 +121,7 @@ The **pickObjectProperties** function is a utility function that creates a new o
 
 The **cloneDeepObject** function is a utility function that creates a deep copy of an object, including all nested objects and arrays. The function takes one parameter: the object to clone
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_CLONE_DEEP_OBJECT}
@@ -134,7 +134,7 @@ The **cloneDeepObject** function is a utility function that creates a deep copy 
 
 The **cloneShallowObject** function is a utility function that creates a shallow copy of an object. The function takes one parameter: the object to clone.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_CLONE_SHALLOW_OBJECT}
@@ -147,7 +147,7 @@ The **cloneShallowObject** function is a utility function that creates a shallow
 
 The **flattenObject** function is a utility function that flattens a nested object into a single-level object with dot-separated keys. The function takes two parameters: the object to flatten, and an optional options object that can be used to customize the flattening behavior.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_FLATTEN_OBJECT}
@@ -160,7 +160,7 @@ The **flattenObject** function is a utility function that flattens a nested obje
 
 The **mergeObjects** function is a utility function that merges multiple objects into a single object. The function takes at least two parameters: the target object to merge into, and one or more source objects to merge from.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_MERGE_OBJECTS}
@@ -173,7 +173,7 @@ The **mergeObjects** function is a utility function that merges multiple objects
 
 The **isObject** function is a type guard utility function that checks whether a value is an object. The function takes one parameter: the value to check.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_OBJECT}
@@ -186,7 +186,7 @@ The **isObject** function is a type guard utility function that checks whether a
 
 The **isObjectClonable** function is a utility function that checks whether an object is clonable. The function takes one parameter: the object to check.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_OBJECT_CLONABLE}
@@ -199,7 +199,7 @@ The **isObjectClonable** function is a utility function that checks whether an o
 
 The **isObjectFlattenable** function is a utility function that checks whether an object is flattenable. The function takes two parameters: the object to check, and an optional options object that can be used to customize the flattening behavior.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_OBJECT_FLATTENABLE}
@@ -212,7 +212,7 @@ The **isObjectFlattenable** function is a utility function that checks whether a
 
 The **isObjectKeysPopulated** function is a utility function that checks whether an object has any keys. The function takes one parameter: the object to check.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_OBJECT_KEYS_POPULATED}
@@ -225,7 +225,7 @@ The **isObjectKeysPopulated** function is a utility function that checks whether
 
 The **isObjectValuesPopulated** function is a utility function that checks whether an object has any populated values. The function takes one parameter: the object to check.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_OBJECT_VALUES_POPULATED}
@@ -238,7 +238,7 @@ The **isObjectValuesPopulated** function is a utility function that checks wheth
 
 The **isPlainObject** function is a type guard utility function that checks whether a value is a plain object. The function takes one parameter: the value to check.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_PLAIN_OBJECT}

@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Array
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_CLONE_SHALLOW_ARRAY,
   SB_GET_ARRAYS_DIFFERENCE,
@@ -20,7 +20,7 @@ Array utils are a set of utility functions that are designed to make working wit
 
 The **cloneShallowArray** function is used to create a shallow copy of an array. It takes an array of type **T[]** as input and returns a new array of type **T[]**.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_CLONE_SHALLOW_ARRAY}
@@ -33,7 +33,7 @@ The **cloneShallowArray** function is used to create a shallow copy of an array.
 
 The **getArraysDifference** function is used to return the symmetric difference between two or more arrays. The function takes an array of arrays of type **T[][]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_ARRAYS_DIFFERENCE}
@@ -46,7 +46,7 @@ The **getArraysDifference** function is used to return the symmetric difference 
 
 The **getArraysIntersection** function is used to return the intersection between two or more arrays. The function takes an array of arrays of type **T[][]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_ARRAYS_INTERSECTION}
@@ -59,7 +59,7 @@ The **getArraysIntersection** function is used to return the intersection betwee
 
 The **getArrayLastItem** function is used to get the last item of an array. The function takes an array of type **T[]** as input and returns the last element of the array of type **T**. The function also takes an optional fallback value of type **T**, which is returned if the array is empty.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_ARRAY_LAST_ITEM}
@@ -72,7 +72,7 @@ The **getArrayLastItem** function is used to get the last item of an array. The 
 
 The **removeArrayDuplicates** function is used to remove duplicates from an array. The function takes an array of type **T[]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_REMOVE_ARRAY_DUPLICATES}
@@ -85,7 +85,7 @@ The **removeArrayDuplicates** function is used to remove duplicates from an arra
 
 The **removeArrayItems** function is used to remove items from an array based on a given condition. The function takes an array of type **T[]** as input and returns a new array of type **T[]**. The function also takes an optional array of items to remove and an optional **ArrayRemoves** function as input.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_REMOVE_ARRAY_ITEMS}
@@ -98,7 +98,7 @@ The **removeArrayItems** function is used to remove items from an array based on
 
 The **isArray** function is used to check whether a given value is an array. The function takes any value as input and returns a boolean value indicating whether the input value is an array.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_IS_ARRAY}

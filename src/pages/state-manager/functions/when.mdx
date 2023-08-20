@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: when
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_WHEN_CALLBACK,
   SB_WHEN_PROMISE
@@ -15,7 +15,7 @@ The **when** function is used to create a watcher that observes an observable un
 
 When the **when** function is called with two arguments, **predicate** and **effect**, it creates a watcher that observes the **predicate** function until it returns a truthy value. Once the **predicate** function returns a truthy value, the **effect** function is run.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
   files={SB_WHEN_CALLBACK}
@@ -28,7 +28,7 @@ When the **when** function is called with two arguments, **predicate** and **eff
 
 When the **when** function is called with only the **predicate** argument, it returns a promise that resolves when the condition specified by the **predicate** function is met.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
   files={SB_WHEN_PROMISE}

@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Environment
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_ENVIRONMENT } from '@/definitions/stack-blitz/core/modules'
 
 The **Environment** class is used to check the current environment and the availability of certain global objects or functions.
@@ -20,7 +20,7 @@ The **Environment** class is used to check the current environment and the avail
 - **isProcessDefined**
 - **isWindowDefined**
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ENVIRONMENT}

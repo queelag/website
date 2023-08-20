@@ -9,7 +9,7 @@ export const SB_AVATAR: ProjectFiles = {
   `,
   'index.js': html`
     <script>
-      import '@aracna/web-components/index.iife.js';
+      import '@aracna/web-components/elements/data/avatar-element.cjs';
     </script>
   `
 };

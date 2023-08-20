@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Fetch
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_DELETE_FETCH_REQUEST_INIT_HEADER,
   SB_GET_FETCH_REQUEST_INIT_HEADER,
@@ -24,7 +24,7 @@ Fetch utils are a set of utility functions that are designed to make working wit
 
 The **deleteFetchRequestInitHeader** function is used to delete a specific header from a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to delete as input, and returns a new **FetchRequestInit** object with the specified header removed.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DELETE_FETCH_REQUEST_INIT_HEADER}
@@ -37,7 +37,7 @@ The **deleteFetchRequestInitHeader** function is used to delete a specific heade
 
 The **getFetchRequestInitHeader** function is used to retrieve the value of a specific header from a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to retrieve as input, and returns the value of the specified header as a string.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_FETCH_REQUEST_INIT_HEADER}
@@ -50,7 +50,7 @@ The **getFetchRequestInitHeader** function is used to retrieve the value of a sp
 
 The **getFetchRequestInitHeadersEntries** function is used to retrieve an array of **[name, value]** pairs representing the headers of a **FetchRequestInit** object. The function takes a **FetchRequestInit** object as input, and returns an array of **[name, value]** pairs representing the headers of the input object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_FETCH_REQUEST_INIT_HEADERS_ENTRIES}
@@ -63,7 +63,7 @@ The **getFetchRequestInitHeadersEntries** function is used to retrieve an array 
 
 The **getFetchRequestInitHeadersLength** function is used to retrieve the number of headers in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object as input, and returns the number of headers in the **headers** property of the input object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_GET_FETCH_REQUEST_INIT_HEADERS_LENGTH}
@@ -76,7 +76,7 @@ The **getFetchRequestInitHeadersLength** function is used to retrieve the number
 
 The **setFetchRequestInitHeader** function is used to set the value of a specific header in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object, a string representing the name of the header to set, and a string representing the value of the header as input. The function returns a new **FetchRequestInit** object with the specified header set to the specified value.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SET_FETCH_REQUEST_INIT_HEADER}
@@ -89,7 +89,7 @@ The **setFetchRequestInitHeader** function is used to set the value of a specifi
 
 The **setFetchRequestInitHeaderWhenUnset** function is used to set the value of a specific header in a **FetchRequestInit** object, but only if the header is not already set. The function takes a **FetchRequestInit** object, a string representing the name of the header to set, and a string representing the value of the header as input. The function returns a new **FetchRequestInit** object with the specified header set to the specified value, but only if the header was not already set in the input object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SET_FETCH_REQUEST_INIT_HEADER_WHEN_UNSET}
@@ -102,7 +102,7 @@ The **setFetchRequestInitHeaderWhenUnset** function is used to set the value of 
 
 The **hasFetchRequestInitHeader** function is used to check whether a specific header is set in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to check as input, and returns a boolean value indicating whether the specified header is set in the input object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_HAS_FETCH_REQUEST_INIT_HEADER}
@@ -115,7 +115,7 @@ The **hasFetchRequestInitHeader** function is used to check whether a specific h
 
 The **mergeFetchRequestInits** function is used to merge two **FetchRequestInit** objects into a single object. The function takes two **FetchRequestInit** objects as input, and returns a new **FetchRequestInit** object that contains the merged headers and other properties of the input objects.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_MERGE_FETCH_REQUEST_INITS}
@@ -128,7 +128,7 @@ The **mergeFetchRequestInits** function is used to merge two **FetchRequestInit*
 
 The **toNativeFetchRequestInit** function is used to convert a **FetchRequestInit** object to a native **RequestInit** object. The function takes a **FetchRequestInit** object as input, and returns a new **RequestInit** object with the same properties as the input object.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TO_NATIVE_FETCH_REQUEST_INIT}
@@ -141,7 +141,7 @@ The **toNativeFetchRequestInit** function is used to convert a **FetchRequestIni
 
 The **toLoggableFetchRequestInit** function is used to convert a **FetchRequestInit** object to a loggable object that can be used for debugging or logging purposes. The function takes a **FetchRequestInit** object as input, and returns a new object with the same properties as the input object, but with the **headers** property converted to an array of **[name, value]** pairs.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TO_LOGGABLE_FETCH_REQUEST_INIT}
@@ -154,7 +154,7 @@ The **toLoggableFetchRequestInit** function is used to convert a **FetchRequestI
 
 The **toLoggableNativeFetchRequestInit** function is used to convert a native **RequestInit** object to a loggable object that can be used for debugging or logging purposes. The function takes a **RequestInit** object as input, and returns a new object with the same properties as the input object, but with the **headers** property converted to an array of **[name, value]** pairs.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT}

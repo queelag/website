@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: throttle
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_THROTTLE_FN_AS_KEY,
   SB_THROTTLE_NAME_AS_KEY
@@ -19,7 +19,7 @@ This implementation of the throttle function is a useful tool for limiting the r
 
 When the **throttle** function is called with only two arguments, **fn** and **ms**, it uses the provided function as the key to identify the function being throttled.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_THROTTLE_FN_AS_KEY}
@@ -34,7 +34,7 @@ When the **throttle** function is called with three arguments, **name**, **fn**,
 
 When using the **throttle** function with a custom **name** argument, you can safely define the function inline. This is because the **name** argument is used as the key to identify the function being throttled, so as long as the same **name** argument is used consistently, the throttling will be applied correctly.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_THROTTLE_NAME_AS_KEY}

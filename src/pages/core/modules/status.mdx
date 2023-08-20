@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Status
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_STATUS,
   SB_STATUS_IS_GETTERS
@@ -13,7 +13,7 @@ The **Status** class provides a convenient way to manage the status of a module 
 
 The **Status** class has a **data** property that is a **Map** object that stores the status of the module. The **transformer** property is a function that transforms an array of keys into a single string that is used as the key in the **data** map.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STATUS}
@@ -30,7 +30,7 @@ The **isEveryIdle**, **isEveryPending**, **isEverySuccess**, and **isEveryError*
 
 The **areSomeIdle**, **areSomePending**, **areSomeSuccess**, and **areSomeError** methods are getter methods of the **Status** class that allow the status of the module to be checked for multiple sets of keys. These methods take an array of arrays of keys as arguments and return a boolean value indicating whether the status of the module is **IDLE**, **PENDING**, **SUCCESS**, or **ERROR** for at least one set of keys in the array of arrays.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_STATUS_IS_GETTERS}

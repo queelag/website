@@ -3,12 +3,12 @@ layout: '@/layouts/Layout.astro'
 title: useEventListener
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { SB_USE_EVENT_LISTENER } from '@/definitions/stack-blitz/react/functions'
 
 The **useEventListener** hook is a custom React hook that sets up an event listener on a DOM element referenced by a mutable ref object. The hook takes in several generic type parameters, including the type of the DOM element, the type of the event, and the type of the event listener. The hook also takes in an optional **deps** parameter that is used to specify which dependencies should trigger a re-render of the component.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{
     '@aracna/core': 'latest',

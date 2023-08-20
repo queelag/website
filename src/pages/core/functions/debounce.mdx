@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: debounce
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_DEBOUNCE_FN_AS_KEY,
   SB_DEBOUNCE_NAME_AS_KEY
@@ -17,7 +17,7 @@ This **debounce** function is a useful tool for ensuring that a function is only
 
 When the **debounce** function is called with only **fn** and **ms** arguments, the **fn** function is used as a key to identify the debounce timeout.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DEBOUNCE_FN_AS_KEY}
@@ -32,7 +32,7 @@ When the debounce function is called with a name, fn, and ms arguments, the name
 
 When using the **name** argument as a key to identify the debounce timeout, you can safely define the **fn** function as an inline function. This is because the **name** argument is used as the key to identify the debounce timeout, so the **fn** function itself is not used as a key.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DEBOUNCE_NAME_AS_KEY}

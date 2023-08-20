@@ -3,7 +3,7 @@ layout: '@/layouts/Layout.astro'
 title: Blob
 ---
 
-import { StackBlitz } from '@/components/StackBlitz.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
   SB_SERIALIZE_BLOB,
   SB_DESERIALIZE_BLOB
@@ -15,7 +15,7 @@ Blob utils are a set of utility functions that are designed to make working with
 
 The **serializeBlob** function is used to serialize an **AracnaBlob** object into a new **Blob** object. The function takes an **AracnaBlob** object and an optional **EndingType** value as input, and returns a new **Blob** object. The **EndingType** value is used to specify the line endings of the serialized **Blob**.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_SERIALIZE_BLOB}
@@ -28,7 +28,7 @@ The **serializeBlob** function is used to serialize an **AracnaBlob** object int
 
 The **deserializeBlob** function is used to deserialize a **Blob** object into an **AracnaBlob** object. The function takes a **Blob** object and an optional **DeserializeBlobOptions** object as input, and returns a new **AracnaBlob** object. The **DeserializeBlobOptions** object is used to specify whether the **ArrayBuffer** and/or text content of the **Blob** should be resolved during deserialization.
 
-<StackBlitz
+<CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_DESERIALIZE_BLOB}
