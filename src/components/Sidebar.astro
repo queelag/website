@@ -2,31 +2,16 @@
 import type { DocsPageMDXInstance, DocsPageMDXInstanceFrontmatter } from '@/definitions/interfaces'
 import type { SidebarItemProps } from '@/definitions/props'
 import { mapDirName } from '@/utils/fs.utils'
-import { Environment, concatURL, tcp } from '@aracna/core'
+import { concatURL } from '@aracna/core'
 import type { MDXInstance } from 'astro'
 import type { Dirent } from 'fs'
-import { readFile, readdir, writeFile } from 'fs/promises'
+import { readdir } from 'fs/promises'
 import { SidebarItem } from './SidebarItem'
 
 async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
   let globs: MDXInstance<DocsPageMDXInstanceFrontmatter>[], dirs: Dirent[], items: SidebarItemProps[]
 
-  globs = []
-
-  if (Environment.isDevelopment) {
-    let cache
-
-    cache = await tcp(() => readFile('pages_globs_cache.json', 'utf8'))
-
-    if (typeof cache === 'string') {
-      globs = JSON.parse(cache)
-    }
-  }
-
-  if (globs.length <= 0) {
     globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/**/*.mdx')
-  }
-
   dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
   items = []
 
@@ -73,10 +58,6 @@ async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
   }
 
   items = items.sort((a: SidebarItemProps, b: SidebarItemProps) => a.order - b.order)
-
-  if (Environment.isDevelopment) {
-    await writeFile('pages_globs_cache.json', JSON.stringify(globs, null, 2), 'utf8')
-  }
 
   return items
 }
