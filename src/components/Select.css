@@ -1,0 +1,7 @@
+aracna-select:not([expanded]) aracna-select-list {
+  @apply opacity-0 pointer-events-none;
+}
+
+aracna-select-list {
+  @apply w-full flex flex-col bg-black;
+}

@@ -4,10 +4,14 @@ title: Avatar
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { AvatarBlock } from '@/blocks/components/AvatarBlock.tsx'
 import { SB_AVATAR } from '@/definitions/stack-blitz/web/components/data'
+
+<AvatarBlock client:load />
 
 <CodeBlock
   client:load
+  className='mt-6'
   dependencies={{
     '@aracna/core': 'latest',
     '@aracna/web': 'latest',

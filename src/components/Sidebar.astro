@@ -11,7 +11,7 @@ import { SidebarItem } from './SidebarItem'
 async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
   let globs: MDXInstance<DocsPageMDXInstanceFrontmatter>[], dirs: Dirent[], items: SidebarItemProps[]
 
-    globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/**/*.mdx')
+  globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/**/*.mdx')
   dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
   items = []
 
