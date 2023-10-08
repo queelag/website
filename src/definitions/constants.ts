@@ -1,5 +1,6 @@
 import { html } from '@/functions/html'
 import type { Project, ProjectDependencies } from '@stackblitz/sdk'
+import type { ComponentBlockAttribute } from './interfaces'
 
 /**
  * Header
@@ -102,6 +103,20 @@ export const DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON = (dependencies?: Proj
     'react-dom': 'latest',
     ...dependencies
   })
+
+/**
+ * ComponentBlock
+ */
+export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
+  { name: 'background', type: 'color' },
+  { name: 'shape', type: 'enum', values: ['circle', 'rectangle', 'square', 'squircle'] },
+  { name: 'shape-rectangle-radius', type: 'number', visible: { shape: ['rectangle'] } },
+  { name: 'shape-square-radius', type: 'number', visible: { shape: ['square'] } },
+  { name: 'shape-squircle-curvature', type: 'number', visible: { shape: ['squircle'] } },
+  { name: 'height', type: 'string' },
+  { name: 'width', type: 'string' },
+  { name: 'size', type: 'string' }
+]
 
 /**
  * StackBlitz

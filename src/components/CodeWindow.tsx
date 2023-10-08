@@ -3,6 +3,7 @@ import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/cli
 import { AracnaButton } from '@aracna/react-components/components/input/button.js'
 import { joinElementClasses } from '@aracna/web'
 import { Fragment, useMemo, useState, type ReactNode } from 'react'
+import { ButtonGroup } from './ButtonGroup'
 import { Code } from './Code'
 
 interface Button {
@@ -91,17 +92,13 @@ export function CodeWindow(props: Props) {
           </Code>
           {Object.keys(props.files).length >= 2 && (
             <div className='self-end flex px-6 pb-6'>
-              <div className='flex rounded overflow-hidden divide-x divide-black ring-2 ring-slate-800 ring-offset-2 ring-offset-black'>
-                {Object.keys(props.files).map((name: string, index: number) => (
-                  <AracnaButton
-                    className={joinElementClasses('px-4 py-2 hover:bg-slate-800', index === active && 'bg-slate-900')}
-                    key={name}
-                    onClick={() => onClickFile(index)}
-                  >
-                    <span className='text-xs'>{name}</span>
-                  </AracnaButton>
-                ))}
-              </div>
+              <ButtonGroup
+                buttons={Object.keys(props.files).map((name: string, index: number) => ({
+                  children: name,
+                  onClick: () => onClickFile(index)
+                }))}
+                pressed={active}
+              />
             </div>
           )}
         </Fragment>

@@ -21,7 +21,7 @@ export function Select(props: Props) {
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>
             {props.label && <label className='text-xs'>{props.label}</label>}
-            <span className='text-xs font-semibold'>{element?.value ?? props.placeholder}</span>
+            <span className={joinElementClasses('text-xs font-semibold', !element?.value && 'text-gray-500')}>{element?.value ?? props.placeholder}</span>
           </div>
           <IconFeatherChevronDown className={joinElementClasses('group-aria-expanded:rotate-180')} size={14} stroke='white' />
         </AracnaSelectButton>

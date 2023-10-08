@@ -42,10 +42,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.26.tgz#a290ce86d75579f0628b3cbc34719253e93a6101"
   integrity sha512-mqwrG3g2GHLMX/hL1S/bp5XVQW1o8pNMDdcbOcXPp1RaymbO/SJA/CUfkQQW6Krt6076BKr+u+LmAl18K2pJTQ==
 
-"@aracna/react@^1.0.29":
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.29.tgz#b4a117b73fd543afdefe023500d0bcf3cc970b4f"
-  integrity sha512-XyYUkFRLVKmvao+6mYrkRSpw5WOp91n/cxMArcw87LF61bI6O09+NsLxBtVaIedh2/U4F8QNmPAuHCmq3DuhAg==
+"@aracna/react@^1.0.30":
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.30.tgz#9a4a05458550c1f083e53ea97cea13ecbfe36f3e"
+  integrity sha512-tlA5JqCckig2lvnEBIWwlsunbKp2Y28FcE81Aq2qBt1hjW3/L5asnLP7YvUuQvuOhQ+fvaSrx5dp8kAWCotOhQ==
   dependencies:
     "@lit-labs/react" "^2.1.0"
 
@@ -59,17 +59,17 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.28.tgz#173301bd7cd30d39b97f7fd7c01291fc6cb82f5f"
   integrity sha512-Z+Wo2xyf2RjV57khLYKB9l9EVvXzhwR9qE8787aTYVZ8GegzmdRjJj5FS4BphQYsBRcaUrlcgRBzpoXT8LF0Jg==
 
-"@aracna/web-components@^1.0.36":
-  version "1.0.36"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.36.tgz#2920adc1d17802cafc722b4a39243dfc665a13ec"
-  integrity sha512-ONfDHvhYNScsnWSACqxa0WY+AKM499va4sra58sI70cMabVXBshkRA/zSxAdvRNbbyB/xxo2QsY1o+THB/p+Ew==
+"@aracna/web-components@^1.0.39":
+  version "1.0.39"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.39.tgz#d9db6571fb13b142648131d31dbcbb4a1980ce87"
+  integrity sha512-gY4PlKtl5gSXpI0N8sZqffPaNVBBxrdnpb7kKPskmc+vMGamBUZig6ghCFg8//CySe51GF9Ub8RWpn9YygoLqg==
   dependencies:
     "@vitest/coverage-v8" "^0.34.2"
 
-"@aracna/web@^1.0.37":
-  version "1.0.37"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.37.tgz#4ce93cbf675b5698facc9e436930c795f5f30ea2"
-  integrity sha512-+4nPuhW9RUt+b6ha+UFcggTMEtN/MndRLME7tVsj44pfY8Dzw3WGRlC7YSqa84wabi3t5UILIKV0wxZpdW0wRQ==
+"@aracna/web@^1.0.38":
+  version "1.0.38"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.38.tgz#0520db9ab0a45be27b8bcc2c3ac7b293a642f386"
+  integrity sha512-QyXVfLWfUCRK4JhtrxYomkU3O661lJhABlC8Q7MGSKHgQkwzVUA8K9E62WSRnf4SiDewKIprHBaX796PimhdHA==
   dependencies:
     "@vitest/coverage-v8" "^0.34.2"
 

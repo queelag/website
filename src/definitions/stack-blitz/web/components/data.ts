@@ -13,3 +13,31 @@ export const SB_AVATAR: ProjectFiles = {
     </script>
   `
 };
+
+export const SB_BADGE: ProjectFiles = {
+  'index.html': html`
+    <aracna-badge
+      background="red"
+      max="9"
+      min="0"
+      shape="circle"
+      size="20"
+      value="7"
+      numeric
+    ></aracna-badge>
+  `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/data/badge-element.cjs';
+    </script>
+  `
+};
+
+export const SB_CAROUSEL: ProjectFiles = {
+  'index.html': html` <aracna-carousel></aracna-carousel> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/data/carousel-element.cjs';
+    </script>
+  `
+};

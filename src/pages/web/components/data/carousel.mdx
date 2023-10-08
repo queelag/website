@@ -1,13 +1,13 @@
 ---
 layout: '@/layouts/Layout.astro'
-title: Avatar
+title: Carousel
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock.tsx'
-import { AvatarComponentBlock } from '@/blocks/components/AvatarComponentBlock.tsx'
-import { SB_AVATAR } from '@/definitions/stack-blitz/web/components/data'
+import { CarouselComponentBlock } from '@/blocks/components/CarouselComponentBlock.tsx'
+import { SB_CAROUSEL } from '@/definitions/stack-blitz/web/components/data'
 
-<AvatarComponentBlock client:load />
+<CarouselComponentBlock client:load type='buttons' />
 
 <CodeBlock
   client:load
@@ -19,7 +19,7 @@ import { SB_AVATAR } from '@/definitions/stack-blitz/web/components/data'
     lit: 'latest',
     'lit-html': 'latest'
   }}
-  files={SB_AVATAR}
+  files={SB_CAROUSEL}
   template='javascript'
-  title='Avatar'
+  title='Carousel'
 />
