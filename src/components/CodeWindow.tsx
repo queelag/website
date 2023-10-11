@@ -19,7 +19,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
 }
 
 export function CodeWindow(props: Props) {
-  const [active, setActive] = useState<number>(0)
+  const [activeFile, setActiveFile] = useState<number>(0)
   const buttons = useMemo(
     () => [
       ...(props.buttons ?? []),
@@ -57,7 +57,7 @@ export function CodeWindow(props: Props) {
   }
 
   const onClickFile = (index: number) => {
-    setActive(index)
+    setActiveFile(index)
   }
 
   return (
@@ -87,17 +87,17 @@ export function CodeWindow(props: Props) {
       )}
       {props.files && (
         <Fragment>
-          <Code className='p-6 text-sm' language={getLanguage(Object.keys(props.files)[active])}>
-            {Object.values(props.files)[active]}
+          <Code className='p-6 text-sm' language={getLanguage(Object.keys(props.files)[activeFile])}>
+            {Object.values(props.files)[activeFile]}
           </Code>
           {Object.keys(props.files).length >= 2 && (
             <div className='self-end flex px-6 pb-6'>
               <ButtonGroup
                 buttons={Object.keys(props.files).map((name: string, index: number) => ({
                   children: name,
-                  onClick: () => onClickFile(index)
+                  onClick: () => onClickFile(index),
+                  pressed: index === activeFile ? 'true' : 'false'
                 }))}
-                pressed={active}
               />
             </div>
           )}

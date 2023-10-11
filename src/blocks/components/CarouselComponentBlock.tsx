@@ -2,10 +2,16 @@ import MESH_BLUE from '@/assets/meshes/blue.jpeg'
 import MESH_MINT from '@/assets/meshes/mint.jpeg'
 import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
+import type { ComponentBlockComponentProps } from '@/definitions/types'
+import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/chevron-left.js'
+import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right.js'
 import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause.js'
 import { IconFeatherPlay } from '@aracna/icons-feather-react/components/play.js'
+import type { CarouselProps } from '@aracna/react'
 import {
   AracnaCarousel,
+  AracnaCarouselNextSlideControl,
+  AracnaCarouselPreviousSlideControl,
   AracnaCarouselRotationControl,
   AracnaCarouselSlide,
   AracnaCarouselSlides,
@@ -14,11 +20,7 @@ import {
 } from '@aracna/react-components/components/data/carousel.js'
 import { ComponentBlock } from '../ComponentBlock'
 
-interface Props {
-  type: 'buttons' | 'tabs'
-}
-
-export function CarouselComponentBlock(props: Props) {
+export function CarouselComponentBlock() {
   const images = [MESH_BLUE, MESH_MINT, MESH_ROSE, MESH_SEANCE]
 
   return (
@@ -29,8 +31,8 @@ export function CarouselComponentBlock(props: Props) {
         { name: 'infinite-rotation', type: 'boolean' },
         { name: 'reverse-rotation', type: 'boolean' }
       ]}
-      component={(p) => (
-        <AracnaCarousel {...p} className='not-prose relative w-72 aspect-video'>
+      component={(props: ComponentBlockComponentProps<CarouselProps>) => (
+        <AracnaCarousel {...props} className='group not-prose relative w-full h-full'>
           <AracnaCarouselSlides className='relative w-full h-full'>
             {images.map((image: string, index: number) => (
               <AracnaCarouselSlide
@@ -41,17 +43,33 @@ export function CarouselComponentBlock(props: Props) {
                 <img alt='' className='w-full h-full object-cover rounded' src={image} />
               </AracnaCarouselSlide>
             ))}
-            {props.type === 'tabs' && (
+            <AracnaCarouselRotationControl className='absolute top-2 left-2'>
+              <div className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25  hover:bg-opacity-75 bg-black transition'>
+                <IconFeatherPause className='group-[[live=polite]]:hidden' stroke='white' />
+                <IconFeatherPlay className='group-[[live=off]]:hidden' stroke='white' />
+              </div>
+            </AracnaCarouselRotationControl>
+            {props._variant === 'buttons' && (
+              <div className='absolute top-2 right-2 flex gap-1'>
+                <AracnaCarouselPreviousSlideControl className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25 hover:bg-opacity-75 bg-black transition'>
+                  <IconFeatherChevronLeft stroke='white' />
+                </AracnaCarouselPreviousSlideControl>
+                <AracnaCarouselNextSlideControl className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25 hover:bg-opacity-75 bg-black transition'>
+                  <IconFeatherChevronRight stroke='white' />
+                </AracnaCarouselNextSlideControl>
+              </div>
+            )}
+            {props._variant === 'tabs' && (
               <AracnaCarouselTabs className='absolute bottom-0 left-0 right-0 flex justify-center gap-1 pb-2'>
                 {images.map((image: string, index: number) => (
-                  <AracnaCarouselTab active={index <= 0} className='w-3 h-3 rounded-full border-2 border-black [&[active]]:bg-white transition' key={image} />
+                  <AracnaCarouselTab
+                    active={index <= 0}
+                    className='w-3 h-3 rounded-full backdrop-blur-3xl bg-opacity-25 [&[active]]:bg-opacity-75 bg-white transition'
+                    key={image}
+                  />
                 ))}
               </AracnaCarouselTabs>
             )}
-            <AracnaCarouselRotationControl className='absolute top-1 left-1'>
-              <IconFeatherPause className='aria-[label=Start Automatic Slide Show]:hidden' fill='white' stroke='black' />
-              <IconFeatherPlay className='aria-[label=Stop Automatic Slide Show]:hidden' fill='white' stroke='black' />
-            </AracnaCarouselRotationControl>
           </AracnaCarouselSlides>
         </AracnaCarousel>
       )}
@@ -59,6 +77,10 @@ export function CarouselComponentBlock(props: Props) {
         'automatic-rotation': true,
         'infinite-rotation': true
       }}
+      variants={[
+        { label: 'Buttons', value: 'buttons' },
+        { label: 'Tabs', value: 'tabs' }
+      ]}
     />
   )
 }

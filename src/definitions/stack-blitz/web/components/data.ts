@@ -41,3 +41,12 @@ export const SB_CAROUSEL: ProjectFiles = {
     </script>
   `
 };
+
+export const SB_CHIP: ProjectFiles = {
+  'index.html': html` <aracna-chip></aracna-chip> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/data/chip-element.cjs';
+    </script>
+  `
+};

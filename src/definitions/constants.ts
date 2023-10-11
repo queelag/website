@@ -109,7 +109,7 @@ export const DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON = (dependencies?: Proj
  */
 export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
   { name: 'background', type: 'color' },
-  { name: 'shape', type: 'enum', values: ['circle', 'rectangle', 'square', 'squircle'] },
+  { name: 'shape', type: 'enum', options: [{ value: 'circle' }, { value: 'rectangle' }, { value: 'square' }, { value: 'squircle' }] },
   { name: 'shape-rectangle-radius', type: 'number', visible: { shape: ['rectangle'] } },
   { name: 'shape-square-radius', type: 'number', visible: { shape: ['square'] } },
   { name: 'shape-squircle-curvature', type: 'number', visible: { shape: ['squircle'] } },
