@@ -26,25 +26,25 @@
     node-fetch "^3.3.2"
     rfc4648 "^1.5.2"
 
-"@aracna/icons-feather-react@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.12.tgz#3f4339e136ea40f64f3a393692ae0392208a82ca"
-  integrity sha512-bI+q7BVDZfg593emhsndYqevdCoYpXKzjRyX4oqUFrTKb1n/Sgu2MP4tKViBdCic68qn9q5hepDZpbE14az5Rw==
+"@aracna/icons-feather-react@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.13.tgz#8dc28adbe8278cb02b9eb69e09e9f361c97cbffd"
+  integrity sha512-LNHc3NE80Z7pBvlt7N9M5F7Q9VynkKp/8Si2Dj1RNSk/+KFvemoyFlUYe/Iw5xNC0oaMYFsNXYez3cJt8Q+raQ==
 
-"@aracna/icons-feather-web@^1.0.16":
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.16.tgz#694d9117dfb9049fb0f37f1c37376e7dc73520fd"
-  integrity sha512-1aKSbI6STYuq++khc/nn2GO5tZ814WJ++Qy/cGE3yGrCS/2Jd7IrdO6GEDtKTL//94jUAlUN/TCv6Sh7Hv4bow==
+"@aracna/icons-feather-web@^1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.18.tgz#3d65b4fd0b77977e7a216f09b40c119a21737698"
+  integrity sha512-rW0qmtdnRAJcdy5bVswYJq54JlMEXz+o8+dBgC6uWxOEWYvxHjqBZ93njULyQRlXR0jkIwvFfz5ncZ99rQ4o/A==
 
-"@aracna/icons-feather@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.4.tgz#15259f45f1c510862475aecef70bcd66dc541a6b"
-  integrity sha512-7x4G5+t299nDMF4jLGWJGxlwc99euYRO6nmulYr7FLwXukGVfre907rtnp+Bo1m3ff4DGVOmfZm75KVoNVcIgw==
+"@aracna/icons-feather@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.5.tgz#d9b1f91af22baa8af76a370bc6476b0c894f647a"
+  integrity sha512-rGqJrjKZlkPgrQh9+KvY5rh8/0oJ5qS4qPS7DrUxYTf3cee6+WH8LJdaH85E6VTtM9UMRXFkQ2TGbYnnaOZf6w==
 
-"@aracna/react-components@^1.0.31":
-  version "1.0.31"
-  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.31.tgz#d13b891a9ca18ac4a79a5482188e8b323173fec8"
-  integrity sha512-BmLrNPFg3EKdHzttca1wErg1t0CJRsEAmOozMrUORnN6e6EjwznngZ2K5WKejcfPfKFRni32YvWrLe/klOy62g==
+"@aracna/react-components@^1.0.32":
+  version "1.0.32"
+  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.32.tgz#1ea71fd364d1540defc03913df7c0407c81ce843"
+  integrity sha512-G3PeZD84lJojk+n4P9Q+HoJ8oVgqkGwFMr2jmQEt40S72XwpP5j+q5S5cZjLozEV49nagYq2EzHoIPpMlRWc2g==
 
 "@aracna/react@^1.0.31":
   version "1.0.31"
