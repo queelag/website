@@ -1,5 +1,5 @@
 import { omitObjectProperties } from '@aracna/core'
-import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check.js'
+import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { joinElementClasses } from '@aracna/web'
 
 type Props = JSX.IntrinsicElements['div'] & {

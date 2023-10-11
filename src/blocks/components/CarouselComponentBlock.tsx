@@ -3,10 +3,10 @@ import MESH_MINT from '@/assets/meshes/mint.jpeg'
 import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
-import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/chevron-left.js'
-import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right.js'
-import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause.js'
-import { IconFeatherPlay } from '@aracna/icons-feather-react/components/play.js'
+import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/chevron-left'
+import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
+import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause'
+import { IconFeatherPlay } from '@aracna/icons-feather-react/components/play'
 import type { CarouselProps } from '@aracna/react'
 import {
   AracnaCarousel,
@@ -17,7 +17,7 @@ import {
   AracnaCarouselSlides,
   AracnaCarouselTab,
   AracnaCarouselTabs
-} from '@aracna/react-components/components/data/carousel.js'
+} from '@aracna/react-components/components/data/carousel'
 import { ComponentBlock } from '../ComponentBlock'
 
 export function CarouselComponentBlock() {

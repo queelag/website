@@ -3,7 +3,7 @@ import { STACK_BLITZ_PROJECT_KEYS } from '@/definitions/constants'
 import type { StackBlitzProps } from '@/definitions/props'
 import { openStackBlitzProject } from '@/utils/stack-blitz-utils'
 import { pickObjectProperties } from '@aracna/core'
-import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap.js'
+import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
 import type { Project } from '@stackblitz/sdk'
 
 interface Props extends StackBlitzProps {}

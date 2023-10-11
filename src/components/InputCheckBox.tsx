@@ -1,7 +1,7 @@
-import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check.js'
+import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { CheckBoxProps, useBaseElementComponent } from '@aracna/react'
-import { AracnaCheckBox } from '@aracna/react-components/components/input/check-box.js'
-import { AracnaInput } from '@aracna/react-components/components/input/input.js'
+import { AracnaCheckBox } from '@aracna/react-components/components/input/check-box'
+import { AracnaInput } from '@aracna/react-components/components/input/input'
 
 type Props = CheckBoxProps & {
   label?: string

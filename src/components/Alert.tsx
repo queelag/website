@@ -1,7 +1,7 @@
-import { IconFeatherAlertTriangle } from '@aracna/icons-feather-react/components/alert-triangle.js'
-import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info.js'
+import { IconFeatherAlertTriangle } from '@aracna/icons-feather-react/components/alert-triangle'
+import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
 import type { AlertProps } from '@aracna/react'
-import { AracnaAlert } from '@aracna/react-components/components/feedback/alert.js'
+import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
 import type { AlertSeverity, AlertVariant } from '@aracna/web'
 import './Alert.css'
 

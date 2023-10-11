@@ -1,6 +1,6 @@
 import type { ButtonGroupProps, ButtonProps } from '@aracna/react'
-import { AracnaButtonGroup } from '@aracna/react-components/components/input/button-group.js'
-import { AracnaButton } from '@aracna/react-components/components/input/button.js'
+import { AracnaButton } from '@aracna/react-components/components/input/button'
+import { AracnaButtonGroup } from '@aracna/react-components/components/input/button-group'
 
 interface Props extends ButtonGroupProps<ButtonProps> {}
 

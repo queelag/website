@@ -1,5 +1,5 @@
 import { useBaseElementComponent, type InputProps } from '@aracna/react'
-import { AracnaInput } from '@aracna/react-components/components/input/input.js'
+import { AracnaInput } from '@aracna/react-components/components/input/input'
 
 type Props = InputProps & {
   label?: string

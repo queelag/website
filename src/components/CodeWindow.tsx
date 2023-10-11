@@ -1,6 +1,6 @@
 import { getArrayLastItem } from '@aracna/core'
-import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/clipboard.js'
-import { AracnaButton } from '@aracna/react-components/components/input/button.js'
+import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/clipboard'
+import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { joinElementClasses } from '@aracna/web'
 import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { ButtonGroup } from './ButtonGroup'

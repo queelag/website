@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aracna/core@^1.1.46":
-  version "1.1.46"
-  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.46.tgz#ad50ae2f8b0bd00d0820bce663298b498e3c34d3"
-  integrity sha512-Meif1KI655p1C3sS9V4O8sizck9j0L0YLzSJ3oH8YpkBvI/sLzOYwoShaMYszasjc3nkDRSCe8IHdZ9hKZeyEA==
+"@aracna/core@^1.1.47":
+  version "1.1.47"
+  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.47.tgz#913d1f56f1bd4ed669d03d517969ab363427c8c4"
+  integrity sha512-fjqAh+z/qvH/b358SgnRCHVvNlZHMPhPBo7aL16Uh+00TaFYv2PWbpgzdDJNB5ZCq0RC3qz1bHgr+EbxDP/tPQ==
   dependencies:
     "@types/cookie" "^0.5.1"
     cookie "^0.5.0"
@@ -26,52 +26,52 @@
     node-fetch "^3.3.2"
     rfc4648 "^1.5.2"
 
-"@aracna/icons-feather-react@^1.0.11":
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.11.tgz#c4f0e04ea646bed19ce1fb810f542e9802ad51e6"
-  integrity sha512-bYcpEQSjnvpB5ay+7r1YnKngreUdBxkbCHKS55OALomjDSoKyvT97vEy1H/mLd7qNn5VYpw6bgmO2ae2Ek9H+Q==
+"@aracna/icons-feather-react@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.12.tgz#3f4339e136ea40f64f3a393692ae0392208a82ca"
+  integrity sha512-bI+q7BVDZfg593emhsndYqevdCoYpXKzjRyX4oqUFrTKb1n/Sgu2MP4tKViBdCic68qn9q5hepDZpbE14az5Rw==
 
-"@aracna/icons-feather-web@^1.0.14":
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.14.tgz#7f63d9cb46712ce56ebe15cf0fdc147ccb343476"
-  integrity sha512-andZFS/ghqihZW97Gywg7/P5WmeLS+YfyQ4asEZF2lTjRsL2bFwKVmH5iCB5RTwuwpr2ULWGiOZFODNa5lKi6Q==
+"@aracna/icons-feather-web@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.16.tgz#694d9117dfb9049fb0f37f1c37376e7dc73520fd"
+  integrity sha512-1aKSbI6STYuq++khc/nn2GO5tZ814WJ++Qy/cGE3yGrCS/2Jd7IrdO6GEDtKTL//94jUAlUN/TCv6Sh7Hv4bow==
 
-"@aracna/icons-feather@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.3.tgz#ef23f629274445c351072c649b3e735ce540aa44"
-  integrity sha512-hb7bBr93sMs3nEjzjvmjR1a7vEwo87LB964QOwRlwpj5tQ0bcyy6iUANxI8H5iYYJYQsnVUGr5GNfXe5Zsfjsg==
+"@aracna/icons-feather@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.4.tgz#15259f45f1c510862475aecef70bcd66dc541a6b"
+  integrity sha512-7x4G5+t299nDMF4jLGWJGxlwc99euYRO6nmulYr7FLwXukGVfre907rtnp+Bo1m3ff4DGVOmfZm75KVoNVcIgw==
 
-"@aracna/react-components@^1.0.29":
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.29.tgz#553caaa7341bde12948feee70326dffadef76fbd"
-  integrity sha512-Od4o04y0v7N4cia0VhUbc09wXi0tylLyyDmEXVSFcUcrd39AKl/4c63dulxBuqZVGQkQcFDS8LnrOsrw18uDUw==
+"@aracna/react-components@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.31.tgz#d13b891a9ca18ac4a79a5482188e8b323173fec8"
+  integrity sha512-BmLrNPFg3EKdHzttca1wErg1t0CJRsEAmOozMrUORnN6e6EjwznngZ2K5WKejcfPfKFRni32YvWrLe/klOy62g==
 
-"@aracna/react@^1.0.30":
-  version "1.0.30"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.30.tgz#9a4a05458550c1f083e53ea97cea13ecbfe36f3e"
-  integrity sha512-tlA5JqCckig2lvnEBIWwlsunbKp2Y28FcE81Aq2qBt1hjW3/L5asnLP7YvUuQvuOhQ+fvaSrx5dp8kAWCotOhQ==
+"@aracna/react@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.31.tgz#03b4bd9c73a9f7227fb8689abe3f24bbb62b9eb6"
+  integrity sha512-NokNtfCfwlx/Un/24ZiWX1BCBapXSlwcSWEIFMvgkGZ/JcCNBnDS5oT70qZOGcySe6Cmp6bgNpMWSOK7oQkt5w==
   dependencies:
     "@lit-labs/react" "^2.1.0"
 
-"@aracna/state-manager-react@^1.0.25":
-  version "1.0.25"
-  resolved "https://registry.yarnpkg.com/@aracna/state-manager-react/-/state-manager-react-1.0.25.tgz#f54aa30b972f01cd915007f150fa4e0081652544"
-  integrity sha512-yvdOnzPdP/dhMXAP2rA1r3s1GNyLSzP35I2tg+zb+hflaFofeA+H9wpZD55G6SvdiCBLE1m93kbGLgvWl3M6oQ==
+"@aracna/state-manager-react@^1.0.26":
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/@aracna/state-manager-react/-/state-manager-react-1.0.26.tgz#b08ec421e918cfe895d3d50fcf08bef830f858a2"
+  integrity sha512-lrZ5fkHjoyedevs7R47PjrjNlx0pjO4tnS5Oy0uno4hAPTEvBu0afIty6E/nJagAZ9t52XIEmHFHTwNTkRbxxg==
 
-"@aracna/state-manager@^1.0.29":
-  version "1.0.29"
-  resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.29.tgz#f4ae3a20a8e4e7b17b871273f69c6c26415e6ef0"
-  integrity sha512-gMYKNYYuKnrU9l3ty56wb8TnAsLZm7Mwv0aapFY7aVFN1kxYCdwTPbloBOvFig0jdsf5x/Jfj41s7TjnUUTYmw==
+"@aracna/state-manager@^1.0.30":
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.30.tgz#cfb4a73405eb662888087201a06294e0858084e4"
+  integrity sha512-jvLrtUIfUcVoE/tJrxsRRX2JY9fzTBphO7QeUwB7rF47lX27ISsKK3b5JBodaKLiKoQiZBk2Z3JIAtxJuNHzGQ==
 
-"@aracna/web-components@^1.0.46":
-  version "1.0.46"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.46.tgz#9d7726086b7fc806e748fd90998e56c030dda99f"
-  integrity sha512-kpT1QveoHvoQ42xxf82aE8CiKghJxBaOn0bD92+YeZBrdNHS26FQ1ml/IJdrBA3pELfXaMudKm6EuxD9WBIFyg==
+"@aracna/web-components@^1.0.47":
+  version "1.0.47"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.47.tgz#b9b1f6835e2210fa3f392de7d239f24e4036948c"
+  integrity sha512-FHBjIMBbq/mYNYMWJa6Y1ZUPZbMXGxFQN4nNJDBlGVrRjmjbSOwpJ4QCzEZgMAMYN1UC9knhBKWSgZ98EAcVBw==
 
-"@aracna/web@^1.0.40":
-  version "1.0.40"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.40.tgz#efc94e8be646db4bdf7f97c8af4ae828cd6661f5"
-  integrity sha512-S0uhnEBJPGL+6PsbTTofENHKglDAHm1Af53R/gLSX9Rag9Sa90G+duS7WVF4g1KSd+2XcFvHEp30rOf/b/QRug==
+"@aracna/web@^1.0.41":
+  version "1.0.41"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.41.tgz#aa270ff37f52ff471eca1cfbb1b73c6ef0f7218c"
+  integrity sha512-ChiaFh++D2rQk+OIba7TE/xef2/LHT6Q0OeZ7FFOIUnZypD4f7tpOSMffml5If9eziLYMM129iQtb7c7nsuzLQ==
 
 "@astrojs/compiler@^1.0.1", "@astrojs/compiler@^1.4.2", "@astrojs/compiler@^1.8.0":
   version "1.8.2"

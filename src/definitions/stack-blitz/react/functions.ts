@@ -30,7 +30,7 @@ export const SB_CREATE_BASE_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
       import { createBaseElementComponent } from '@aracna/react';
-      import { BaseElement } from '@aracna/web-components/elements/core/base-element.js';
+      import { BaseElement } from '@aracna/web-components/elements/core/base-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
       class MyElement extends BaseElement {
@@ -56,7 +56,7 @@ export const SB_CREATE_FLOATING_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
       import { createFloatingElementComponent } from '@aracna/react';
-      import { FloatingElement } from '@aracna/web-components/elements/core/floating-element.js';
+      import { FloatingElement } from '@aracna/web-components/elements/core/floating-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
       class MyElement extends FloatingElement {
@@ -82,7 +82,7 @@ export const SB_CREATE_FOCUS_TRAP_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
       import { createFocusTrapElementComponent } from '@aracna/react';
-      import { FocusTrapElement } from '@aracna/web-components/elements/core/focus-trap-element.js';
+      import { FocusTrapElement } from '@aracna/web-components/elements/core/focus-trap-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
       class MyElement extends FocusTrapElement {
@@ -108,7 +108,7 @@ export const SB_CREATE_FORM_FIELD_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
       import { createFormFieldElementComponent } from '@aracna/react';
-      import { FormFieldElement } from '@aracna/web-components/elements/core/form-field-element.js';
+      import { FormFieldElement } from '@aracna/web-components/elements/core/form-field-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
       class MyElement extends FormFieldElement {
@@ -157,7 +157,7 @@ export const SB_USE_BASE_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
       import { useComponent } from '@aracna/react';
-      import { AracnaButton } from '@aracna/react-components/components/input/button.js';
+      import { AracnaButton } from '@aracna/react-components/components/input/button';
 
       export function App() {
         const { ref } = useComponent();

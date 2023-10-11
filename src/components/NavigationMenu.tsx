@@ -1,5 +1,5 @@
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down.js'
-import { AracnaMenu, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu.js'
+import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
+import { AracnaMenu, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu'
 import { offset } from '@floating-ui/dom'
 import './NavigationMenu.css'
 
