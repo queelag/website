@@ -1,19 +1,19 @@
 ---
 layout: '@/layouts/Layout.astro'
-title: Storage
+title: SyncStorage
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import {
-  SB_STORAGE_SET,
-  SB_STORAGE_GET,
-  SB_STORAGE_REMOVE,
-  SB_STORAGE_CLEAR,
-  SB_STORAGE_COPY,
-  SB_STORAGE_HAS
+  SB_SYNC_STORAGE_SET,
+  SB_SYNC_STORAGE_GET,
+  SB_SYNC_STORAGE_REMOVE,
+  SB_SYNC_STORAGE_CLEAR,
+  SB_SYNC_STORAGE_COPY,
+  SB_SYNC_STORAGE_HAS
 } from '@/definitions/stack-blitz/core/modules'
 
-The **Storage** class is an abstraction for any storage API, such as **localStorage** and **sessionStorage**. It provides a simple and flexible interface for working with a storage, allowing for getting, setting, removing, and copying items, as well as updating specific keys in an item.
+The **SyncStorage** class is an abstraction for any storage API, such as **localStorage** and **sessionStorage**. It provides a simple and flexible interface for working with a storage, allowing for getting, setting, removing, and copying items, as well as updating specific keys in an item.
 
 ## Set
 
@@ -22,7 +22,7 @@ The **set** method sets an item in the storage by its key, and optionally update
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_SET}
+  files={SB_SYNC_STORAGE_SET}
   template='javascript'
   title='Storage'
   console={100}
@@ -35,7 +35,7 @@ The **get** method retrieves an item from the storage by its key. The method tak
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_GET}
+  files={SB_SYNC_STORAGE_GET}
   template='javascript'
   title='Storage'
   console={100}
@@ -50,7 +50,7 @@ If the **keys** parameter is not provided, the entire item is removed from the s
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_REMOVE}
+  files={SB_SYNC_STORAGE_REMOVE}
   template='javascript'
   title='Storage'
   console={100}
@@ -63,7 +63,7 @@ The **clear** method clears all items from the storage.
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_CLEAR}
+  files={SB_SYNC_STORAGE_CLEAR}
   template='javascript'
   title='Storage'
   console={100}
@@ -78,7 +78,7 @@ If the **keys** parameter is not provided, all keys in the item are copied to th
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_COPY}
+  files={SB_SYNC_STORAGE_COPY}
   template='javascript'
   title='Storage'
   console={100}
@@ -93,7 +93,7 @@ If the **keys** parameter is not provided, the method checks if an item with the
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_STORAGE_HAS}
+  files={SB_SYNC_STORAGE_HAS}
   template='javascript'
   title='Storage'
   console={100}

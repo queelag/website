@@ -6,22 +6,18 @@ export const SB_DOCUMENT_COOKIE_SET: ProjectFiles = {
     <script>
       import { DocumentCookie } from '@aracna/web';
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
-
-        await DocumentCookie.set('item', item, options);
-        console.log(document.cookie); // will log "item_name=john; item_surname=doe"
-      })();
+      DocumentCookie.set('item', item, options);
+      console.log(document.cookie); // will log "item_name=john; item_surname=doe"
     </script>
   `
 };
@@ -31,22 +27,18 @@ export const SB_DOCUMENT_COOKIE_GET: ProjectFiles = {
     <script>
       import { DocumentCookie } from '@aracna/web';
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
-
-        await DocumentCookie.set('item', item, options);
-        console.log(await cookie.get('item')); // will log { name: "john", surname: "doe" }
-      })();
+      DocumentCookie.set('item', item, options);
+      console.log(DocumentCookie.get('item')); // will log { name: "john", surname: "doe" }
     </script>
   `
 };
@@ -56,25 +48,21 @@ export const SB_DOCUMENT_COOKIE_REMOVE: ProjectFiles = {
     <script>
       import { DocumentCookie } from '@aracna/web';
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      DocumentCookie.set('item', item, options);
+      console.log(document.cookie); // will log "item_name=john; item_surname=doe"
 
-        await DocumentCookie.set('item', item, options);
-        console.log(document.cookie); // will log "item_name=john; item_surname=doe"
-
-        await DocumentCookie.remove('item', options);
-        console.log(document.cookie); // will log ""
-      })();
+      DocumentCookie.remove('item', options);
+      console.log(document.cookie); // will log ""
     </script>
   `
 };
@@ -84,26 +72,22 @@ export const SB_DOCUMENT_COOKIE_CLEAR: ProjectFiles = {
     <script>
       import { DocumentCookie } from '@aracna/web';
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      DocumentCookie.set('item1', item, options);
+      DocumentCookie.set('item2', item, options);
+      console.log(document.cookie); // will log "item1_name=john; item1_surname=doe; item2_name=john; item2_surname=doe;"
 
-        await DocumentCookie.set('item1', item, options);
-        await DocumentCookie.set('item2', item, options);
-        console.log(document.cookie); // will log "item1_name=john; item1_surname=doe; item2_name=john; item2_surname=doe;"
-
-        await DocumentCookie.clear(options);
-        console.log(document.cookie); // will log ""
-      })();
+      DocumentCookie.clear(options);
+      console.log(document.cookie); // will log ""
     </script>
   `
 };
@@ -113,26 +97,22 @@ export const SB_DOCUMENT_COOKIE_COPY: ProjectFiles = {
     <script>
       import { DocumentCookie } from '@aracna/web';
 
-      (async () => {
-        let item, options, target;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      const target = {};
 
-        target = {};
+      DocumentCookie.set('item', item, options);
+      DocumentCookie.copy('item', target);
 
-        await DocumentCookie.set('item', item, options);
-        await DocumentCookie.copy('item', target);
-
-        console.log(target); // will log { name: "john", surname: "doe" }
-      })();
+      console.log(target); // will log { name: "john", surname: "doe" }
     </script>
   `
 };
@@ -142,12 +122,10 @@ export const SB_LOCAL_STORAGE_SET: ProjectFiles = {
     <script>
       import { LocalStorage } from '@aracna/web';
 
-      (async () => {
-        await LocalStorage.set('item', { name: 'John', surname: 'Doe' });
+      LocalStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log { name: "John", surname: "Doe" }
-        console.log(localStorage.getItem('item'));
-      })();
+      // will log { name: "John", surname: "Doe" }
+      console.log(localStorage.getItem('item'));
     </script>
   `
 };
@@ -157,12 +135,10 @@ export const SB_LOCAL_STORAGE_GET: ProjectFiles = {
     <script>
       import { LocalStorage } from '@aracna/web';
 
-      (async () => {
-        await LocalStorage.set('item', { name: 'John', surname: 'Doe' });
+      LocalStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log { name: "John", surname: "Doe" }
-        console.log(await LocalStorage.get('item'));
-      })();
+      // will log { name: "John", surname: "Doe" }
+      console.log(LocalStorage.get('item'));
     </script>
   `
 };
@@ -172,17 +148,15 @@ export const SB_LOCAL_STORAGE_REMOVE: ProjectFiles = {
     <script>
       import { LocalStorage } from '@aracna/web';
 
-      (async () => {
-        await LocalStorage.set('item', { name: 'John', surname: 'Doe' });
+      LocalStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log true
-        console.log(localStorage.hasItem('item'));
+      // will log true
+      console.log(localStorage.hasItem('item'));
 
-        await LocalStorage.remove('item');
+      LocalStorage.remove('item');
 
-        // will log false
-        console.log(localStorage.hasItem('item'));
-      })();
+      // will log false
+      console.log(localStorage.hasItem('item'));
     </script>
   `
 };
@@ -192,21 +166,16 @@ export const SB_LOCAL_STORAGE_CLEAR: ProjectFiles = {
     <script>
       import { LocalStorage } from '@aracna/web';
 
-      (async () => {
-        await LocalStorage.set('item1', { name: 'John', surname: 'Doe' });
-        await LocalStorage.set('item2', { name: 'Paul', surname: 'Smith' });
+      LocalStorage.set('item1', { name: 'John', surname: 'Doe' });
+      LocalStorage.set('item2', { name: 'Paul', surname: 'Smith' });
 
-        // will log true, true
-        console.log(
-          localStorage.hasItem('item1'),
-          localStorage.hasItem('item2')
-        );
+      // will log true, true
+      console.log(localStorage.hasItem('item1'), localStorage.hasItem('item2'));
 
-        await LocalStorage.clear();
+      LocalStorage.clear();
 
-        // will log false, false
-        console.log(localStorage.hasItem('item1'), sm.hasItem('item2'));
-      })();
+      // will log false, false
+      console.log(localStorage.hasItem('item1'), sm.hasItem('item2'));
     </script>
   `
 };
@@ -216,17 +185,13 @@ export const SB_LOCAL_STORAGE_COPY: ProjectFiles = {
     <script>
       import { LocalStorage } from '@aracna/web';
 
-      (async () => {
-        let target;
+      LocalStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        await LocalStorage.set('item', { name: 'John', surname: 'Doe' });
+      const target = {};
+      LocalStorage.copy('item', target);
 
-        target = {};
-        await LocalStorage.copy('item', target);
-
-        // will log { name: "John", surname: "Doe" }
-        console.log(target);
-      })();
+      // will log { name: "John", surname: "Doe" }
+      console.log(target);
     </script>
   `
 };
@@ -236,12 +201,10 @@ export const SB_LOCAL_STORAGE_HAS: ProjectFiles = {
     <script>
       import { LocalStorage } from '@aracna/web';
 
-      (async () => {
-        await LocalStorage.set('item', { name: 'John', surname: 'Doe' });
+      LocalStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log true
-        console.log(await LocalStorage.has('item'));
-      })();
+      // will log true
+      console.log(LocalStorage.has('item'));
     </script>
   `
 };
@@ -251,12 +214,10 @@ export const SB_SESSION_STORAGE_SET: ProjectFiles = {
     <script>
       import { SessionStorage } from '@aracna/web';
 
-      (async () => {
-        await SessionStorage.set('item', { name: 'John', surname: 'Doe' });
+      SessionStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log { name: "John", surname: "Doe" }
-        console.log(sessionStorage.getItem('item'));
-      })();
+      // will log { name: "John", surname: "Doe" }
+      console.log(sessionStorage.getItem('item'));
     </script>
   `
 };
@@ -266,12 +227,10 @@ export const SB_SESSION_STORAGE_GET: ProjectFiles = {
     <script>
       import { SessionStorage } from '@aracna/web';
 
-      (async () => {
-        await SessionStorage.set('item', { name: 'John', surname: 'Doe' });
+      SessionStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log { name: "John", surname: "Doe" }
-        console.log(await SessionStorage.get('item'));
-      })();
+      // will log { name: "John", surname: "Doe" }
+      console.log(SessionStorage.get('item'));
     </script>
   `
 };
@@ -281,17 +240,15 @@ export const SB_SESSION_STORAGE_REMOVE: ProjectFiles = {
     <script>
       import { SessionStorage } from '@aracna/web';
 
-      (async () => {
-        await SessionStorage.set('item', { name: 'John', surname: 'Doe' });
+      SessionStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log true
-        console.log(sessionStorage.hasItem('item'));
+      // will log true
+      console.log(sessionStorage.hasItem('item'));
 
-        await SessionStorage.remove('item');
+      SessionStorage.remove('item');
 
-        // will log false
-        console.log(sessionStorage.hasItem('item'));
-      })();
+      // will log false
+      console.log(sessionStorage.hasItem('item'));
     </script>
   `
 };
@@ -301,21 +258,19 @@ export const SB_SESSION_STORAGE_CLEAR: ProjectFiles = {
     <script>
       import { SessionStorage } from '@aracna/web';
 
-      (async () => {
-        await SessionStorage.set('item1', { name: 'John', surname: 'Doe' });
-        await SessionStorage.set('item2', { name: 'Paul', surname: 'Smith' });
+      SessionStorage.set('item1', { name: 'John', surname: 'Doe' });
+      SessionStorage.set('item2', { name: 'Paul', surname: 'Smith' });
 
-        // will log true, true
-        console.log(
-          sessionStorage.hasItem('item1'),
-          sessionStorage.hasItem('item2')
-        );
+      // will log true, true
+      console.log(
+        sessionStorage.hasItem('item1'),
+        sessionStorage.hasItem('item2')
+      );
 
-        await SessionStorage.clear();
+      SessionStorage.clear();
 
-        // will log false, false
-        console.log(sessionStorage.hasItem('item1'), sm.hasItem('item2'));
-      })();
+      // will log false, false
+      console.log(sessionStorage.hasItem('item1'), sm.hasItem('item2'));
     </script>
   `
 };
@@ -325,17 +280,13 @@ export const SB_SESSION_STORAGE_COPY: ProjectFiles = {
     <script>
       import { SessionStorage } from '@aracna/web';
 
-      (async () => {
-        let target;
+      SessionStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        await SessionStorage.set('item', { name: 'John', surname: 'Doe' });
+      const target = {};
+      SessionStorage.copy('item', target);
 
-        target = {};
-        await SessionStorage.copy('item', target);
-
-        // will log { name: "John", surname: "Doe" }
-        console.log(target);
-      })();
+      // will log { name: "John", surname: "Doe" }
+      console.log(target);
     </script>
   `
 };
@@ -345,12 +296,10 @@ export const SB_SESSION_STORAGE_HAS: ProjectFiles = {
     <script>
       import { SessionStorage } from '@aracna/web';
 
-      (async () => {
-        await SessionStorage.set('item', { name: 'John', surname: 'Doe' });
+      SessionStorage.set('item', { name: 'John', surname: 'Doe' });
 
-        // will log true
-        console.log(await SessionStorage.has('item'));
-      })();
+      // will log true
+      console.log(SessionStorage.has('item'));
     </script>
   `
 };

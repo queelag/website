@@ -45,9 +45,7 @@ export function ComponentBlock(props: Props) {
     <div className='flex flex-col p-6 gap-6 rounded border-2 border-dashed border-slate-800'>
       <div className='flex gap-6'>
         <div className='flex-1 flex justify-center items-center'>
-          <Observer>
-            {() => <props.component {...props.defaultProps} {...deleteShallowFalsyObjectProperties(state)} _variant={activeVariant?.value} />}
-          </Observer>
+          <Observer>{() => <props.component {...state} _variant={activeVariant?.value} />}</Observer>
         </div>
         <Form className='w-1/3'>
           <div className='flex flex-col gap-2'>

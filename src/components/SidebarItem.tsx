@@ -1,24 +1,32 @@
 import type { SidebarItemProps } from '@/definitions/props'
+import type { StorageItem } from '@aracna/core'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up'
 import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu'
 import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
 import { IconFeatherHome } from '@aracna/icons-feather-react/components/home'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
-import { ComponentLifeCycle, useLifeCycle } from '@aracna/react'
 import { useObservable } from '@aracna/state-manager-react'
 import { SessionStorage, joinElementClasses } from '@aracna/web'
 import { Fragment, useMemo } from 'react'
 import { IconReact } from 'src/icons/IconReact'
 
 export function SidebarItem(props: SidebarItemProps) {
-  const life = useLifeCycle()
-  const store = useObservable({ active: props.active ?? false, expanded: props.expanded ?? false })
-  const expandable = useMemo(() => props.items?.length !== 0, [props.items])
+  const isExpanded = (): boolean => {
+    let item: StorageItem | Error
 
-  if (life.current === ComponentLifeCycle.CONSTRUCTED) {
-    SessionStorage.copy(props.href, store)
+    if (props.expanded) {
+      return true
+    }
+
+    item = SessionStorage.get(props.href)
+    if (item instanceof Error) return false
+
+    return item.expanded
   }
+
+  const store = useObservable({ active: props.active ?? false, expanded: isExpanded() })
+  const expandable = useMemo(() => props.items?.length !== 0, [props.items])
 
   const onClick = () => {
     if (!props.items) {

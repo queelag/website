@@ -11,6 +11,7 @@ export function BadgeComponentBlock() {
         ...DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES,
         { name: 'min', type: 'number' },
         { name: 'max', type: 'number' },
+        { name: 'numeric', type: 'boolean' },
         { name: 'value', type: 'string' }
       ]}
       component={(props: BadgeProps) => <AracnaBadge {...props} className='text-xs font-bold pb-1' />}

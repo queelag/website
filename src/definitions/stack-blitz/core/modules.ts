@@ -916,19 +916,19 @@ export const SB_STATUS_IS_GETTERS: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE_SET: ProjectFiles = {
+export const SB_ASYNC_STORAGE_SET: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Storage } from '@aracna/core';
+      import { AsyncStorage } from '@aracna/core';
 
       const sm = new Map();
-      const storage = new Storage(
+      const storage = new AsyncStorage(
         'storage',
-        () => sm.clear(),
-        (key) => sm.get(key),
-        (key) => sm.has(key),
-        (key) => sm.remove(key),
-        (key, item) => sm.set(key, item)
+        async () => sm.clear(),
+        async (key) => sm.get(key),
+        async (key) => sm.has(key),
+        async (key) => sm.remove(key),
+        async (key, item) => sm.set(key, item)
       );
 
       (async () => {
@@ -939,19 +939,19 @@ export const SB_STORAGE_SET: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE_GET: ProjectFiles = {
+export const SB_ASYNC_STORAGE_GET: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Storage } from '@aracna/core';
+      import { AsyncStorage } from '@aracna/core';
 
       const sm = new Map();
-      const storage = new Storage(
+      const storage = new AsyncStorage(
         'storage',
-        () => sm.clear(),
-        (key) => sm.get(key),
-        (key) => sm.has(key),
-        (key) => sm.remove(key),
-        (key, item) => sm.set(key, item)
+        async () => sm.clear(),
+        async (key) => sm.get(key),
+        async (key) => sm.has(key),
+        async (key) => sm.remove(key),
+        async (key, item) => sm.set(key, item)
       );
 
       (async () => {
@@ -962,19 +962,19 @@ export const SB_STORAGE_GET: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE_REMOVE: ProjectFiles = {
+export const SB_ASYNC_STORAGE_REMOVE: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Storage } from '@aracna/core';
+      import { AsyncStorage } from '@aracna/core';
 
       const sm = new Map();
-      const storage = new Storage(
+      const storage = new AsyncStorage(
         'storage',
-        () => sm.clear(),
-        (key) => sm.get(key),
-        (key) => sm.has(key),
-        (key) => sm.remove(key),
-        (key, item) => sm.set(key, item)
+        async () => sm.clear(),
+        async (key) => sm.get(key),
+        async (key) => sm.has(key),
+        async (key) => sm.remove(key),
+        async (key, item) => sm.set(key, item)
       );
 
       (async () => {
@@ -988,19 +988,19 @@ export const SB_STORAGE_REMOVE: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE_CLEAR: ProjectFiles = {
+export const SB_ASYNC_STORAGE_CLEAR: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Storage } from '@aracna/core';
+      import { AsyncStorage } from '@aracna/core';
 
       const sm = new Map();
-      const storage = new Storage(
+      const storage = new AsyncStorage(
         'storage',
-        () => sm.clear(),
-        (key) => sm.get(key),
-        (key) => sm.has(key),
-        (key) => sm.remove(key),
-        (key, item) => sm.set(key, item)
+        async () => sm.clear(),
+        async (key) => sm.get(key),
+        async (key) => sm.has(key),
+        async (key) => sm.remove(key),
+        async (key, item) => sm.set(key, item)
       );
 
       (async () => {
@@ -1015,19 +1015,19 @@ export const SB_STORAGE_CLEAR: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE_COPY: ProjectFiles = {
+export const SB_ASYNC_STORAGE_COPY: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Storage } from '@aracna/core';
+      import { AsyncStorage } from '@aracna/core';
 
       const sm = new Map();
-      const storage = new Storage(
+      const storage = new AsyncStorage(
         'storage',
-        () => sm.clear(),
-        (key) => sm.get(key),
-        (key) => sm.has(key),
-        (key) => sm.remove(key),
-        (key, item) => sm.set(key, item)
+        async () => sm.clear(),
+        async (key) => sm.get(key),
+        async (key) => sm.has(key),
+        async (key) => sm.remove(key),
+        async (key, item) => sm.set(key, item)
       );
 
       (async () => {
@@ -1044,13 +1044,36 @@ export const SB_STORAGE_COPY: ProjectFiles = {
   `
 };
 
-export const SB_STORAGE_HAS: ProjectFiles = {
+export const SB_ASYNC_STORAGE_HAS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Storage } from '@aracna/core';
+      import { AsyncStorage } from '@aracna/core';
 
       const sm = new Map();
-      const storage = new Storage(
+      const storage = new AsyncStorage(
+        'storage',
+        async () => sm.clear(),
+        async (key) => sm.get(key),
+        async (key) => sm.has(key),
+        async (key) => sm.remove(key),
+        async (key, item) => sm.set(key, item)
+      );
+
+      (async () => {
+        await storage.set('item', { name: 'John', surname: 'Doe' });
+        console.log(await storage.has('item')); // will log true
+      })();
+    </script>
+  `
+};
+
+export const SB_SYNC_STORAGE_SET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { SyncStorage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new SyncStorage(
         'storage',
         () => sm.clear(),
         (key) => sm.get(key),
@@ -1059,10 +1082,124 @@ export const SB_STORAGE_HAS: ProjectFiles = {
         (key, item) => sm.set(key, item)
       );
 
-      (async () => {
-        await storage.set('item', { name: 'John', surname: 'Doe' });
-        console.log(await storage.has('item')); // will log true
-      })();
+      storage.set('item', { name: 'John', surname: 'Doe' });
+      console.log(sm.get('item')); // will log { name: "John", surname: "Doe" }
+    </script>
+  `
+};
+
+export const SB_SYNC_STORAGE_GET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { SyncStorage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new SyncStorage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      storage.set('item', { name: 'John', surname: 'Doe' });
+      console.log(storage.get('item')); // will log { name: "John", surname: "Doe" }
+    </script>
+  `
+};
+
+export const SB_SYNC_STORAGE_REMOVE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { SyncStorage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new SyncStorage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      storage.set('item', { name: 'John', surname: 'Doe' });
+      console.log(sm.has('item')); // will log true
+
+      storage.remove('item');
+      console.log(sm.has('item')); // will log false
+    </script>
+  `
+};
+
+export const SB_SYNC_STORAGE_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { SyncStorage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new SyncStorage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      storage.set('item1', { name: 'John', surname: 'Doe' });
+      storage.set('item2', { name: 'Paul', surname: 'Smith' });
+      console.log(sm.has('item1'), sm.has('item2')); // will log true, true
+
+      storage.clear();
+      console.log(sm.has('item1'), sm.has('item2')); // will log false, false
+    </script>
+  `
+};
+
+export const SB_SYNC_STORAGE_COPY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { SyncStorage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new SyncStorage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      storage.set('item', { name: 'John', surname: 'Doe' });
+
+      const target = {};
+      storage.copy('item', target);
+
+      console.log(target); // will log { name: "John", surname: "Doe" }
+    </script>
+  `
+};
+
+export const SB_SYNC_STORAGE_HAS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { SyncStorage } from '@aracna/core';
+
+      const sm = new Map();
+      const storage = new SyncStorage(
+        'storage',
+        () => sm.clear(),
+        (key) => sm.get(key),
+        (key) => sm.has(key),
+        (key) => sm.remove(key),
+        (key, item) => sm.set(key, item)
+      );
+
+      storage.set('item', { name: 'John', surname: 'Doe' });
+      console.log(storage.has('item')); // will log true
     </script>
   `
 };
