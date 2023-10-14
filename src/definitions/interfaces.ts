@@ -4,7 +4,7 @@ import type { MDXInstance } from 'astro'
 export interface ComponentBlockAttribute {
   name: string
   options?: SelectOption[]
-  type: 'color' | 'boolean' | 'enum' | 'number' | 'string'
+  type: 'color' | 'boolean' | 'enum' | 'json' | 'number' | 'string'
   visible?: ComponentBlockAttributeVisible
 }
 

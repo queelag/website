@@ -52,7 +52,7 @@ export function TOCs(props: Props) {
   }, [headings])
 
   return (
-    <div className='sticky top-24 right-0 min-w-[280px] ml-auto hidden xl:flex flex-col font-medium' style={{ height: 'calc(100vh - 96px)' }}>
+    <div className='sticky top-24 right-0 min-w-[280px] ml-auto hidden xl:flex flex-col font-medium text-sm' style={{ height: 'calc(100vh - 96px)' }}>
       <div className='flex flex-col'>
         <b className='pl-4 py-1 border-l-4 border-transparent'>On this page</b>
         <div className='flex flex-col'>

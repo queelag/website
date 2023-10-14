@@ -1,8 +1,8 @@
+import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import type { BadgeProps } from '@aracna/react'
 import { AracnaBadge } from '@aracna/react-components/components/data/badge'
 import colors from 'tailwindcss/colors'
-import { ComponentBlock } from '../ComponentBlock'
 
 export function BadgeComponentBlock() {
   return (

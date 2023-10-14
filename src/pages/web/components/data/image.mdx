@@ -1,13 +1,13 @@
 ---
 layout: '@/layouts/Layout.astro'
-title: Chip
+title: Image
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock.tsx'
-import { ChipComponentBlock } from '@/blocks/components/data/ChipComponentBlock.tsx'
-import { SB_CHIP } from '@/definitions/stack-blitz/web/components/data'
+import { ImageComponentBlock } from '@/blocks/components/data/ImageComponentBlock.tsx'
+import { SB_IMAGE } from '@/definitions/stack-blitz/web/components/data'
 
-<ChipComponentBlock client:load />
+<ImageComponentBlock client:load />
 
 <CodeBlock
   client:load
@@ -19,7 +19,7 @@ import { SB_CHIP } from '@/definitions/stack-blitz/web/components/data'
     lit: 'latest',
     'lit-html': 'latest'
   }}
-  files={SB_CHIP}
+  files={SB_IMAGE}
   template='javascript'
-  title='Chip'
+  title='Image'
 />

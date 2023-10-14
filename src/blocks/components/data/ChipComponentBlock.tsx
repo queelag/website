@@ -1,3 +1,4 @@
+import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { ICON_FEATHER_CHECK } from '@aracna/icons-feather/assets/check'
 import { ICON_FEATHER_CHEVRON_DOWN } from '@aracna/icons-feather/assets/chevron-down'
 import { ICON_FEATHER_CLOCK } from '@aracna/icons-feather/assets/clock'
@@ -8,7 +9,6 @@ import { AracnaAvatar } from '@aracna/react-components/components/data/avatar'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import type { SelectOption } from '@aracna/web'
-import { ComponentBlock } from '../ComponentBlock'
 
 const LEADING_ICONS: SelectOption[] = [
   { label: 'check', value: ICON_FEATHER_CHECK },

@@ -2,6 +2,7 @@ import MESH_BLUE from '@/assets/meshes/blue.jpeg'
 import MESH_MINT from '@/assets/meshes/mint.jpeg'
 import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
+import { ComponentBlock } from '@/blocks/ComponentBlock'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
 import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/chevron-left'
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
@@ -18,7 +19,6 @@ import {
   AracnaCarouselTab,
   AracnaCarouselTabs
 } from '@aracna/react-components/components/data/carousel'
-import { ComponentBlock } from '../ComponentBlock'
 
 export function CarouselComponentBlock() {
   const images = [MESH_BLUE, MESH_MINT, MESH_ROSE, MESH_SEANCE]

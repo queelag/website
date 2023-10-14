@@ -2,14 +2,9 @@ import type { SidebarItemProps } from '@/definitions/props'
 import type { StorageItem } from '@aracna/core'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up'
-import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu'
-import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
-import { IconFeatherHome } from '@aracna/icons-feather-react/components/home'
-import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
 import { useObservable } from '@aracna/state-manager-react'
 import { SessionStorage, joinElementClasses } from '@aracna/web'
-import { Fragment, useMemo } from 'react'
-import { IconReact } from 'src/icons/IconReact'
+import { useMemo } from 'react'
 
 export function SidebarItem(props: SidebarItemProps) {
   const isExpanded = (): boolean => {
@@ -41,46 +36,24 @@ export function SidebarItem(props: SidebarItemProps) {
     SessionStorage.set(props.href, store, ['expanded'])
   }
 
-  const renderIcon = () => {
-    switch (props.href) {
-      case '/':
-        return <IconFeatherHome stroke='white' />
-      case '/core':
-        return <IconFeatherCpu stroke='white' />
-      case '/react':
-        return <IconReact size={16} stroke='white' />
-      case '/state-manager':
-        return <IconFeatherZap stroke='white' />
-      case '/web':
-        return <IconFeatherGlobe stroke='white' />
-    }
-  }
-
-  const hasIcon = () => {
-    return typeof renderIcon() === 'object'
-  }
-
   return (
     <div className={'flex flex-col gap-px font-medium'}>
       <a
-        className={joinElementClasses(
-          'flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-700',
-          !hasIcon() && 'ml-4',
-          props.active && 'bg-slate-800'
-        )}
+        className={joinElementClasses('flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:bg-slate-700', props.active && 'bg-slate-800')}
         href={props.items ? undefined : props.href}
         onClick={onClick}
       >
         <span className='flex items-center gap-2'>
-          {renderIcon()}
-          <span>{props.title}</span>
+          <span className='text-sm'>{props.title}</span>
         </span>
         {props.items && expandable && (
-          <Fragment>{store.expanded ? <IconFeatherChevronUp stroke='white' /> : <IconFeatherChevronDown stroke='white' />}</Fragment>
+          <div className='flex w-4 h-4 justify-center items-center rounded bg-slate-800'>
+            {store.expanded ? <IconFeatherChevronUp size={12} stroke='white' /> : <IconFeatherChevronDown size={12} stroke='white' />}
+          </div>
         )}
       </a>
       {props.items && store.expanded && (
-        <div className='flex flex-col gap-px ml-2'>
+        <div className='flex flex-col gap-px ml-3'>
           {props.items.map((props: SidebarItemProps, index: number) => (
             <SidebarItem {...props} key={index} />
           ))}
