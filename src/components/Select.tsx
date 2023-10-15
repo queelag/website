@@ -3,6 +3,7 @@ import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { useBaseElementComponent, type SelectProps } from '@aracna/react'
+import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaSelect, AracnaSelectButton, AracnaSelectGroup, AracnaSelectList, AracnaSelectOption } from '@aracna/react-components/components/input/select'
 import { joinElementClasses, type SelectOption } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
@@ -22,7 +23,7 @@ export function Select(props: Props) {
 
   return (
     <AracnaSelect {...omitObjectProperties(props, ['label'])} ref={ref}>
-      <AracnaSelectGroup className='w-full p-2 rounded border-2 border-slate-800'>
+      <AracnaSelectGroup className={joinElementClasses('w-full p-2 rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>
             {props.label && <label className='text-xs'>{props.label}</label>}
@@ -31,8 +32,14 @@ export function Select(props: Props) {
             </span>
           </div>
           <div className='flex items-center gap-1'>
-            {element?.value && <IconFeatherX onClick={onClear} size={12} stroke='white' />}
-            <IconFeatherChevronDown className={joinElementClasses('group-aria-expanded:rotate-180')} size={14} stroke='white' />
+            {element?.value && (
+              <AracnaButton className='rounded-full transition ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
+                <IconFeatherX onClick={onClear} size={12} stroke='white' />
+              </AracnaButton>
+            )}
+            <AracnaButton className='rounded-full transition ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
+              <IconFeatherChevronDown className={joinElementClasses('group-aria-expanded:rotate-180')} size={12} stroke='white' />
+            </AracnaButton>
           </div>
         </AracnaSelectButton>
       </AracnaSelectGroup>

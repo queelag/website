@@ -109,6 +109,7 @@ export const DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON = (dependencies?: Proj
  */
 export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
   { name: 'background', type: 'color' },
+  { name: 'padding', type: 'string' },
   { name: 'shape', type: 'enum', options: [{ value: 'circle' }, { value: 'rectangle' }, { value: 'square' }, { value: 'squircle' }] },
   { name: 'shape-rectangle-radius', type: 'number', visible: { shape: ['rectangle'] } },
   { name: 'shape-square-radius', type: 'number', visible: { shape: ['square'] } },
@@ -116,6 +117,19 @@ export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttr
   { name: 'height', type: 'string' },
   { name: 'width', type: 'string' },
   { name: 'size', type: 'string' }
+]
+
+export const DEFAULT_COMPONENT_BLOCK_FORMF_FIELD_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
+  { name: 'disabled', type: 'boolean' },
+  { name: 'focused', type: 'boolean' },
+  { name: 'native', type: 'boolean' },
+  { name: 'normalized', type: 'boolean' },
+  // { name: 'path', type: 'string' },
+  { name: 'readonly', type: 'boolean' },
+  // { name: 'schema', type: 'json' },
+  // { name: 'target', type: 'json' },
+  { name: 'touched', type: 'boolean' }
+  // { name: 'value', type: 'string' }
 ]
 
 /**

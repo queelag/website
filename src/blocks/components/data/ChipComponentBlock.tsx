@@ -22,24 +22,8 @@ const TRAILING_ICONS: SelectOption[] = [
 ]
 
 export function ChipComponentBlock() {
-  const isImageVisible = (props: ChipProps) => {
-    if (typeof props.image === 'undefined') {
-      return false
-    }
-
-    switch (props.variant) {
-      case 'assist':
-      case 'filter':
-      case 'input':
-      case undefined:
-        return true
-    }
-
-    return false
-  }
-
   const isLeadingIconVisible = (props: ChipProps) => {
-    if (typeof props.icon === 'undefined' && typeof props['leading-icon'] === 'undefined') {
+    if (typeof props['leading-icon'] === 'undefined') {
       return false
     }
 
@@ -69,31 +53,69 @@ export function ChipComponentBlock() {
     return false
   }
 
+  const isLeadingImageVisible = (props: ChipProps) => {
+    if (typeof props['leading-image'] === 'undefined') {
+      return false
+    }
+
+    switch (props.variant) {
+      case 'assist':
+      case 'filter':
+      case 'input':
+      case undefined:
+        return true
+    }
+
+    return false
+  }
+
+  const isTrailingImageVisible = (props: ChipProps) => {
+    if (typeof props['trailing-image'] === 'undefined') {
+      return false
+    }
+
+    switch (props.variant) {
+      case 'assist':
+      case 'filter':
+      case 'input':
+      case undefined:
+        return true
+    }
+
+    return false
+  }
+
   return (
     <ComponentBlock
       attributes={[
         { name: 'icon', type: 'enum', options: LEADING_ICONS },
-        { name: 'image', type: 'string' },
-        { name: 'label', type: 'string' },
         { name: 'leading-icon', type: 'enum', options: LEADING_ICONS },
+        { name: 'leading-image', type: 'string' },
+        { name: 'text', type: 'string' },
         { name: 'trailing-icon', type: 'enum', options: TRAILING_ICONS },
+        { name: 'trailing-image', type: 'string' },
         { name: 'variant', type: 'enum', options: [{ value: 'assist' }, { value: 'filter' }, { value: 'input' }, { value: 'suggestion' }] }
       ]}
       component={(props: ChipProps) => (
         <AracnaChip {...props} className='flex items-center gap-1.5 px-2 py-1.5 rounded bg-slate-800'>
-          {isLeadingIconVisible(props) && <AracnaIcon fill='none' size={16} src={props['leading-icon'] ?? props.icon} stroke='white' stroke-width={1} />}
-          {isImageVisible(props) && (
+          {isLeadingIconVisible(props) && <AracnaIcon fill='none' size={16} src={props['leading-icon']} stroke='white' stroke-width={1} />}
+          {isLeadingImageVisible(props) && (
             <AracnaAvatar shape='circle' size={16}>
-              <img className='w-full h-full object-cover' src={props.image} />
+              <img className='w-full h-full object-cover' src={props['leading-image']} />
             </AracnaAvatar>
           )}
-          <span className='text-xs font-semibold'>{props.label}</span>
+          <span className='text-xs font-semibold'>{props.text}</span>
           {isTrailingIconVisible(props) && <AracnaIcon fill='none' size={16} src={props['trailing-icon']} stroke='white' stroke-width={1} />}
+          {isTrailingImageVisible(props) && (
+            <AracnaAvatar shape='circle' size={16}>
+              <img className='w-full h-full object-cover' src={props['trailing-image']} />
+            </AracnaAvatar>
+          )}
         </AracnaChip>
       )}
       defaultProps={{
         'leading-icon': ICON_FEATHER_IMAGE,
-        label: 'Set Image',
+        text: 'Set Image',
         'trailing-icon': ICON_FEATHER_CHEVRON_DOWN,
         variant: 'input'
       }}
