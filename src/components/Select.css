@@ -1,7 +1,0 @@
-aracna-select:not([expanded]) aracna-select-list {
-  @apply hidden;
-}
-
-aracna-select-list {
-  @apply w-full flex flex-col bg-black;
-}

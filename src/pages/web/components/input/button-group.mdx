@@ -1,0 +1,26 @@
+---
+layout: '@/layouts/Layout.astro'
+title: ButtonGroup
+order: 2
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { ButtonGroupComponentBlock } from '@/blocks/components/input/ButtonGroupComponentBlock.tsx'
+import { SB_BUTTON_GROUP } from '@/definitions/stack-blitz/web/components/input'
+
+<ButtonGroupComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_BUTTON_GROUP}
+  template='javascript'
+  title='ButtonGroup'
+/>

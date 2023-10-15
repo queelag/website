@@ -41,15 +41,15 @@
   resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.6.tgz#c3a2840450440c318c19fccbfa4e2d616870e80b"
   integrity sha512-X4/lIBYtaulXHM2RgnYL20/OaEJqtJOrKbNhVDm0wSsW9pBPTkrpSzEp6KUpNiJBRTpRjPCt46R4InBI0Erieg==
 
-"@aracna/react-components@^1.0.34":
-  version "1.0.34"
-  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.34.tgz#84517375071237b32da19d500be2c0ef9a973191"
-  integrity sha512-M8mio50qLHRbP2c/9Dwygjv3Y1aO/S9n07EsOw3I6HchjWyTxklpXlVolNpZrIFWzH3x1YDJXGlPVHARg9g+GQ==
+"@aracna/react-components@^1.0.35":
+  version "1.0.35"
+  resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.35.tgz#12246a4dc4d92a745b6bf892c473937f442a1aa6"
+  integrity sha512-FNNWBsQrXZdrz611ozO7hXhvwfgeG8ZwXUNb3sxk5aIrsjze7TLtt6bNFN3E/tlRt4/9qLwlpimFcx9cBWzHuA==
 
-"@aracna/react@^1.0.33":
-  version "1.0.33"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.33.tgz#2dbd2d9de1cfa853735d072b31c7e8a9b994005e"
-  integrity sha512-nzbLofqTMHs64IpSgnfDut5OiBtRqcXAXi36t6kPAYuCp88iupeeJr4fhSbyUXgH81qPN38a46hQLkMKV/JDWg==
+"@aracna/react@^1.0.34":
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.34.tgz#033fdc529469776c7afd620f22a02f7d1cc78528"
+  integrity sha512-sDTAnLZkukPfV1wu5OA2GhALyKgvlPVrxhaFetDLOF61TkCQfn8GwYcLafuKtABZXrP5d+jblte0x6KH2OH9YQ==
   dependencies:
     "@lit-labs/react" "^2.1.0"
 
@@ -63,10 +63,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.31.tgz#ec5c86b3e806b5661bc730184affcd239d3f051b"
   integrity sha512-/mk7ua7kVPnf7+tFRghhNVEj3o0k66dO2V4uQR0dzllaLZminCyJniCE3zT15UO3fFSWFqPKfdQbCJV6a/EOzg==
 
-"@aracna/web-components@^1.0.53":
-  version "1.0.53"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.53.tgz#cbaf26353614061d8b900848a915745cbea13be9"
-  integrity sha512-LZs41TGElMXziZ4XgpT5ayTLrmU4e3zHAQtFcFH/iaiYT6pSuFE5sgdEjuwkjrk/B9+eU1wxUSZ+tWyHORWnzA==
+"@aracna/web-components@^1.0.54":
+  version "1.0.54"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.54.tgz#93cf4f1235726f4fdf8704859d5204065b5f452c"
+  integrity sha512-NUzg9N35U6jrFLbBMMWjEeKt/pejv4QrS1onWCcput13oBmdWpXn/tJrBcvjOZf/skgsddiM1KltA5MBS8KIAA==
 
 "@aracna/web@^1.0.45":
   version "1.0.45"
@@ -4094,6 +4094,11 @@ suf-log@^2.5.3:
   integrity sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==
   dependencies:
     s.color "0.0.15"
+
+superstruct@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/superstruct/-/superstruct-1.0.3.tgz#de626a5b49c6641ff4d37da3c7598e7a87697046"
+  integrity sha512-8iTn3oSS8nRGn+C2pgXSKPI3jmpm6FExNazNpjvqS6ZUJQCej3PUXEKM8NjHBOs54ExM+LPW/FBRhymrdcCiSg==
 
 supports-color@^5.3.0:
   version "5.5.0"

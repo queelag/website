@@ -15,12 +15,12 @@
     "@aracna/icons-feather": "^1.0.6",
     "@aracna/icons-feather-react": "^1.0.14",
     "@aracna/icons-feather-web": "^1.0.19",
-    "@aracna/react": "^1.0.33",
-    "@aracna/react-components": "^1.0.34",
+    "@aracna/react": "^1.0.34",
+    "@aracna/react-components": "^1.0.35",
     "@aracna/state-manager": "^1.0.31",
     "@aracna/state-manager-react": "^1.0.27",
     "@aracna/web": "^1.0.45",
-    "@aracna/web-components": "^1.0.53",
+    "@aracna/web-components": "^1.0.54",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/react": "^2.3.2",
     "@astrojs/tailwind": "^4.0.0",
@@ -37,6 +37,7 @@
     "prismjs": "^1.29.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "superstruct": "^1.0.3",
     "tabbable": "^6.2.0"
   },
   "devDependencies": {

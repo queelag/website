@@ -119,7 +119,7 @@ export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttr
   { name: 'size', type: 'string' }
 ]
 
-export const DEFAULT_COMPONENT_BLOCK_FORMF_FIELD_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
+export const DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
   { name: 'disabled', type: 'boolean' },
   { name: 'focused', type: 'boolean' },
   { name: 'native', type: 'boolean' },

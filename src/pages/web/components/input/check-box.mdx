@@ -1,0 +1,25 @@
+---
+layout: '@/layouts/Layout.astro'
+title: CheckBox
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { CheckBoxComponentBlock } from '@/blocks/components/input/CheckBoxComponentBlock.tsx'
+import { SB_CHECK_BOX } from '@/definitions/stack-blitz/web/components/input'
+
+<CheckBoxComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_CHECK_BOX}
+  template='javascript'
+  title='CheckBox'
+/>

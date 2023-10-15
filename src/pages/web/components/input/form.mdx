@@ -1,0 +1,25 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Form
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { FormComponentBlock } from '@/blocks/components/input/FormComponentBlock.tsx'
+import { SB_FORM } from '@/definitions/stack-blitz/web/components/input'
+
+<FormComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_FORM}
+  template='javascript'
+  title='Form'
+/>

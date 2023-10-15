@@ -14,7 +14,7 @@ export function Input(props: Props) {
   return (
     <div
       className={joinElementClasses(
-        'w-full flex items-center p-2 text-xs rounded border-2',
+        'group w-full flex items-center p-2 text-xs rounded border-2',
         'transition hover:border-slate-700',
         element?.focused ? 'border-slate-700' : 'border-slate-800'
       )}
@@ -29,7 +29,10 @@ export function Input(props: Props) {
         </div>
       )}
       {props.type !== 'color' && (
-        <AracnaButton className='rounded-full transition ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2' onClick={() => element?.clear()}>
+        <AracnaButton
+          className='rounded-full transition opacity-0 group-hover:opacity-100 ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'
+          onClick={() => element?.clear()}
+        >
           <IconFeatherX size={12} stroke='white' />
         </AracnaButton>
       )}

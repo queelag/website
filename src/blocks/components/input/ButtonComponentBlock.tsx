@@ -38,7 +38,7 @@ export function ButtonComponentBlock() {
         { name: 'variant', type: 'enum', options: [{ value: 'fill' }, { value: 'fill-tonal' }, { value: 'opacity' }, { value: 'outline' }, { value: 'text' }] }
       ]}
       component={(props: ButtonProps) => (
-        <AracnaButton {...props} className='group' onButtonClick={onClickAsync}>
+        <AracnaButton {...props} className='group transition hover:brightness-125 active:brightness-75' onButtonClick={onClickAsync}>
           <div className='relative w-full flex justify-center items-center gap-1.5'>
             <IconFeatherLoader className='absolute animate-spin opacity-0 group-[&[spinning]]:opacity-100' fill='none' stroke='white' />
             <div className='flex items-center gap-1.5 group-[&[spinning]]:opacity-0'>
@@ -57,7 +57,8 @@ export function ButtonComponentBlock() {
         padding: '8px 16px',
         shape: 'rectangle',
         'shape-rectangle-radius': 2,
-        text: 'Add Item'
+        text: 'Add Item',
+        variant: 'fill'
       }}
     />
   )

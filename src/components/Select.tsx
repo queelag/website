@@ -7,7 +7,6 @@ import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaSelect, AracnaSelectButton, AracnaSelectGroup, AracnaSelectList, AracnaSelectOption } from '@aracna/react-components/components/input/select'
 import { joinElementClasses, type SelectOption } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
-import './Select.css'
 
 type Props = SelectProps & {
   label?: string
@@ -22,7 +21,7 @@ export function Select(props: Props) {
   }
 
   return (
-    <AracnaSelect {...omitObjectProperties(props, ['label'])} ref={ref}>
+    <AracnaSelect {...omitObjectProperties(props, ['label'])} className='group' ref={ref}>
       <AracnaSelectGroup className={joinElementClasses('w-full p-2 rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>
@@ -33,7 +32,7 @@ export function Select(props: Props) {
           </div>
           <div className='flex items-center gap-1'>
             {element?.value && (
-              <AracnaButton className='rounded-full transition ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
+              <AracnaButton className='rounded-full opacity-0 transition group-hover:opacity-100 ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
                 <IconFeatherX onClick={onClear} size={12} stroke='white' />
               </AracnaButton>
             )}
@@ -44,7 +43,10 @@ export function Select(props: Props) {
         </AracnaSelectButton>
       </AracnaSelectGroup>
       <AracnaSelectList
-        className='max-h-96 rounded divide-y-2 border-2 border-slate-700 divide-slate-700 bg-slate-900'
+        className={joinElementClasses(
+          'max-h-96 flex flex-col rounded divide-y-2 border-2 border-slate-700 divide-slate-700 bg-slate-900',
+          'transition opacity-0 pointer-events-none group-[&[expanded]]:opacity-100 group-[&[expanded]]:pointer-events-auto'
+        )}
         middlewares={[offset(8)]}
         placement='bottom-start'
       >
