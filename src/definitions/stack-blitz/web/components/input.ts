@@ -36,3 +36,12 @@ export const SB_FORM: ProjectFiles = {
     </script>
   `
 };
+
+export const SB_INPUT: ProjectFiles = {
+  'index.html': html` <aracna-input></aracna-input> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/input/input-element.cjs';
+    </script>
+  `
+};

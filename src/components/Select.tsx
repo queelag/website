@@ -26,7 +26,7 @@ export function Select(props: Props) {
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>
             {props.label && <label className='text-xs'>{props.label}</label>}
-            <span className={joinElementClasses('text-xs font-semibold', !element?.value && 'text-gray-500')}>
+            <span className={joinElementClasses('text-xs font-semibold line-clamp-1', !element?.value && 'text-gray-500')}>
               {element?.findOptionLabelByValue(element.value) ?? element?.value ?? props.placeholder}
             </span>
           </div>
@@ -44,7 +44,7 @@ export function Select(props: Props) {
       </AracnaSelectGroup>
       <AracnaSelectList
         className={joinElementClasses(
-          'max-h-96 flex flex-col rounded divide-y-2 border-2 border-slate-700 divide-slate-700 bg-slate-900',
+          'max-h-64 flex flex-col rounded divide-y-2 border-2 border-slate-700 divide-slate-700 bg-slate-900',
           'transition opacity-0 pointer-events-none group-[&[expanded]]:opacity-100 group-[&[expanded]]:pointer-events-auto'
         )}
         middlewares={[offset(8)]}

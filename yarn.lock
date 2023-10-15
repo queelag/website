@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aracna/core@^1.1.51":
-  version "1.1.51"
-  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.51.tgz#0ac944bcc359601fa67ace896698486c93e4c13e"
-  integrity sha512-p5hOdYNLO8oZ1CHFJgoR2/gFeI6tUVazl4/LOfpDNpfa0T5MOqH9JJYGZXTdhmVWHoeHyRfLiI/kseNXaT9hOQ==
+"@aracna/core@^1.1.52":
+  version "1.1.52"
+  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.52.tgz#44c0a9d0aa0c2f170f7fa266ae13c8c9ce8fc326"
+  integrity sha512-OvdTdxJyFvG3A4pu4p53NZKnTfRNtCzwKotWHq89PUnar8mMV4CwM0subUOXiViJoKfYN47AYAYYR3xfGQfY9w==
   dependencies:
     "@types/cookie" "^0.5.1"
     cookie "^0.5.0"
@@ -46,10 +46,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.35.tgz#12246a4dc4d92a745b6bf892c473937f442a1aa6"
   integrity sha512-FNNWBsQrXZdrz611ozO7hXhvwfgeG8ZwXUNb3sxk5aIrsjze7TLtt6bNFN3E/tlRt4/9qLwlpimFcx9cBWzHuA==
 
-"@aracna/react@^1.0.34":
-  version "1.0.34"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.34.tgz#033fdc529469776c7afd620f22a02f7d1cc78528"
-  integrity sha512-sDTAnLZkukPfV1wu5OA2GhALyKgvlPVrxhaFetDLOF61TkCQfn8GwYcLafuKtABZXrP5d+jblte0x6KH2OH9YQ==
+"@aracna/react@^1.0.35":
+  version "1.0.35"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.35.tgz#78647c0509036ccddc7df0a04b34d15fb5a0d5c4"
+  integrity sha512-wJm9jiFpsDHa+m/ZAsMlUXq+Xi1CTx9GmcKMwCkEO5n7kTgAUuyHuyDLDyl0fha/T2aMJo+el7jXcD9Ergv7IA==
   dependencies:
     "@lit-labs/react" "^2.1.0"
 

@@ -11,11 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@aracna/core": "^1.1.51",
+    "@aracna/core": "^1.1.52",
     "@aracna/icons-feather": "^1.0.6",
     "@aracna/icons-feather-react": "^1.0.14",
     "@aracna/icons-feather-web": "^1.0.19",
-    "@aracna/react": "^1.0.34",
+    "@aracna/react": "^1.0.35",
     "@aracna/react-components": "^1.0.35",
     "@aracna/state-manager": "^1.0.31",
     "@aracna/state-manager-react": "^1.0.27",
