@@ -46,10 +46,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/react-components/-/react-components-1.0.36.tgz#e21f21f3cfe96e950db5b65f4b8396d844614f57"
   integrity sha512-B2nUL6O0XdchOT+L7XsFq9hwYXVSiuYLWaCCbSgmzuFr2Svuc/zm/KrLRQrGRjBYwCQsJMrYYZs02lYzNrsXPA==
 
-"@aracna/react@^1.0.36":
-  version "1.0.36"
-  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.36.tgz#bc18e05ef51ab1ec327943c1bd106f5f46d7d3c9"
-  integrity sha512-Nz0A3wC+DCPc2AEO4utyF3TNjUB1qQdn2kJVi/SJX/Ik72X3/HkanIqs3PnEZz7/435oEs+Lu+lO5Kx1m6Q6IA==
+"@aracna/react@^1.0.37":
+  version "1.0.37"
+  resolved "https://registry.yarnpkg.com/@aracna/react/-/react-1.0.37.tgz#cdec5237b828e3c4cc9dc74ca9e4897c3636c045"
+  integrity sha512-+H8Nwe+F8NWeiuWlmbAcPKXutL7NhKUydiWTRnuUAP2iKalYS+UuWVhgqTxkzAH1muHFJKoEOnmU369XDq/qwA==
   dependencies:
     "@lit-labs/react" "^2.1.0"
 
@@ -63,10 +63,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.31.tgz#ec5c86b3e806b5661bc730184affcd239d3f051b"
   integrity sha512-/mk7ua7kVPnf7+tFRghhNVEj3o0k66dO2V4uQR0dzllaLZminCyJniCE3zT15UO3fFSWFqPKfdQbCJV6a/EOzg==
 
-"@aracna/web-components@^1.0.55":
-  version "1.0.55"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.55.tgz#207971288fadeaaf844a93e5eeaeac9852b86c2d"
-  integrity sha512-1km9qOFoCxWdgOzXZZ/Vhzqs3y4zIVj6yOSY++WCTmtJu+QGoAx9bXAz2ksrTGpHM09XP6QRYVO7AaAlCLX8wQ==
+"@aracna/web-components@^1.0.56":
+  version "1.0.56"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.56.tgz#319a3467b8dbfb50b43c4ad3b70160ff5268bee5"
+  integrity sha512-EhYIXk6hivgntsCeJBdPVJKePeSCMECvdV2mQW8bZC27bYxxxHn8I0poT8R/U5RTZavAqUhNlfeAVQpMhXKEiA==
 
 "@aracna/web@^1.0.46":
   version "1.0.46"

@@ -33,13 +33,14 @@ export function Input(props: Props) {
       </div>
       {props.type === 'color' && (
         <div className='relative w-4 h-4 rounded-full cursor-pointer' style={{ backgroundColor: element?.value as string }}>
-          <AracnaInput {...props} className='absolute opacity-0' height={16} type='color' width={16} />
+          <AracnaInput {...props} className='absolute opacity-0' size={16} type='color' />
         </div>
       )}
       {props.type !== 'color' && (
         <AracnaButton
           className='rounded-full transition opacity-0 group-hover:opacity-100 ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'
           onClick={() => element?.clear()}
+          size={16}
         >
           <IconFeatherX size={12} stroke='white' />
         </AracnaButton>

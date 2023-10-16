@@ -60,6 +60,7 @@ export function ComponentBlock(props: Props) {
               ?.filter((attribute: ComponentBlockAttribute) =>
                 attribute.visible ? Object.entries(attribute.visible).some(([key, values]: [string, any[]]) => values.includes(state[key])) : true
               )
+              .sort((a: ComponentBlockAttribute, b: ComponentBlockAttribute) => a.name.localeCompare(b.name))
               .map((attribute: ComponentBlockAttribute) => (
                 <Fragment key={attribute.name}>
                   {attribute.type === 'boolean' && <InputCheckBox label={attribute.name} path={attribute.name} placeholder='boolean' target={state} />}

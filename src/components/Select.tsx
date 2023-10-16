@@ -13,7 +13,7 @@ type Props = AracnaSelectProps & {
 }
 
 export function Select(props: Props) {
-  const { element, onAttributeChange, onStateChange, ref } = useObservableElementComponent<'aracna-select'>()
+  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-select'>({ whitelist: ['value'] })
 
   const onClear = (event: any) => {
     event.stopPropagation()
@@ -21,7 +21,7 @@ export function Select(props: Props) {
   }
 
   return (
-    <AracnaSelect {...omitObjectProperties(props, ['label'])} className='group' onAttributeChange={onAttributeChange} onStateChange={onStateChange} ref={ref}>
+    <AracnaSelect {...omitObjectProperties(props, ['label'])} className='group' onStateChange={onStateChange} ref={ref}>
       <AracnaSelectGroup className={joinElementClasses('w-full p-2 rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>
