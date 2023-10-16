@@ -1,15 +1,15 @@
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
-import { CheckBoxProps, useBaseElementComponent } from '@aracna/react'
+import { AracnaCheckBoxProps, useObservableElementComponent } from '@aracna/react'
 import { AracnaCheckBox } from '@aracna/react-components/components/input/check-box'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { joinElementClasses } from '@aracna/web'
 
-type Props = CheckBoxProps & {
+type Props = AracnaCheckBoxProps & {
   label?: string
 }
 
 export function InputCheckBox(props: Props) {
-  const { element, ref } = useBaseElementComponent<'aracna-checkbox'>({ state: { dispatch: true } })
+  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-checkbox'>({ whitelist: ['value'] })
 
   return (
     <div className={joinElementClasses('w-full flex items-center p-2 text-xs rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
@@ -25,7 +25,7 @@ export function InputCheckBox(props: Props) {
           readonly
         />
       </div>
-      <AracnaCheckBox {...props} ref={ref} className='group'>
+      <AracnaCheckBox {...props} onStateChange={onStateChange} ref={ref} className='group'>
         <div
           className={joinElementClasses('w-6 h-6 flex justify-center items-center rounded bg-slate-800', 'transition hover:bg-slate-700 active:bg-slate-800')}
         >

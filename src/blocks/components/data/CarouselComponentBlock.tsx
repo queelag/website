@@ -8,7 +8,7 @@ import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/c
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
 import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause'
 import { IconFeatherPlay } from '@aracna/icons-feather-react/components/play'
-import type { CarouselProps } from '@aracna/react'
+import type { AracnaCarouselProps } from '@aracna/react'
 import {
   AracnaCarousel,
   AracnaCarouselNextSlideControl,
@@ -31,7 +31,7 @@ export function CarouselComponentBlock() {
         { name: 'infinite-rotation', type: 'boolean' },
         { name: 'reverse-rotation', type: 'boolean' }
       ]}
-      component={(props: ComponentBlockComponentProps<CarouselProps>) => (
+      component={(props: ComponentBlockComponentProps<AracnaCarouselProps>) => (
         <AracnaCarousel {...props} className='group not-prose relative w-full h-full'>
           <AracnaCarouselSlides className='relative w-full h-full'>
             {images.map((image: string, index: number) => (

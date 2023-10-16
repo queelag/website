@@ -153,25 +153,6 @@ export const SB_FORWARD_REF: ProjectFiles = {
   `
 };
 
-export const SB_USE_BASE_ELEMENT_COMPONENT: ProjectFiles = {
-  'App.jsx': html`
-    <script>
-      import { useComponent } from '@aracna/react';
-      import { AracnaButton } from '@aracna/react-components/components/input/button';
-
-      export function App() {
-        const { ref } = useComponent();
-
-        return (
-          <AracnaButton ref={ref} native>
-            Button
-          </AracnaButton>
-        );
-      }
-    </script>
-  `
-};
-
 export const SB_USE_DISPATCH: ProjectFiles = {
   'App.jsx': html`
     <script>
@@ -279,6 +260,25 @@ export const SB_USE_LIFE_CYCLE: ProjectFiles = {
         }, []);
 
         return null;
+      }
+    </script>
+  `
+};
+
+export const SB_USE_OBSERVABLE_ELEMENT_COMPONENT: ProjectFiles = {
+  'App.jsx': html`
+    <script>
+      import { useComponent } from '@aracna/react';
+      import { AracnaButton } from '@aracna/react-components/components/input/button';
+
+      export function App() {
+        const { ref } = useObservableElementComponent();
+
+        return (
+          <AracnaButton ref={ref} native>
+            Button
+          </AracnaButton>
+        );
       }
     </script>
   `

@@ -1,15 +1,15 @@
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { useBaseElementComponent, type InputProps } from '@aracna/react'
+import { AracnaInputProps, useObservableElementComponent } from '@aracna/react'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { joinElementClasses } from '@aracna/web'
 
-type Props = InputProps & {
+type Props = AracnaInputProps & {
   label?: string
 }
 
 export function Input(props: Props) {
-  const { element, ref } = useBaseElementComponent<'aracna-input'>({ attribute: { dispatch: true, whitelist: ['focused'] }, state: { dispatch: true } })
+  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-input'>({ whitelist: ['value'] })
 
   return (
     <div
@@ -21,7 +21,15 @@ export function Input(props: Props) {
     >
       <div className='flex-1 flex flex-col'>
         {props.label && <label className='text-xs cursor-default'>{props.label}</label>}
-        <AracnaInput {...props} className='w-full font-semibold' padding='4px 0 0 0' ref={ref} type={props.type === 'color' ? 'text' : props.type} normalized />
+        <AracnaInput
+          {...props}
+          className='w-full font-semibold'
+          onStateChange={onStateChange}
+          padding='4px 0 0 0'
+          ref={ref}
+          type={props.type === 'color' ? 'text' : props.type}
+          normalized
+        />
       </div>
       {props.type === 'color' && (
         <div className='relative w-4 h-4 rounded-full cursor-pointer' style={{ backgroundColor: element?.value as string }}>

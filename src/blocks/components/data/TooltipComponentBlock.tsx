@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
-import type { TooltipProps } from '@aracna/react'
+import type { AracnaTooltipProps } from '@aracna/react'
 import { AracnaTooltip, AracnaTooltipArrow, AracnaTooltipContent, AracnaTooltipTrigger } from '@aracna/react-components/components/data/tooltip'
 import { joinElementClasses } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
@@ -15,7 +15,7 @@ export function TooltipComponentBlock() {
         { name: 'show-on-mouse-enter', type: 'boolean' },
         { name: 'visible', type: 'boolean' }
       ]}
-      component={(props: TooltipProps) => (
+      component={(props: AracnaTooltipProps) => (
         <AracnaTooltip {...props} className='group'>
           <AracnaTooltipContent
             className={joinElementClasses(

@@ -1,26 +1,15 @@
 {
-  "name": "@example/minimal",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
   "dependencies": {
     "@aracna/core": "^1.1.52",
     "@aracna/icons-feather": "^1.0.6",
     "@aracna/icons-feather-react": "^1.0.14",
     "@aracna/icons-feather-web": "^1.0.19",
-    "@aracna/react": "^1.0.35",
-    "@aracna/react-components": "^1.0.35",
+    "@aracna/react": "^1.0.36",
+    "@aracna/react-components": "^1.0.36",
     "@aracna/state-manager": "^1.0.31",
     "@aracna/state-manager-react": "^1.0.27",
-    "@aracna/web": "^1.0.45",
-    "@aracna/web-components": "^1.0.54",
+    "@aracna/web": "^1.0.46",
+    "@aracna/web-components": "^1.0.55",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/react": "^2.3.2",
     "@astrojs/tailwind": "^4.0.0",
@@ -48,5 +37,15 @@
     "@types/react-dom": "^18.2.7",
     "prop-types": "^15.8.1",
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "name": "@aracna/website",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "version": "0.0.1"
 }

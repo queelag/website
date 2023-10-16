@@ -1,11 +1,11 @@
 import { IconFeatherAlertTriangle } from '@aracna/icons-feather-react/components/alert-triangle'
 import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
-import type { AlertProps } from '@aracna/react'
+import type { AracnaAlertProps } from '@aracna/react'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
 import type { AlertSeverity, AlertVariant } from '@aracna/web'
 import './Alert.css'
 
-type Props = AlertProps & {
+type Props = AracnaAlertProps & {
   closable?: boolean
   headline?: string
   icon?: string

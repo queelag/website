@@ -1,7 +1,7 @@
 import ICON_MIC from '@/assets/icons/mic.svg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { concatURL } from '@aracna/core'
-import type { IconProps } from '@aracna/react'
+import type { AracnaIconProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 
 export function IconComponentBlock() {
@@ -20,7 +20,7 @@ export function IconComponentBlock() {
         { name: 'stroke-linejoin', type: 'string' },
         { name: 'stroke-width', type: 'string' }
       ]}
-      component={(props: IconProps) => <AracnaIcon {...props} style={{ stroke: props.color }} />}
+      component={(props: AracnaIconProps) => <AracnaIcon {...props} style={{ stroke: props.color }} />}
       defaultProps={{
         color: 'white',
         fill: 'none',

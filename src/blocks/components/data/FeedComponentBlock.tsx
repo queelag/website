@@ -1,5 +1,5 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import type { FeedProps } from '@aracna/react'
+import type { AracnaFeedProps } from '@aracna/react'
 import { AracnaFeed, AracnaFeedArticle, AracnaFeedArticleDescription, AracnaFeedArticleLabel } from '@aracna/react-components/components/data/feed'
 import { FeedArticleElementAttributes, joinElementClasses } from '@aracna/web'
 import { Fragment } from 'react'
@@ -32,7 +32,7 @@ export function FeedComponentBlock() {
         { name: 'articles', type: 'json' },
         { name: 'busy', type: 'boolean' }
       ]}
-      component={(props: FeedProps) => (
+      component={(props: AracnaFeedProps) => (
         <AracnaFeed {...props} className='w-full grid grid-cols-2 gap-2'>
           {props.articles?.map((article: Article) => (
             <AracnaFeedArticle

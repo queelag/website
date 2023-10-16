@@ -4,7 +4,7 @@ import { ICON_FEATHER_CHEVRON_DOWN } from '@aracna/icons-feather/assets/chevron-
 import { ICON_FEATHER_CLOCK } from '@aracna/icons-feather/assets/clock'
 import { ICON_FEATHER_IMAGE } from '@aracna/icons-feather/assets/image'
 import { ICON_FEATHER_X } from '@aracna/icons-feather/assets/x'
-import type { ChipProps } from '@aracna/react'
+import type { AracnaChipProps } from '@aracna/react'
 import { AracnaAvatar } from '@aracna/react-components/components/data/avatar'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
@@ -22,7 +22,7 @@ const TRAILING_ICONS: SelectOption[] = [
 ]
 
 export function ChipComponentBlock() {
-  const isLeadingIconVisible = (props: ChipProps) => {
+  const isLeadingIconVisible = (props: AracnaChipProps) => {
     if (typeof props['leading-icon'] === 'undefined') {
       return false
     }
@@ -38,7 +38,7 @@ export function ChipComponentBlock() {
     return false
   }
 
-  const isTrailingIconVisible = (props: ChipProps) => {
+  const isTrailingIconVisible = (props: AracnaChipProps) => {
     if (typeof props['trailing-icon'] === 'undefined') {
       return false
     }
@@ -53,7 +53,7 @@ export function ChipComponentBlock() {
     return false
   }
 
-  const isLeadingImageVisible = (props: ChipProps) => {
+  const isLeadingImageVisible = (props: AracnaChipProps) => {
     if (typeof props['leading-image'] === 'undefined') {
       return false
     }
@@ -69,7 +69,7 @@ export function ChipComponentBlock() {
     return false
   }
 
-  const isTrailingImageVisible = (props: ChipProps) => {
+  const isTrailingImageVisible = (props: AracnaChipProps) => {
     if (typeof props['trailing-image'] === 'undefined') {
       return false
     }
@@ -96,7 +96,7 @@ export function ChipComponentBlock() {
         { name: 'trailing-image', type: 'string' },
         { name: 'variant', type: 'enum', options: [{ value: 'assist' }, { value: 'filter' }, { value: 'input' }, { value: 'suggestion' }] }
       ]}
-      component={(props: ChipProps) => (
+      component={(props: AracnaChipProps) => (
         <AracnaChip {...props} className='flex items-center gap-1.5 px-2 py-1.5 rounded bg-slate-800'>
           {isLeadingIconVisible(props) && <AracnaIcon fill='none' size={16} src={props['leading-icon']} stroke='white' stroke-width={1} />}
           {isLeadingImageVisible(props) && (

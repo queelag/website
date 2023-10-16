@@ -5,7 +5,7 @@ import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu'
 import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
-import type { IconProps } from '@aracna/react'
+import type { AracnaIconProps } from '@aracna/react'
 import { joinElementClasses } from '@aracna/web'
 import { IconReact } from 'src/icons/IconReact'
 
@@ -31,7 +31,7 @@ const LIBRARIES = [
     description: 'Leverage the power of Aracna Web Components in a React fashion.\n\nExposes several essential hooks for your daily needs.',
     href: '/react/get-started',
     background: MESH_BLUE,
-    icon: (props: IconProps) => <IconReact {...props} fill='white' />,
+    icon: (props: AracnaIconProps) => <IconReact {...props} fill='white' />,
     ring: 'ring-blue-400'
   },
   {

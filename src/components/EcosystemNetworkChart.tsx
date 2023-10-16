@@ -2,7 +2,7 @@ import { Interval } from '@aracna/core'
 import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu'
 import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
-import type { IconProps } from '@aracna/react'
+import type { AracnaIconProps } from '@aracna/react'
 import { InputLink, InputNode, NodeProps, ResponsiveNetwork } from '@nivo/network'
 import { ReactElement, useEffect, useState } from 'react'
 import { IconReact } from 'src/icons/IconReact'
@@ -10,7 +10,7 @@ import { NivoNetworkNode } from './NivoNetworkNode'
 
 interface Node extends InputNode {
   color: string
-  icon?: (props: IconProps) => ReactElement
+  icon?: (props: AracnaIconProps) => ReactElement
 }
 
 interface Link extends InputLink {
@@ -25,37 +25,37 @@ interface Data {
 const NODES: Node[] = [
   {
     color: '#6296f8',
-    icon: (props: IconProps) => <IconFeatherCpu {...props} />,
+    icon: (props: AracnaIconProps) => <IconFeatherCpu {...props} />,
     id: 'Core'
   },
   {
     color: '#43e57a',
-    icon: (props: IconProps) => <IconFeatherGlobe {...props} />,
+    icon: (props: AracnaIconProps) => <IconFeatherGlobe {...props} />,
     id: 'Web'
   },
   {
     color: '#43e57a',
-    icon: (props: IconProps) => <IconFeatherGlobe {...props} />,
+    icon: (props: AracnaIconProps) => <IconFeatherGlobe {...props} />,
     id: 'Web Components'
   },
   {
     color: '#ffc001',
-    icon: (props: IconProps) => <IconReact {...props} />,
+    icon: (props: AracnaIconProps) => <IconReact {...props} />,
     id: 'React'
   },
   {
     color: '#ffc001',
-    icon: (props: IconProps) => <IconReact {...props} />,
+    icon: (props: AracnaIconProps) => <IconReact {...props} />,
     id: 'React Components'
   },
   {
     color: '#b386ff',
-    icon: (props: IconProps) => <IconFeatherZap {...props} />,
+    icon: (props: AracnaIconProps) => <IconFeatherZap {...props} />,
     id: 'State Manager'
   },
   {
     color: '#b386ff',
-    icon: (props: IconProps) => <IconFeatherZap {...props} />,
+    icon: (props: AracnaIconProps) => <IconFeatherZap {...props} />,
     id: 'State Manager React'
   }
 ]

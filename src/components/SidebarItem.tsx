@@ -53,7 +53,7 @@ export function SidebarItem(props: SidebarItemProps) {
         </span>
         {props.items && expandable && (
           <AracnaButton shape='squircle' size={16}>
-            <div className='flex justify-center items-center transition bg-slate-800 group-hover:bg-black'>
+            <div className='h-full flex justify-center items-center transition bg-slate-800 group-hover:bg-black'>
               {store.expanded ? (
                 <IconFeatherChevronUp size={10} stroke='white' stroke-width={3} />
               ) : (

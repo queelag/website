@@ -1,13 +1,13 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { useBaseElementComponent, type FormProps, type InputProps } from '@aracna/react'
+import { AracnaFormProps, AracnaInputProps, useObservableElementComponent } from '@aracna/react'
 import { AracnaButton, AracnaInput } from '@aracna/react-components'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { FormSubmitEvent, joinElementClasses } from '@aracna/web'
 import { pattern, size, string } from 'superstruct'
 import colors from 'tailwindcss/colors'
 
-function Input(props: InputProps) {
-  const { element, ref } = useBaseElementComponent<'aracna-input'>({ state: { dispatch: true } })
+function Input(props: AracnaInputProps) {
+  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-input'>()
 
   return (
     <div className='flex flex-col gap-1'>
@@ -18,6 +18,7 @@ function Input(props: InputProps) {
           'transition hover:border-slate-700',
           element?.focused ? 'border-slate-700' : 'border-slate-800'
         )}
+        onStateChange={onStateChange}
         padding='12px'
         ref={ref}
         normalized
@@ -39,7 +40,7 @@ export function FormComponentBlock() {
         { name: 'disabled', type: 'boolean' },
         { name: 'spinning', type: 'boolean' }
       ]}
-      component={(props: FormProps) => (
+      component={(props: AracnaFormProps) => (
         <AracnaForm {...props} className='w-full' onFormSubmit={onSubmit}>
           <div className='flex flex-col gap-2'>
             <Input placeholder='username' schema={size(string(), 1, 32)} type='text' />

@@ -2,18 +2,18 @@ import { omitObjectProperties } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { useBaseElementComponent, type SelectProps } from '@aracna/react'
+import { AracnaSelectProps, useObservableElementComponent } from '@aracna/react'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaSelect, AracnaSelectButton, AracnaSelectGroup, AracnaSelectList, AracnaSelectOption } from '@aracna/react-components/components/input/select'
 import { joinElementClasses, type SelectOption } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 
-type Props = SelectProps & {
+type Props = AracnaSelectProps & {
   label?: string
 }
 
 export function Select(props: Props) {
-  const { element, ref } = useBaseElementComponent<'aracna-select'>({ attribute: { dispatch: true }, state: { dispatch: true } })
+  const { element, onAttributeChange, onStateChange, ref } = useObservableElementComponent<'aracna-select'>()
 
   const onClear = (event: any) => {
     event.stopPropagation()
@@ -21,7 +21,7 @@ export function Select(props: Props) {
   }
 
   return (
-    <AracnaSelect {...omitObjectProperties(props, ['label'])} className='group' ref={ref}>
+    <AracnaSelect {...omitObjectProperties(props, ['label'])} className='group' onAttributeChange={onAttributeChange} onStateChange={onStateChange} ref={ref}>
       <AracnaSelectGroup className={joinElementClasses('w-full p-2 rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>

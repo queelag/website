@@ -1,7 +1,7 @@
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ImageProps } from '@aracna/react'
+import type { AracnaImageProps } from '@aracna/react'
 import { AracnaImage } from '@aracna/react-components/components/data/image'
 import colors from 'tailwindcss/colors'
 
@@ -28,7 +28,7 @@ export function ImageComponentBlock() {
         { name: 'placeholder', type: 'string' },
         { name: 'src', type: 'string' }
       ]}
-      component={(props: ImageProps) => <AracnaImage {...props} className='aspect-square max-w-[192px]' />}
+      component={(props: AracnaImageProps) => <AracnaImage {...props} className='aspect-square max-w-[192px]' />}
       defaultProps={{
         background: colors.slate[800],
         shape: 'squircle',

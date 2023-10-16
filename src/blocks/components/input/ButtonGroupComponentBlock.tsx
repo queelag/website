@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { ICON_FEATHER_X } from '@aracna/icons-feather/assets/x'
-import type { ButtonGroupProps } from '@aracna/react'
+import type { AracnaButtonGroupProps } from '@aracna/react'
 import { AracnaButton, AracnaIcon } from '@aracna/react-components'
 import { AracnaButtonGroup } from '@aracna/react-components/components/input/button-group'
 import type { ButtonElementAttributes } from '@aracna/web'
@@ -17,11 +17,11 @@ export function ButtonGroupComponentBlock() {
   return (
     <ComponentBlock
       attributes={[{ name: 'buttons', type: 'json' }]}
-      component={(props: ButtonGroupProps) => (
+      component={(props: AracnaButtonGroupProps) => (
         <AracnaButtonGroup {...props} className='flex gap-[2px] rounded overflow-hidden'>
           {props.buttons?.map((button: Button) => (
             <AracnaButton {...button}>
-              <div className='flex justify-center items-center'>
+              <div className='h-full flex justify-center items-center'>
                 {button.icon && <AracnaIcon fill='none' size={16} src={button.icon} stroke='white' stroke-width={2} />}
                 {button.text && <span className='font-medium text-xs text-white'>{button.text}</span>}
               </div>
