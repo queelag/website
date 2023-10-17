@@ -1,6 +1,6 @@
 import type { InputNode, NodeProps } from '@nivo/network'
 import { animated, to } from '@react-spring/web'
-import { ReactNode, memo } from 'react'
+import { memo, type ReactNode } from 'react'
 
 interface Props<Node extends InputNode> extends NodeProps<Node> {
   children?: ReactNode

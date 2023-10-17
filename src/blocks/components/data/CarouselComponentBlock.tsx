@@ -4,6 +4,7 @@ import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
+import { omitObjectProperties } from '@aracna/core'
 import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/chevron-left'
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
 import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause'
@@ -19,6 +20,7 @@ import {
   AracnaCarouselTab,
   AracnaCarouselTabs
 } from '@aracna/react-components/components/data/carousel'
+import type { ImageMetadata } from 'astro'
 
 export function CarouselComponentBlock() {
   const images = [MESH_BLUE, MESH_MINT, MESH_ROSE, MESH_SEANCE]
@@ -32,15 +34,15 @@ export function CarouselComponentBlock() {
         { name: 'reverse-rotation', type: 'boolean' }
       ]}
       component={(props: ComponentBlockComponentProps<AracnaCarouselProps>) => (
-        <AracnaCarousel {...props} className='group not-prose relative w-full h-full'>
+        <AracnaCarousel {...omitObjectProperties(props, ['_variant'])} className='group not-prose relative w-full h-full'>
           <AracnaCarouselSlides className='relative w-full h-full'>
-            {images.map((image: string, index: number) => (
+            {images.map((image: ImageMetadata, index: number) => (
               <AracnaCarouselSlide
                 active={index <= 0}
                 className='group absolute inset-0 w-full h-full opacity-0 [&[active]]:opacity-100 transition'
-                key={image}
+                key={image.src}
               >
-                <img alt='' className='w-full h-full object-cover rounded' src={image} />
+                <img alt='' className='w-full h-full object-cover rounded' src={image.src} />
               </AracnaCarouselSlide>
             ))}
             <AracnaCarouselRotationControl className='absolute top-2 left-2'>
@@ -61,11 +63,11 @@ export function CarouselComponentBlock() {
             )}
             {props._variant === 'tabs' && (
               <AracnaCarouselTabs className='absolute bottom-0 left-0 right-0 flex justify-center gap-1 pb-2'>
-                {images.map((image: string, index: number) => (
+                {images.map((image: ImageMetadata, index: number) => (
                   <AracnaCarouselTab
                     active={index <= 0}
                     className='w-3 h-3 rounded-full backdrop-blur-3xl bg-opacity-25 [&[active]]:bg-opacity-75 bg-white transition'
-                    key={image}
+                    key={image.src}
                   />
                 ))}
               </AracnaCarouselTabs>

@@ -3,7 +3,7 @@ import type { StackBlitzProps } from '@/definitions/props'
 import { getStackBlitzProject, getStackBlitzProjectEmbedOptions, getStackBlitzProjectOpenOptions } from '@/utils/stack-blitz-utils'
 import { omitObjectProperties, pickObjectProperties } from '@aracna/core'
 import { joinElementClasses } from '@aracna/web'
-import SDK, { Project } from '@stackblitz/sdk'
+import SDK, { type Project } from '@stackblitz/sdk'
 import { useEffect, useMemo, useRef } from 'react'
 
 const KEYS: (keyof StackBlitzProps)[] = [...STACK_BLITZ_PROJECT_KEYS, 'options', 'template']

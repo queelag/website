@@ -1,0 +1,25 @@
+---
+layout: '@/layouts/Layout.astro'
+title: RadioGroup
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { RadioGroupComponentBlock } from '@/blocks/components/input/RadioGroupComponentBlock.tsx'
+import { SB_RADIO_GROUP } from '@/definitions/stack-blitz/web/components/input'
+
+<RadioGroupComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_RADIO_GROUP}
+  template='javascript'
+  title='RadioGroup'
+/>

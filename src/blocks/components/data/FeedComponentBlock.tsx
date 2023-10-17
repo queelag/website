@@ -1,7 +1,7 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import type { AracnaFeedProps } from '@aracna/react'
 import { AracnaFeed, AracnaFeedArticle, AracnaFeedArticleDescription, AracnaFeedArticleLabel } from '@aracna/react-components/components/data/feed'
-import { FeedArticleElementAttributes, joinElementClasses } from '@aracna/web'
+import { joinElementClasses, type FeedArticleElementAttributes } from '@aracna/web'
 import { Fragment } from 'react'
 
 interface Article extends FeedArticleElementAttributes {}

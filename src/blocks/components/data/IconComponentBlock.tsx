@@ -25,7 +25,7 @@ export function IconComponentBlock() {
         color: 'white',
         fill: 'none',
         size: 16,
-        src: concatURL(import.meta.env.PUBLIC_URL, ICON_MIC),
+        src: concatURL(import.meta.env.PUBLIC_URL, ICON_MIC.src),
         stroke: 'inherit',
         'stroke-linecap': 'round',
         'stroke-linejoin': 'round',

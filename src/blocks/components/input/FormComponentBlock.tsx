@@ -1,5 +1,5 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { AracnaFormProps, AracnaInputProps, useObservableElementComponent } from '@aracna/react'
+import { useObservableElementComponent, type AracnaFormProps, type AracnaInputProps } from '@aracna/react'
 import { AracnaButton, AracnaInput } from '@aracna/react-components'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { FormSubmitEvent, joinElementClasses } from '@aracna/web'

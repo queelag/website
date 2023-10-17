@@ -45,3 +45,30 @@ export const SB_INPUT: ProjectFiles = {
     </script>
   `
 };
+
+export const SB_INPUT_FILE: ProjectFiles = {
+  'index.html': html` <aracna-input-file></aracna-input-file> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/input/input-file-element.cjs';
+    </script>
+  `
+};
+
+export const SB_RADIO_GROUP: ProjectFiles = {
+  'index.html': html` <aracna-radio-group></aracna-radio-group> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/input/radio-group-element.cjs';
+    </script>
+  `
+};
+
+export const SB_SELECT: ProjectFiles = {
+  'index.html': html` <aracna-select></aracna-select> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/select/select-element.cjs';
+    </script>
+  `
+};

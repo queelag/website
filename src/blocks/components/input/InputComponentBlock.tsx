@@ -3,7 +3,7 @@ import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definit
 import type { ComponentBlockAttribute } from '@/definitions/interfaces'
 import { removeArrayItems } from '@aracna/core'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { AracnaInputProps, Memo, useObservableElementComponent } from '@aracna/react'
+import { Memo, useObservableElementComponent, type AracnaInputProps } from '@aracna/react'
 import { AracnaButton, AracnaChip } from '@aracna/react-components'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { StateChangeEvent, joinElementClasses } from '@aracna/web'
@@ -68,7 +68,7 @@ export function InputComponentBlock() {
             {props.multiple && items.length > 0 && (
               <div className='flex flex-wrap gap-1 p-4'>
                 {items.map((item: string) => (
-                  <AracnaChip className='col-span-1 flex items-center gap-2 pl-2.5 pr-1.5 py-1 rounded bg-slate-800'>
+                  <AracnaChip className='col-span-1 flex items-center gap-2 pl-2.5 pr-1.5 py-1 rounded bg-slate-800' key={item}>
                     <span className='text-xs font-medium'>{item}</span>
                     <AracnaButton
                       className='rounded-full transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'

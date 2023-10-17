@@ -17,22 +17,22 @@ interface Item extends ListItemElementAttributes {
 const ITEMS: Item[] = [
   {
     headline: 'New Product Launch',
-    'leading-image': MESH_BLUE,
+    'leading-image': MESH_BLUE.src,
     text: 'We are excited to announce the launch of our new product line. Check it out now!'
   },
   {
     headline: 'Upcoming Event',
-    'leading-image': MESH_MINT,
+    'leading-image': MESH_MINT.src,
     text: 'Join us for our upcoming event on the latest trends in technology. Register now to secure your spot!'
   },
   {
     headline: 'Customer Testimonial',
-    'leading-image': MESH_ROSE,
+    'leading-image': MESH_ROSE.src,
     text: 'We are thrilled to receive such positive feedback from our customers. Read their testimonials now!'
   },
   {
     headline: 'Industry News',
-    'leading-image': MESH_SEANCE,
+    'leading-image': MESH_SEANCE.src,
     text: 'Stay up-to-date with the latest news and trends in the industry. Read our latest articles now!'
   }
 ]
