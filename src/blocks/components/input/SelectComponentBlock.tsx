@@ -16,9 +16,9 @@ import {
   AracnaSelectList,
   AracnaSelectOption
 } from '@aracna/react-components/components/input/select'
-import { StateChangeEvent, joinElementClasses, type SelectOption } from '@aracna/web'
+import { StateChangeEvent, findSelectOptionByValue, joinElementClasses, type SelectOption } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 const OPTIONS: SelectOption[] = [
   { value: 'apple', label: 'Apple' },
@@ -62,17 +62,21 @@ export function SelectComponentBlock() {
       ]}
       component={(props: ComponentBlockComponentProps<AracnaSelectProps>) => {
         const { element, ref } = useObservableElementComponent<'aracna-select'>()
-        const [expanded, setExpanded] = useState<boolean>()
-        const [option, setOption] = useState<SelectOption>()
-        const [options, setOptions] = useState<SelectOption[]>([])
-        const [filter, setFilter] = useState<string>()
+        const [expanded, setExpanded] = useState<boolean | undefined>()
+        const [selected, setSelected] = useState<SelectOption[]>([])
+        const [_, setFilter] = useState<string>()
 
         const onChangeOption = (event: StateChangeEvent<string>) => {
+          let option: SelectOption | undefined
+
           if (event.detail?.name !== 'value') {
             return
           }
 
-          setOption(element?.findOptionByValue(event.detail?.value))
+          option = findSelectOptionByValue(props.options ?? [], event.detail?.value)
+          if (!option) return
+
+          setSelected([option])
         }
 
         const onChangeOptions = (event: StateChangeEvent<string[]>) => {
@@ -85,24 +89,30 @@ export function SelectComponentBlock() {
           for (let value of event.detail?.value ?? []) {
             let option: SelectOption | undefined
 
-            option = element?.findOptionByValue(value)
+            option = findSelectOptionByValue(props.options ?? [], value)
             if (!option) continue
 
             options.push(option)
           }
 
-          setOptions(options)
+          setSelected(options)
         }
 
         const onInputChange = (event: StateChangeEvent<string>) => {
-          // setFilter(event.detail?.value)
+          if (event.detail?.name !== 'value') {
+            return
+          }
+
+          setFilter(event.detail?.value)
         }
 
         return (
           <AracnaSelect
             {...omitObjectProperties(props, ['_variant'])}
             className='group w-64'
-            expanded={expanded}
+            expanded={typeof props.expanded === 'boolean' ? props.expanded : expanded}
+            onComboBoxCollapse={() => setExpanded(false)}
+            onComboBoxExpand={() => setExpanded(true)}
             onStateChange={props.multiple ? onChangeOptions : onChangeOption}
             ref={ref}
           >
@@ -114,10 +124,41 @@ export function SelectComponentBlock() {
                     'hover:border-slate-700 focus:border-slate-700 focus:outline-none'
                   )}
                 >
-                  {options.length <= 0 && <span className='text-xs font-medium'>{option?.label ?? 'Select Fruit'}</span>}
-                  {options.length >= 1 && (
-                    <div className='w-full flex flex-wrap gap-1'>
-                      {options.map((option: SelectOption) => (
+                  {props.multiple && (
+                    <Fragment>
+                      {selected.length <= 0 && <span className='text-xs font-medium'>Select Fruit</span>}
+                      {selected.length >= 1 && (
+                        <div className='flex-1 flex flex-wrap gap-1'>
+                          {selected.map((option: SelectOption) => (
+                            <AracnaChip className='flex items-center gap-2 pl-2.5 pr-1.5 py-1 rounded bg-slate-800' key={option.value}>
+                              <span className='text-xs font-medium'>{option.label}</span>
+                              <AracnaButton
+                                className='rounded-full transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'
+                                onClick={() => element?.removeOption(option)}
+                                size={12}
+                              >
+                                <IconFeatherX size={12} stroke='white' />
+                              </AracnaButton>
+                            </AracnaChip>
+                          ))}
+                        </div>
+                      )}
+                    </Fragment>
+                  )}
+                  {!props.multiple && <span className='text-xs font-medium'>{selected[0]?.label ?? 'Select Fruit'}</span>}
+                  <IconFeatherChevronDown className={joinElementClasses('transition group-[&[expanded]]:rotate-180')} stroke='white' />
+                </AracnaSelectButton>
+              )}
+              {props._variant === 'input' && (
+                <div
+                  className={joinElementClasses(
+                    'w-full flex justify-between items-center rounded transition border-2 border-slate-800',
+                    'hover:border-slate-700 focus:border-slate-700'
+                  )}
+                >
+                  {props.multiple && selected.length >= 1 && (
+                    <div className='flex-1 flex flex-wrap gap-1 p-3'>
+                      {selected.map((option: SelectOption) => (
                         <AracnaChip className='flex items-center gap-2 pl-2.5 pr-1.5 py-1 rounded bg-slate-800' key={option.value}>
                           <span className='text-xs font-medium'>{option.label}</span>
                           <AracnaButton
@@ -131,19 +172,18 @@ export function SelectComponentBlock() {
                       ))}
                     </div>
                   )}
-                  <IconFeatherChevronDown className={joinElementClasses('transition group-[&[expanded]]:rotate-180')} stroke='white' />
-                </AracnaSelectButton>
-              )}
-              {props._variant === 'input' && (
-                <AracnaSelectInput className='w-full' onStateChange={onInputChange}>
-                  <input
-                    className={joinElementClasses(
-                      'w-full flex justify-between items-center p-3 rounded text-xs font-medium transition border-2 border-slate-800 bg-black',
-                      'hover:border-slate-700 focus:border-slate-700 focus:outline-none'
-                    )}
-                    placeholder='Select Fruit'
-                  />
-                </AracnaSelectInput>
+                  <AracnaSelectInput className='flex-1' onStateChange={onInputChange}>
+                    <input
+                      className='w-full p-3 text-xs font-medium focus:outline-none bg-black'
+                      placeholder='Select Fruit'
+                      type='text'
+                      suppressHydrationWarning
+                    />
+                  </AracnaSelectInput>
+                  <AracnaSelectButton className='w-4 h-4 rounded-full mr-3 transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'>
+                    <IconFeatherChevronDown className={joinElementClasses('transition group-[&[expanded]]:rotate-180')} stroke='white' />
+                  </AracnaSelectButton>
+                </div>
               )}
             </AracnaSelectGroup>
             <AracnaSelectList
@@ -162,6 +202,7 @@ export function SelectComponentBlock() {
                     '[&[focused]]:bg-slate-900 aria-selected:bg-slate-900'
                   )}
                   key={option.value}
+                  selected={Boolean(selected.find((option_: SelectOption) => option_.value === option.value))}
                 >
                   <span className='text-xs font-medium'>{option.label ?? option.value}</span>
                   <IconFeatherCheck className={joinElementClasses('transition', 'opacity-0 group-aria-selected:opacity-100')} size={12} stroke='white' />

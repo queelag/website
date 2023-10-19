@@ -5,7 +5,7 @@ import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { useObservableElementComponent, type AracnaSelectProps } from '@aracna/react'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaSelect, AracnaSelectButton, AracnaSelectGroup, AracnaSelectList, AracnaSelectOption } from '@aracna/react-components/components/input/select'
-import { joinElementClasses, type SelectOption } from '@aracna/web'
+import { findSelectOptionLabelByValue, joinElementClasses, type SelectOption } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 
 type Props = AracnaSelectProps & {
@@ -27,7 +27,7 @@ export function Select(props: Props) {
           <div className='flex flex-col gap-1'>
             {props.label && <label className='text-xs'>{props.label}</label>}
             <span className={joinElementClasses('text-xs font-semibold line-clamp-1', !element?.value && 'text-gray-500')}>
-              {element?.findOptionLabelByValue(element.value) ?? element?.value ?? props.placeholder}
+              {findSelectOptionLabelByValue(props.options ?? [], element?.value) ?? element?.value ?? props.placeholder}
             </span>
           </div>
           <div className='flex items-center gap-1'>
