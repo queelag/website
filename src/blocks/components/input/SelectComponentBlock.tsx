@@ -18,7 +18,7 @@ import {
 } from '@aracna/react-components/components/input/select'
 import { StateChangeEvent, findSelectOptionByValue, joinElementClasses, type SelectOption } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, type MouseEvent } from 'react'
 
 const OPTIONS: SelectOption[] = [
   { value: 'apple', label: 'Apple' },
@@ -74,7 +74,7 @@ export function SelectComponentBlock() {
           }
 
           option = findSelectOptionByValue(props.options ?? [], event.detail?.value)
-          if (!option) return
+          if (!option) return setSelected([])
 
           setSelected([option])
         }
@@ -106,6 +106,13 @@ export function SelectComponentBlock() {
           setFilter(event.detail?.value)
         }
 
+        const onClickRemoveOption = (event: MouseEvent, option: SelectOption) => {
+          event.preventDefault()
+          event.stopPropagation()
+
+          element?.removeOption(option)
+        }
+
         return (
           <AracnaSelect
             {...omitObjectProperties(props, ['_variant'])}
@@ -134,7 +141,7 @@ export function SelectComponentBlock() {
                               <span className='text-xs font-medium'>{option.label}</span>
                               <AracnaButton
                                 className='rounded-full transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'
-                                onClick={() => element?.removeOption(option)}
+                                onClick={(event: any) => onClickRemoveOption(event, option)}
                                 size={12}
                               >
                                 <IconFeatherX size={12} stroke='white' />
@@ -163,7 +170,7 @@ export function SelectComponentBlock() {
                           <span className='text-xs font-medium'>{option.label}</span>
                           <AracnaButton
                             className='rounded-full transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'
-                            onClick={() => element?.removeOption(option)}
+                            onClick={(event: any) => onClickRemoveOption(event, option)}
                             size={12}
                           >
                             <IconFeatherX size={12} stroke='white' />

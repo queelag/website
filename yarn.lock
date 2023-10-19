@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aracna/core@^1.1.52":
-  version "1.1.52"
-  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.52.tgz#44c0a9d0aa0c2f170f7fa266ae13c8c9ce8fc326"
-  integrity sha512-OvdTdxJyFvG3A4pu4p53NZKnTfRNtCzwKotWHq89PUnar8mMV4CwM0subUOXiViJoKfYN47AYAYYR3xfGQfY9w==
+"@aracna/core@^1.1.53":
+  version "1.1.53"
+  resolved "https://registry.yarnpkg.com/@aracna/core/-/core-1.1.53.tgz#c2fd666acc3745c2a83b26ac8206db63111b4173"
+  integrity sha512-soGundNfpZ25Hu7TTGamuVOJY9lhZuAAlcIwcRMA5gymxL4rs+jsj931qyO+nERw6ufGIb3j09RL496UfUoy7A==
   dependencies:
     "@types/cookie" "^0.5.1"
     cookie "^0.5.0"
@@ -63,15 +63,15 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.31.tgz#ec5c86b3e806b5661bc730184affcd239d3f051b"
   integrity sha512-/mk7ua7kVPnf7+tFRghhNVEj3o0k66dO2V4uQR0dzllaLZminCyJniCE3zT15UO3fFSWFqPKfdQbCJV6a/EOzg==
 
-"@aracna/web-components@^1.0.58":
-  version "1.0.58"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.58.tgz#b655e258b7b2366fadbca0aeeb5fcc55b49fae09"
-  integrity sha512-BVn8csgBVoaDRFD/Xz6DUyfjGNMdCGAbD2EYtoHz5R6kH5d3fCre+pLee1/f4OP6JwbXlaCy1zzj4xB5nXasjw==
+"@aracna/web-components@^1.0.60":
+  version "1.0.60"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.60.tgz#b6b9dc922798ee3454de03c677dd08fa1463f751"
+  integrity sha512-ISaSSc7h9l4iqQ1uajuGAyYbvN+pJ9+qaIkkNfRzdy54FXNj0OejWjEwRfpHB0HSbXGUx0a8Z1mU8TizZOUgjg==
 
-"@aracna/web@^1.0.49":
-  version "1.0.49"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.49.tgz#88c71323d567aaaf5b8086849560a8e2cd3eb080"
-  integrity sha512-Rh7NdAwR8KwiWHLq5+H/TU5msJdw399JtNuMQRQi7ZamZrWr4Ea/R3SeUvU3L7pHJBDMz1RRTur6w+rCYJWevQ==
+"@aracna/web@^1.0.50":
+  version "1.0.50"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.50.tgz#24d44ec0e77527733e0ba96b40e5031c8f4e7fcf"
+  integrity sha512-VAQnoc2zkxGwZRKQcdslXqBvw+dnDZFcIZEVj1B+ifjPCOsOKuJrH/txddnsjOxxeBlIxqDvolQML53X9PgeRg==
 
 "@astrojs/compiler@^2.1.0":
   version "2.2.0"

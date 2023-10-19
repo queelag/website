@@ -66,5 +66,5 @@ const items: SidebarItemProps[] = await getItems()
 ---
 
 <div class='sticky top-24 left-0 min-w-[280px] hidden xl:flex flex-col pl-6 overflow-y-auto' style='height: calc(100vh - 96px)'>
-  {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:load />)}
+  {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:only />)}
 </div>

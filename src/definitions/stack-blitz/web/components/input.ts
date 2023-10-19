@@ -68,7 +68,16 @@ export const SB_SELECT: ProjectFiles = {
   'index.html': html` <aracna-select></aracna-select> `,
   'index.js': html`
     <script>
-      import '@aracna/web-components/elements/select/select-element.cjs';
+      import '@aracna/web-components/elements/input/select-element.cjs';
+    </script>
+  `
+};
+
+export const SB_SLIDER: ProjectFiles = {
+  'index.html': html` <aracna-slider></aracna-slider> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/input/slider-element.cjs';
     </script>
   `
 };
