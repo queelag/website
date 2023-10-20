@@ -17,6 +17,7 @@ export function TextAreaComponentBlock() {
         { name: 'autosize', type: 'boolean' },
         { name: 'cols', type: 'number' },
         { name: 'multiple', type: 'boolean' },
+        { name: 'padding', type: 'string' },
         { name: 'placeholder', type: 'string' },
         { name: 'resize', type: 'enum', options: [{ value: 'both' }, { value: 'horizontal' }, { value: 'vertical' }, { value: 'none' }] },
         { name: 'rows', type: 'number' },

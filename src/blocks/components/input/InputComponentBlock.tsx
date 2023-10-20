@@ -20,6 +20,7 @@ export function InputComponentBlock() {
           type: 'boolean',
           visible: { type: ['buffer', 'color', 'date', 'datetime-local', 'email', 'month', 'number', 'search', 'tel', 'text', 'time', 'url', 'week'] }
         },
+        { name: 'padding', type: 'string' },
         { name: 'placeholder', type: 'string' },
         // { name: 'touch-trigger', type: 'enum', options: [{ value: 'blur' }, { value: 'input' }] },
         {
