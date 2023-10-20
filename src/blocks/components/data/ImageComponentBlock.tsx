@@ -34,7 +34,7 @@ export function ImageComponentBlock() {
         shape: 'squircle',
         'shape-squircle-curvature': '1',
         size: 192,
-        src: MESH_SEANCE
+        src: MESH_SEANCE.src
       }}
     />
   )

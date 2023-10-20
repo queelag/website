@@ -81,3 +81,21 @@ export const SB_SLIDER: ProjectFiles = {
     </script>
   `
 };
+
+export const SB_SWITCH: ProjectFiles = {
+  'index.html': html` <aracna-switch></aracna-switch> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/input/switch-element.cjs';
+    </script>
+  `
+};
+
+export const SB_TEXT_AREA: ProjectFiles = {
+  'index.html': html` <aracna-textarea></aracna-textarea> `,
+  'index.js': html`
+    <script>
+      import '@aracna/web-components/elements/input/text-area-element.cjs';
+    </script>
+  `
+};

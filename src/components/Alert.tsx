@@ -3,7 +3,6 @@ import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
 import type { AracnaAlertProps } from '@aracna/react'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
 import type { AlertSeverity, AlertVariant } from '@aracna/web'
-import './Alert.css'
 
 type Props = AracnaAlertProps & {
   closable?: boolean
@@ -16,8 +15,8 @@ type Props = AracnaAlertProps & {
 
 export function Alert(props: Props) {
   return (
-    <AracnaAlert {...props}>
-      {props.severity === 'warning' && <IconFeatherAlertTriangle className='stroke-amber-500' />}
+    <AracnaAlert {...props} className='w-full inline-flex items-center gap-4 leading-tight px-4 rounded border-2 border-slate-700 bg-slate-900'>
+      {props.severity === 'warning' && <IconFeatherAlertTriangle className='mt-[3px] stroke-amber-500' />}
       {props.severity === 'info' && <IconFeatherInfo className='stroke-blue-500' />}
       <div>{props.children}</div>
     </AracnaAlert>

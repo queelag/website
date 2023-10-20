@@ -1,0 +1,25 @@
+---
+layout: '@/layouts/Layout.astro'
+title: TextArea
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { TextAreaComponentBlock } from '@/blocks/components/input/TextAreaComponentBlock.tsx'
+import { SB_TEXT_AREA } from '@/definitions/stack-blitz/web/components/input'
+
+<TextAreaComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_TEXT_AREA}
+  template='javascript'
+  title='TextArea'
+/>

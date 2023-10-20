@@ -119,6 +119,21 @@ export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttr
   { name: 'size', type: 'string' }
 ]
 
+export const DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
+  { name: 'allow-outside-click', type: 'boolean' },
+  { name: 'check-can-focus-trap', type: 'json' },
+  { name: 'check-can-return-focus', type: 'json' },
+  { name: 'click-outside-deactivates', type: 'boolean' },
+  { name: 'delay-initial-focus', type: 'boolean' },
+  { name: 'display-check', type: 'string' },
+  { name: 'escape-deactivates', type: 'boolean' },
+  // {name: 'fallback-focus', type: 'json'},
+  // {name: 'initial-focus', type: 'json'},
+  { name: 'prevent-scroll', type: 'boolean' },
+  { name: 'return-focus-on-deactivate', type: 'boolean' }
+  // {name: 'set-return-focus', type: 'json'}
+]
+
 export const DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
   { name: 'disabled', type: 'boolean' },
   // { name: 'focused', type: 'boolean' },

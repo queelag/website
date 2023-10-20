@@ -51,7 +51,7 @@ export function ComponentBlock(props: Props) {
   return (
     <div className='flex flex-col p-6 gap-6 rounded border-2 border-dashed border-slate-800'>
       <div className='flex flex-col xl:flex-row gap-6'>
-        <div className='flex-1 flex justify-center items-center'>
+        <div className='relative flex-1 flex justify-center items-center'>
           <Observer>{() => <props.component {...serializeState(state)} _variant={activeVariant?.value} />}</Observer>
         </div>
         <Form className='xl:w-1/3'>
