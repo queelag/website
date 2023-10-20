@@ -9,7 +9,6 @@ import type { AracnaButtonProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { ButtonClickEvent, joinElementClasses, type SelectOption } from '@aracna/web'
-import colors from 'tailwindcss/colors'
 
 const ICONS: SelectOption[] = [
   { label: 'clock', value: ICON_FEATHER_CLOCK },
@@ -38,7 +37,7 @@ export function ButtonComponentBlock() {
         { name: 'variant', type: 'enum', options: [{ value: 'fill' }, { value: 'fill-tonal' }, { value: 'opacity' }, { value: 'outline' }, { value: 'text' }] }
       ]}
       component={(props: AracnaButtonProps) => (
-        <AracnaButton {...props} className='group transition hover:brightness-125 active:brightness-75' onButtonClick={onClickAsync}>
+        <AracnaButton {...props} className='group px-3 py-2 transition hover:brightness-125 active:brightness-75 bg-blue-500' onButtonClick={onClickAsync}>
           <div className='relative w-full flex justify-center items-center gap-1.5'>
             <IconFeatherLoader className='absolute animate-spin opacity-0 group-[&[spinning]]:opacity-100' fill='none' stroke='white' />
             <div className='flex items-center gap-1.5 group-[&[spinning]]:opacity-0'>
@@ -52,9 +51,7 @@ export function ButtonComponentBlock() {
       )}
       defaultProps={{
         async: true,
-        background: colors.blue[500],
         icon: ICON_FEATHER_PLUS,
-        padding: '8px 16px',
         shape: 'rectangle',
         'shape-rectangle-radius': 2,
         text: 'Add Item',

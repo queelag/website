@@ -4,7 +4,6 @@ import { AracnaButton, AracnaInput } from '@aracna/react-components'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { FormSubmitEvent, joinElementClasses } from '@aracna/web'
 import { pattern, size, string } from 'superstruct'
-import colors from 'tailwindcss/colors'
 
 function Input(props: AracnaInputProps) {
   const { element, onStateChange, ref } = useObservableElementComponent<'aracna-input'>()
@@ -46,9 +45,7 @@ export function FormComponentBlock() {
             <Input placeholder='username' schema={size(string(), 1, 32)} type='text' />
             <Input placeholder='password' schema={pattern(string(), /^[a-zA-Z0-9]{8,}$/)} type='password' />
             <AracnaButton
-              background={colors.blue[500]}
-              className='self-end mt-4 transition hover:brightness-125 active:brightness-75'
-              padding='12px 24px'
+              className='self-end px-6 py-3 mt-4 transition hover:brightness-125 active:brightness-75 bg-blue-500'
               shape='rectangle'
               shape-rectangle-radius={2}
               type='submit'

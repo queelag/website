@@ -108,15 +108,13 @@ export const DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON = (dependencies?: Proj
  * ComponentBlock
  */
 export const DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
-  { name: 'background', type: 'color' },
-  { name: 'padding', type: 'string' },
+  { name: 'height', type: 'string' },
   { name: 'shape', type: 'enum', options: [{ value: 'circle' }, { value: 'rectangle' }, { value: 'square' }, { value: 'squircle' }] },
   { name: 'shape-rectangle-radius', type: 'number', visible: { shape: ['rectangle'] } },
   { name: 'shape-square-radius', type: 'number', visible: { shape: ['square'] } },
   { name: 'shape-squircle-curvature', type: 'number', visible: { shape: ['squircle'] } },
-  { name: 'height', type: 'string' },
-  { name: 'width', type: 'string' },
-  { name: 'size', type: 'string' }
+  { name: 'size', type: 'string' },
+  { name: 'width', type: 'string' }
 ]
 
 export const DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
