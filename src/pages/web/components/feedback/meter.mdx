@@ -1,0 +1,25 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Meter
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { MeterComponentBlock } from '@/blocks/components/feedback/MeterComponentBlock.tsx'
+import { SB_METER } from '@/definitions/stack-blitz/web/components/feedback'
+
+<MeterComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_METER}
+  template='javascript'
+  title='Meter'
+/>

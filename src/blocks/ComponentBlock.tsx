@@ -10,16 +10,16 @@ import { Observer, useObservable } from '@aracna/state-manager-react'
 import type { SelectOption } from '@aracna/web'
 import { Fragment, useState, type ReactNode } from 'react'
 
-interface Props {
+interface Props<P extends Record<string, any> = any> {
   attributes?: ComponentBlockAttribute[]
-  component: (props: any) => ReactNode
-  defaultProps?: any
+  component: (props: P) => ReactNode
+  defaultProps?: P
   variants?: ComponentBlockVariant[]
 }
 
 type State = Record<string, any>
 
-export function ComponentBlock(props: Props) {
+export function ComponentBlock<P extends Record<string, any> = any>(props: Props<P>) {
   const state: State = useObservable(props.attributes?.reduce((r, v) => ({ ...r, [v.name]: props.defaultProps?.[v.name] }), {}) ?? {})
   const [activeVariant, setActiveVariant] = useState<ComponentBlockVariant | undefined>(props.variants?.[0])
 
@@ -52,7 +52,7 @@ export function ComponentBlock(props: Props) {
     <div className='flex flex-col p-6 gap-6 rounded border-2 border-dashed border-slate-800'>
       <div className='flex flex-col xl:flex-row gap-6'>
         <div className='relative flex-1 flex justify-center items-center'>
-          <Observer>{() => <props.component {...serializeState(state)} _variant={activeVariant?.value} />}</Observer>
+          <Observer>{() => <props.component {...(serializeState(state) as P)} _variant={activeVariant?.value} />}</Observer>
         </div>
         <Form className='xl:w-1/3'>
           <div className='flex flex-col gap-2'>
