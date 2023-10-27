@@ -63,15 +63,15 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.31.tgz#ec5c86b3e806b5661bc730184affcd239d3f051b"
   integrity sha512-/mk7ua7kVPnf7+tFRghhNVEj3o0k66dO2V4uQR0dzllaLZminCyJniCE3zT15UO3fFSWFqPKfdQbCJV6a/EOzg==
 
-"@aracna/web-components@^1.0.62":
-  version "1.0.62"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.62.tgz#d0fcab228a10c3e70803f391cfc2af9bfeeec254"
-  integrity sha512-RQm6fhidhmk4To9xsecFFi20Oh1ZcBZK0UU5E3R61nXFB8Jm21amb55LxFpbBiZeFUVfhANibf35+cXWjOJF0w==
+"@aracna/web-components@^1.0.64":
+  version "1.0.64"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.64.tgz#69e26a2b1fbe84710c25a428ef9425e57f84f643"
+  integrity sha512-l20Y3MTUY94/ZHCOU4dHpZMryk7CHe7t/ddjZdAiUsjZ3JKeMhK46EMfL3AoGvNxJeYpyJXwIeVUwvZUya45sw==
 
-"@aracna/web@^1.0.53":
-  version "1.0.53"
-  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.53.tgz#05d6def0ac7f4e5d167426cae82d05282622ac9c"
-  integrity sha512-p2hxU6Ph21voadgCxLnF3SEM2eN1267fmFoStcQwwKpHkfMGAFJBJIlLU1YWwRwOJq6p/t8RSkVT3Ae2Q8K/sw==
+"@aracna/web@^1.0.55":
+  version "1.0.55"
+  resolved "https://registry.yarnpkg.com/@aracna/web/-/web-1.0.55.tgz#b175bf1d6887238e2bcef0eaec93f06dc9b0dd3f"
+  integrity sha512-vCBqU91Y68Nn9plo+FhluSOeydXB3pX+Txt1lOkyi2Q+LymNx8vs6iLSOy2anPtjRzJqhb+vM7i5cRaHaSjtHQ==
 
 "@astrojs/compiler@^2.1.0":
   version "2.2.0"

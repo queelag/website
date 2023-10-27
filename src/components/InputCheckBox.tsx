@@ -12,7 +12,7 @@ export function InputCheckBox(props: Props) {
   const { element, onStateChange, ref } = useObservableElementComponent<'aracna-checkbox'>({ whitelist: ['value'] })
 
   return (
-    <div className={joinElementClasses('w-full flex items-center p-2 text-xs rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
+    <div className={joinElementClasses('w-full flex items-center p-2 gap-2 text-xs rounded border-2 border-slate-800', 'transition hover:border-slate-700')}>
       <div className='flex-1 flex flex-col'>
         {props.label && <label className='text-xs cursor-default'>{props.label}</label>}
         <AracnaInput

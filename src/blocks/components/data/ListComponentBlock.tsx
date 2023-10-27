@@ -51,7 +51,7 @@ export function ListComponentBlock() {
               <AracnaAvatar shape='circle' size={32}>
                 <AracnaImage size={32} src={item['leading-image']} />
               </AracnaAvatar>
-              <div className='flex flex-col gap-1'>
+              <div className='flex-1 flex flex-col gap-1'>
                 <span className='font-medium text-sm text-white'>{item.headline}</span>
                 <span className='line-clamp-1 text-xs text-slate-400'>{item.text}</span>
               </div>
@@ -60,7 +60,7 @@ export function ListComponentBlock() {
         </AracnaList>
       )}
       defaultProps={{
-        items: JSON.stringify(ITEMS)
+        items: JSON.stringify(ITEMS) as any
       }}
     />
   )
