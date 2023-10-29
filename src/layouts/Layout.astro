@@ -24,11 +24,8 @@ const { frontmatter, headings } = Astro.props
       }
 
       body {
-        background-color: black;
-        /* background-image: url('/patterns/noise.png'); */
-        background-size: 100px;
-        color: white;
         /* font-family: 'Futura', sans-serif; */
+        @apply bg-black text-white;
       }
 
       ::-webkit-scrollbar {

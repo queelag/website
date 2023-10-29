@@ -18,8 +18,8 @@ export function BreadcrumbComponentBlock() {
         <AracnaBreadcrumb {...props} className='w-full'>
           <AracnaBreadcrumbList className='gap-2'>
             {ITEMS.map((item, index) => (
-              <AracnaBreadcrumbItem className='flex items-center gap-1'>
-                <a className='no-underline hover:underline' href={item.href} suppressHydrationWarning>
+              <AracnaBreadcrumbItem className='flex items-center gap-1' current={item.href === location.pathname} key={item.href}>
+                <a className='no-underline hover:underline aria-[current=page]:italic' href={item.href} suppressHydrationWarning>
                   {item.text}
                 </a>
                 {index < ITEMS.length - 1 && <IconFeatherChevronRight stroke='white' />}
