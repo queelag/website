@@ -1,3 +1,4 @@
+import type { SelectOption } from '@/definitions/interfaces'
 import { omitObjectProperties } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
@@ -5,10 +6,10 @@ import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { useObservableElementComponent, type AracnaSelectProps } from '@aracna/react'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaSelect, AracnaSelectButton, AracnaSelectGroup, AracnaSelectList, AracnaSelectOption } from '@aracna/react-components/components/input/select'
-import { findSelectOptionLabelByValue, joinElementClasses, type SelectOption } from '@aracna/web'
+import { findSelectOptionLabelByValue, joinElementClasses } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 
-type Props = AracnaSelectProps & {
+type Props = AracnaSelectProps<SelectOption> & {
   label?: string
 }
 

@@ -38,8 +38,6 @@ export function SliderComponentBlock() {
         const [percentage, setPercentage] = useState<number[]>([25, 75])
 
         const onSliderChange = (event: SliderChangeEvent) => {
-          console.log(event.detail)
-
           if (event.detail && isArray(event.detail?.percentage)) {
             setPercentage(event.detail.percentage)
           }

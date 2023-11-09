@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ComponentBlockAttribute } from '@/definitions/interfaces'
+import type { ComponentBlockAttribute, SelectOption } from '@/definitions/interfaces'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
 import { omitObjectProperties, removeArrayItems } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
@@ -16,7 +16,7 @@ import {
   AracnaSelectList,
   AracnaSelectOption
 } from '@aracna/react-components/components/input/select'
-import { StateChangeEvent, findSelectOptionByValue, joinElementClasses, type SelectOption } from '@aracna/web'
+import { StateChangeEvent, findSelectOptionByValue, joinElementClasses } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 import { Fragment, useState, type MouseEvent } from 'react'
 
@@ -60,7 +60,7 @@ export function SelectComponentBlock() {
         { name: 'scroll-into-view-inline', type: 'enum', options: [{ value: 'center' }, { value: 'end' }, { value: 'nearest' }, { value: 'start' }] },
         { name: 'typeahead-debounce-time', type: 'number' }
       ]}
-      component={(props: ComponentBlockComponentProps<AracnaSelectProps>) => {
+      component={(props: ComponentBlockComponentProps<AracnaSelectProps<SelectOption>>) => {
         const { element, ref } = useObservableElementComponent<'aracna-select'>()
         const [expanded, setExpanded] = useState<boolean | undefined>()
         const [selected, setSelected] = useState<SelectOption[]>([])
@@ -220,7 +220,7 @@ export function SelectComponentBlock() {
         )
       }}
       defaultProps={{
-        options: JSON.stringify(OPTIONS)
+        options: JSON.stringify(OPTIONS) as any
       }}
       variants={[
         { label: 'Button', value: 'button' },

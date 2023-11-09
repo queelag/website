@@ -1,7 +1,9 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
 import type { AracnaMenuItemProps, AracnaMenuProps } from '@aracna/react'
-import { AracnaMenu, AracnaMenuItem } from '@aracna/react-components/components/navigation/menu'
+import { AracnaMenu, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu'
+import { joinElementClasses } from '@aracna/web'
+import { offset } from '@floating-ui/dom'
 import { Fragment } from 'react'
 
 interface Item {
@@ -45,19 +47,39 @@ const BAR_ITEMS: Item[] = [
 ]
 
 function MenuItem(props: AracnaMenuItemProps) {
-  return <AracnaMenuItem {...props}>{props.items && props.items.map((item) => <MenuItem key={item.href} {...item} />)}</AracnaMenuItem>
+  return (
+    <AracnaMenuItem {...props}>
+      <a className='no-underline' href={props.href}>
+        {props.headline}
+      </a>
+      {props.items && (
+        <AracnaMenuSubMenu
+          className={joinElementClasses('flex flex-col', 'opacity-0 [&[expanded]]:opacity-100')}
+          middlewares={[offset(8)]}
+          placement='bottom-start'
+        >
+          {props.items.map((item: Item) => (
+            <MenuItem key={item.href} {...item} />
+          ))}
+        </AracnaMenuSubMenu>
+      )}
+    </AracnaMenuItem>
+  )
 }
 
 export function MenuComponentBlock() {
   return (
     <ComponentBlock
-      attributes={[]}
+      attributes={[
+        { name: 'collapse-debounce-time', type: 'number' },
+        { name: 'collapse-on-mouse-leave', type: 'boolean' }
+      ]}
       component={(props: ComponentBlockComponentProps<AracnaMenuProps>) => (
-        <AracnaMenu {...props}>
+        <AracnaMenu {...props} className='flex gap-4'>
           {props._variant === 'bar' && (
             <Fragment>
               {BAR_ITEMS.map((item) => (
-                <AracnaMenuItem key={item.href} {...item}></AracnaMenuItem>
+                <MenuItem key={item.href} {...item}></MenuItem>
               ))}
             </Fragment>
           )}

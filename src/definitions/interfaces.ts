@@ -1,4 +1,3 @@
-import type { SelectOption } from '@aracna/web'
 import type { MDXInstance } from 'astro'
 
 export interface ComponentBlockAttribute {
@@ -23,4 +22,14 @@ export interface DocsPageMDXInstanceFrontmatter {
   draft?: boolean
   order?: number
   title: string
+}
+
+export interface RadioButton {
+  label?: string
+  value: any
+}
+
+export interface SelectOption {
+  label?: string
+  value: any
 }
