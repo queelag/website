@@ -13,22 +13,24 @@ const ITEMS = [
 export function BreadcrumbComponentBlock() {
   return (
     <ComponentBlock
-      attributes={[]}
+      attributes={[{ name: 'items', type: 'json' }]}
       component={(props: AracnaBreadcrumbProps) => (
-        <AracnaBreadcrumb {...props} className='w-full'>
+        <AracnaBreadcrumb {...props}>
           <AracnaBreadcrumbList className='gap-2'>
             {ITEMS.map((item, index) => (
               <AracnaBreadcrumbItem className='flex items-center gap-1' current={item.href === location.pathname} key={item.href}>
-                <a className='no-underline hover:underline aria-[current=page]:italic' href={item.href} suppressHydrationWarning>
+                <a className='text-xs no-underline hover:underline aria-[current=page]:italic' href={item.href} suppressHydrationWarning>
                   {item.text}
                 </a>
-                {index < ITEMS.length - 1 && <IconFeatherChevronRight stroke='white' />}
+                {index < ITEMS.length - 1 && <IconFeatherChevronRight size={12} stroke='white' />}
               </AracnaBreadcrumbItem>
             ))}
           </AracnaBreadcrumbList>
         </AracnaBreadcrumb>
       )}
-      defaultProps={{}}
+      defaultProps={{
+        items: JSON.stringify(ITEMS) as any
+      }}
     />
   )
 }
