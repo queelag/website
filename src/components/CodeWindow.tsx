@@ -1,25 +1,14 @@
+import type { CodeWindowButton, CodeWindowProps } from '@/definitions/props'
 import { getArrayLastItem } from '@aracna/core'
 import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/clipboard'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { joinElementClasses } from '@aracna/web'
-import { Fragment, useMemo, useState, type ReactNode } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { ButtonGroup } from './ButtonGroup'
 import { Code } from './Code'
 
-interface Button {
-  icon: any
-  onClick: () => any
-}
-
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  buttons?: Button[]
-  children?: ReactNode
-  files?: Record<string, string>
-  language?: string
-}
-
-export function CodeWindow(props: Props) {
-  const [activeFile, setActiveFile] = useState<number>(0)
+export function CodeWindow(props: CodeWindowProps) {
+  const [activeFile, setActiveFile] = useState<string>(props.activeFile ?? Object.keys(props.files ?? [])[0])
   const buttons = useMemo(
     () => [
       ...(props.buttons ?? []),
@@ -56,8 +45,8 @@ export function CodeWindow(props: Props) {
     return ''
   }
 
-  const onClickFile = (index: number) => {
-    setActiveFile(index)
+  const onClickFile = (file: string) => {
+    setActiveFile(file)
   }
 
   return (
@@ -69,7 +58,7 @@ export function CodeWindow(props: Props) {
           <div className='w-4 h-4 rounded-full bg-slate-900' />
         </div>
         <div className='flex items-center gap-3'>
-          {buttons.map((button: Button) => (
+          {buttons.map((button: CodeWindowButton) => (
             <AracnaButton
               className='rounded-full transition ring-slate-700 hover:ring-8 hover:bg-slate-700 active:ring-4'
               key={button.onClick.toString()}
@@ -87,16 +76,16 @@ export function CodeWindow(props: Props) {
       )}
       {props.files && (
         <Fragment>
-          <Code className='p-6 text-sm' language={getLanguage(Object.keys(props.files)[activeFile])}>
-            {Object.values(props.files)[activeFile]}
+          <Code className='p-6 text-sm' language={getLanguage(activeFile)}>
+            {Object.entries(props.files).find(([name, _]) => name === activeFile)?.[1]}
           </Code>
           {Object.keys(props.files).length >= 2 && (
             <div className='self-end flex px-6 pb-6'>
               <ButtonGroup
-                buttons={Object.keys(props.files).map((name: string, index: number) => ({
+                buttons={Object.keys(props.files).map((name: string) => ({
                   children: name,
-                  onClick: () => onClickFile(index),
-                  pressed: index === activeFile ? 'true' : 'false'
+                  onClick: () => onClickFile(name),
+                  pressed: name === activeFile ? 'true' : 'false'
                 }))}
               />
             </div>

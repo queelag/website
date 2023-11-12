@@ -1,0 +1,28 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Carousel
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { CarouselComponentBlock } from '@/blocks/components/data/CarouselComponentBlock.tsx'
+import { SB_CAROUSEL } from '@/definitions/stack-blitz/react/components/data'
+
+<CarouselComponentBlock client:load type='buttons' />
+
+<CodeBlock
+  client:load
+  activeFile='Carousel.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_CAROUSEL}
+  template='javascript'
+  title='Carousel'
+/>

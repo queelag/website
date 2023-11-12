@@ -1,0 +1,28 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Avatar
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { AvatarComponentBlock } from '@/blocks/components/data/AvatarComponentBlock.tsx'
+import { SB_AVATAR } from '@/definitions/stack-blitz/react/components/data'
+
+<AvatarComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Avatar.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_AVATAR}
+  template='react'
+  title='Avatar'
+/>

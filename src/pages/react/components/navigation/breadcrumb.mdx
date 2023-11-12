@@ -1,0 +1,28 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Breadcrumb
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { BreadcrumbComponentBlock } from '@/blocks/components/navigation/BreadcrumbComponentBlock.tsx'
+import { SB_BREADCRUMB } from '@/definitions/stack-blitz/react/components/navigation'
+
+<BreadcrumbComponentBlock client:only />
+
+<CodeBlock
+  client:load
+  activeFile='Breadcrumb.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_BREADCRUMB}
+  template='javascript'
+  title='Breadcrumb'
+/>

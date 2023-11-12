@@ -1,0 +1,28 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Divider
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { DividerComponentBlock } from '@/blocks/components/layout/DividerComponentBlock.tsx'
+import { SB_DIVIDER } from '@/definitions/stack-blitz/react/components/layout'
+
+<DividerComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Divider.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_DIVIDER}
+  template='javascript'
+  title='Divider'
+/>

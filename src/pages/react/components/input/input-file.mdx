@@ -1,0 +1,29 @@
+---
+layout: '@/layouts/Layout.astro'
+title: InputFile
+order: 6
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { InputFileComponentBlock } from '@/blocks/components/input/InputFileComponentBlock.tsx'
+import { SB_INPUT_FILE } from '@/definitions/stack-blitz/react/components/input'
+
+<InputFileComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='InputFile.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_INPUT_FILE}
+  template='javascript'
+  title='InputFile'
+/>
