@@ -1,9 +1,9 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { ICON_FEATHER_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triangle'
-import { ICON_FEATHER_CHECK_CIRCLE } from '@aracna/icons-feather/assets/check-circle'
-import { ICON_FEATHER_INFO } from '@aracna/icons-feather/assets/info'
-import { ICON_FEATHER_X_CIRCLE } from '@aracna/icons-feather/assets/x-circle'
+import { ICON_F_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triangle'
+import { ICON_F_CHECK_CIRCLE } from '@aracna/icons-feather/assets/check-circle'
+import { ICON_F_INFO } from '@aracna/icons-feather/assets/info'
+import { ICON_F_X_CIRCLE } from '@aracna/icons-feather/assets/x-circle'
 import type { AracnaAlertProps } from '@aracna/react'
 import { AracnaButton, AracnaIcon } from '@aracna/react-components'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
@@ -20,10 +20,10 @@ export function AlertComponentBlock() {
           name: 'icon',
           type: 'enum',
           options: [
-            { label: 'x-circle', value: ICON_FEATHER_X_CIRCLE },
-            { label: 'info', value: ICON_FEATHER_INFO },
-            { label: 'check-circle', value: ICON_FEATHER_CHECK_CIRCLE },
-            { label: 'alert-triangle', value: ICON_FEATHER_ALERT_TRIANGLE }
+            { label: 'x-circle', value: ICON_F_X_CIRCLE },
+            { label: 'info', value: ICON_F_INFO },
+            { label: 'check-circle', value: ICON_F_CHECK_CIRCLE },
+            { label: 'alert-triangle', value: ICON_F_ALERT_TRIANGLE }
           ]
         },
         { name: 'severity', type: 'enum', options: [{ value: 'error' }, { value: 'info' }, { value: 'success' }, { value: 'warning' }] },
@@ -69,7 +69,7 @@ export function AlertComponentBlock() {
       }}
       defaultProps={{
         headline: 'Information',
-        icon: ICON_FEATHER_INFO,
+        icon: ICON_F_INFO,
         severity: 'info',
         text: 'The quick brown fox jumps over the lazy dog.',
         variant: 'fill'

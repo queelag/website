@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import { ICON_FEATHER_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triangle'
+import { ICON_F_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triangle'
 import type { AracnaAlertDialogProps } from '@aracna/react'
 import { AracnaButton, AracnaIcon } from '@aracna/react-components'
 import { AracnaAlertDialog, AracnaAlertDialogDescription, AracnaAlertDialogLabel } from '@aracna/react-components/components/feedback/alert-dialog'
@@ -13,7 +13,7 @@ export function AlertDialogComponentBlock() {
       attributes={[
         ...DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES,
         { name: 'headline', type: 'string' },
-        { name: 'icon', type: 'enum', options: [{ label: 'alert-triangle', value: ICON_FEATHER_ALERT_TRIANGLE }] },
+        { name: 'icon', type: 'enum', options: [{ label: 'alert-triangle', value: ICON_F_ALERT_TRIANGLE }] },
         { name: 'lock-body-scroll', type: 'boolean' },
         { name: 'text', type: 'string' },
         { name: 'visible', type: 'boolean' }
@@ -55,7 +55,7 @@ export function AlertDialogComponentBlock() {
       defaultProps={{
         'allow-outside-click': true,
         headline: 'Potential Security Breach Detected',
-        icon: ICON_FEATHER_ALERT_TRIANGLE,
+        icon: ICON_F_ALERT_TRIANGLE,
         text: 'We have detected suspicious activity on your account.\nPlease change your password immediately to secure your account.'
       }}
     />

@@ -31,15 +31,15 @@
   resolved "https://registry.yarnpkg.com/@aracna/icons-feather-react/-/icons-feather-react-1.0.14.tgz#08454556f5f1833e0ccc6abb02be41ddb953ea45"
   integrity sha512-0sSaz8DXk+V6fVkY2iv2MKtJ+NVeexpYfJUHW08lJ2ZR6mknFEwEafSmFn3EZl6RlMSR9QGUG4uLQVAtajxviQ==
 
-"@aracna/icons-feather-web@^1.0.19":
-  version "1.0.19"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.19.tgz#38c1e048f9e67931f8d7f1dbd04123268760f165"
-  integrity sha512-+wyVXaq3qvwG+yGpPeEARD8LVa8yLvbmuvAfBUQMe0oH/SgoyxLXlc2ICcLwgQSZegCbW8LUHZwo0F1HqcuH3g==
+"@aracna/icons-feather-web@^1.0.20":
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather-web/-/icons-feather-web-1.0.20.tgz#33656d258c20805216e1ff79bff6cee37cd83216"
+  integrity sha512-CFA/ViK3IMFcUSQg/UuXETNr+/FAQ2L2Di3ysfDrk7mAOhEahLGm4JiYOLtDc+AmH4f8j906vZMJoxONorQteQ==
 
-"@aracna/icons-feather@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.6.tgz#c3a2840450440c318c19fccbfa4e2d616870e80b"
-  integrity sha512-X4/lIBYtaulXHM2RgnYL20/OaEJqtJOrKbNhVDm0wSsW9pBPTkrpSzEp6KUpNiJBRTpRjPCt46R4InBI0Erieg==
+"@aracna/icons-feather@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@aracna/icons-feather/-/icons-feather-1.0.7.tgz#499164ac994e87be266ac2a1c52870ef1820a490"
+  integrity sha512-M4nMnYvkM8c1nJXGRiuZBH1OqRdD4LC5iomKkO+qEgs5cByKTB2WN7JFbLZwyZIQeFFtMFsg7MV9ZnZ9L0jWAQ==
 
 "@aracna/react-components@^1.0.38":
   version "1.0.38"

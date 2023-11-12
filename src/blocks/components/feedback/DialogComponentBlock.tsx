@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import { ICON_FEATHER_CALENDAR } from '@aracna/icons-feather/assets/calendar'
+import { ICON_F_CALENDAR } from '@aracna/icons-feather/assets/calendar'
 import type { AracnaDialogProps } from '@aracna/react'
 import { AracnaButton, AracnaIcon } from '@aracna/react-components'
 import { AracnaDialog, AracnaDialogDescription, AracnaDialogLabel } from '@aracna/react-components/components/feedback/dialog'
@@ -13,7 +13,7 @@ export function DialogComponentBlock() {
       attributes={[
         ...DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES,
         { name: 'headline', type: 'string' },
-        { name: 'icon', type: 'enum', options: [{ label: 'calendar', value: ICON_FEATHER_CALENDAR }] },
+        { name: 'icon', type: 'enum', options: [{ label: 'calendar', value: ICON_F_CALENDAR }] },
         { name: 'lock-body-scroll', type: 'boolean' },
         { name: 'text', type: 'string' },
         { name: 'visible', type: 'boolean' }
@@ -55,7 +55,7 @@ export function DialogComponentBlock() {
       defaultProps={{
         'allow-outside-click': true,
         headline: 'Schedule an appointment today!',
-        icon: ICON_FEATHER_CALENDAR,
+        icon: ICON_F_CALENDAR,
         text: 'Our team is ready to help you with your needs. Book an appointment now and get the help you need.'
       }}
     />

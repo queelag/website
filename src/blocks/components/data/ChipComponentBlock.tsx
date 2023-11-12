@@ -1,9 +1,9 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { ICON_FEATHER_CHECK } from '@aracna/icons-feather/assets/check'
-import { ICON_FEATHER_CHEVRON_DOWN } from '@aracna/icons-feather/assets/chevron-down'
-import { ICON_FEATHER_CLOCK } from '@aracna/icons-feather/assets/clock'
-import { ICON_FEATHER_IMAGE } from '@aracna/icons-feather/assets/image'
-import { ICON_FEATHER_X } from '@aracna/icons-feather/assets/x'
+import { ICON_F_CHECK } from '@aracna/icons-feather/assets/check'
+import { ICON_F_CHEVRON_DOWN } from '@aracna/icons-feather/assets/chevron-down'
+import { ICON_F_CLOCK } from '@aracna/icons-feather/assets/clock'
+import { ICON_F_IMAGE } from '@aracna/icons-feather/assets/image'
+import { ICON_F_X } from '@aracna/icons-feather/assets/x'
 import type { AracnaChipProps } from '@aracna/react'
 import { AracnaAvatar } from '@aracna/react-components/components/data/avatar'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
@@ -11,14 +11,14 @@ import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import type { SelectOption } from '@aracna/web'
 
 const LEADING_ICONS: SelectOption[] = [
-  { label: 'check', value: ICON_FEATHER_CHECK },
-  { label: 'clock', value: ICON_FEATHER_CLOCK },
-  { label: 'image', value: ICON_FEATHER_IMAGE }
+  { label: 'check', value: ICON_F_CHECK },
+  { label: 'clock', value: ICON_F_CLOCK },
+  { label: 'image', value: ICON_F_IMAGE }
 ]
 
 const TRAILING_ICONS: SelectOption[] = [
-  { label: 'chevron-down', value: ICON_FEATHER_CHEVRON_DOWN },
-  { label: 'x', value: ICON_FEATHER_X }
+  { label: 'chevron-down', value: ICON_F_CHEVRON_DOWN },
+  { label: 'x', value: ICON_F_X }
 ]
 
 export function ChipComponentBlock() {
@@ -114,9 +114,9 @@ export function ChipComponentBlock() {
         </AracnaChip>
       )}
       defaultProps={{
-        'leading-icon': ICON_FEATHER_IMAGE,
+        'leading-icon': ICON_F_IMAGE,
         text: 'Set Image',
-        'trailing-icon': ICON_FEATHER_CHEVRON_DOWN,
+        'trailing-icon': ICON_F_CHEVRON_DOWN,
         variant: 'input'
       }}
     />

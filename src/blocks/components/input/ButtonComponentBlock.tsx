@@ -2,18 +2,18 @@ import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import { sleep } from '@aracna/core'
 import { IconFeatherLoader } from '@aracna/icons-feather-react/components/loader'
-import { ICON_FEATHER_CLOCK } from '@aracna/icons-feather/assets/clock'
-import { ICON_FEATHER_IMAGE } from '@aracna/icons-feather/assets/image'
-import { ICON_FEATHER_PLUS } from '@aracna/icons-feather/assets/plus'
+import { ICON_F_CLOCK } from '@aracna/icons-feather/assets/clock'
+import { ICON_F_IMAGE } from '@aracna/icons-feather/assets/image'
+import { ICON_F_PLUS } from '@aracna/icons-feather/assets/plus'
 import type { AracnaButtonProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { ButtonClickEvent, joinElementClasses, type SelectOption } from '@aracna/web'
 
 const ICONS: SelectOption[] = [
-  { label: 'clock', value: ICON_FEATHER_CLOCK },
-  { label: 'image', value: ICON_FEATHER_IMAGE },
-  { label: 'plus', value: ICON_FEATHER_PLUS }
+  { label: 'clock', value: ICON_F_CLOCK },
+  { label: 'image', value: ICON_F_IMAGE },
+  { label: 'plus', value: ICON_F_PLUS }
 ]
 
 export function ButtonComponentBlock() {
@@ -51,7 +51,7 @@ export function ButtonComponentBlock() {
       )}
       defaultProps={{
         async: true,
-        icon: ICON_FEATHER_PLUS,
+        icon: ICON_F_PLUS,
         shape: 'rectangle',
         'shape-rectangle-radius': 2,
         text: 'Add Item',

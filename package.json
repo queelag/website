@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "@aracna/core": "^1.1.54",
-    "@aracna/icons-feather": "^1.0.6",
+    "@aracna/icons-feather": "^1.0.7",
     "@aracna/icons-feather-react": "^1.0.14",
-    "@aracna/icons-feather-web": "^1.0.19",
+    "@aracna/icons-feather-web": "^1.0.20",
     "@aracna/react": "^1.0.39",
     "@aracna/react-components": "^1.0.38",
     "@aracna/state-manager": "^1.0.31",
