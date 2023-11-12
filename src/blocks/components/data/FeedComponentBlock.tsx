@@ -84,7 +84,7 @@ export function FeedComponentBlock() {
         </AracnaFeed>
       )}
       defaultProps={{
-        articles: JSON.stringify(ARTICLES)
+        articles: JSON.stringify(ARTICLES) as any
       }}
     />
   )

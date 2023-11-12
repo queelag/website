@@ -42,8 +42,8 @@ export function AccordionComponentBlock() {
           className={joinElementClasses('w-full flex flex-col rounded divide-y-2 border-2 border-slate-800 divide-slate-800', props.className)}
         >
           {props.sections?.map((section) => (
-            <AracnaAccordionSection className='group flex flex-col'>
-              <AracnaAccordionHeader>
+            <AracnaAccordionSection key={section.headline} className='group flex flex-col'>
+              <AracnaAccordionHeader className='hover:bg-slate-900'>
                 <AracnaAccordionButton className='w-full flex justify-between items-center p-3'>
                   <span className='text-sm text-white'>{section.headline}</span>
                   <IconFeatherChevronDown className='transition group-[&[expanded]]:rotate-180' stroke='white' />

@@ -206,7 +206,7 @@ export function SelectComponentBlock() {
                   {...option}
                   className={joinElementClasses(
                     'group flex justify-between items-center p-3 transition',
-                    '[&[focused]]:bg-slate-900 aria-selected:bg-slate-900'
+                    'hover:bg-slate-900 [&[focused]]:bg-slate-900 aria-selected:bg-slate-900'
                   )}
                   key={option.value}
                   selected={Boolean(selected.find((option_: SelectOption) => option_.value === option.value))}

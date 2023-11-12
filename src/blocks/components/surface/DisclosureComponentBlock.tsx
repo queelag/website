@@ -38,8 +38,8 @@ export function DisclosureComponentBlock() {
           className={joinElementClasses('w-full flex flex-col rounded divide-y-2 border-2 border-slate-800 divide-slate-800', props.className)}
         >
           {props.sections?.map((section) => (
-            <AracnaDisclosureSection className='group flex flex-col'>
-              <AracnaDisclosureButton className='w-full flex justify-between items-center p-3'>
+            <AracnaDisclosureSection key={section.headline} className='group flex flex-col'>
+              <AracnaDisclosureButton className='w-full flex justify-between items-center p-3 hover:bg-slate-900'>
                 <span className='text-sm text-white'>{section.headline}</span>
                 <IconFeatherChevronDown className='transition group-[&[expanded]]:rotate-180' stroke='white' />
               </AracnaDisclosureButton>

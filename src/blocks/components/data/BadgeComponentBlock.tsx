@@ -11,16 +11,16 @@ export function BadgeComponentBlock() {
         { name: 'min', type: 'number' },
         { name: 'max', type: 'number' },
         { name: 'numeric', type: 'boolean' },
-        { name: 'value', type: 'string' }
+        { name: 'text', type: 'string' }
       ]}
-      component={(props: AracnaBadgeProps) => <AracnaBadge {...props} className='text-xs font-bold pb-1 bg-red-700' />}
+      component={(props: AracnaBadgeProps) => <AracnaBadge {...props} className='pt-[2px] pr-[0.5px] text-[10px] font-bold pb-1 bg-red-700' />}
       defaultProps={{
         max: 9,
         min: 0,
         numeric: true,
         shape: 'circle',
         size: 20,
-        value: 7
+        text: '7'
       }}
     />
   )
