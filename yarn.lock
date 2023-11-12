@@ -63,10 +63,10 @@
   resolved "https://registry.yarnpkg.com/@aracna/state-manager/-/state-manager-1.0.31.tgz#ec5c86b3e806b5661bc730184affcd239d3f051b"
   integrity sha512-/mk7ua7kVPnf7+tFRghhNVEj3o0k66dO2V4uQR0dzllaLZminCyJniCE3zT15UO3fFSWFqPKfdQbCJV6a/EOzg==
 
-"@aracna/web-components@^1.0.67":
-  version "1.0.67"
-  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.67.tgz#a6b5de74de9cca4f07c953ba3d45720ac1439c08"
-  integrity sha512-e1aQMl8UFXVzETdWzc+8GFUjHmK5YNsQqrtDHv4JoEYAvfZIkQP0X1nj+B0HwhvnzDtt9eb4tn/0WdKYluDatQ==
+"@aracna/web-components@^1.0.68":
+  version "1.0.68"
+  resolved "https://registry.yarnpkg.com/@aracna/web-components/-/web-components-1.0.68.tgz#62f8ceffa2afefd381bb0d72b0475667be176e55"
+  integrity sha512-iwJq2ptREsYeLo6q+n0vXwNx12cXyWhGQCfden+kspbv4bLkeF6AqavsCF6hSr0p1IoUzECRUgquC5SA1i8Upg==
 
 "@aracna/web@^1.0.59":
   version "1.0.59"
