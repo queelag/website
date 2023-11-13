@@ -1,7 +1,9 @@
 import {
   DEFAULT_CODE_RUNTIME_APP_JSX,
-  DEFAULT_CODE_RUNTIME_CSS,
+  DEFAULT_CODE_RUNTIME_INDEX_CSS,
   DEFAULT_CODE_RUNTIME_INDEX_HTML,
+  DEFAULT_CODE_RUNTIME_INDEX_JS,
+  DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
   DEFAULT_CODE_RUNTIME_REACT_INDEX_JS,
   DEFAULT_CODE_RUNTIME_VITE_CONFIG_JS,
   DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML,
@@ -36,8 +38,9 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
     case 'react':
       project.dependencies = p.dependencies
       project.files = {
+        'App.css': ``,
         'App.jsx': DEFAULT_CODE_RUNTIME_APP_JSX,
-        'index.css': DEFAULT_CODE_RUNTIME_CSS,
+        'index.css': DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
         'index.html': DEFAULT_CODE_RUNTIME_INDEX_HTML,
         'index.js': DEFAULT_CODE_RUNTIME_REACT_INDEX_JS
       }
@@ -46,7 +49,7 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
     case 'html':
       project.dependencies = p.dependencies
       project.files = {
-        'index.css': DEFAULT_CODE_RUNTIME_CSS,
+        'index.css': DEFAULT_CODE_RUNTIME_INDEX_CSS,
         'index.html': DEFAULT_CODE_RUNTIME_INDEX_HTML
       }
 
@@ -54,25 +57,30 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
     case 'javascript':
       project.dependencies = p.dependencies
       project.files = {
-        'index.css': DEFAULT_CODE_RUNTIME_CSS,
+        'app.css': ``,
+        'app.js': ``,
+        'index.css': DEFAULT_CODE_RUNTIME_INDEX_CSS,
         'index.html': DEFAULT_CODE_RUNTIME_INDEX_HTML,
-        'index.js': ``
+        'index.js': DEFAULT_CODE_RUNTIME_INDEX_JS
       }
 
       break
     case 'vite':
       project.files = {
-        'index.css': DEFAULT_CODE_RUNTIME_CSS,
+        'app.css': ``,
+        'app.js': ``,
+        'index.css': DEFAULT_CODE_RUNTIME_INDEX_CSS,
         'index.html': DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML,
-        'index.js': '',
+        'index.js': DEFAULT_CODE_RUNTIME_INDEX_JS,
         'package.json': DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON(p.dependencies)
       }
 
       break
     case 'vite-react':
       project.files = {
+        'App.css': ``,
         'App.jsx': DEFAULT_CODE_RUNTIME_APP_JSX,
-        'index.css': DEFAULT_CODE_RUNTIME_CSS,
+        'index.css': DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
         'index.html': DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML,
         'index.jsx': DEFAULT_CODE_RUNTIME_REACT_INDEX_JS,
         'package.json': DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON(p.dependencies),

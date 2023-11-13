@@ -34,6 +34,8 @@ export function CodeWindow(props: CodeWindowProps) {
     if (!extension) return ''
 
     switch (extension) {
+      case 'css':
+        return 'css'
       case 'html':
         return 'html'
       case 'js':

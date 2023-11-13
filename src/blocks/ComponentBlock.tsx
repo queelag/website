@@ -3,11 +3,10 @@ import { Form } from '@/components/Form'
 import { Input } from '@/components/Input'
 import { InputCheckBox } from '@/components/InputCheckBox'
 import { Select } from '@/components/Select'
-import type { ComponentBlockAttribute, ComponentBlockVariant } from '@/definitions/interfaces'
+import type { ComponentBlockAttribute, ComponentBlockVariant, SelectOption } from '@/definitions/interfaces'
 import { cloneShallowObject, isStringJSON } from '@aracna/core'
 import { toJS } from '@aracna/state-manager'
 import { Observer, useObservable } from '@aracna/state-manager-react'
-import type { SelectOption } from '@aracna/web'
 import { Fragment, useState, type ReactNode } from 'react'
 
 interface Props<P extends Record<string, any> = any> {

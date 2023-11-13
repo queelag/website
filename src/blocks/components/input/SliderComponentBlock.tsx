@@ -5,7 +5,7 @@ import type { ComponentBlockComponentProps } from '@/definitions/types'
 import { getLowestNumber, getNumbersDistance, isArray, removeArrayItems } from '@aracna/core'
 import { useObservableElementComponent, type AracnaSliderProps, type AracnaSliderThumbProps } from '@aracna/react'
 import { AracnaSlider, AracnaSliderThumb } from '@aracna/react-components/components/input/slider'
-import { SliderChangeEvent, joinElementClasses } from '@aracna/web'
+import { joinElementClasses, type SliderChangeEvent } from '@aracna/web'
 import { Fragment, useState } from 'react'
 
 function Thumb(props: AracnaSliderThumbProps) {

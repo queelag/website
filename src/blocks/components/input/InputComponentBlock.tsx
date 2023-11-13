@@ -6,7 +6,7 @@ import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { Memo, useObservableElementComponent, type AracnaInputProps } from '@aracna/react'
 import { AracnaButton, AracnaChip } from '@aracna/react-components'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
-import { StateChangeEvent, joinElementClasses } from '@aracna/web'
+import { joinElementClasses, type StateChangeEvent } from '@aracna/web'
 import { useState } from 'react'
 
 export function InputComponentBlock() {

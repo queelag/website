@@ -16,7 +16,7 @@ import {
   AracnaSelectList,
   AracnaSelectOption
 } from '@aracna/react-components/components/input/select'
-import { StateChangeEvent, findSelectOptionByValue, joinElementClasses } from '@aracna/web'
+import { findSelectOptionByValue, joinElementClasses, type StateChangeEvent } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 import { Fragment, useState, type MouseEvent } from 'react'
 

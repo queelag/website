@@ -1,11 +1,15 @@
-export function html(template: TemplateStringsArray): string {
-  let isCSS, isTypescript, isHTML, ptemplate, spaces
+import { mergeTemplateStringsArrayWithArgs } from '@/utils/string-utils'
 
-  isCSS = template[0].includes('<style>')
-  isTypescript = template[0].includes('<script>')
-  isHTML = template[0].includes('<html') || (!isCSS && !isTypescript)
+export function html(template: TemplateStringsArray, ...args: any[]): string {
+  let isScript: boolean, isStyle: boolean, isHTML: boolean, ptemplate: string, spaces: RegExpMatchArray | null
 
-  ptemplate = isHTML ? template[0] : template[0].replace(/<\/?(script|style)>/gm, '')
+  isScript = template.some((chunk: string) => chunk.includes('<script>'))
+  isStyle = template.some((chunk: string) => chunk.includes('<style>'))
+  isHTML = template.some((chunk: string) => chunk.includes('<html')) || (!isStyle && !isScript)
+
+  ptemplate = isHTML
+    ? mergeTemplateStringsArrayWithArgs(template, args)
+    : mergeTemplateStringsArrayWithArgs(template, args).replace(/<\/?(script|style)>/gm, '')
   spaces = ptemplate.match(/^[^\S\r\n]+[^\s\r\n]/m)
 
   if (spaces?.[0]) {

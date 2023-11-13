@@ -3,6 +3,75 @@ import type { Project, ProjectDependencies } from '@stackblitz/sdk'
 import type { ComponentBlockAttribute } from './interfaces'
 
 /**
+ * Colors
+ */
+export const COLOR_AMBER: Record<number, string> = {
+  50: '#ffffea',
+  100: '#fffbc5',
+  200: '#fff885',
+  300: '#ffee46',
+  400: '#ffdf1b',
+  500: '#ffc001',
+  600: '#e29400',
+  700: '#bb6902',
+  800: '#985108',
+  900: '#7c420b',
+  950: '#482200'
+}
+export const COLOR_BLUE: Record<number, string> = {
+  50: '#eff4ff',
+  100: '#dce7fd',
+  200: '#c0d5fd',
+  300: '#95bbfb',
+  400: '#6296f8',
+  500: '#4c7bf4',
+  600: '#2851e8',
+  700: '#203dd5',
+  800: '#2033ad',
+  900: '#203188',
+  950: '#182053'
+}
+export const COLOR_MINT: Record<number, string> = {
+  50: '#effef4',
+  100: '#dbfde6',
+  200: '#b8facd',
+  300: '#90f5b2',
+  400: '#43e57a',
+  500: '#1bcc58',
+  600: '#10a944',
+  700: '#108539',
+  800: '#126931',
+  900: '#11562a',
+  950: '#033015'
+}
+export const COLOR_ROSE: Record<number, string> = {
+  50: '#fff0f8',
+  100: '#ffe3f4',
+  200: '#ffc6e8',
+  300: '#ff98d3',
+  400: '#ff58b5',
+  500: '#ff2796',
+  600: '#ff1479',
+  700: '#df0054',
+  800: '#b80045',
+  900: '#98033d',
+  950: '#5f0020'
+}
+export const COLOR_SEANCE: Record<number, string> = {
+  50: '#f6f3ff',
+  100: '#efe8ff',
+  200: '#e1d4ff',
+  300: '#cbb2ff',
+  400: '#b386ff',
+  500: '#9c56fc',
+  600: '#9133f4',
+  700: '#8121e0',
+  800: '#6519af',
+  900: '#5a189a',
+  950: '#380d68'
+}
+
+/**
  * Header
  */
 export const HEADER_HEIGHT: number = 48 + 24 * 2
@@ -10,10 +79,55 @@ export const HEADER_HEIGHT: number = 48 + 24 * 2
 /**
  * Code Runtime
  */
-export const DEFAULT_CODE_RUNTIME_CSS: string = html`
+
+export const DEFAULT_CODE_RUNTIME_APP_JSX: string = html`
+  <script>
+    export function App() {
+      return null
+    }
+  </script>
+`
+
+export const DEFAULT_CODE_RUNTIME_INDEX_CSS: string = html`
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto', sans-serif;
+      gap: 4px;
+      justify-content: center;
+      min-height: 100vh;
+    }
+  </style>
+`
+
+export const DEFAULT_CODE_RUNTIME_INDEX_HTML: string = html`<div id="root"></div>`
+
+export const DEFAULT_CODE_RUNTIME_INDEX_JS: string = html`
+  <script>
+    import './index.css'
+    import './app.css'
+    import './app.js'
+  </script>
+`
+
+export const DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS: string = html`
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
     }
 
     #root {
@@ -27,22 +141,13 @@ export const DEFAULT_CODE_RUNTIME_CSS: string = html`
   </style>
 `
 
-export const DEFAULT_CODE_RUNTIME_APP_JSX: string = html`
-  <script>
-    export function App() {
-      return null
-    }
-  </script>
-`
-
-export const DEFAULT_CODE_RUNTIME_INDEX_HTML: string = html`<div id="root"></div>`
-
 export const DEFAULT_CODE_RUNTIME_REACT_INDEX_JS: string = html`
   <script>
     import { StrictMode } from 'react'
     import { createRoot } from 'react-dom/client'
 
     import { App } from './App'
+    import './App.css'
     import './index.css'
 
     createRoot(document.getElementById('root')).render(
@@ -72,7 +177,6 @@ export const DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML: string = html`
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Document</title>
-      <link rel="stylesheet" href="./index.css" />
     </head>
     <body>
       <div id="root"></div>
