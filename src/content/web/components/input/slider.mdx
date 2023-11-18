@@ -1,0 +1,24 @@
+---
+title: Slider
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SliderComponentBlock } from '@/blocks/components/input/SliderComponentBlock.tsx'
+import { SB_SLIDER } from '@/definitions/stack-blitz/web/components/input'
+
+<SliderComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_SLIDER}
+  template='javascript'
+  title='Slider'
+/>

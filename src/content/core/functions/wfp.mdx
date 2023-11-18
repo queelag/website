@@ -1,0 +1,12 @@
+---
+title: wfp
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_WFP } from '@/definitions/stack-blitz/core/functions'
+
+The **wfp** function stands for "wait for promise". It is a utility function that can be used to wait for a **Promise** to resolve to a truthy value.
+
+The **wfp** function provides a convenient way to wait for a **Promise** to resolve to a truthy value with a timeout.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_WFP} template='javascript' title='wfp' console={100} />

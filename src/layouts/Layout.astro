@@ -3,11 +3,19 @@ import Header from '@/components/Header.astro'
 import Sidebar from '@/components/Sidebar.astro'
 import { TOCs } from '@/components/TOCs'
 import { joinElementClasses } from '@aracna/web'
+import type { MarkdownHeading } from 'astro'
+
+interface Props {
+  frontmatter: Record<string, any>
+  headings: MarkdownHeading[]
+  slug: string
+}
 
 const { frontmatter, headings } = Astro.props
+const slug = Astro.props.slug ?? frontmatter.url
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
@@ -47,7 +55,7 @@ const { frontmatter, headings } = Astro.props
       <Sidebar />
       <div class='relative min-h-[200vh] flex-1 px-6 xl:px-12'>
         <div class={joinElementClasses('prose prose-invert max-w-none pb-6', 'prose-pre:border-2 prose-pre:border-slate-800 prose-pre:bg-black')}>
-          {frontmatter.title && frontmatter.url.length > 0 && <h1 id="overview">{frontmatter.title}</h1>}
+          {frontmatter.title && slug.length > 0 && <h1 id='overview'>{frontmatter.title}</h1>}
           <div class='pb-6'>
             <slot />
           </div>

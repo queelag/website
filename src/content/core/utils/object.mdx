@@ -1,0 +1,205 @@
+---
+title: Object
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import {
+  SB_CLONE_DEEP_OBJECT,
+  SB_CLONE_SHALLOW_OBJECT,
+  SB_COPY_OBJECT_PROPERTY,
+  SB_DELETE_OBJECT_PROPERTY,
+  SB_FLATTEN_OBJECT,
+  SB_GET_OBJECT_PROPERTY,
+  SB_HAS_OBJECT_PROPERTY,
+  SB_IS_OBJECT,
+  SB_IS_OBJECT_CLONABLE,
+  SB_IS_OBJECT_FLATTENABLE,
+  SB_IS_OBJECT_KEYS_POPULATED,
+  SB_IS_OBJECT_VALUES_POPULATED,
+  SB_IS_PLAIN_OBJECT,
+  SB_MERGE_OBJECTS,
+  SB_OMIT_OBJECT_PROPERTIES,
+  SB_PICK_OBJECT_PROPERTIES,
+  SB_SET_OBJECT_PROPERTY
+} from '@/definitions/stack-blitz/core/utils'
+
+Object utils are a set of utility functions that are used to manipulate objects in ECMAScript or ECMAScript. These functions provide a variety of useful features, such as cloning objects, copying object properties, and deleting object properties.
+
+## Set Property
+
+The **setObjectProperty** function is a utility function that sets a property on an object. The function takes three parameters: the object to modify, the key of the property to set, and the value to set the property to.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SET_OBJECT_PROPERTY}
+  template='javascript'
+  title='setObjectProperty'
+  console={100}
+/>
+
+## Get Property
+
+The **getObjectProperty** function is a utility function that retrieves a property from an object. The function takes two parameters: the object to retrieve the property from, and the key of the property to retrieve.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_OBJECT_PROPERTY}
+  template='javascript'
+  title='getObjectProperty'
+  console={100}
+/>
+
+## Delete Property
+
+The **deleteObjectProperty** function is a utility function that deletes a property from an object. The function takes two parameters: the object to delete the property from, and the key of the property to delete.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DELETE_OBJECT_PROPERTY}
+  template='javascript'
+  title='deleteObjectProperty'
+  console={100}
+/>
+
+## Copy Property
+
+The **copyObjectProperty** function is a utility function that copies a property from one object to another. The function takes three parameters: the source object to copy the property from, the key of the property to copy, and the target object to copy the property to.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_COPY_OBJECT_PROPERTY}
+  template='javascript'
+  title='copyObjectProperty'
+  console={100}
+/>
+
+## Has Property
+
+The **hasObjectProperty** function is a utility function that checks whether an object has a specified property. The function takes two parameters: the object to check, and the key of the property to check.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_HAS_OBJECT_PROPERTY}
+  template='javascript'
+  title='hasObjectProperty'
+  console={100}
+/>
+
+## Omit Properties
+
+The **omitObjectProperties** function is a utility function that creates a new object with all properties of the original object except for the specified properties. The function takes two parameters: the object to omit properties from, and an array of keys of the properties to omit.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_OMIT_OBJECT_PROPERTIES}
+  template='javascript'
+  title='omitObjectProperties'
+  console={100}
+/>
+
+## Pick Properties
+
+The **pickObjectProperties** function is a utility function that creates a new object with only the specified properties from the original object. The function takes two parameters: the object to pick properties from, and an array of keys of the properties to pick.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_PICK_OBJECT_PROPERTIES}
+  template='javascript'
+  title='pickObjectProperties'
+  console={100}
+/>
+
+## Deep Cloning
+
+The **cloneDeepObject** function is a utility function that creates a deep copy of an object, including all nested objects and arrays. The function takes one parameter: the object to clone
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CLONE_DEEP_OBJECT} template='javascript' title='cloneDeepObject' console={100} />
+
+## Shallow Cloning
+
+The **cloneShallowObject** function is a utility function that creates a shallow copy of an object. The function takes one parameter: the object to clone.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_CLONE_SHALLOW_OBJECT}
+  template='javascript'
+  title='cloneShallowObject'
+  console={100}
+/>
+
+## Flatten
+
+The **flattenObject** function is a utility function that flattens a nested object into a single-level object with dot-separated keys. The function takes two parameters: the object to flatten, and an optional options object that can be used to customize the flattening behavior.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_FLATTEN_OBJECT} template='javascript' title='flattenObject' console={100} />
+
+## Merge
+
+The **mergeObjects** function is a utility function that merges multiple objects into a single object. The function takes at least two parameters: the target object to merge into, and one or more source objects to merge from.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MERGE_OBJECTS} template='javascript' title='mergeObjects' console={100} />
+
+## Is Object
+
+The **isObject** function is a type guard utility function that checks whether a value is an object. The function takes one parameter: the value to check.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_OBJECT} template='javascript' title='isObject' console={100} />
+
+## Is Object Clonable
+
+The **isObjectClonable** function is a utility function that checks whether an object is clonable. The function takes one parameter: the object to check.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_OBJECT_CLONABLE} template='javascript' title='isObjectClonable' console={100} />
+
+## Is Object Flattenable
+
+The **isObjectFlattenable** function is a utility function that checks whether an object is flattenable. The function takes two parameters: the object to check, and an optional options object that can be used to customize the flattening behavior.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_OBJECT_FLATTENABLE}
+  template='javascript'
+  title='isObjectFlattenable'
+  console={100}
+/>
+
+## Is Object Keys Populated
+
+The **isObjectKeysPopulated** function is a utility function that checks whether an object has any keys. The function takes one parameter: the object to check.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_OBJECT_KEYS_POPULATED}
+  template='javascript'
+  title='isObjectKeysPopulated'
+  console={100}
+/>
+
+## Is Object Values Populated
+
+The **isObjectValuesPopulated** function is a utility function that checks whether an object has any populated values. The function takes one parameter: the object to check.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_IS_OBJECT_VALUES_POPULATED}
+  template='javascript'
+  title='isObjectValuesPopulated'
+  console={100}
+/>
+
+## Is Plain Object
+
+The **isPlainObject** function is a type guard utility function that checks whether a value is a plain object. The function takes one parameter: the value to check.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_PLAIN_OBJECT} template='javascript' title='isPlainObject' console={100} />

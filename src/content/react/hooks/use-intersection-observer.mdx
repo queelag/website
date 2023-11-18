@@ -1,0 +1,20 @@
+---
+title: useIntersectionObserver
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_USE_INTERSECTION_OBSERVER } from '@/definitions/stack-blitz/react/functions'
+
+The **useIntersectionObserver** hook is a custom React hook that sets up an IntersectionObserver to observe a list of DOM elements referenced by mutable ref objects. The hook takes in two parameters: **targets**, which is an array of mutable ref objects that reference the DOM elements to be observed, and **options**, which is an optional object that specifies the options for the IntersectionObserver.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_INTERSECTION_OBSERVER}
+  template='react'
+  title='useIntersectionObserver'
+/>

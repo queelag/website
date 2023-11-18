@@ -1,0 +1,34 @@
+---
+title: FormData
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_SERIALIZE_FORM_DATA, SB_DESERIALIZE_FORM_DATA } from '@/definitions/stack-blitz/core/utils'
+
+FormData utils are a set of utility functions that are designed to make working with **FormData** objects in ECMAScript easier and more efficient. **FormData** is a built-in ECMAScript object that provides a way to construct and send data in the format of a **multipart/form-data** request. This format is commonly used to submit forms that contain files, such as images or documents, to a server.
+
+## Serialize
+
+The **serializeFormData** function is used to create a **FormData** object from a ECMAScript object. The function takes a ECMAScript object as input and returns a **FormData** object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SERIALIZE_FORM_DATA}
+  template='javascript'
+  title='serializeFormData'
+  console={100}
+/>
+
+## Deserialize
+
+The **deserializeFormData** function is used to create a ECMAScript object from a **FormData** object. The function takes a **FormData** object as input and returns a ECMAScript object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DESERIALIZE_FORM_DATA}
+  template='javascript'
+  title='deserializeFormData'
+  console={100}
+/>

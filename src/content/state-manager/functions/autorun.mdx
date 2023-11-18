@@ -1,0 +1,17 @@
+---
+title: autorun
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_AUTORUN } from '@/definitions/stack-blitz/state-manager/functions'
+
+The **autorun** function takes a single argument called **effect** which is of type **WatcherAutorunEffect**. The purpose of this function is to create an autorun watcher that automatically runs the **effect** function whenever any of its dependencies change.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/state-manager': 'latest' }}
+  files={SB_AUTORUN}
+  template='javascript'
+  title='autorun'
+  console={100}
+/>

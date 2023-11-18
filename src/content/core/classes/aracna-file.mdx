@@ -1,0 +1,49 @@
+---
+title: AracnaFile
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_ARACNA_FILE_EXTRA_GETTERS, SB_ARACNA_FILE_SERIALIZATION } from '@/definitions/stack-blitz/core/classes'
+
+The code above defines the **AracnaFile** class, which extends the **[AracnaBlob](/core/classes/aracna-blob)** class. The **AracnaFile** class represents a file object that can be used in web applications. It provides additional functionality on top of the **Blob** class, such as the ability to read and write files.
+
+## Last Modified, Name & Webkit Relative Path
+
+The **lastModified** getter returns the last modified timestamp of the file in milliseconds since the Unix epoch.
+The **lastModifiedDate** getter returns the last modified date of the file as a **Date** object.
+The **name** getter returns the name of the file as a string.
+The **webkitRelativePath** getter returns the path of the file relative to the directory selected by the user in a file input field.
+
+These getters are used to retrieve information about the file object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_ARACNA_FILE_EXTRA_GETTERS}
+  template='javascript'
+  title='aracna-file'
+  console={100}
+/>
+
+## Serialization & Deserialization
+
+Serialization and deserialization with **AracnaFile** objects work by converting the object to a JSON string and back again.
+
+To serialize an **AracnaFile** object, you can call the **JSON.stringify** method with the **AracnaFile** object as its argument. This will convert the **AracnaFile** object to a JSON string that includes all the properties of the **AracnaFile** object, as well as the properties of the underlying **File** object.
+
+To deserialize a JSON string into an **AracnaFile** object, you can pass the JSON object to the **AracnaFile** constructor. The **AracnaFile** constructor takes either a **File** object or a JSON object that represents a file. If a JSON object is passed to the constructor, a new **File** object is created from the JSON object and stored in the file property of the **AracnaFile** object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_ARACNA_FILE_SERIALIZATION}
+  template='javascript'
+  title='aracna-file'
+  console={100}
+/>
+
+## EMPTY
+
+The **EMPTY** getter is a static getter of the **AracnaFile** class that returns an empty **AracnaFile** object. This getter is used to create a new **AracnaFile** object with an empty **File** object as its underlying data.
+
+The **EMPTY** getter is useful when you need to create a new **AracnaFile** object with no data. You can use this object as a placeholder or default value for **AracnaFile** objects in your code.

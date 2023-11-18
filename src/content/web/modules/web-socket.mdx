@@ -1,0 +1,62 @@
+---
+title: WebSocket
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_WEB_SOCKET_OPEN, SB_WEB_SOCKET_CLOSE, SB_WEB_SOCKET_SEND, SB_WEB_SOCKET_RECEIVE } from '@/definitions/stack-blitz/web/modules'
+
+The **WebSocket** class is used to create and manage WebSocket connections in the browser environment. The class takes several parameters including the name of the WebSocket, the URL to connect to, and callback functions for various WebSocket events.
+
+WebSockets are a protocol for creating real-time, two-way communication channels between a client (usually a web browser) and a server. Unlike traditional HTTP requests, which are one-way and require the client to initiate a new request for each update, WebSockets allow for continuous, bidirectional communication between the client and server.
+
+## Open Connection
+
+The **open** function is used to open the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_OPEN}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>
+
+## Close Connection
+
+The **close** function is used to close the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_CLOSE}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>
+
+## Send Message
+
+The **send** function is used to send data over a WebSocket connection. It takes one parameter, **data**, which is the data to send over the WebSocket connection.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_SEND}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>
+
+## Receive Message
+
+The **onMessage** event is used to handle incoming data over a WebSocket connection. It is a callback function that takes one parameter, **event**, which is a **MessageEvent** object containing the incoming data.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_WEB_SOCKET_RECEIVE}
+  template='javascript'
+  title='WebSocket'
+  console={100}
+/>

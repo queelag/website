@@ -1,0 +1,27 @@
+---
+title: Chip
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { ChipComponentBlock } from '@/blocks/components/data/ChipComponentBlock.tsx'
+import { SB_CHIP } from '@/definitions/stack-blitz/react/components/data'
+
+<ChipComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Chip.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_CHIP}
+  template='javascript'
+  title='Chip'
+/>

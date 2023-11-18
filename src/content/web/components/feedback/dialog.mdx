@@ -1,0 +1,24 @@
+---
+title: Dialog
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { DialogComponentBlock } from '@/blocks/components/feedback/DialogComponentBlock.tsx'
+import { SB_DIALOG } from '@/definitions/stack-blitz/web/components/feedback'
+
+<DialogComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_DIALOG}
+  template='javascript'
+  title='Dialog'
+/>

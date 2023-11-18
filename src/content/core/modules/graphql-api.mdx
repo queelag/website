@@ -1,0 +1,24 @@
+---
+title: GraphQLAPI
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_GRAPHQL_API_QUERY, SB_GRAPHQL_API_MUTATION } from '@/definitions/stack-blitz/core/modules'
+
+The **GraphQLAPI** class extends the [**API**](/core/modules/api) class and provides a convenient way to make GraphQL API requests using the **fetch** API. The **API** class provides a set of methods for making HTTP requests, while the **GraphQLAPI** class provides additional functionality for making GraphQL API requests.
+
+## Query
+
+The **query** method defined in the **GraphQLAPI** class is used to make a GraphQL query to the server using the **POST** HTTP method. In GraphQL, a query is a string that defines the data that the client wants to retrieve from the server.
+
+The **query** method provides a convenient way to make a GraphQL query to the server using the **POST** HTTP method. The method takes a **query** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **query** argument is a string that contains the GraphQL query to be sent to the server, and can be used to retrieve specific data from the server based on the client's needs.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GRAPHQL_API_QUERY} template='javascript' title='GraphQLAPI' console={100} />
+
+## Mutation
+
+The **mutation** method defined in the **GraphQLAPI** class is used to make a GraphQL mutation to the server using the **POST** HTTP method.
+
+The **mutation** method provides a convenient way to make a GraphQL mutation to the server using the **POST** HTTP method. The method takes a **mutation** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **mutation** argument is a string that contains the GraphQL mutation to be sent to the server, and can be used to modify data on the server based on the client's needs.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GRAPHQL_API_MUTATION} template='javascript' title='GraphQLAPI' console={100} />

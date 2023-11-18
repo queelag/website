@@ -1,0 +1,14 @@
+---
+title: Date
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_GET_DATE_UNIX_TIME } from '@/definitions/stack-blitz/core/utils'
+
+Date utils are a set of utility functions that are designed to make working with dates and times in ECMAScript easier and more efficient. Dates and times are a fundamental part of many web applications, and are used for a variety of purposes such as scheduling, logging, and data analysis.
+
+## Get Unix Time
+
+The **getDateUnixTime** function is used to convert a date string, number, or **Date** object into a Unix timestamp. The function takes a date value and an optional unit of time (**'ms'** or **'s'**) as input, and returns the Unix timestamp in milliseconds or seconds, depending on the specified unit of time.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GET_DATE_UNIX_TIME} template='javascript' title='getDateUnixTime' console={100} />

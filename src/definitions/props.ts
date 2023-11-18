@@ -16,11 +16,9 @@ export interface CodeWindowProps extends React.DetailedHTMLProps<React.HTMLAttri
 }
 
 export interface SidebarItemProps {
-  active?: boolean
-  expanded?: boolean
-  href: string
   items?: SidebarItemProps[]
   order: number
+  slug: string
   title: string
 }
 

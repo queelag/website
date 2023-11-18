@@ -1,0 +1,27 @@
+---
+title: NavigationRail
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { NavigationRailComponentBlock } from '@/blocks/components/navigation/NavigationRailComponentBlock.tsx'
+import { SB_NAVIGATION_RAIL } from '@/definitions/stack-blitz/react/components/navigation'
+
+<NavigationRailComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='NavigationRail.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_NAVIGATION_RAIL}
+  template='javascript'
+  title='NavigationRail'
+/>

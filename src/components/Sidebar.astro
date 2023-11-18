@@ -1,68 +1,15 @@
 ---
-import type { DocsPageMDXInstance, DocsPageMDXInstanceFrontmatter } from '@/definitions/interfaces'
 import type { SidebarItemProps } from '@/definitions/props'
-import { mapDirName } from '@/utils/fs-utils'
-import { concatURL } from '@aracna/core'
-import type { MDXInstance } from 'astro'
-import type { Dirent } from 'fs'
-import { readdir } from 'fs/promises'
+import { getCollectionSidebarItems } from '@/utils/sidebar-utils'
 import { SidebarItem } from './SidebarItem'
 
-async function getItems(folders: string[] = []): Promise<SidebarItemProps[]> {
-  let globs: MDXInstance<DocsPageMDXInstanceFrontmatter>[], dirs: Dirent[], items: SidebarItemProps[]
-
-  globs = await Astro.glob<DocsPageMDXInstanceFrontmatter>('../pages/**/*.mdx')
-  dirs = await readdir(concatURL(process.env.PWD ?? '', 'src/pages', folders.join('/')), { withFileTypes: true })
-  items = []
-
-  for (let i = 0; i < dirs.length; i++) {
-    let ent: Dirent, item: SidebarItemProps
-
-    ent = dirs[i]
-
-    if (ent.isDirectory()) {
-      item = {
-        href: concatURL('/', folders.join('/'), ent.name),
-        items: await getItems([...folders, ent.name]),
-        order: i,
-        title: mapDirName(ent.name)
-      }
-
-      // item.active = Astro.url.pathname.startsWith(item.href)
-      item.expanded = Astro.url.pathname.includes(item.href)
-      // item.expanded = folders.length <= 0 ? true : Astro.url.pathname.includes(item.href)
-
-      items.push(item)
-    }
-
-    if (ent.isFile()) {
-      let glob: DocsPageMDXInstance | undefined
-
-      glob = globs.find((glob: DocsPageMDXInstance) => glob.file.includes(concatURL(folders.join('/'), ent.name)))
-      if (!glob) continue
-
-      if (glob.frontmatter.draft) {
-        continue
-      }
-
-      item = {
-        href: concatURL('/', folders.join('/'), ent.name === 'index.mdx' ? '' : ent.name).replace('.mdx', ''),
-        order: glob.frontmatter.order ?? i,
-        title: glob.frontmatter.title
-      }
-
-      item.active = item.href === Astro.url.pathname
-
-      items.push(item)
-    }
-  }
-
-  items = items.sort((a: SidebarItemProps, b: SidebarItemProps) => a.order - b.order)
-
-  return items
-}
-
-const items: SidebarItemProps[] = await getItems()
+const items: SidebarItemProps[] = [
+  { order: -1, slug: '/', title: 'Introduction' },
+  ...(await getCollectionSidebarItems('core')),
+  ...(await getCollectionSidebarItems('react')),
+  ...(await getCollectionSidebarItems('state-manager')),
+  ...(await getCollectionSidebarItems('web'))
+]
 ---
 
 <div class='sticky top-24 left-0 min-w-[280px] hidden xl:flex flex-col pl-6 overflow-y-auto' style='height: calc(100vh - 96px)'>

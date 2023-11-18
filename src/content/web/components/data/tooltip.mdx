@@ -1,0 +1,24 @@
+---
+title: Tooltip
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { TooltipComponentBlock } from '@/blocks/components/data/TooltipComponentBlock.tsx'
+import { SB_TOOLTIP } from '@/definitions/stack-blitz/web/components/data'
+
+<TooltipComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_TOOLTIP}
+  template='javascript'
+  title='Tooltip'
+/>

@@ -1,0 +1,48 @@
+---
+title: Logger
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_LOGGER, SB_LOGGER_SEPARATOR, SB_LOGGER_STATUS, SB_LOGGER_ENVIRONMENT } from '@/definitions/stack-blitz/core/modules'
+
+The **Logger** class is a useful tool for logging messages to the console with different levels of severity. It is customizable with different colors, separators, and levels, and can be used in a variety of environments.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER} template='javascript' title='Logger' console={100} />
+
+## Levels
+
+The **Logger** class allows you to set the level of severity for the logger instance, and will only log messages that are at or above the current level. For example, if the logger level is set to **warn**, it will log messages with the **warn** and **error** levels, but not messages with the **trace**, **debug**, or **info** levels. This allows you to control the amount of information that is logged to the console based on the severity of the message.
+
+- **verbose**: Used for very detailed logging, such as function calls and variable values.
+- **debug**: Used for debugging information, such as variable values and function calls.
+- **info**: Used for general information, such as application state and user actions.
+- **warn**: Used for warnings, such as potential issues or errors that may occur.
+- **error**: Used for errors, such as exceptions or other critical issues.
+
+## Colors
+
+The **colors** property of the **Logger** class is a boolean value that determines whether or not to use ANSI color codes in the console output. If **colors** is set to **true**, the logger will use ANSI color codes to format the console output with different colors for different levels of severity.
+
+## Separator
+
+The **separator** property of the **Logger** class is a string that is used to separate the different parts of a log message in the console output. By default, the separator is set to the value of the **DEFAULT_LOGGER_SEPARATOR** constant, which is a string containing a single space character.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_SEPARATOR} template='javascript' title='Logger' console={100} />
+
+## Status
+
+The **status** property of the **Logger** class is a **LoggerStatus** enum value that represents whether or not the logger is enabled. If the status is set to **'off'**, no messages will be logged. If the status is set to **'on'**, messages will be logged based on the logger level.
+
+The **enable** and **disable** methods defined in the **Logger** class are used to enable or disable the logger instance.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_STATUS} template='javascript' title='Logger' console={100} />
+
+## Environment Level & Status
+
+To set the logger level and status in the environment, you can define the **LOGGER\<name\>LEVEL** and **LOGGER\<name\>STATUS** environment variables, where **\<name\>** is the name of the logger instance.
+
+For example, if you have a logger instance with the name **'my-app'**, you can set its level and status in the environment by defining the **LOGGER_MY_APP_LEVEL** and **LOGGER_MY_APP_STATUS** environment variables, respectively.
+
+Setting the logger level and status in the environment can be useful in situations where you want to define the logger level and status in a centralized location rather than hard-coding them in your code.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_ENVIRONMENT} template='javascript' title='Logger' console={100} />

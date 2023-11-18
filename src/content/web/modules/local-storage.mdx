@@ -1,0 +1,99 @@
+---
+title: LocalStorage
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import {
+  SB_LOCAL_STORAGE_SET,
+  SB_LOCAL_STORAGE_GET,
+  SB_LOCAL_STORAGE_REMOVE,
+  SB_LOCAL_STORAGE_CLEAR,
+  SB_LOCAL_STORAGE_COPY,
+  SB_LOCAL_STORAGE_HAS
+} from '@/definitions/stack-blitz/web/modules'
+
+The **LocalStorage** object handles CRUD operations on the **localStorage** property in the browser environment. It can be used to get and set items in the **localStorage** property, as well as to check if an item exists and to remove an item from the **localStorage** property.
+
+## Set
+
+The **set** method sets an item in the storage by its key, and optionally updates specific keys in the item. The method takes two parameters: **key** and **item**. The **key** parameter is a string that represents the key of the item to be set in the storage. The **item** parameter is an object that represents the item to be set in the storage.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_SET}
+  template='javascript'
+  title='LocalStorage'
+  console={100}
+/>
+
+## Get
+
+The **get** method retrieves an item from the storage by its key. The method takes one parameter: **key**, which is a string that represents the key of the item to be retrieved from the storage.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_GET}
+  template='javascript'
+  title='LocalStorage'
+  console={100}
+/>
+
+## Remove
+
+The **remove** method removes an item from the storage by its key, and optionally removes specific keys from the item. The method takes two parameters: **key** and **keys**. The **key** parameter is a string that represents the key of the item to be removed from the storage. The **keys** parameter is an optional array of strings that represent the keys to be removed from the item.
+
+If the **keys** parameter is not provided, the entire item is removed from the storage. If the **keys** parameter is provided, only the specified keys in the item are removed, and the updated item is set back in the storage.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_REMOVE}
+  template='javascript'
+  title='LocalStorage'
+  console={100}
+/>
+
+## Clear
+
+The **clear** method clears all items from the storage.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_CLEAR}
+  template='javascript'
+  title='LocalStorage'
+  console={100}
+/>
+
+## Copy
+
+The **copy** method copies an item from the storage to a target object, and optionally copies specific keys from the item. The method takes three parameters: **key**, **target**, and **keys**. The **key** parameter is a string that represents the key of the item to be copied from the storage. The **target** parameter is an object that represents the target object to which the item is to be copied. The **keys** parameter is an optional array of strings that represent the keys to be copied from the item.
+
+If the **keys** parameter is not provided, all keys in the item are copied to the target object. If **the** keys parameter is provided, only the specified keys in the item are copied to the target object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_COPY}
+  template='javascript'
+  title='LocalStorage'
+  console={100}
+/>
+
+## Has
+
+The **has** method checks if an item with the specified key exists in the storage, and optionally checks if specific keys exist in the item. The method takes two parameters: **key** and **keys**. The **key** parameter is a string that represents the key of the item to be checked in the storage. The **keys** parameter is an optional array of strings that represent the keys to be checked in the item.
+
+If the **keys** parameter is not provided, the method checks if an item with the specified key exists in the storage. If the **keys** parameter is provided, the method checks if the specified keys exist in the item.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCAL_STORAGE_HAS}
+  template='javascript'
+  title='LocalStorage'
+  console={100}
+/>

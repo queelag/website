@@ -1,0 +1,12 @@
+---
+title: tie
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_TIE } from '@/definitions/stack-blitz/core/functions'
+
+The **tie** function is a utility function that stands for "throw inline error". It takes a value of type **T** or an **Error** object as input and returns the value of type **T**. If an **Error** object is passed in, the function throws the error instead of returning the value.
+
+The **tie** function is a simple utility function that allows you to throw an error inline if a certain condition is met. This can be useful when you want to handle errors in a concise and readable way.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIE} template='javascript' title='tie' console={100} />

@@ -1,0 +1,64 @@
+---
+title: Element
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import {
+  SB_DEFINE_CUSTOM_ELEMENT,
+  SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE,
+  SB_JOIN_ELEMENT_CLASSES,
+  SB_SCROLL_ELEMENT_INTO_VIEW
+} from '@/definitions/stack-blitz/web/utils'
+
+Element utils are a set of utility functions that are used to work with HTML elements in the browser environment. These functions can be used to define custom elements, join CSS class names, convert values to compatible CSS styles, set and remove element attributes, and define attributes in an immutable way.
+
+## Define Custom Element
+
+The **defineCustomElement** function is used to define a custom element in the browser environment without having to deal with errors or already defined custom elements.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_DEFINE_CUSTOM_ELEMENT}
+  template='javascript'
+  title='defineCustomElement'
+  console={100}
+/>
+
+## Get Style Compatible Value
+
+The **getElementStyleCompatibleValue** function is used to convert a value to a string that is compatible with CSS styles. This is useful when setting style properties on HTML elements in the browser environment. By using this function, you can ensure that the values you set are in the correct format and avoid errors caused by incompatible values.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE}
+  template='javascript'
+  title='getElementStyleCompatibleValue'
+  console={100}
+/>
+
+## Join Classes
+
+The **joinElementClasses** function is used to join multiple CSS class names into a single string. This is useful when setting the **class** attribute of an HTML element in the browser environment. By using this function, you can ensure that the resulting string is properly formatted and does not contain any unnecessary spaces or other characters.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_JOIN_ELEMENT_CLASSES}
+  template='javascript'
+  title='joinElementClasses'
+  console={100}
+/>
+
+## Scroll Into View
+
+The **scrollElementIntoView** function is used to scroll an HTML element into view within its parent element or the window. This is useful when working with large or complex HTML documents that require scrolling to view all content. By using this function, you can ensure that the target element is always visible and in the desired position.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_SCROLL_ELEMENT_INTO_VIEW}
+  template='javascript'
+  title='scrollElementIntoView'
+/>

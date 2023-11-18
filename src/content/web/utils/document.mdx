@@ -1,0 +1,21 @@
+---
+title: Document
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_CREATE_DOCUMENT_ELEMENT } from '@/definitions/stack-blitz/web/utils'
+
+Document utils are a set of utility functions that are used to work with the **document** object in the browser environment. The **document** object represents the web page loaded in the current browser window or tab, and provides a way to interact with the HTML elements on the page.
+
+## Create Element
+
+The **createDocumentElement** function is used to create new elements in the **document** object in the browser environment. The function is a generic function that takes a **tagName** parameter and an optional **options** parameter.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CREATE_DOCUMENT_ELEMENT}
+  template='javascript'
+  title='createDocumentElement'
+  console={100}
+/>

@@ -1,0 +1,16 @@
+---
+title: Error
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_IS_ERROR } from '@/definitions/stack-blitz/core/utils'
+
+Error utils are a set of utility functions that are designed to make working with errors in ECMAScript easier and more efficient. Errors are a common occurrence in web applications, and can be caused by a variety of factors such as invalid user input, network issues, or programming errors.
+
+## Check Instance
+
+The **isError** function is used to check whether a given value is an **Error** object. The function takes any value as input and returns a boolean value indicating whether the input value is an Error object.
+
+The **isNotError** function is used to check whether a given value is not an **Error** object. The function takes any value as input and returns a boolean value indicating whether the input value is not an Error object.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_ERROR} template='javascript' title='isError' console={100} />

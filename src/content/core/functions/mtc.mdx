@@ -1,0 +1,12 @@
+---
+title: mtc
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_MTC } from '@/definitions/stack-blitz/core/functions'
+
+The **mtc** function stands for "make try catch", and it is a utility function that takes a function as its argument and returns a new function that wraps the original function in a try-catch block.
+
+The **mtc** function is a simple but powerful tool for making functions more robust and error-tolerant. By wrapping a function in a try-catch block, the **mtc** function allows errors to be caught and handled gracefully, making it easier to write and maintain reliable code.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MTC} template='javascript' title='mtc' console={100} />

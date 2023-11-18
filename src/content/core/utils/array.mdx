@@ -1,0 +1,93 @@
+---
+title: Array
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import {
+  SB_CLONE_SHALLOW_ARRAY,
+  SB_GET_ARRAYS_DIFFERENCE,
+  SB_GET_ARRAYS_INTERSECTION,
+  SB_GET_ARRAY_LAST_ITEM,
+  SB_REMOVE_ARRAY_DUPLICATES,
+  SB_REMOVE_ARRAY_ITEMS,
+  SB_IS_ARRAY
+} from '@/definitions/stack-blitz/core/utils'
+
+Array utils are a set of utility functions that are designed to make working with arrays in ECMAScript easier and more efficient. These functions provide a variety of useful features, such as cloning arrays, finding the difference and intersection between arrays, and removing duplicates from arrays.
+
+## Shallow Clone
+
+The **cloneShallowArray** function is used to create a shallow copy of an array. It takes an array of type **T[]** as input and returns a new array of type **T[]**.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_CLONE_SHALLOW_ARRAY}
+  template='javascript'
+  title='cloneShallowArray'
+  console={100}
+/>
+
+## Symmetric Difference
+
+The **getArraysDifference** function is used to return the symmetric difference between two or more arrays. The function takes an array of arrays of type **T[][]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ARRAYS_DIFFERENCE}
+  template='javascript'
+  title='getArraysDifference'
+  console={100}
+/>
+
+## Intersection
+
+The **getArraysIntersection** function is used to return the intersection between two or more arrays. The function takes an array of arrays of type **T[][]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ARRAYS_INTERSECTION}
+  template='javascript'
+  title='getArraysIntersection'
+  console={100}
+/>
+
+## Get Last Item
+
+The **getArrayLastItem** function is used to get the last item of an array. The function takes an array of type **T[]** as input and returns the last element of the array of type **T**. The function also takes an optional fallback value of type **T**, which is returned if the array is empty.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_ARRAY_LAST_ITEM}
+  template='javascript'
+  title='getArrayLastItem'
+  console={100}
+/>
+
+## Remove Duplicates
+
+The **removeArrayDuplicates** function is used to remove duplicates from an array. The function takes an array of type **T[]** as input and returns a new array of type **T[]**. The function also takes an optional **ArrayIncludes** function as input, which is used to determine whether two elements are equal.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_REMOVE_ARRAY_DUPLICATES}
+  template='javascript'
+  title='removeArrayDuplicates'
+  console={100}
+/>
+
+## Remove Items
+
+The **removeArrayItems** function is used to remove items from an array based on a given condition. The function takes an array of type **T[]** as input and returns a new array of type **T[]**. The function also takes an optional array of items to remove and an optional **ArrayRemoves** function as input.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_REMOVE_ARRAY_ITEMS} template='javascript' title='removeArrayItems' console={100} />
+
+## Array Check
+
+The **isArray** function is used to check whether a given value is an array. The function takes any value as input and returns a boolean value indicating whether the input value is an array.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_ARRAY} template='javascript' title='isArray' console={100} />

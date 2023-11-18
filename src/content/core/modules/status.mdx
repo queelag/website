@@ -1,0 +1,22 @@
+---
+title: Status
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_STATUS, SB_STATUS_IS_GETTERS } from '@/definitions/stack-blitz/core/modules'
+
+The **Status** class provides a convenient way to manage the status of a module and log messages when the status is set or cleared. The class can be used in a variety of applications to track the status of different modules and provide feedback to the user.
+
+The **Status** class has a **data** property that is a **Map** object that stores the status of the module. The **transformer** property is a function that transforms an array of keys into a single string that is used as the key in the **data** map.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_STATUS} template='javascript' title='Status' console={100} />
+
+## Getters
+
+The **isIdle**, **isPending**, **isSuccess**, and **isError** methods are getter methods of the **Status** class that allow the status of the module to be checked for a given set of keys. These methods take an array of keys as arguments and return a boolean value indicating whether the status of the module for the given keys is **IDLE**, **PENDING**, **SUCCESS**, or **ERROR**, respectively.
+
+The **isEveryIdle**, **isEveryPending**, **isEverySuccess**, and **isEveryError** methods are getter methods of the **Status** class that allow the status of the module to be checked for multiple sets of keys. These methods take an array of arrays of keys as arguments and return a boolean value indicating whether the status of the module is **IDLE**, **PENDING**, **SUCCESS**, or **ERROR** for every set of keys in the array of arrays.
+
+The **areSomeIdle**, **areSomePending**, **areSomeSuccess**, and **areSomeError** methods are getter methods of the **Status** class that allow the status of the module to be checked for multiple sets of keys. These methods take an array of arrays of keys as arguments and return a boolean value indicating whether the status of the module is **IDLE**, **PENDING**, **SUCCESS**, or **ERROR** for at least one set of keys in the array of arrays.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_STATUS_IS_GETTERS} template='javascript' title='Status' console={100} />

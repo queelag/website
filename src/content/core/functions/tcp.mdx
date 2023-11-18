@@ -1,0 +1,12 @@
+---
+title: tcp
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_TCP } from '@/definitions/stack-blitz/core/functions'
+
+The **tcp** function is a ECMAScript utility function that takes a function that returns a **Promise** as an argument, calls it, and returns the result of the function or the error that was thrown. The name **tcp** is short for "try catch promise", which reflects the function's purpose.
+
+The **tcp** function is a simple but useful utility function that can be used to call a function that returns a **Promise** inside a try-catch block and handle errors in a custom way. By using **tcp** instead of manually writing try-catch blocks, you can make your code more concise and easier to read.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TCP} template='javascript' title='tcp' console={100} />

@@ -1,0 +1,27 @@
+---
+title: List
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { ListComponentBlock } from '@/blocks/components/data/ListComponentBlock.tsx'
+import { SB_LIST } from '@/definitions/stack-blitz/react/components/data'
+
+<ListComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='List.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_LIST}
+  template='javascript'
+  title='List'
+/>

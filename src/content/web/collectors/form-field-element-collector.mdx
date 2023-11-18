@@ -1,0 +1,20 @@
+---
+title: FormFieldElementCollector
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_FORM_FIELD_ELEMENT_COLLECTOR } from '@/definitions/stack-blitz/web/collectors'
+
+The **FormFieldElementCollector** class is a utility class that provides methods for storing and retrieving instances of **FormFieldElement** subclasses. It uses three static maps, **mapByID**, **mapByTarget**, and **mapByUID**, to store elements by their id, target and uid properties, respectively.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_FORM_FIELD_ELEMENT_COLLECTOR}
+  template='javascript'
+  title='FormFieldElementCollector'
+  console={100}
+/>

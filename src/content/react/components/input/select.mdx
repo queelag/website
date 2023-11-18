@@ -1,0 +1,27 @@
+---
+title: Select
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SelectComponentBlock } from '@/blocks/components/input/SelectComponentBlock.tsx'
+import { SB_SELECT } from '@/definitions/stack-blitz/react/components/input'
+
+<SelectComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Select.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_SELECT}
+  template='javascript'
+  title='Select'
+/>

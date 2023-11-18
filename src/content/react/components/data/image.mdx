@@ -1,0 +1,27 @@
+---
+title: Image
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { ImageComponentBlock } from '@/blocks/components/data/ImageComponentBlock.tsx'
+import { SB_IMAGE } from '@/definitions/stack-blitz/react/components/data'
+
+<ImageComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Image.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_IMAGE}
+  template='javascript'
+  title='Image'
+/>

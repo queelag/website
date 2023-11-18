@@ -1,0 +1,12 @@
+---
+title: Appearence
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_APPEARENCE } from '@/definitions/stack-blitz/core/modules'
+
+The **Appearance** class provides functionality for managing the appearance of an application, including the theme and color scheme.
+
+The **Appearance** class constructor takes two optional parameters: a callback function to be called when the theme changes, and an initial theme value. The class also has a **storage** property that can be used to store the appearance settings.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE} template='javascript' title='Appearence' console={100} />

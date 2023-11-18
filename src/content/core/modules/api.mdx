@@ -1,0 +1,93 @@
+---
+title: API
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import {
+  SB_API_BASE_URL,
+  SB_API_CONFIG,
+  SB_API_STATUS,
+  SB_API_TRANSFORM_BODY,
+  SB_API_TRANSFORM_QUERY_PARAMETERS,
+  SB_API_HANDLE_ERROR,
+  SB_API_HANDLE_PENDING,
+  SB_API_HANDLE_SUCCESS
+} from '@/definitions/stack-blitz/core/modules'
+
+The **API** class provides a way to make HTTP requests to a server. It has methods for handling different types of HTTP requests (e.g., **connect**, **delete**, **get**, etc.). The class also has properties for storing the base URL of the server and configuration options for the requests.
+
+## Isomorphic
+
+The **API** class is isomorphic because it uses the **Polyfill** class to polyfill the **fetch**, **Blob**, **File**, and **FormData** APIs. This allows the **API** class to work in both server-side and client-side environments, even if those environments do not support these APIs natively.
+
+By polyfilling these APIs, the **API** class can work in both server-side and client-side environments, making it isomorphic. This means that you can use the same code to make HTTP requests from both the server and the client, reducing code duplication and making your code more maintainable.
+
+## Base URL
+
+In the context of the **API** class, **baseURL** is a property that represents the base URL of the server that the class will make HTTP requests to.
+
+For example, if the baseURL **property** is set to **"https://example.com/api/"** and the path argument passed to the get method is **"users"**, the full URL of the resource to request will be **"https://example.com/api/users"**.
+
+By setting the **baseURL** property, you can avoid having to repeat the base URL in every request. This can make your code more concise and easier to read.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_BASE_URL} template='javascript' title='API' console={100} />
+
+## Default Configuration
+
+In the constructor of the **API** class, the **config** parameter is an optional object that represents the default configuration options for all HTTP requests made with the **API** instance.
+
+The **config** object can contain properties such as **headers**, **credentials**, **mode**, **cache**, **redirect**, **referrer**, **referrerPolicy**, **integrity**, **keepalive**, **signal**, **window**, and more. These properties allow you to customize the behavior of all HTTP requests made with the **API** instance, such as setting custom headers, specifying the cache mode, or setting the referrer policy.
+
+When creating a new instance of the **API** class, you can pass a **config** object as the second argument to the constructor to specify the default configuration options for all HTTP requests made with that instance.
+
+By using the **config** parameter in the constructor, we can set default configuration options for all HTTP requests made with the **API** instance, which can save us from having to repeat the same configuration options in every request.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_CONFIG} template='javascript' title='API' console={100} />
+
+## Status
+
+In the API class, the **status** instance is an instance of the **Status** class, which is used to keep track of the status of HTTP requests made with the **API** instance.
+
+By keeping track of the status of HTTP requests, the **Status** class allows you to monitor the progress of requests and handle them appropriately based on their status. For example, you could display a loading spinner while a request is pending, or display an error message if a request fails.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_STATUS} template='javascript' title='API' console={100} />
+
+## Transform Body
+
+The **transformBody** method in the **API** class is a hook that allows you to transform the request body before it is sent to the server.
+
+The **transformBody** method should return the transformed request body. If you don't want to transform the request body, you can simply return the original **body** argument.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_TRANSFORM_BODY} template='javascript' title='API' console={100} />
+
+## Transform Query Parameters
+
+The **transformQueryParameters** method in the **API** class is a hook that allows you to transform the query parameters of a request before it is sent to the server.
+
+The **transformQueryParameters** method should return the transformed query parameters as a string. If you don't want to transform the query parameters, you can simply return an empty string.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_TRANSFORM_QUERY_PARAMETERS} template='javascript' title='API' console={100} />
+
+## Handle Error
+
+The **handleError** method in the **API** class is a hook that allows you to handle errors that occur during an HTTP request.
+
+The **handleError** method should return a boolean value indicating whether the error was handled or not. If you return **true**, the **handle** method will not throw the error and will instead return a **FetchError** object. If you return **false**, the **handle** method will re-throw the error.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_HANDLE_ERROR} template='javascript' title='API' console={100} />
+
+## Handle Pending
+
+The **handlePending** method in the **API** class is a hook that allows you to handle pending HTTP requests.
+
+The **handlePending** method should return a boolean value indicating whether the pending request was handled or not. If you return **true**, the **handle** method will not throw an error and will instead return a **FetchError** object. If you return **false**, the **handle** method will continue with the request.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_HANDLE_PENDING} template='javascript' title='API' console={100} />
+
+## Handle Success
+
+The **handleSuccess** method in the **API** class is a hook that allows you to handle successful HTTP responses.
+
+The **handleSuccess** method should return a boolean value indicating whether the response was handled or not. If you return **true**, the **handle** method will not throw an error and will instead return the **response** object. If you return **false**, the handle method will throw a **FetchError** object.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_API_HANDLE_SUCCESS} template='javascript' title='API' console={100} />

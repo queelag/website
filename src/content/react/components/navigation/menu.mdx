@@ -1,0 +1,27 @@
+---
+title: Menu
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { MenuComponentBlock } from '@/blocks/components/navigation/MenuComponentBlock.tsx'
+import { SB_MENU } from '@/definitions/stack-blitz/react/components/navigation'
+
+<MenuComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Menu.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_MENU}
+  template='javascript'
+  title='Menu'
+/>

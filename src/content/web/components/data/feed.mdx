@@ -1,0 +1,24 @@
+---
+title: Feed
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { FeedComponentBlock } from '@/blocks/components/data/FeedComponentBlock.tsx'
+import { SB_FEED } from '@/definitions/stack-blitz/web/components/data'
+
+<FeedComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_FEED}
+  template='javascript'
+  title='Feed'
+/>

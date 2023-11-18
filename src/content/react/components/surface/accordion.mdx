@@ -1,0 +1,27 @@
+---
+title: Accordion
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { AccordionComponentBlock } from '@/blocks/components/surface/AccordionComponentBlock.tsx'
+import { SB_ACCORDION } from '@/definitions/stack-blitz/react/components/surface'
+
+<AccordionComponentBlock client:load />
+
+<CodeBlock
+  client:load
+  activeFile='Accordion.jsx'
+  className='mt-6'
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_ACCORDION}
+  template='javascript'
+  title='Accordion'
+/>

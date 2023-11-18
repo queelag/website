@@ -1,0 +1,31 @@
+---
+title: useObservableElementComponent
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { SB_USE_OBSERVABLE_ELEMENT_COMPONENT } from '@/definitions/stack-blitz/react/functions'
+
+The **useObservableElementComponent** hook is a custom React hook that returns an object containing a reference to a DOM element and a mutable ref object that can be used to access the element. The hook takes in an optional **options** object that can be used to specify which attributes and state changes should trigger a re-render of the component.
+
+The **options** parameter is an optional object that can be passed to the **useObservableElementComponent** hook to specify which attributes and state changes should trigger a re-render of the component. The **options** object has two properties: **attribute** and **state**.
+
+The **attribute** property is an object that can have three properties: **blacklist**, **whitelist**, and **dispatch**. The **blacklist** property is an array of attribute names that should not trigger a re-render when changed. The **whitelist** property is an array of attribute names that should trigger a re-render when changed. The **dispatch** property is a boolean that determines whether or not to dispatch a re-render when an attribute is changed.
+
+The **state** property is an object that can have three properties: **blacklist**, **whitelist**, and **dispatch**. The **blacklist** property is an array of state names that should not trigger a re-render when changed. The **whitelist** property is an array of state names that should trigger a re-render when changed. The **dispatch** property is a boolean that determines whether or not to dispatch a re-render when a state is changed.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/react-components': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_USE_OBSERVABLE_ELEMENT_COMPONENT}
+  template='vite-react'
+  title='useObservableElementComponent'
+  console
+/>

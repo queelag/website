@@ -11,17 +11,13 @@ export function SidebarItem(props: SidebarItemProps) {
   const isExpanded = (): boolean => {
     let item: StorageItem | Error
 
-    if (props.expanded) {
-      return true
-    }
-
-    item = SessionStorage.get(props.href)
+    item = SessionStorage.get(props.slug)
     if (item instanceof Error) return false
 
-    return item.expanded
+    return item.expanded ?? location.pathname.includes(props.slug)
   }
 
-  const store = useObservable({ active: props.active ?? false, expanded: isExpanded() })
+  const store = useObservable({ active: props.slug === location.pathname, expanded: isExpanded() })
   const expandable = useMemo(() => props.items?.length !== 0, [props.items])
 
   const onClick = () => {
@@ -34,7 +30,7 @@ export function SidebarItem(props: SidebarItemProps) {
     }
 
     store.expanded = !store.expanded
-    SessionStorage.set(props.href, store, ['expanded'])
+    SessionStorage.set(props.slug, store, ['expanded'])
   }
 
   return (
@@ -43,9 +39,9 @@ export function SidebarItem(props: SidebarItemProps) {
         className={joinElementClasses(
           'group flex justify-between items-center px-2 py-1 rounded cursor-pointer',
           'transition hover:bg-slate-700',
-          props.active && 'bg-slate-800'
+          store.active && 'bg-slate-800'
         )}
-        href={props.items ? undefined : props.href}
+        href={props.items ? undefined : props.slug}
         onClick={onClick}
       >
         <span className='flex items-center gap-2'>
