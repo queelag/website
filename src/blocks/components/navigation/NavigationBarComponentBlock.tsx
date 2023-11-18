@@ -4,7 +4,7 @@ import { ICON_F_GLOBE } from '@aracna/icons-feather/assets/globe'
 import { ICON_F_STAR } from '@aracna/icons-feather/assets/star'
 import { ICON_F_TRENDING_UP } from '@aracna/icons-feather/assets/trending-up'
 import type { AracnaNavigationBarProps } from '@aracna/react'
-import { AracnaIcon } from '@aracna/react-components'
+import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaNavigationBar, AracnaNavigationBarItem } from '@aracna/react-components/components/navigation/navigation-bar'
 import { useState } from 'react'
 

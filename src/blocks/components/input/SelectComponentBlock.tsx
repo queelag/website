@@ -7,7 +7,8 @@ import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { useObservableElementComponent, type AracnaSelectProps } from '@aracna/react'
-import { AracnaButton, AracnaChip } from '@aracna/react-components'
+import { AracnaChip } from '@aracna/react-components/components/data/chip'
+import { AracnaButton } from '@aracna/react-components/components/input/button'
 import {
   AracnaSelect,
   AracnaSelectButton,
