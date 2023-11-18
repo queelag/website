@@ -74,7 +74,7 @@ export const COLOR_SEANCE: Record<number, string> = {
 /**
  * Header
  */
-export const HEADER_HEIGHT: number = 48 + 24 * 2
+export const HEADER_HEIGHT: number = 24 + 24 * 2
 
 /**
  * Code Runtime
