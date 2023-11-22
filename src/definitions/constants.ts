@@ -253,3 +253,8 @@ export const DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES: ComponentBlo
  * StackBlitz
  */
 export const STACK_BLITZ_PROJECT_KEYS: (keyof Project)[] = ['files', 'dependencies', 'description', 'settings', 'tags', 'template', 'title']
+
+/**
+ * Env
+ */
+export const PUBLIC_URL: string = import.meta.env.PUBLIC_URL

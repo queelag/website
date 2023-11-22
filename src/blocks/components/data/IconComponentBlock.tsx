@@ -1,5 +1,6 @@
 import ICON_MIC from '@/assets/icons/mic.svg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { PUBLIC_URL } from '@/definitions/constants'
 import { concatURL } from '@aracna/core'
 import type { AracnaIconProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
@@ -25,7 +26,7 @@ export function IconComponentBlock() {
         color: 'white',
         fill: 'none',
         size: 16,
-        src: concatURL(import.meta.env.PUBLIC_URL, ICON_MIC.src),
+        src: concatURL(PUBLIC_URL, ICON_MIC.src),
         stroke: 'inherit',
         'stroke-linecap': 'round',
         'stroke-linejoin': 'round',
