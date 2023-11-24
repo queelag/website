@@ -1,5 +1,6 @@
 import { html } from '@/functions/html'
 import type { Project, ProjectDependencies } from '@stackblitz/sdk'
+import { slate } from 'tailwindcss/colors'
 import type { ComponentBlockAttribute } from './interfaces'
 
 /**
@@ -70,6 +71,7 @@ export const COLOR_SEANCE: Record<number, string> = {
   900: '#5a189a',
   950: '#380d68'
 }
+export const COLOR_SLATE: Record<number, string> = slate
 
 /**
  * Header

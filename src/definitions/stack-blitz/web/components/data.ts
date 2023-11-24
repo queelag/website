@@ -27,7 +27,7 @@ export const SB_AVATAR: ProjectFiles = {
   `,
   'app.js': html`
     <script>
-      import '@aracna/web-components/elements/data/avatar-element.cjs';
+      import '@aracna/web-components/elements/data/avatar-element';
     </script>
   `
 };
@@ -54,7 +54,7 @@ export const SB_BADGE: ProjectFiles = {
   `,
   'app.js': html`
     <script>
-      import '@aracna/web-components/elements/data/badge-element.cjs';
+      import '@aracna/web-components/elements/data/badge-element';
     </script>
   `
 };
@@ -69,21 +69,29 @@ export const SB_CAROUSEL_BUTTONS: ProjectFiles = {
         <aracna-carousel-slide></aracna-carousel-slide>
       </aracna-carousel-slides>
       <aracna-carousel-rotation-control>
-        <aracna-icon class="pause-circle" fill="white" size="20"></aracna-icon>
-        <aracna-icon class="play-circle" fill="white" size="20"></aracna-icon>
+        <aracna-icon
+          fill="white"
+          size="20"
+          src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/pause-circle"
+        ></aracna-icon>
+        <aracna-icon
+          fill="white"
+          size="20"
+          src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/play-circle"
+        ></aracna-icon>
       </aracna-carousel-rotation-control>
       <aracna-carousel-previous-slide-control>
         <aracna-icon
-          class="arrow-circle-left"
           fill="white"
           size="20"
+          src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/arrow-circle-left"
         ></aracna-icon>
       </aracna-carousel-previous-slide-control>
       <aracna-carousel-next-slide-control>
         <aracna-icon
-          class="arrow-circle-right"
           fill="white"
           size="20"
+          src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/arrow-circle-right"
         ></aracna-icon>
       </aracna-carousel-next-slide-control>
     </aracna-carousel>
@@ -162,19 +170,8 @@ export const SB_CAROUSEL_BUTTONS: ProjectFiles = {
   `,
   'app.js': html`
     <script>
-      import '@aracna/web-components/elements/data/carousel-element.cjs';
+      import '@aracna/web-components/elements/data/carousel-element';
       import '@aracna/web-components/elements/data/icon-element';
-      import { ICON_MS_ARROW_CIRCLE_LEFT_W700 } from '@aracna/icons-material-symbols-rounded-os20-fill/assets/arrow-circle-left';
-      import { ICON_MS_ARROW_CIRCLE_RIGHT_W700 } from '@aracna/icons-material-symbols-rounded-os20-fill/assets/arrow-circle-right';
-      import { ICON_MS_PAUSE_CIRCLE_W700 } from '@aracna/icons-material-symbols-rounded-os20-fill/assets/pause-circle';
-      import { ICON_MS_PLAY_CIRCLE_W700 } from '@aracna/icons-material-symbols-rounded-os20-fill/assets/play-circle';
-
-      document.querySelector('.arrow-circle-left').src =
-        ICON_MS_ARROW_CIRCLE_LEFT_W700;
-      document.querySelector('.arrow-circle-right').src =
-        ICON_MS_ARROW_CIRCLE_RIGHT_W700;
-      document.querySelector('.pause-circle').src = ICON_MS_PAUSE_CIRCLE_W700;
-      document.querySelector('.play-circle').src = ICON_MS_PLAY_CIRCLE_W700;
     </script>
   `
 };
@@ -189,8 +186,16 @@ export const SB_CAROUSEL_TABS: ProjectFiles = {
         <aracna-carousel-slide></aracna-carousel-slide>
       </aracna-carousel-slides>
       <aracna-carousel-rotation-control>
-        <aracna-icon class="pause-circle" fill="white" size="20"></aracna-icon>
-        <aracna-icon class="play-circle" fill="white" size="20"></aracna-icon>
+        <aracna-icon
+          fill="white"
+          size="20"
+          src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/pause-circle"
+        ></aracna-icon>
+        <aracna-icon
+          fill="white"
+          size="20"
+          src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/play-circle"
+        ></aracna-icon>
       </aracna-carousel-rotation-control>
       <aracna-carousel-tabs>
         <aracna-carousel-tab active></aracna-carousel-tab>
@@ -285,26 +290,63 @@ export const SB_CAROUSEL_TABS: ProjectFiles = {
     <script>
       import '@aracna/web-components/elements/data/carousel-element';
       import '@aracna/web-components/elements/data/icon-element';
-      import { ICON_MS_PAUSE_CIRCLE_W700 } from '@aracna/icons-material-symbols-rounded-os20-fill/assets/pause-circle';
-      import { ICON_MS_PLAY_CIRCLE_W700 } from '@aracna/icons-material-symbols-rounded-os20-fill/assets/play-circle';
-
-      document.querySelector('.pause-circle').src = ICON_MS_PAUSE_CIRCLE_W700;
-      document.querySelector('.play-circle').src = ICON_MS_PLAY_CIRCLE_W700;
     </script>
   `
 };
 
 export const SB_CHIP: ProjectFiles = {
-  'index.html': html` <aracna-chip></aracna-chip> `,
+  'index.html': html`
+    <aracna-chip>
+      <aracna-icon
+        class="face"
+        size="24"
+        src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/face"
+      ></aracna-icon>
+      <span>John Doe</span>
+      <aracna-icon
+        class="close"
+        size="16"
+        src="https://www.unpkg.com/@aracna/icons-material-symbols-rounded-os20-fill/assets/close"
+      ></aracna-icon>
+    </aracna-chip>
+  `,
+  'app.css': html`
+    <style>
+      aracna-chip {
+        align-items: center;
+        background: lightgray;
+        border-radius: 128px;
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+      }
+
+      aracna-chip aracna-icon.face {
+        margin: 2px 4px 2px 2px;
+      }
+
+      aracna-chip aracna-icon.close {
+        cursor: pointer;
+        margin: 0 8px 0 4px;
+      }
+
+      aracna-chip span {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    </style>
+  `,
   'app.js': html`
     <script>
-      import '@aracna/web-components/elements/data/chip-element.cjs';
+      import '@aracna/web-components/elements/data/chip-element';
+      import '@aracna/web-components/elements/data/icon-element';
     </script>
   `
 };
 
 export const SB_FEED: ProjectFiles = {
   'index.html': html` <aracna-feed></aracna-feed> `,
+  'app.css': html` <style></style> `,
   'app.js': html`
     <script>
       import '@aracna/web-components/elements/data/feed-element.cjs';
@@ -314,6 +356,7 @@ export const SB_FEED: ProjectFiles = {
 
 export const SB_ICON: ProjectFiles = {
   'index.html': html` <aracna-icon></aracna-icon> `,
+  'app.css': html` <style></style> `,
   'app.js': html`
     <script>
       import '@aracna/web-components/elements/data/icon-element.cjs';
@@ -323,6 +366,7 @@ export const SB_ICON: ProjectFiles = {
 
 export const SB_IMAGE: ProjectFiles = {
   'index.html': html` <aracna-image></aracna-image> `,
+  'app.css': html` <style></style> `,
   'app.js': html`
     <script>
       import '@aracna/web-components/elements/data/image-element.cjs';
@@ -332,6 +376,7 @@ export const SB_IMAGE: ProjectFiles = {
 
 export const SB_LIST: ProjectFiles = {
   'index.html': html` <aracna-list></aracna-list> `,
+  'app.css': html` <style></style> `,
   'app.js': html`
     <script>
       import '@aracna/web-components/elements/data/list-element.cjs';
@@ -341,6 +386,7 @@ export const SB_LIST: ProjectFiles = {
 
 export const SB_TOOLTIP: ProjectFiles = {
   'index.html': html` <aracna-tooltip></aracna-tooltip> `,
+  'app.css': html` <style></style> `,
   'app.js': html`
     <script>
       import '@aracna/web-components/elements/data/tooltip-element.cjs';

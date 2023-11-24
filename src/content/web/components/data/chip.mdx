@@ -6,6 +6,8 @@ import { CodeBlock } from '@/blocks/CodeBlock.tsx'
 import { ChipComponentBlock } from '@/blocks/components/data/ChipComponentBlock.tsx'
 import { SB_CHIP } from '@/definitions/stack-blitz/web/components/data'
 
+The **ChipElement** is a custom web component often used in modern web development. It's typically a compact element that represents an input, attribute, or action. Chips can contain brief pieces of information like a photo, text, or a small icon. They are commonly used for contacts, text, rules, or filter additions in a compact presentation. They can also be used to represent complex pieces of information in a small block, such as a short summary of a user's contact information.
+
 <ChipComponentBlock client:load />
 
 <CodeBlock
@@ -15,6 +17,7 @@ import { SB_CHIP } from '@/definitions/stack-blitz/web/components/data'
     '@aracna/core': 'latest',
     '@aracna/web': 'latest',
     '@aracna/web-components': 'latest',
+    dompurify: 'latest',
     lit: 'latest',
     'lit-html': 'latest'
   }}
