@@ -3,7 +3,6 @@ import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import type { AracnaImageProps } from '@aracna/react'
 import { AracnaImage } from '@aracna/react-components/components/data/image'
-import colors from 'tailwindcss/colors'
 
 export function ImageComponentBlock() {
   return (
@@ -30,9 +29,8 @@ export function ImageComponentBlock() {
       ]}
       component={(props: AracnaImageProps) => <AracnaImage {...props} className='aspect-square max-w-[192px]' />}
       defaultProps={{
-        background: colors.slate[800],
         shape: 'squircle',
-        'shape-squircle-curvature': '1',
+        'shape-squircle-curvature': 1,
         size: 192,
         src: MESH_SEANCE.src
       }}

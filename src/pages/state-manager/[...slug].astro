@@ -1,16 +1,17 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '@/layouts/Layout.astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
 
 export async function getStaticPaths() {
-  let entries: CollectionEntry<'state-manager'>[]  = await getCollection('state-manager');
+  let entries: CollectionEntry<'state-manager'>[] = await getCollection('state-manager')
 
   return entries.map((entry: CollectionEntry<'state-manager'>) => ({ params: { slug: entry.slug }, props: { entry } }))
 }
 
-const { entry } = Astro.props;
-const { Content, headings, remarkPluginFrontmatter } = await entry.render();
+const { entry } = Astro.props
+const { Content, headings, remarkPluginFrontmatter } = await entry.render()
 ---
-<Layout frontmatter={remarkPluginFrontmatter} headings={headings} slug={entry.slug}>
+
+<Layout frontmatter={{ ...remarkPluginFrontmatter, url: entry.slug }} headings={headings}>
   <Content />
 </Layout>
