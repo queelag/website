@@ -8,7 +8,7 @@ import {
   SB_CREATE_BASE_ELEMENT_COMPONENT,
   SB_CREATE_FLOATING_ELEMENT_COMPONENT,
   SB_CREATE_FOCUS_TRAP_ELEMENT_COMPONENT,
-  SB_CREATE_FORM_FIELD_ELEMENT_COMPONENT
+  SB_CREATE_FORM_CONTROL_ELEMENT_COMPONENT
 } from '@/definitions/stack-blitz/react/functions'
 
 The **createElementComponent** function is a utility function that creates a React component that renders a DOM element with specified attributes and event listeners. It takes in several generic type parameters, including the tag name of the element to be rendered, the attributes and events of the element, and the props of the component. The function uses the **forwardRef** function from React to forward a ref to the underlying DOM element, and it also sets up event listeners for specified events.
@@ -100,13 +100,13 @@ The **createFocusTrapElementComponent** function creates a React component that 
   title='createFocusTrapElementComponent'
 />
 
-## FormFieldElement
+## FormControlElement
 
-The **createFormFieldElementComponent** function creates a React component that renders a form field DOM element with specified attributes and event listeners.
+The **createFormControlElementComponent** function creates a React component that renders a form field DOM element with specified attributes and event listeners.
 
 - **Element**: A generic type that extends the **HTMLElementTagNameMap** interface and specifies the type of the DOM element to be rendered.
-- **Attributes**: A generic type that extends the **FormFieldElementAttributes** interface and specifies the attributes of the form field DOM element.
-- **Events**: A generic type that extends the **FormFieldElementEventMap** interface and specifies the event listeners of the form field DOM element.
+- **Attributes**: A generic type that extends the **FormControlElementAttributes** interface and specifies the attributes of the form field DOM element.
+- **Events**: A generic type that extends the **FormControlElementEventMap** interface and specifies the event listeners of the form field DOM element.
 - **Props**: A generic type that extends the **ElementComponentProps** interface and specifies the props of the React component.
 - **Key**: A generic type that extends the **keyof** **HTMLElementTagNameMap** interface and specifies the tag name of the form field DOM element.
 
@@ -118,7 +118,7 @@ The **createFormFieldElementComponent** function creates a React component that 
     '@aracna/web': 'latest',
     '@aracna/web-components': 'latest'
   }}
-  files={SB_CREATE_FORM_FIELD_ELEMENT_COMPONENT}
+  files={SB_CREATE_FORM_CONTROL_ELEMENT_COMPONENT}
   template='vite-react'
-  title='createFormFieldElementComponent'
+  title='createFormControlElementComponent'
 />

@@ -1,0 +1,17 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
+
+export async function getStaticPaths() {
+  let entries: CollectionEntry<'fcm'>[] = await getCollection('fcm')
+
+  return entries.map((entry: CollectionEntry<'fcm'>) => ({ params: { slug: entry.slug }, props: { entry } }))
+}
+
+const { entry } = Astro.props
+const { Content, headings, remarkPluginFrontmatter } = await entry.render()
+---
+
+<Layout frontmatter={{ ...remarkPluginFrontmatter, url: entry.slug }} headings={headings}>
+  <Content />
+</Layout>

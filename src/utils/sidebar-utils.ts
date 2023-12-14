@@ -78,6 +78,8 @@ export async function getCollectionSidebarItems(key: CollectionKey): Promise<Sid
 
 function getFolderTitle(folder: string): string {
   switch (folder) {
+    case '/fcm':
+      return 'FCM'
     case '/state-manager':
       return 'State Manager'
     default:

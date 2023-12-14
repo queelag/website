@@ -6,6 +6,8 @@ import { SidebarItem } from './SidebarItem'
 const items: SidebarItemProps[] = [
   { order: -1, slug: '/', title: 'Introduction' },
   ...(await getCollectionSidebarItems('core')),
+  ...(await getCollectionSidebarItems('fcm')),
+  ...(await getCollectionSidebarItems('icons')),
   ...(await getCollectionSidebarItems('react')),
   ...(await getCollectionSidebarItems('state-manager')),
   ...(await getCollectionSidebarItems('web'))
