@@ -11,6 +11,7 @@ import { offset } from '@floating-ui/dom'
 
 type Props = AracnaSelectProps<SelectOption> & {
   label?: string
+  placeholder?: string
 }
 
 export function Select(props: Props) {

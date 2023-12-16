@@ -13,7 +13,7 @@ export function CheckedList(props: Props) {
       {props.items.map((item: string) => (
         <div {...props.itemElementProps} className={joinElementClasses('flex items-center gap-3', props.itemElementProps?.className)} key={item}>
           <div className='w-6 h-6 flex justify-center items-center rounded-full bg-lime-500'>
-            <IconFeatherCheck size={12} stroke='white' />
+            <IconFeatherCheck size={12} stroke='white' stroke-width={3} />
           </div>
           <div className='flex flex-col'>
             <span className='font-medium text-white'>{item}</span>

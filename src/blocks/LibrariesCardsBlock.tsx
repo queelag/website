@@ -51,7 +51,7 @@ export function LibrariesCardsBlock() {
         <a
           className={joinElementClasses(
             'flex flex-col gap-4 p-6 rounded-3xl overflow-hidden shadow-lg ring-offset-2 ring-offset-black transition border-2 border-slate-800 bg-black hover:ring-4',
-            library.ring
+            'ring-blue-400'
           )}
           href={library.href}
           key={library.href}

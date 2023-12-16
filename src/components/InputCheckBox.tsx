@@ -6,6 +6,7 @@ import { joinElementClasses } from '@aracna/web'
 
 type Props = AracnaCheckBoxProps & {
   label?: string
+  placeholder?: string
 }
 
 export function InputCheckBox(props: Props) {

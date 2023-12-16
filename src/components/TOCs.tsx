@@ -60,7 +60,7 @@ export function TOCs(props: Props) {
             <a
               className={joinElementClasses(
                 'inline-flex py-1 border-l-4',
-                'transition hover:border-purple-500',
+                'transition hover:border-blue-500',
                 heading.slug === active ? 'border-slate-600' : index <= 0 && !active ? 'border-slate-600' : 'border-slate-800'
               )}
               href={'#' + heading.slug}

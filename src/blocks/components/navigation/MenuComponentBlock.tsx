@@ -79,12 +79,7 @@ function MenuItem(props: AracnaMenuItemProps & { deep?: boolean }) {
       )}
       ref={ref}
     >
-      <a
-        className='w-full flex justify-between items-center gap-2 no-underline outline-none text-xs'
-        href={props.href}
-        target='_blank'
-        suppressHydrationWarning
-      >
+      <a className='w-full flex justify-between items-center gap-2 no-underline outline-none text-xs' suppressHydrationWarning>
         <span>{props.headline}</span>
         {props.items && (
           <Fragment>
