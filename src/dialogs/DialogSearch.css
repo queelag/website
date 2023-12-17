@@ -1,14 +1,27 @@
 aracna-dialog#search {
   @apply fixed top-64 left-[50%] -translate-x-[50%] z-50;
-  @apply max-w-xl w-full flex flex-col rounded bg-slate-900 shadow-2xl;
+  @apply max-w-xl w-full flex flex-col rounded bg-slate-800 shadow-2xl;
+  @apply divide-y divide-slate-700;
   @apply transition;
 
   &:not([visible]) {
     @apply opacity-0 pointer-events-none;
   }
 
-  aracna-input {
-    @apply w-full p-2 rounded;
+  div.input-box {
+    @apply relative flex items-center;
+
+    icon-feather-search {
+      @apply absolute left-4 pointer-events-none;
+    }
+
+    aracna-input {
+      @apply w-full rounded;
+    }
+
+    aracna-chip {
+      @apply absolute right-4 pointer-events-none;
+    }
   }
 
   aracna-listbox {
@@ -16,7 +29,12 @@ aracna-dialog#search {
   }
 
   aracna-listbox-option {
-    @apply flex flex-col gap-1 p-4 rounded bg-slate-800;
+    @apply flex flex-col gap-1 p-4 rounded transition bg-slate-700;
+    @apply hover:bg-slate-600;
+
+    a {
+      @apply flex flex-col gap-1;
+    }
 
     span.text {
       @apply text-xs line-clamp-2 text-slate-300;

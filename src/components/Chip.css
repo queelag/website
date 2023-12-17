@@ -1,0 +1,15 @@
+aracna-chip.chip {
+  @apply px-2 py-1 rounded;
+
+  &:not([layer]) {
+    @apply bg-slate-800;
+  }
+
+  &[layer='1'] {
+    @apply bg-slate-700;
+  }
+
+  span {
+    @apply text-xs font-medium;
+  }
+}

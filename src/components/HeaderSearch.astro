@@ -1,13 +1,13 @@
 ---
-import { DialogSearch } from '@/dialogs/DialogSearch'
 import { IconFeatherSearch } from '@aracna/icons-feather-react/components/search'
 import { joinElementClasses } from '@aracna/web'
+import { Chip } from './Chip'
 ---
 
 <div
   class={joinElementClasses(
-    'w-64 hidden xl:flex justify-between items-center px-3 py-2 rounded cursor-pointer border-2 border-slate-800 bg-black',
-    'transition hover:border-slate-700'
+    'w-64 hidden xl:flex justify-between items-center px-3 py-2 rounded cursor-pointer bg-slate-800',
+    'transition hover:ring-2 ring-slate-800'
   )}
   id='search-trigger'
 >
@@ -15,7 +15,7 @@ import { joinElementClasses } from '@aracna/web'
     <IconFeatherSearch client:load stroke='white' />
     <span class='text-slate-400'>Search</span>
   </div>
-  <div class='flex justify-center items-center px-2 py-1 text-xs rounded border-2 border-slate-800'>CTRL + K</div>
+  <Chip client:load layer={1} text='CTRL + K' />
 </div>
 
 <script>
