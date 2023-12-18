@@ -1,10 +1,10 @@
 import type { SidebarItemProps } from '@/definitions/props'
-import type { StorageItem } from '@aracna/core'
+import { type StorageItem } from '@aracna/core'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { useObservable } from '@aracna/state-manager-react'
-import { SessionStorage, joinElementClasses } from '@aracna/web'
+import { joinElementClasses, SessionStorage } from '@aracna/web'
 import { useMemo } from 'react'
 
 export function SidebarItem(props: SidebarItemProps) {
@@ -14,10 +14,10 @@ export function SidebarItem(props: SidebarItemProps) {
     item = SessionStorage.get(props.slug)
     if (item instanceof Error) return false
 
-    return item.expanded ?? location.pathname.includes(props.slug)
+    return item.expanded ?? location.pathname.startsWith(props.slug)
   }
 
-  const store = useObservable({ active: props.slug === location.pathname, expanded: isExpanded() })
+  const store = useObservable({ active: props.slug === location.pathname.replace(/\/$/, ''), expanded: isExpanded() })
   const expandable = useMemo(() => props.items?.length !== 0, [props.items])
 
   const onClick = () => {

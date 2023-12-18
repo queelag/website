@@ -1,5 +1,13 @@
 aracna-chip.chip {
-  @apply px-2 py-1 rounded;
+  @apply px-2 py-1 rounded transition;
+
+  &:not([size]) {
+    @apply px-2 py-1 text-xs;
+  }
+
+  &[size='small'] {
+    @apply px-1.5 py-0.5 text-[10px];
+  }
 
   &:not([layer]) {
     @apply bg-slate-800;
@@ -9,7 +17,11 @@ aracna-chip.chip {
     @apply bg-slate-700;
   }
 
+  &[layer='2'] {
+    @apply bg-slate-600;
+  }
+
   span {
-    @apply text-xs font-medium;
+    @apply font-medium;
   }
 }

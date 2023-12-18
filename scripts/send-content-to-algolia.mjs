@@ -21,6 +21,7 @@ for (const file of files) {
 
   objects.push({
     objectID: slug,
+    package: file.split('/')[2],
     slug: slug,
     text: text,
     title: matter.get('title')
@@ -66,7 +67,7 @@ function getText(mdx) {
       // Remove Blockquotes
       .replace(/> /gm, '')
       // Remove Bold
-      .replace(/\*\*([^*])\*\*/gm, '$1')
+      .replace(/\*\*([^*]+)\*\*/gm, '$1')
       // Remove Code Blocks
       .replace(/```[^`]+```/gm, '')
       // Remove Headings
@@ -78,7 +79,7 @@ function getText(mdx) {
       // Remove Inline Code
       .replace(/`[^`]+`/gm, '')
       // Remove Italic
-      .replace(/\*([^*])\*/gm, '$1')
+      .replace(/\*([^*]+)\*/gm, '$1')
       // Remove Links
       .replace(/\[([^\]]+)\]\([^\)]+\)/gm, '$1')
       // Remove Lists
