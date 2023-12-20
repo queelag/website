@@ -4,8 +4,6 @@ on:
   push:
     branches: ['master']
 
-  workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
@@ -17,7 +15,11 @@ concurrency:
 
 jobs:
   build:
-    env: { PUBLIC_URL: 'https://aracna.dariosechi.it' }
+    env:
+      ALGOLIA_API_KEY: ${{ vars.ALGOLIA_API_KEY }}
+      ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
+      ALGOLIA_INDEX_NAME: ${{ vars.ALGOLIA_INDEX_NAME }}
+      PUBLIC_URL: ${{ vars.PUBLIC_URL }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git

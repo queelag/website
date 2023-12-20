@@ -21,7 +21,7 @@ import { Fragment } from 'react'
 import './DialogSearch.css'
 
 const search = algoliasearch(import.meta.env.PUBLIC_ALGOLIA_APP_ID, import.meta.env.PUBLIC_ALGOLIA_API_KEY)
-const index = search.initIndex('website')
+const index = search.initIndex(import.meta.env.PUBLIC_ALGOLIA_INDEX_NAME)
 
 interface T {
   package: string
