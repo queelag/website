@@ -65,8 +65,12 @@ export async function getCollectionSidebarItems(key: CollectionKey): Promise<Sid
       continue
     }
 
+    if (entry.data.draft) {
+      continue
+    }
+
     item.items.push({
-      order: entry.data.order ?? i,
+      order: entry.data.order ?? item.items.length,
       slug: sslug.join('/'),
       title: entry.data.title
     })
@@ -85,4 +89,8 @@ function getFolderTitle(folder: string): string {
     default:
       return getCapitalizedString(folder.replace('/', ''))
   }
+}
+
+function getSidebarItemsLength(items: SidebarItemProps[]): number {
+  return items.reduce((length: number, item: SidebarItemProps) => length + getSidebarItemsLength(item.items ?? []), items.length)
 }

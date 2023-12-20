@@ -3,18 +3,11 @@ order: -1
 title: Get Started
 ---
 
-import { CodeWindow } from '@/components/CodeWindow.tsx'
+import { PackageManagerBlock } from '@/blocks/PackageManagerBlock'
 
 The **@aracna/react-components** package has dependencies on four other packages: **@aracna/core**, **@aracna/web**, **@aracna/web-components** and **@aracna/react**. These packages are required for the **@aracna/react-components** package to function properly.
 
-## NPM
-
-<CodeWindow client:load language='bash'>
-  npm install --save @aracna/react-components
-</CodeWindow>
-
-## Yarn
-
-<CodeWindow client:load language='bash'>
-  yarn add @aracna/react-components
-</CodeWindow>
+<PackageManagerBlock
+  client:load
+  install={{ dependencies: ['@aracna/core', '@aracna/react', '@aracna/web', '@aracna/web-components'], package: '@aracna/react-components' }}
+/>

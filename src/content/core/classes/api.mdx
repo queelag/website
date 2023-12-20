@@ -2,7 +2,7 @@
 title: API
 ---
 
-import { CodeBlock } from '@/blocks/CodeBlock.tsx'
+import { CodeBlock } from '@/blocks/CodeBlock'
 import {
   SB_API_BASE_URL,
   SB_API_CONFIG,
@@ -18,7 +18,7 @@ The **API** class provides a way to make HTTP requests to a server. It has metho
 
 ## Isomorphic
 
-The **API** class is isomorphic because it uses the **Polyfill** class to polyfill the **fetch**, **Blob**, **File**, and **FormData** APIs. This allows the **API** class to work in both server-side and client-side environments, even if those environments do not support these APIs natively.
+The **API** class is isomorphic because it uses the **node-fetch** package to polyfill the **fetch**, **Blob**, **File**, and **FormData** APIs. This allows the **API** class to work in both server-side and client-side environments, even if those environments do not support these APIs natively.
 
 By polyfilling these APIs, the **API** class can work in both server-side and client-side environments, making it isomorphic. This means that you can use the same code to make HTTP requests from both the server and the client, reducing code duplication and making your code more maintainable.
 

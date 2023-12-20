@@ -3,18 +3,8 @@ order: -1
 title: Get Started
 ---
 
-import { CodeWindow } from '@/components/CodeWindow.tsx'
+import { PackageManagerBlock } from '@/blocks/PackageManagerBlock'
 
 The **@aracna/web-components** package has dependencies on two other packages: **@aracna/core** and **@aracna/web**. These packages are required for the **@aracna/web-components** package to function properly.
 
-## NPM
-
-<CodeWindow client:load language='bash'>
-  npm install --save @aracna/web-components
-</CodeWindow>
-
-## Yarn
-
-<CodeWindow client:load language='bash'>
-  yarn add @aracna/web-components
-</CodeWindow>
+<PackageManagerBlock client:load install={{ dependencies: ['@aracna/core', '@aracna/web'], package: '@aracna/web-components' }} />

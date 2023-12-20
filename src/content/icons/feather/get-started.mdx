@@ -3,16 +3,6 @@ order: -1
 title: Get Started
 ---
 
-import { CodeWindow } from '@/components/CodeWindow.tsx'
+import { PackageManagerBlock } from '@/blocks/PackageManagerBlock'
 
-## NPM
-
-<CodeWindow client:load language='bash'>
-  npm install --save @aracna/icons-feather
-</CodeWindow>
-
-## Yarn
-
-<CodeWindow client:load language='bash'>
-  yarn add @aracna/icons-feather
-</CodeWindow>
+<PackageManagerBlock client:load install={{ package: '@aracna/icons-feather' }} />

@@ -30,6 +30,10 @@ export function CodeWindow(props: CodeWindowProps) {
   const getLanguage = (name: string): string => {
     let extension: string | undefined
 
+    if (props.language) {
+      return props.language
+    }
+
     extension = getArrayLastItem(name.split('.'))
     if (!extension) return ''
 
