@@ -6,4 +6,12 @@ The `EventEmitter` class is used to emit events and register listeners. The API 
 
 ## Listen to an event
 
-The `addListener` method is used to add a listener to the EventEmitter instance. This listener will be invoked when the event it is listening to is emitted.
+The `on` method adds a listener, which will be called when the event is emitted. Optionally the listener can be removed after the first call with the `once` option. Optionally the listener can be prepended to the listeners array with the `prepend` option.
+
+## Emit an event
+
+The `emit` method emits an event.
+
+## Remove listeners
+
+The `off` method removes the listeners that match the name, callback and options. If no arguments are passed, all listeners will be removed.
