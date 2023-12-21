@@ -3,10 +3,46 @@ title: DeferredPromise
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_DEFERRED_PROMISE } from '@/definitions/stack-blitz/core/modules'
+import { SB_DEFERRED_PROMISE_RESOLVE, SB_DEFERRED_PROMISE_REJECT } from '@/definitions/stack-blitz/core/classes'
 
-The **DeferredPromise** class is a module that handles deferred promises. It is used to create a promise that can be resolved or rejected at a later time. The class has a **Promise** instance and a **PromiseState** property that represents the state of the promise. The **PromiseState** is an enumeration that has three possible values: **PENDING**, **FULFILLED**, and **REJECTED**.
+The `DeferredPromise` class is built on top of the native Promise class. It provides a way to resolve or reject a promise from the outside.
 
-The **DeferredPromise** class also has a **instance** property that represents the **Promise** instance. This property can be used to chain other promise methods to the **DeferredPromise** instance.
+## Properties
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_DEFERRED_PROMISE} template='javascript' title='DeferredPromise' console={100} />
+- **instance (Promise\<T\>):** The native promise instance.
+- **reason (any):** The reason for the rejection of the promise.
+- **state (PromiseState):** The state of the promise, can be pending, fulfilled, or rejected.
+- **value (T):** The value of the resolved promise.
+
+## Getters
+
+- **isFulfilled:** This getter checks if the promise is fulfilled. It returns true if the state of the promise is fulfilled, otherwise it returns false.
+- **isPending:** This getter checks if the promise is pending. It returns true if the state of the promise is pending, otherwise it returns false.
+- **isRejected:** This getter checks if the promise is rejected. It returns true if the state of the promise is rejected, otherwise it returns false.
+- **isResolved:** This getter checks if the promise is resolved. It returns true if the promise is fulfilled, otherwise it returns false.
+
+## Resolve the Promise
+
+The `resolve` method is used to signal that the `DeferredPromise` has completed successfully and to provide the resulting value.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DEFERRED_PROMISE_RESOLVE}
+  template='javascript'
+  title='DeferredPromise'
+  console={100}
+/>
+
+## Reject the Promise
+
+The `reject` method is used to signal that the `DeferredPromise` has been rejected and to provide the reason for the rejection.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DEFERRED_PROMISE_REJECT}
+  template='javascript'
+  title='DeferredPromise'
+  console={100}
+/>
