@@ -4,12 +4,6 @@ on:
   push:
     branches: ['master']
 
-# env:
-#   PUBLIC_ALGOLIA_API_KEY: ${{ vars.PUBLIC_ALGOLIA_API_KEY }}
-#   PUBLIC_ALGOLIA_APP_ID: ${{ vars.PUBLIC_ALGOLIA_APP_ID }}
-#   PUBLIC_ALGOLIA_INDEX_NAME: ${{ vars.PUBLIC_ALGOLIA_INDEX_NAME }}
-#   PUBLIC_URL: ${{ vars.PUBLIC_URL }}
-
 permissions:
   contents: read
   pages: write
@@ -21,6 +15,11 @@ concurrency:
 
 jobs:
   build:
+    env:
+      PUBLIC_ALGOLIA_API_KEY: ${{ vars.PUBLIC_ALGOLIA_API_KEY }}
+      PUBLIC_ALGOLIA_APP_ID: ${{ vars.PUBLIC_ALGOLIA_APP_ID }}
+      PUBLIC_ALGOLIA_INDEX_NAME: ${{ vars.PUBLIC_ALGOLIA_INDEX_NAME }}
+      PUBLIC_URL: ${{ vars.PUBLIC_URL }}
     environment: github-pages
     runs-on: ubuntu-latest
     steps:
