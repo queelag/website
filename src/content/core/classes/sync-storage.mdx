@@ -16,40 +16,40 @@ The `SyncStorage` class is an abstraction to implement any synchronous storage A
 
 ## Properties
 
-- **name (string):** This readonly property represents the name of the storage instance.
+- **name (string):** The name of the storage instance.
 
 ## Set an item
 
 The `set` method in the `SyncStorage` class is an synchronous method that sets an item in the storage. Optionally, you can specify the keys of the item that you want to set. If you don't specify any key, the whole item will be set.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_SET} template='javascript' title='Storage' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_SET} template='javascript' title='SyncStorage' console={100} />
 
 ## Get an item
 
-The `get` method in the `SyncStorage` class is an synchronous method that retrieves an item from the storage.
+The `get` method in the `SyncStorage` class is an synchronous method that retrieves an item from the storage. Optionally, you can specify the keys of the item that you want to get. If you don't specify any key, the whole item will be retrieved.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_GET} template='javascript' title='Storage' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_GET} template='javascript' title='SyncStorage' console={100} />
 
 ## Remove an item
 
 The `remove` method in the `SyncStorage` class is an synchronous method that removes an item from the storage. Optionally, you can specify the keys of the item that you want to remove. If you don't specify any key, the whole item will be removed.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_REMOVE} template='javascript' title='Storage' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_REMOVE} template='javascript' title='SyncStorage' console={100} />
 
 ## Clear all items
 
 The `clear` method in the `SyncStorage` class is an synchronous method that clears the storage, removing all the items.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_CLEAR} template='javascript' title='Storage' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_CLEAR} template='javascript' title='SyncStorage' console={100} />
 
 ## Copy an item to a target object
 
 The `copy` method in the `SyncStorage` class is an synchronous method that copies an item from the storage to a target object. Optionally, you can specify the keys of the item that you want to copy. If you don't specify any key, the whole item will be copied.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_COPY} template='javascript' title='Storage' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_COPY} template='javascript' title='SyncStorage' console={100} />
 
 ## Check if an item exists
 
 The `has` method in the `SyncStorage` class is an synchronous method that checks if an item exists in the storage. Optionally, you can specify the keys of the item that you want to check. If you don't specify any key, the whole item will be checked.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_HAS} template='javascript' title='Storage' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SYNC_STORAGE_HAS} template='javascript' title='SyncStorage' console={100} />

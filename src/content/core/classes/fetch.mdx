@@ -3,14 +3,16 @@ title: Fetch
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_FETCH } from '@/definitions/stack-blitz/core/modules'
+import { SB_FETCH } from '@/definitions/stack-blitz/core/classes'
 
-The **Fetch** class provides a convenient and flexible way to make HTTP requests using the **fetch** API. The class provides several static methods for making HTTP requests with different HTTP methods and request options, and handles network errors and retries automatically. The class also provides several polyfills for the **fetch** API, ensuring that the **fetch** API is available in all environments.
+The `Fetch` class is an isomorphic utility built on top of the native Fetch API, meaning it can be used in both Node.js and browsers.
+
+- The body and headers of the request are automatically generated based on the body.
+- The body of the response is dynamically parsed based on the Content-Type header, unless the parse option is set to false.
+- Enabling logs will give you a detailed overview of the requests and responses.
+
+## Send a request
+
+The `send`, `connect`, `delete`, `get`, `head`, `options`, `patch`, `post`, `put` and `trace` methods can be used to send a request.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_FETCH} template='javascript' title='Fetch' console={100} />
-
-## Isomorphic
-
-The **Fetch** class is isomorphic because it uses the **Polyfill** class to polyfill the **fetch**, **Blob**, **File**, and **FormData** APIs. This allows the **API** class to work in both server-side and client-side environments, even if those environments do not support these APIs natively.
-
-By polyfilling these APIs, the **Fetch** class can work in both server-side and client-side environments, making it isomorphic. This means that you can use the same code to make HTTP requests from both the server and the client, reducing code duplication and making your code more maintainable.

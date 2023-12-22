@@ -11,25 +11,28 @@ import {
   SB_ARACNA_FILE_SERIALIZATION
 } from '@/definitions/stack-blitz/core/classes'
 
-The `AracnaFile` class extends the `AracnaBlob` class and is built on top of the File class. The data contained in the File can be resolved asynchronously and accessed at a later time from the instance itself. The instance supports JSON serialization and deserialization out of the box unlike the File class.
+The `AracnaFile` class extends the `AracnaBlob` class and is built on top of the File class.
+
+- The data contained in the File can be resolved asynchronously and accessed at a later time from the instance itself.
+- The instance supports JSON serialization and deserialization out of the box unlike the File class.
 
 ## Properties
 
-- **blob (Blob):** This readonly property represents the Blob instance. It contains the actual Blob data.
-- **file (File):** This readonly property represents the File instance. It contains the actual File data.
-- **id (string):** This readonly property represents the unique identifier of the instance. It is generated when the instance is created.
+- **blob (Blob):** The Blob instance. It contains the actual Blob data.
+- **file (File):** The File instance. It contains the actual File data.
+- **id (string):** The unique identifier of the instance. It is generated when the instance is created.
 
 ## Getters
 
-- **arrayBuffer (ArrayBuffer):** This getter returns the data contained in the file as an ArrayBuffer. You need to call the "resolveArrayBuffer" method before accessing this property. If the ArrayBuffer has not been resolved yet, it returns an empty ArrayBuffer.
-- **lastModified (number):** This getter returns the last modified date of the file in milliseconds since the UNIX epoch (January 1, 1970, 00:00:00 UTC). [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/lastModified)
-- **lastModifiedDate (Date):** This getter returns the last modified date of the file as a Date object. It creates a new Date object using the `lastModified` property.
-- **name (string):** This getter returns the name of the file as a string. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/name)
-- **size (number):** This getter returns the size of the file in bytes. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/size)
-- **text (string):** This getter returns the data contained in the file as a string. You need to call the "resolveText" method before accessing this property. If the text has not been resolved yet, it returns an empty string.
-- **type (string):** This getter returns the MIME type of the file. If the type is not defined, it returns 'application/octet-stream'. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/type)
-- **uInt8Array (Uint8Array):** This getter returns the data contained in the file as a Uint8Array. You need to call the "resolveArrayBuffer" or "resolveText" method before accessing this property. If the ArrayBuffer or text has not been resolved yet, it returns an empty Uint8Array.
-- **webkitRelativePath (string):** This getter returns the path of the file relative to the directory selected by the user in a file input. If the user selected a file from a directory, but not the directory itself, this property is an empty string. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/webkitRelativePath)
+- **arrayBuffer (ArrayBuffer):** The data contained in the file as an ArrayBuffer. You need to call the "resolveArrayBuffer" method before accessing this property. If the ArrayBuffer has not been resolved yet, it returns an empty ArrayBuffer.
+- **lastModified (number):** The last modified date of the file in milliseconds since the UNIX epoch (January 1, 1970, 00:00:00 UTC). [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/lastModified)
+- **lastModifiedDate (Date):** The last modified date of the file as a Date object. It creates a new Date object using the `lastModified` property.
+- **name (string):** The name of the file as a string. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/name)
+- **size (number):** The size of the file in bytes. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/size)
+- **text (string):** The data contained in the file as a string. You need to call the "resolveText" method before accessing this property. If the text has not been resolved yet, it returns an empty string.
+- **type (string):** The MIME type of the file. If the type is not defined, it returns 'application/octet-stream'. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/type)
+- **uInt8Array (Uint8Array):** The data contained in the file as a Uint8Array. You need to call the "resolveArrayBuffer" or "resolveText" method before accessing this property. If the ArrayBuffer or text has not been resolved yet, it returns an empty Uint8Array.
+- **webkitRelativePath (string):** The path of the file relative to the directory selected by the user in a file input. If the user selected a file from a directory, but not the directory itself, this property is an empty string. [MDN Reference](https://developer.mozilla.org/docs/Web/API/File/webkitRelativePath)
 
 ## Read as ArrayBuffer
 
@@ -40,7 +43,7 @@ The `resolveArrayBuffer` method is an asynchronous method that resolves the data
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_FILE_RESOLVE_ARRAY_BUFFER}
   template='javascript'
-  title='aracna-file'
+  title='AracnaFile'
   console={100}
 />
 
@@ -48,20 +51,13 @@ The `resolveArrayBuffer` method is an asynchronous method that resolves the data
 
 The `resolveText` method is an asynchronous method that resolves the data contained in the File as a string.
 
-<CodeBlock
-  client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_ARACNA_FILE_RESOLVE_TEXT}
-  template='javascript'
-  title='aracna-file'
-  console={100}
-/>
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_ARACNA_FILE_RESOLVE_TEXT} template='javascript' title='AracnaFile' console={100} />
 
 ## Read as Uint8Array
 
 To read the data contained in the File as a `Uint8Array`, you need to call either the `resolveArrayBuffer` or `resolveText` method before accessing the `uInt8Array` property.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_ARACNA_FILE_UINT8ARRAY} template='javascript' title='aracna-file' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_ARACNA_FILE_UINT8ARRAY} template='javascript' title='AracnaFile' console={100} />
 
 ## Serialization & Deserialization
 
@@ -76,6 +72,6 @@ In the `AracnaFile` class, JSON serialization and deserialization are used to co
   dependencies={{ '@aracna/core': 'latest' }}
   files={SB_ARACNA_FILE_SERIALIZATION}
   template='javascript'
-  title='aracna-file'
+  title='AracnaFile'
   console={100}
 />

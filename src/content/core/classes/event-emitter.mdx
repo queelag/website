@@ -2,16 +2,127 @@
 title: EventEmitter
 ---
 
+import { CodeBlock } from '@/blocks/CodeBlock'
+import {
+  SB_EVENT_EMITTER_EMIT,
+  SB_EVENT_EMITTER_OFF,
+  SB_EVENT_EMITTER_ON,
+  SB_EVENT_EMITTER_ONCE,
+  SB_EVENT_EMITTER_PREPEND,
+  SB_EVENT_EMITTER_COUNT_LISTENERS,
+  SB_EVENT_EMITTER_GET_EVENT_NAMES,
+  SB_EVENT_EMITTER_GET_LISTENERS,
+  SB_EVENT_EMITTER_GET_MAX_LISTENERS,
+  SB_EVENT_EMITTER_SET_MAX_LISTENERS,
+  SB_EVENT_EMITTER_HAS_LISTENERS
+} from '@/definitions/stack-blitz/core/classes'
+
 The `EventEmitter` class is used to emit events and register listeners. The API is based on the Node.js EventEmitter API.
 
 ## Listen to an event
 
-The `on` method adds a listener, which will be called when the event is emitted. Optionally the listener can be removed after the first call with the `once` option. Optionally the listener can be prepended to the listeners array with the `prepend` option.
+The `on` method adds a listener, which will be called when the event is emitted. Optionally the listener can be removed after the first call with the `once` option. Optionally the listener can be called before other listeners with the `prepend` option.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_EVENT_EMITTER_ON} template='javascript' title='EventEmitter' console={100} />
+
+## Listen to an event only once
+
+The `once` method adds a listener, which will be called when the event is emitted. The listener will be removed after the first call.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_EVENT_EMITTER_ONCE} template='javascript' title='EventEmitter' console={100} />
+
+## Listen to an event before other listeners
+
+The `prepend` method adds a listener, which will be called before other listeners when the event is emitted.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_EVENT_EMITTER_PREPEND} template='javascript' title='EventEmitter' console={100} />
 
 ## Emit an event
 
 The `emit` method emits an event.
 
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_EVENT_EMITTER_EMIT} template='javascript' title='EventEmitter' console={100} />
+
 ## Remove listeners
 
 The `off` method removes the listeners that match the name, callback and options. If no arguments are passed, all listeners will be removed.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_EVENT_EMITTER_OFF} template='javascript' title='EventEmitter' console={100} />
+
+## Get listeners
+
+The `getListeners` method is used to return the listeners that match the name, callback and options. If no arguments are passed, all listeners will be returned.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_EVENT_EMITTER_GET_LISTENERS}
+  template='javascript'
+  title='EventEmitter'
+  console={100}
+/>
+
+## Count listeners
+
+The `countListeners` method is used to count the number of listeners that match the specified event name, callback function, and options. If no arguments are passed, all listeners will be counted.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_EVENT_EMITTER_COUNT_LISTENERS}
+  template='javascript'
+  title='EventEmitter'
+  console={100}
+/>
+
+## Check if an event has listeners
+
+The `hasListeners` method is used to check if the EventEmitter has listeners that match the specified event name, callback function, and options.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_EVENT_EMITTER_HAS_LISTENERS}
+  template='javascript'
+  title='EventEmitter'
+  console={100}
+/>
+
+## Get event names
+
+The `getEventNames` method is used to return an array of the names of all events for which the EventEmitter has registered listeners.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_EVENT_EMITTER_GET_EVENT_NAMES}
+  template='javascript'
+  title='EventEmitter'
+  console={100}
+/>
+
+## Get max listeners
+
+The `getMaxListeners` method is used to return the maximum number of listeners that can be registered for a single event.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_EVENT_EMITTER_GET_MAX_LISTENERS}
+  template='javascript'
+  title='EventEmitter'
+  console={100}
+/>
+
+## Set max listeners
+
+The `setMaxListeners` method is used to set the maximum number of listeners that can be registered for a single event.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_EVENT_EMITTER_SET_MAX_LISTENERS}
+  template='javascript'
+  title='EventEmitter'
+  console={100}
+/>

@@ -3,46 +3,65 @@ title: Logger
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_LOGGER, SB_LOGGER_SEPARATOR, SB_LOGGER_STATUS, SB_LOGGER_ENVIRONMENT } from '@/definitions/stack-blitz/core/modules'
+import { SB_LOGGER, SB_LOGGER_COLORS, SB_LOGGER_ENVIRONMENT, SB_LOGGER_SET_LEVEL, SB_LOGGER_STATUS } from '@/definitions/stack-blitz/core/classes'
 
-The **Logger** class is a useful tool for logging messages to the console with different levels of severity. It is customizable with different colors, separators, and levels, and can be used in a variety of environments.
+The `Logger` class provides an isomorphic and consistent way to log messages to the console.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER} template='javascript' title='Logger' console={100} />
+- The level determines which messages are logged, the default level is `warn` on non-production environments and `error` on production environments.
+- The status determines if the logger is enabled or disabled, the default status is `on` on non-test environments and `off` on test environments.
+- The colors are on by default on non-browser environments and match the browser console colors.
+- The separator is a string used to join the arguments passed to the logger methods, the default separator is a `->` symbol.
+
+## Properties
+
+- **colors (boolean)**: Determines if the colors are enabled or disabled. Colors are on by default on non-browser environments and match the browser console colors.
+- **level (LoggerLevel)**: Determines which messages are logged. It can be `verbose`, `debug`, `info`, `warn` or `error`.
+- **name (string)**: Used to get the level and status from the environment variables.
+- **separator (string)**: A string used to join the arguments passed to the logger methods.
+- **status (LoggerStatus)**: Determines if the logger is enabled or disabled.
+
+## Getters
+
+- **isDisabled (boolean)**: Checks if the logger is disabled. Returns `true` if the status of the logger is 'off', `false` otherwise.
+- **isEnabled (boolean)**: Checks if the logger is enabled. Returns `true` if the status of the logger is 'on', `false` otherwise.
 
 ## Levels
 
-The **Logger** class allows you to set the level of severity for the logger instance, and will only log messages that are at or above the current level. For example, if the logger level is set to **warn**, it will log messages with the **warn** and **error** levels, but not messages with the **trace**, **debug**, or **info** levels. This allows you to control the amount of information that is logged to the console based on the severity of the message.
+- **verbose**: This is the lowest level of logs, used for extended information. It is typically not enabled in a production environment.
+- **debug**: This level is used for information that may be helpful in debugging, but is not necessary under normal operation.
+- **info**: This level is used for informational messages that highlight the progress of the application at coarse-grained level.
+- **warn**: This level is used for potentially harmful situations. The system can still function but requires attention.
+- **error**: This level is used for error events that might still allow the application to continue running.
 
-- **verbose**: Used for very detailed logging, such as function calls and variable values.
-- **debug**: Used for debugging information, such as variable values and function calls.
-- **info**: Used for general information, such as application state and user actions.
-- **warn**: Used for warnings, such as potential issues or errors that may occur.
-- **error**: Used for errors, such as exceptions or other critical issues.
+## Log to the console
 
-## Colors
+The `verbose`, `debug`, `info`, `warn`, and `error` methods can be used to log messages to the console.
 
-The **colors** property of the **Logger** class is a boolean value that determines whether or not to use ANSI color codes in the console output. If **colors** is set to **true**, the logger will use ANSI color codes to format the console output with different colors for different levels of severity.
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER} template='javascript' title='Logger' console={100} />
 
-## Separator
+## Set the level
 
-The **separator** property of the **Logger** class is a string that is used to separate the different parts of a log message in the console output. By default, the separator is set to the value of the **DEFAULT_LOGGER_SEPARATOR** constant, which is a string containing a single space character.
+The `setLevel` method is used to set the level of the logger.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_SEPARATOR} template='javascript' title='Logger' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_SET_LEVEL} template='javascript' title='Logger' console={100} />
 
-## Status
+## Disable or enable the logger
 
-The **status** property of the **Logger** class is a **LoggerStatus** enum value that represents whether or not the logger is enabled. If the status is set to **'off'**, no messages will be logged. If the status is set to **'on'**, messages will be logged based on the logger level.
-
-The **enable** and **disable** methods defined in the **Logger** class are used to enable or disable the logger instance.
+The `disable` and `enable` methods are used to disable or enable the logger.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_STATUS} template='javascript' title='Logger' console={100} />
 
-## Environment Level & Status
+## Disable or enable the ANSI colors
 
-To set the logger level and status in the environment, you can define the **LOGGER\<name\>LEVEL** and **LOGGER\<name\>STATUS** environment variables, where **\<name\>** is the name of the logger instance.
+The `disableColors` and `enableColors` methods are used to disable or enable the ANSI colors.
 
-For example, if you have a logger instance with the name **'my-app'**, you can set its level and status in the environment by defining the **LOGGER_MY_APP_LEVEL** and **LOGGER_MY_APP_STATUS** environment variables, respectively.
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_COLORS} template='javascript' title='Logger' console={100} />
 
-Setting the logger level and status in the environment can be useful in situations where you want to define the logger level and status in a centralized location rather than hard-coding them in your code.
+## Use level and status from the environment
+
+The `level` and `status` properties of the logger can be set using environment variables.
+
+- The `level` property can be set using the formula `LOGGER_<NAME>_LEVEL`, where `<NAME>` is the `name` property of the logger.
+- The `status` property can be set using the formula `LOGGER_<NAME>_STATUS`, where `<NAME>` is the `name` property of the logger.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOGGER_ENVIRONMENT} template='javascript' title='Logger' console={100} />

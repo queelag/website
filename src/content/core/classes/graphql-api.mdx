@@ -3,22 +3,29 @@ title: GraphQlAPI
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_GRAPHQL_API_QUERY, SB_GRAPHQL_API_MUTATION } from '@/definitions/stack-blitz/core/modules'
+import { SB_GRAPHQL_API_QUERY, SB_GRAPHQL_API_MUTATION } from '@/definitions/stack-blitz/core/classes'
 
-The **GraphQLAPI** class extends the [**API**](/core/modules/api) class and provides a convenient way to make GraphQL API requests using the **fetch** API. The **API** class provides a set of methods for making HTTP requests, while the **GraphQLAPI** class provides additional functionality for making GraphQL API requests.
+The `GraphQlAPI` class extends the `RestAPI` class and manages the requests to a GraphQL API.
 
-## Query
+- The base URL of the API is automatically concatenated to the path of the requests.
+- The config of the API is automatically merged with the config of the requests.
+- The status of the requests is automatically tracked and can be accessed through the status property.
+- The requests are sent with the `Fetch` class, so all features of the `Fetch` class are available.
 
-The **query** method defined in the **GraphQLAPI** class is used to make a GraphQL query to the server using the **POST** HTTP method. In GraphQL, a query is a string that defines the data that the client wants to retrieve from the server.
+## Properties
 
-The **query** method provides a convenient way to make a GraphQL query to the server using the **POST** HTTP method. The method takes a **query** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **query** argument is a string that contains the GraphQL query to be sent to the server, and can be used to retrieve specific data from the server based on the client's needs.
+- **baseURL (string)**: The base URL of the GraphQL API. This is the URL that will be prepended to all request paths.
+- **config (T extends GraphQlApiConfig)**: The default configuration for the GraphQL API. This configuration will be merged with the configuration of individual requests.
+- **status (Status)**: The status of the requests. This property tracks the status of each request (e.g., pending, success, error) and can be accessed to check the status of a request.
+
+## Send a query
+
+The `query` method is used to send a query to the GraphQL API.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GRAPHQL_API_QUERY} template='javascript' title='GraphQLAPI' console={100} />
 
-## Mutation
+## Send a mutation
 
-The **mutation** method defined in the **GraphQLAPI** class is used to make a GraphQL mutation to the server using the **POST** HTTP method.
-
-The **mutation** method provides a convenient way to make a GraphQL mutation to the server using the **POST** HTTP method. The method takes a **mutation** string, an optional **variables** object, and an optional **config** object as arguments, and returns a **Promise** that resolves to a **GraphQLAPIResponse** object or a **FetchError** object. The **mutation** argument is a string that contains the GraphQL mutation to be sent to the server, and can be used to modify data on the server based on the client's needs.
+The `mutation` method is used to send a mutation to the GraphQL API.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GRAPHQL_API_MUTATION} template='javascript' title='GraphQLAPI' console={100} />

@@ -6,18 +6,11 @@ const DocSchema = z.object({
   title: z.string()
 })
 
-const coreCollection = defineCollection({ schema: DocSchema, type: 'content' })
-const fcmCollection = defineCollection({ schema: DocSchema, type: 'content' })
-const iconsCollection = defineCollection({ schema: DocSchema, type: 'content' })
-const reactCollection = defineCollection({ schema: DocSchema, type: 'content' })
-const stateManagerCollection = defineCollection({ schema: DocSchema, type: 'content' })
-const webCollection = defineCollection({ schema: DocSchema, type: 'content' })
-
 export const collections = {
-  core: coreCollection,
-  fcm: fcmCollection,
-  icons: iconsCollection,
-  react: reactCollection,
-  'state-manager': stateManagerCollection,
-  web: webCollection
+  core: defineCollection({ schema: DocSchema, type: 'content' }),
+  fcm: defineCollection({ schema: DocSchema, type: 'content' }),
+  icons: defineCollection({ schema: DocSchema, type: 'content' }),
+  react: defineCollection({ schema: DocSchema, type: 'content' }),
+  'state-manager': defineCollection({ schema: DocSchema, type: 'content' }),
+  web: defineCollection({ schema: DocSchema, type: 'content' })
 }

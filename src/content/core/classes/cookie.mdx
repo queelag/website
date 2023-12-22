@@ -9,8 +9,8 @@ The `Cookie` class is an abstraction to implement any cookie API in a uniform wa
 
 ## Properties
 
-- **name (string):** This readonly property represents the name of the cookie instance.
-- **separator (string):** This readonly property represents the separator used to separate the cookie name from the cookie item key. It defaults to `DEFAULT_COOKIE_SEPARATOR`.
+- **name (string):** the name of the cookie instance.
+- **separator (string):** The separator used to separate the cookie name from the cookie item key. It defaults to `DEFAULT_COOKIE_SEPARATOR`.
 
 ## Set an item
 
@@ -20,7 +20,7 @@ The `set` method in the `Cookie` class sets an item in the cookies. Optionally, 
 
 ## Get an item
 
-The `get` method in the `Cookie` class retrieves an item from the cookies.
+The `get` method in the `Cookie` class retrieves an item from the cookies. Optionally, you can specify the keys of the item that you want to get. If you don't specify any key, the whole item will be retrieved.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_COOKIE_GET} template='javascript' title='Cookie' console={100} />
 

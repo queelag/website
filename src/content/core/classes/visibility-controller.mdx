@@ -3,14 +3,58 @@ title: VisibilityController
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_VISIBILITY_CONTROLLER } from '@/definitions/stack-blitz/core/modules'
+import { SB_VISIBILITY_CONTROLLER_HIDE, SB_VISIBILITY_CONTROLLER_SHOW, SB_VISIBILITY_CONTROLLER_TOGGLE } from '@/definitions/stack-blitz/core/classes'
 
-The **VisibilityController** class provides functionality for managing the visibility of elements in an application. It can be useful in a variety of contexts, such as animating the appearance and disappearance of elements or controlling the visibility of UI components based on user input.
+The `VisibilityController` class is used to control the visibility of anything that can be hidden or shown.
+
+## Methods
+
+- **isHidden(name: string): boolean**: Checks if the entity with the given name is hidden.
+- **isHiding(name: string): boolean**: Checks if the entity with the given name is hiding.
+- **isShowing(name: string): boolean**: Checks if the entity with the given name is showing.
+- **isVisible(name: string): boolean**: Checks if the entity with the given name is visible.
+
+## Getters
+
+- **hasHidden (boolean)**: Checks if any entity is hidden. Returns `true` if any entity's visibility status is 'HIDDEN', `false` otherwise.
+- **hasHiding (boolean)**: Checks if any entity is hiding. Returns `true` if any entity's visibility status is 'HIDING', `false` otherwise.
+- **hasShowing (boolean)**: Checks if any entity is showing. Returns `true` if any entity's visibility status is 'SHOWING', `false` otherwise.
+- **hasVisible (boolean)**: Checks if any entity is visible. Returns `true` if any entity's visibility status is 'VISIBLE', `false` otherwise.
+
+## Show an entity
+
+The `show` method is an asynchronous method used to show an entity. Optionally a delay can be set to delay the showing of the entity.
 
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_VISIBILITY_CONTROLLER}
+  files={SB_VISIBILITY_CONTROLLER_SHOW}
+  template='javascript'
+  title='VisibilityController'
+  console={100}
+/>
+
+## Hide an entity
+
+The `hide` method is an asynchronous method used to hide an entity. Optionally a delay can be set to delay the hiding of the entity.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_VISIBILITY_CONTROLLER_HIDE}
+  template='javascript'
+  title='VisibilityController'
+  console={100}
+/>
+
+## Toggle the visibility of an entity
+
+The `toggle` method is an asynchronous method used to toggle the visibility of an entity. Optionally a delay which can be different for showing and hiding can be set to delay the visibility change of the entity.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_VISIBILITY_CONTROLLER_TOGGLE}
   template='javascript'
   title='VisibilityController'
   console={100}

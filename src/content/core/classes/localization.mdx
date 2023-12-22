@@ -3,48 +3,96 @@ title: Localization
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_LOCALIZATION_PACKS, SB_LOCALIZATION_GET, SB_LOCALIZATION_VARIABLES, SB_LOCALIZATION_STORAGE } from '@/definitions/stack-blitz/core/modules'
+import {
+  SB_LOCALIZATION_PACKS,
+  SB_LOCALIZATION_GET,
+  SB_LOCALIZATION_HAS,
+  SB_LOCALIZATION_INITIALIZE,
+  SB_LOCALIZATION_SET_LANGUAGE,
+  SB_LOCALIZATION_SET_VARIABLES,
+  SB_LOCALIZATION_STORAGE
+} from '@/definitions/stack-blitz/core/classes'
 
-The **Localization** class is used to manage localization packs for a project. It provides methods for adding new packs and retrieving localized strings.
+The `Localization` class is used to localize anything that can be localized.
 
-The **Localization** class can also store the language. The language is passed as an argument to the constructor, and is stored as a property of the class instance. The **initialize** method is used to copy the **Localization** instance to the storage object, and it copies the language property as well
+- The language will persist in the storage, by default it will be stored in memory.
+- The path of the localized string supports dot notation, for example: 'path.to.the.value'.
+- The variables support dot notation as well and can be used inside the localized string, for example: 'Hello \{name\}!'.
+- The instance also supports default variables, which can be overridden by the variables passed to the get method.
 
-## Packs
+## Properties
 
-In the **Localization** class, packs can be set from the constructor and also added with the **push** method.
+- **language (string)**: The language that will be used to localize.
+- **packs (LocalizationPack[])**: The packs that will be used to localize.
+- **storage (Storage)**: The storage that will be used to store the language.
+- **storageKey (string)**: The key that will be used to store the language in the storage.
+- **variables (LocalizationVariables)**: The default variables that will be used to localize.
 
-Overall, the **Localization** class provides flexibility in managing localization packs by allowing packs to be set from the constructor and also added with the **push** method. This allows for easy initialization of the **Localization** instance with pre-existing localized strings, as well as adding new localized strings dynamically.
+## Initialization
+
+The `initialize` method is used to retrieve the language from the storage and set it to the instance.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_LOCALIZATION_INITIALIZE}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>
+
+## Manage packs
+
+The `push` method is used to add localization packs to the instance. If a pack for the language already exists, the data will be merged.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOCALIZATION_PACKS} template='javascript' title='Localization' console={100} />
 
-## Localize
+## Get localized string
 
-The **get** method in the **Localization** class is used to retrieve a localized string from a localization pack. It takes a path to the localized string as the only argument.
-
-The **get** method with only a path argument is a simplified version of the method that allows for easy retrieval of localized strings with variable substitution.
-
-When called with a **language** and a **path**, the method retrieves the localization pack for the specified language, and if it doesn't exist, it returns the path. If the localized string exists in the pack, the method checks for any variables in the string using a regular expression. If variables are found, the method replaces them with their corresponding values from the localization variables object. The method then returns the localized string with the variables replaced.
+The `get` method is used to retrieve the localized string from the pack. Optionally, you can pass variables that will be used to replace the variables inside the localized string.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOCALIZATION_GET} template='javascript' title='Localization' console={100} />
 
-## Variables
+## Check if a localized string exists
 
-The **get** method with variables allows for easy retrieval of localized strings with variable substitution, making it easy to customize the localized strings for different use cases.
+The `has` method is used to check if the localization pack has the specified path.
 
-If the localized string contains variables, the method replaces them with their corresponding values from the localization variables object. The variables are specified in the localized string using curly braces, for example **\{name\}**. The method uses a regular expression to find all variables in the string, and then replaces them with their corresponding values from the localization variables object.
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOCALIZATION_HAS} template='javascript' title='Localization' console={100} />
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_LOCALIZATION_VARIABLES} template='javascript' title='Localization' console={100} />
+## Set the language
 
-## Storage
+The `setLanguage` method is used to set the language that will be used for localization.
 
-In the **Localization** class, the **storage** property is used to store the **Localization** instance in a persistent storage. The **storage** property is set when the **initialize** method is called, and it is used to store the **Localization** instance in a persistent storage using the **set** method of the storage object.
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_LOCALIZATION_SET_LANGUAGE}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>
 
-The **storeLanguage** method is used to set the language of the **Localization** instance and store it in the persistent storage. It takes a language as an argument, sets the language property of the **Localization** instance, and stores the instance in the persistent storage using the set method of the storage object.
+## Store the language
+
+The `store` method is used to persist the current language in the storage.
 
 <CodeBlock
   client:load
   dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
   files={SB_LOCALIZATION_STORAGE}
+  template='javascript'
+  title='Localization'
+  console={100}
+/>
+
+## Set default variables
+
+The `setVariables` method is used to set the default variables that will be used for localization.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_LOCALIZATION_SET_VARIABLES}
   template='javascript'
   title='Localization'
   console={100}

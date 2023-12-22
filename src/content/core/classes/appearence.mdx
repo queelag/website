@@ -3,22 +3,31 @@ title: Appearence
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_APPEARENCE_INITIALIZATION, SB_APPEARENCE_SET_THEME, SB_APPEARENCE_STORE, SB_APPEARENCE_TOGGLE_THEME } from '@/definitions/stack-blitz/core/classes'
+import {
+  SB_APPEARENCE_INITIALIZATION,
+  SB_APPEARENCE_ON_CHANGE_THEME,
+  SB_APPEARENCE_SET_THEME,
+  SB_APPEARENCE_STORE,
+  SB_APPEARENCE_TOGGLE_THEME
+} from '@/definitions/stack-blitz/core/classes'
 
-The `Appearence` class manages the theme of anything that can have an appearance. The theme will persist to a storage of your choice, by default it will be stored in memory.
+The `Appearence` class manages the theme of anything that can have an appearance.
+
+- The theme will persist to a storage of your choice, by default it will be stored in memory.
+- The default theme is system, which means that the theme will be dark or light depending on the system theme.
 
 ## Properties
 
-- **storage (Storage):** This property represents the storage that will be used to store the theme. It could be any storage system that conforms to the `Storage` interface. The storage system is provided as a parameter to the constructor, and if not provided, it defaults to `MemoryStorage`.
-- **storageKey (string):** This property represents the key that will be used to store the theme in the storage. It can be any string value. The storage key is also provided as a parameter to the constructor, and if not provided, it defaults to a constant `DEFAULT_APPEARENCE_STORAGE_KEY`.
-- **theme (Theme):** This property represents the theme. It can be 'dark', 'light', or 'system'. The 'system' value means that the theme will be determined by the system settings. The theme is provided as a parameter to the constructor, and if not provided, it defaults to 'system'.
+- **storage (Storage):** The storage that will be used to store the theme. It could be any storage system that conforms to the `Storage` interface. The storage system is provided as a parameter to the constructor, and if not provided, it defaults to `MemoryStorage`.
+- **storageKey (string):** The key that will be used to store the theme in the storage. It can be any string value. The storage key is also provided as a parameter to the constructor, and if not provided, it defaults to a constant `DEFAULT_APPEARENCE_STORAGE_KEY`.
+- **theme (Theme):** The theme. It can be 'dark', 'light', or 'system'. The 'system' value means that the theme will be determined by the system settings. The theme is provided as a parameter to the constructor, and if not provided, it defaults to 'system'.
 
 ## Getters
 
-- **themeByPrefersColorScheme (Theme):** This getter returns the theme depending on the system theme. If the system theme is dark, it returns 'dark'. If the system theme is light or not defined, it returns 'light'.
-- **isThemeDark (boolean):** This getter checks if the theme is dark. It returns `true` if the theme is 'dark'. If the theme is 'system', it checks the system theme. If the system theme is dark, it returns `true`. In all other cases, it returns `false`.
-- **isThemeLight (boolean):** This getter checks if the theme is light. It returns `true` if the theme is 'light'. If the theme is 'system', it checks the system theme. If the system theme is light, it returns `true`. In all other cases, it returns `false`.
-- **isThemeSystem (boolean):** This getter checks if the theme is system. It returns `true` if the theme is 'system', and `false` otherwise.
+- **themeByPrefersColorScheme (Theme):** Returns the theme depending on the system theme. If the system theme is dark, it returns 'dark'. If the system theme is light or not defined, it returns 'light'.
+- **isThemeDark (boolean):** Checks if the theme is dark. It returns `true` if the theme is 'dark'. If the theme is 'system', it checks the system theme. If the system theme is dark, it returns `true`. In all other cases, it returns `false`.
+- **isThemeLight (boolean):** Checks if the theme is light. It returns `true` if the theme is 'light'. If the theme is 'system', it checks the system theme. If the system theme is light, it returns `true`. In all other cases, it returns `false`.
+- **isThemeSystem (boolean):** Checks if the theme is system. It returns `true` if the theme is 'system', and `false` otherwise.
 
 ## Initialization
 
@@ -33,20 +42,33 @@ The `initialize` method is an asynchronous method in the `Appearence` class that
   console={100}
 />
 
-## Setting the theme
+## Set the theme
 
 The `setTheme` method is a method in the `Appearence` class that sets the theme and emits a 'change-theme' event.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE_SET_THEME} template='javascript' title='Appearence' console={100} />
 
-## Switching between dark and light theme
+## Switch between dark and light theme
 
 The `toggleTheme` method is a method in the `Appearence` class that toggles the theme between dark and light. If the theme is set to system, it will be set to dark or light depending on the system theme.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE_TOGGLE_THEME} template='javascript' title='Appearence' console={100} />
 
-## Storing the theme
+## Store the theme
 
 The `store` method is an asynchronous method in the `Appearence` class that stores the theme in the storage.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE_STORE} template='javascript' title='Appearence' console={100} />
+
+## Listen to theme changes
+
+The `Appearence` class emits a 'change-theme' event when the theme changes. You can listen to this event and do something when the theme changes.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_APPEARENCE_ON_CHANGE_THEME}
+  template='javascript'
+  title='Appearence'
+  console={100}
+/>
