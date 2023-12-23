@@ -31,7 +31,7 @@ The `Appearence` class manages the theme of anything that can have an appearance
 
 ## Initialization
 
-The `initialize` method is an asynchronous method in the `Appearence` class that retrieves the theme from the storage and sets it.
+The `initialize` method retrieves the theme from the storage and sets it.
 
 <CodeBlock
   client:load
@@ -44,19 +44,19 @@ The `initialize` method is an asynchronous method in the `Appearence` class that
 
 ## Set the theme
 
-The `setTheme` method is a method in the `Appearence` class that sets the theme and emits a 'change-theme' event.
+The `setTheme` method sets the theme and emits a 'change-theme' event.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE_SET_THEME} template='javascript' title='Appearence' console={100} />
 
 ## Switch between dark and light theme
 
-The `toggleTheme` method is a method in the `Appearence` class that toggles the theme between dark and light. If the theme is set to system, it will be set to dark or light depending on the system theme.
+The `toggleTheme` method toggles the theme between dark and light. If the theme is set to system, it will be set to dark or light depending on the system theme.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE_TOGGLE_THEME} template='javascript' title='Appearence' console={100} />
 
 ## Store the theme
 
-The `store` method is an asynchronous method in the `Appearence` class that stores the theme in the storage.
+The `store` method stores the theme in the storage.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_APPEARENCE_STORE} template='javascript' title='Appearence' console={100} />
 

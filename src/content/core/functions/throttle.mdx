@@ -3,24 +3,31 @@ title: throttle
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
+import { Alert } from '@/components/Alert'
 import { SB_THROTTLE_FN_AS_KEY, SB_THROTTLE_NAME_AS_KEY } from '@/definitions/stack-blitz/core/functions'
 
-The purpose of this function is to limit the rate at which a function can be called. This is useful in situations where a function may be called too frequently, such as in response to a user input event.
+The `throttle` function is used to prevent a function from being called too many times in a short period. The function will only be called if the time since the last call is greater than or equal to the specified amount of time.
 
-The **throttle** function takes three arguments: a key, a function, and a time interval in milliseconds. The key is an optional string that is used to identify the function being throttled. If a key is not provided, the function itself is used as the key.
+## Use normally
 
-This implementation of the throttle function is a useful tool for limiting the rate at which a function can be called.
+When calling `throttle` with only the function and the time, the function will be used as the key.
 
-## Function as Key
+<Alert client:load severity='warning'>
+  The function passed to the `throttle` function must be constant, otherwise the debounce will not work.
+</Alert>
 
-When the **throttle** function is called with only two arguments, **fn** and **ms**, it uses the provided function as the key to identify the function being throttled.
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_THROTTLE_FN_AS_KEY}
+  template='javascript'
+  title='throttle'
+  console={100}
+/>
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_THROTTLE_FN_AS_KEY} template='javascript' title='throttle' console={100} />
+## Use a custom key
 
-## Identifier as Key
-
-When the **throttle** function is called with three arguments, **name**, **fn**, and **ms**, it uses the provided **name** as the key to identify the function being throttled. This means that the throttling is applied consistently across all calls to the function with the same name.
-
-When using the **throttle** function with a custom **name** argument, you can safely define the function inline. This is because the **name** argument is used as the key to identify the function being throttled, so as long as the same **name** argument is used consistently, the throttling will be applied correctly.
+The `throttle` function can also be called with a custom key. This is useful when you want to debounce a function that is not constant.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_THROTTLE_NAME_AS_KEY} template='javascript' title='throttle' console={100} />

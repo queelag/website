@@ -5,8 +5,6 @@ title: rcp
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_RCP } from '@/definitions/stack-blitz/core/functions'
 
-The **rcp** function is a ECMAScript utility function that calls a given function and returns a custom value of a specified type wrapped in a promise. The name **rcp** is short for "return custom promise", which reflects the function's purpose.
-
-The **rcp** function is a simple but useful utility function that can be used in situations where you need to call a function and return a custom value of a specified type wrapped in a promise. By using **rcp** instead of manually calling the function and returning the custom value wrapped in a promise, you can make your code more concise and easier to read.
+The `rcp` functions stands for `return custom promise`. It takes a function and a value and returns a promise that resolves to the value.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_RCP} template='javascript' title='rcp' console={100} />

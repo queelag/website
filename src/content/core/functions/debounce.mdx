@@ -3,22 +3,23 @@ title: debounce
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_DEBOUNCE_FN_AS_KEY, SB_DEBOUNCE_NAME_AS_KEY } from '@/definitions/stack-blitz/core/functions'
+import { SB_DEBOUNCE, SB_DEBOUNCE_CUSTOM_KEY } from '@/definitions/stack-blitz/core/functions'
+import { Alert } from '@/components/Alert'
 
-The purpose of this function is to ensure that a given function is only executed if it hasn't been called again for a certain amount of time. This is useful in situations where a function might be called multiple times in quick succession, but we only want to execute it once after a certain amount of time has passed.
+The `debounce` function is used to prevent a function from being called too many times in a short period. The function will only be called after it stops being called for the specified amount of time.
 
-This **debounce** function is a useful tool for ensuring that a function is only executed once after a certain amount of time has passed since the last time it was called. It is a simple and effective way to prevent unnecessary function calls and improve the performance of your code.
+## Use normally
 
-## Function as Key
+When calling `debounce` with only the function and the time, the function will be used as the key.
 
-When the **debounce** function is called with only **fn** and **ms** arguments, the **fn** function is used as a key to identify the debounce timeout.
+<Alert client:load severity='warning'>
+  The function passed to the `debounce` function must be constant, otherwise the debounce will not work.
+</Alert>
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_DEBOUNCE_FN_AS_KEY} template='javascript' title='debounce' console={100} />
+<CodeBlock client:load className='mt-6' dependencies={{ '@aracna/core': 'latest' }} files={SB_DEBOUNCE} template='javascript' title='debounce' console={100} />
 
-## Identifier as Key
+## Use with a custom key
 
-When the debounce function is called with a name, fn, and ms arguments, the name argument is used as a key to identify the debounce timeout.
+The `debounce` function can also be called with a custom key. This is useful when you want to debounce a function that is not constant.
 
-When using the **name** argument as a key to identify the debounce timeout, you can safely define the **fn** function as an inline function. This is because the **name** argument is used as the key to identify the debounce timeout, so the **fn** function itself is not used as a key.
-
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_DEBOUNCE_NAME_AS_KEY} template='javascript' title='debounce' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_DEBOUNCE_CUSTOM_KEY} template='javascript' title='debounce' console={100} />

@@ -1,3 +1,51 @@
 ---
 title: MemoryStorage
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import {
+  SB_MEMORY_STORAGE_SET,
+  SB_MEMORY_STORAGE_GET,
+  SB_MEMORY_STORAGE_REMOVE,
+  SB_MEMORY_STORAGE_CLEAR,
+  SB_MEMORY_STORAGE_COPY,
+  SB_MEMORY_STORAGE_HAS
+} from '@/definitions/stack-blitz/core/storages'
+
+The `MemoryStorage` is a `SyncStorage` that uses a `Map` as its storage, which means that it will only be available in the current session.
+
+## Set an item
+
+The `set` method sets an item in the storage. Optionally, you can specify the keys of the item that you want to set. If you don't specify any key, the whole item will be set.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MEMORY_STORAGE_SET} template='javascript' title='MemoryStorage' console={100} />
+
+## Get an item
+
+The `get` method retrieves an item from the storage. Optionally, you can specify the keys of the item that you want to get. If you don't specify any key, the whole item will be retrieved.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MEMORY_STORAGE_GET} template='javascript' title='MemoryStorage' console={100} />
+
+## Remove an item
+
+The `remove` method removes an item from the storage. Optionally, you can specify the keys of the item that you want to remove. If you don't specify any key, the whole item will be removed.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MEMORY_STORAGE_REMOVE} template='javascript' title='MemoryStorage' console={100} />
+
+## Clear all items
+
+The `clear` method clears the storage, removing all the items.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MEMORY_STORAGE_CLEAR} template='javascript' title='MemoryStorage' console={100} />
+
+## Copy an item to a target object
+
+The `copy` method copies an item from the storage to a target object. Optionally, you can specify the keys of the item that you want to copy. If you don't specify any key, the whole item will be copied.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MEMORY_STORAGE_COPY} template='javascript' title='MemoryStorage' console={100} />
+
+## Check if an item exists
+
+The `has` method checks if an item exists in the storage. Optionally, you can specify the keys of the item that you want to check. If you don't specify any key, the whole item will be checked.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_MEMORY_STORAGE_HAS} template='javascript' title='MemoryStorage' console={100} />

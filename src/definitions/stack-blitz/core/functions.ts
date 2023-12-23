@@ -1,7 +1,7 @@
 import { html } from '@/functions/html.js';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
-export const SB_DEBOUNCE_FN_AS_KEY: ProjectFiles = {
+export const SB_DEBOUNCE: ProjectFiles = {
   'index.js': html`
     <script>
       import { debounce } from '@aracna/core';
@@ -21,19 +21,19 @@ export const SB_DEBOUNCE_FN_AS_KEY: ProjectFiles = {
   `
 };
 
-export const SB_DEBOUNCE_NAME_AS_KEY: ProjectFiles = {
+export const SB_DEBOUNCE_CUSTOM_KEY: ProjectFiles = {
   'index.js': html`
     <script>
       import { debounce } from '@aracna/core';
 
-      const ID = 'dfn';
+      const key = 'dfn';
 
-      debounce(ID, () => console.log('fn1 ran', Date.now()), 1000); // will be ignored
-      debounce(ID, () => console.log('fn2 ran', Date.now()), 1000); // will be ignored
-      debounce(ID, () => console.log('fn3 ran', Date.now()), 1000); // will run after 1s
+      debounce(() => console.log('fn1 ran', Date.now()), 1000, key); // will be ignored
+      debounce(() => console.log('fn2 ran', Date.now()), 1000, key); // will be ignored
+      debounce(() => console.log('fn3 ran', Date.now()), 1000, key); // will run after 1s
 
       setTimeout(() => {
-        debounce(ID, () => console.log('fn4 ran', Date.now()), 1000); // will run after 2s
+        debounce(() => console.log('fn4 ran', Date.now()), 1000, key); // will run after 2s
       }, 2000);
     </script>
   `
@@ -325,6 +325,31 @@ export const SB_TNE: ProjectFiles = {
 
       console.log(divide(3, 2)); // will log 5
       console.log(divide(1, 0)); // will throw Error: Cannot divide by zero
+    </script>
+  `
+};
+
+export const SB_TYPEAHEAD: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { typeahead } from '@aracna/core';
+
+      const key = 'fruits';
+      const input = document.createElement('input');
+      const items = ['apple', 'banana', 'cherry'];
+
+      input.addEventListener('keydown', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        typeahead(key, event.key)
+          .setItems(items)
+          .setListeners([])
+          .setPredicate((item, query) => item.startsWith(query))
+          .on('match', (item) => console.log('match', item));
+      });
+
+      document.getElementById('root').append(input);
     </script>
   `
 };

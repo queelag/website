@@ -291,27 +291,3 @@ export const SB_TIMEOUT_CLEAR: ProjectFiles = {
     </script>
   `
 };
-
-export const SB_TYPEAHEAD: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Typeahead } from '@aracna/core';
-
-      const typeahead = new Typeahead((item) => {
-        console.log(item);
-      });
-
-      const input = document.createElement('input');
-      const items = ['apple', 'banana', 'cherry'];
-
-      input.addEventListener('keydown', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        typeahead.handle(event.key, items);
-      });
-
-      document.getElementById('root').append(input);
-    </script>
-  `
-};
