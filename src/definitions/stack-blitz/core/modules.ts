@@ -54,65 +54,6 @@ export const SB_ID_SIZE: ProjectFiles = {
   `
 };
 
-export const SB_INTERVAL_FN_AS_KEY: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Interval } from '@aracna/core';
-
-      function fn() {
-        console.log('running', Date.now());
-      }
-
-      Interval.start(fn, 1000);
-
-      setTimeout(() => Interval.stop(fn), 2500);
-    </script>
-  `
-};
-
-export const SB_INTERVAL_NAME_AS_KEY: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Interval } from '@aracna/core';
-
-      const ID = 'interval';
-
-      Interval.start(ID, () => console.log('running', Date.now()), 1000);
-
-      setTimeout(() => Interval.stop(ID), 2500);
-    </script>
-  `
-};
-
-export const SB_INTERVAL_AUTORUN: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Interval } from '@aracna/core';
-
-      function fn() {
-        console.log('running', Date.now());
-      }
-
-      Interval.start(fn, 1000, true); // will run fn instantly
-
-      setTimeout(() => Interval.stop(fn), 2500);
-    </script>
-  `
-};
-
-export const SB_INTERVAL_CLEAR: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Interval } from '@aracna/core';
-
-      Interval.start(() => console.log('running i1', Date.now()), 1000);
-      Interval.start(() => console.log('running i2', Date.now()), 1000);
-
-      setTimeout(() => Interval.clear(), 2500);
-    </script>
-  `
-};
-
 export const SB_POLYFILL_FETCH: ProjectFiles = {
   'index.js': html`
     <script>

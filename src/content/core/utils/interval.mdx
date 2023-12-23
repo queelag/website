@@ -3,30 +3,43 @@ title: Interval
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_INTERVAL_FN_AS_KEY, SB_INTERVAL_NAME_AS_KEY, SB_INTERVAL_AUTORUN, SB_INTERVAL_CLEAR } from '@/definitions/stack-blitz/core/modules'
+import { Alert } from '@/components/Alert'
+import { SB_INTERVAL_CLEAR, SB_INTERVAL_CLEAR_EVERY, SB_INTERVAL_SET, SB_INTERVAL_SET_CUSTOM_KEY } from '@/definitions/stack-blitz/core/functions'
 
-The **Interval** class provides a set of static methods to manage intervals in ECMAScript. The class abstracts and simplifies the use of the **setInterval** and **clearInterval** functions by using a **Map** object to store the intervals and their keys, and by providing a set of static methods to start, stop, clear, and check the status of intervals.
+This is a collection of functions for working with intervals.
 
-## Function as Key
+## Set
 
-The **start** and **stop** methods of the **Interval** class provide a convenient way to start and stop intervals in ECMAScript applications by using a **Map** object to store the intervals and their keys, and by providing a set of static methods to manage the intervals. When using only the **fn** and **ms** arguments, the **start** method uses **fn** as key for the interval and stores it in the **Map** object, making it easy to identify and manage the interval using the **stop** method.
+The `setInterval` function is used to set an interval to run a function every `ms` milliseconds. When calling `setInterval` with only the function and the time, the function will be used as the key.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_FN_AS_KEY} template='javascript' title='Interval' console={100} />
+<Alert client:load severity='warning'>
+  The function passed to the `setInterval` function must be constant, otherwise you will not be able to clear the interval.
+</Alert>
 
-## Name as Key
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_INTERVAL_SET}
+  template='javascript'
+  title='Interval'
+  console={100}
+/>
 
-When using the **name**, **fn**, and **ms** arguments, the **start** method generates a unique key for the interval using the **name** argument, making it easy to identify and manage the interval using the **stop** method.
+## Set with a custom key
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_NAME_AS_KEY} template='javascript' title='Interval' console={100} />
+The `setInterval` function can also be called with a custom key. This is useful when you want to clear an interval with a function that is not constant.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_SET_CUSTOM_KEY} template='javascript' title='Interval' console={100} />
 
 ## Clear
 
-The **clear** method of the **Interval** class provides a convenient way to clear all intervals that have been started using the **start** method in ECMAScript applications. This makes it easy to manage intervals and prevent memory leaks by clearing them when they are no longer needed.
+The `clearInterval` function is used to clear an interval.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_CLEAR} template='javascript' title='Interval' console={100} />
 
-## Autorun
+## Clear all intervals
 
-The **autorun** parameter provides a convenient way to execute an interval immediately after starting it in ECMAScript applications. This can be useful in situations where you want to execute an interval as soon as possible, such as when initializing a timer or animation.
+The `clearEveryInterval` function is used to clear all intervals.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_AUTORUN} template='javascript' title='Interval' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_CLEAR_EVERY} template='javascript' title='Interval' console={100} />

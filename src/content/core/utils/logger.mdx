@@ -1,3 +1,21 @@
 ---
 title: Logger
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_LOGGER_GET_ANSI_COLOR } from '@/definitions/stack-blitz/core/functions'
+
+This is a collection of functions for working with loggers.
+
+## Get ANSI color for level
+
+The `getLoggerAnsiColor` function returns the ANSI color for a logger level, the level can be `debug`, `error`, `info`, `verbose` or `warn`.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_LOGGER_GET_ANSI_COLOR}
+  template='javascript'
+  title='getLoggerAnsiColor'
+  console={100}
+/>
