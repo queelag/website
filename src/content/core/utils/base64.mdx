@@ -3,10 +3,30 @@ title: Base64
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_BASE64 } from '@/definitions/stack-blitz/core/modules'
+import { SB_BASE64_ENCODE, SB_BASE64_DECODE, SB_BASE64_URL_DECODE, SB_BASE64_URL_ENCODE } from '@/definitions/stack-blitz/core/utils'
 
-The **Base64** class provides static methods for encoding and decoding data using the Base64 encoding scheme. The Base64 encoding scheme represents binary data as a sequence of 64 symbols (A-Z, a-z, 0-9, +, and /).
+This is a collection of functions for working with base64.
 
-The **Base64** class is a simple and useful utility class that provides a convenient way to encode and decode binary data using the Base64 encoding scheme.
+## Encode
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE64} template='javascript' title='Base64' console={100} />
+The `encodeBase64` function encodes an array of integers into a base64 string.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE64_ENCODE} template='javascript' title='Base64' console={100} />
+
+## Decode
+
+The `decodeBase64` function decodes a base64 string into a Uint8Array.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE64_DECODE} template='javascript' title='Base64' console={100} />
+
+## Encode URL
+
+The `encodeBase64URL` function encodes an array of integers into a base64 URL string.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE64_URL_ENCODE} template='javascript' title='Base64' console={100} />
+
+## Decode URL
+
+The `decodeBase64URL` function decodes a base64 URL string into a Uint8Array.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE64_URL_DECODE} template='javascript' title='Base64' console={100} />

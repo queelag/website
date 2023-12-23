@@ -113,12 +113,12 @@ export const SB_ARACNA_BLOB_RESOLVE_TEXT: ProjectFiles = {
       (async () => {
         let text, blob;
 
-        text = 'Hello';
+        text = 'hello';
         blob = new AracnaBlob(new Blob([text]));
 
         await blob.resolveText();
 
-        console.log(blob.text); // will log "Hello"
+        console.log(blob.text); // will log "hello"
         console.log(blob.uInt8Array); // will log Uint8Array
       })();
     </script>
@@ -133,7 +133,7 @@ export const SB_ARACNA_BLOB_UINT8ARRAY: ProjectFiles = {
       (async () => {
         let text, blob;
 
-        text = 'Hello';
+        text = 'hello';
         blob = new AracnaBlob(new Blob([text]));
 
         await blob.resolveText();
@@ -152,12 +152,12 @@ export const SB_ARACNA_BLOB_SERIALIZATION: ProjectFiles = {
       (async () => {
         let text, blob, serialized, deserialized;
 
-        text = 'Hello';
+        text = 'hello';
         blob = new AracnaBlob(new Blob([text]));
 
         await blob.resolveText();
 
-        console.log(blob.text); // will log "Hello"
+        console.log(blob.text); // will log "hello"
         console.log(blob.uInt8Array); // will log Uint8Array
 
         serialized = JSON.stringify(blob, null, 2);
@@ -166,7 +166,7 @@ export const SB_ARACNA_BLOB_SERIALIZATION: ProjectFiles = {
         deserialized = new AracnaBlob(JSON.parse(serialized));
         console.log(deserialized); // will log AracnaBlob
 
-        console.log(deserialized.text); // will log "Hello"
+        console.log(deserialized.text); // will log "hello"
         console.log(deserialized.uInt8Array); // will log Uint8Array
       })();
     </script>
@@ -203,12 +203,12 @@ export const SB_ARACNA_FILE_RESOLVE_TEXT: ProjectFiles = {
       (async () => {
         let text, file;
 
-        text = 'Hello';
+        text = 'hello';
         file = new AracnaFile(new File([text], 'file.txt'));
 
         await file.resolveText();
 
-        console.log(file.text); // will log "Hello"
+        console.log(file.text); // will log "hello"
         console.log(file.uInt8Array); // will log Uint8Array
       })();
     </script>
@@ -223,7 +223,7 @@ export const SB_ARACNA_FILE_UINT8ARRAY: ProjectFiles = {
       (async () => {
         let text, file;
 
-        text = 'Hello';
+        text = 'hello';
         file = new AracnaFile(new File([text], 'file.txt'));
 
         await file.resolveText();
@@ -242,13 +242,13 @@ export const SB_ARACNA_FILE_SERIALIZATION: ProjectFiles = {
       (async () => {
         let text, file, serialized, deserialized;
 
-        text = 'Hello';
+        text = 'hello';
         file = new AracnaFile(new File([text], 'file.txt'));
 
         await file.resolveText();
 
         console.log(file.name); // will log "file.txt"
-        console.log(file.text); // will log "Hello"
+        console.log(file.text); // will log "hello"
         console.log(file.uInt8Array); // will log Uint8Array
 
         serialized = JSON.stringify(file, null, 2);
@@ -258,7 +258,7 @@ export const SB_ARACNA_FILE_SERIALIZATION: ProjectFiles = {
         console.log(deserialized); // will log AracnaFile
 
         console.log(deserialized.name); // will log "file.txt"
-        console.log(deserialized.text); // will log "Hello"
+        console.log(deserialized.text); // will log "hello"
         console.log(deserialized.uInt8Array); // will log Uint8Array
       })();
     </script>
@@ -643,10 +643,10 @@ export const SB_EVENT_EMITTER_ON: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.on('event', (data) => {
-        console.log(data); // will log "Hello"
+        console.log(data); // will log "hello"
       });
 
-      emitter.emit('event', 'Hello');
+      emitter.emit('event', 'hello');
     </script>
   `
 };
@@ -659,11 +659,11 @@ export const SB_EVENT_EMITTER_ONCE: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.once('event', (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       });
 
-      emitter.emit('event', 'Hello');
-      emitter.emit('event', 'Hello');
+      emitter.emit('event', 'hello');
+      emitter.emit('event', 'hello');
     </script>
   `
 };
@@ -676,14 +676,14 @@ export const SB_EVENT_EMITTER_PREPEND: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.on('event', (data) => {
-        console.log('on', data); // will log "Hello" second
+        console.log('on', data); // will log "hello" second
       });
 
       emitter.prepend('event', (data) => {
-        console.log('prepend', data); // will log "Hello" first
+        console.log('prepend', data); // will log "hello" first
       });
 
-      emitter.emit('event', 'Hello');
+      emitter.emit('event', 'hello');
     </script>
   `
 };
@@ -696,10 +696,10 @@ export const SB_EVENT_EMITTER_EMIT: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.on('event', (data) => {
-        console.log(data); // will log "Hello"
+        console.log(data); // will log "hello"
       });
 
-      emitter.emit('event', 'Hello');
+      emitter.emit('event', 'hello');
     </script>
   `
 };
@@ -712,13 +712,13 @@ export const SB_EVENT_EMITTER_OFF: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       };
 
       emitter.on('event', listener);
-      emitter.emit('event', 'Hello');
+      emitter.emit('event', 'hello');
       emitter.off('event', listener);
-      emitter.emit('event', 'Hello');
+      emitter.emit('event', 'hello');
     </script>
   `
 };
@@ -731,7 +731,7 @@ export const SB_EVENT_EMITTER_GET_LISTENERS: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       };
 
       emitter.on('event', listener);
@@ -748,7 +748,7 @@ export const SB_EVENT_EMITTER_COUNT_LISTENERS: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       };
 
       emitter.on('event', listener);
@@ -765,7 +765,7 @@ export const SB_EVENT_EMITTER_HAS_LISTENERS: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       };
 
       emitter.on('event', listener);
@@ -782,7 +782,7 @@ export const SB_EVENT_EMITTER_GET_EVENT_NAMES: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       };
 
       emitter.on('event', listener);
@@ -811,7 +811,7 @@ export const SB_EVENT_EMITTER_SET_MAX_LISTENERS: ProjectFiles = {
       emitter.setMaxListeners(1);
 
       const listener = (data) => {
-        console.log(data); // will log "Hello" only once
+        console.log(data); // will log "hello" only once
       };
 
       emitter.on('event', listener); // will register
@@ -828,7 +828,7 @@ export const SB_FETCH: ProjectFiles = {
       (async () => {
         let response;
 
-        response = await Fetch.get('https://dummyjson.com/users');
+        response = await Fetch.send('https://dummyjson.com/users');
         if (response instanceof Error) return;
 
         console.log(response.data);
@@ -840,9 +840,9 @@ export const SB_FETCH: ProjectFiles = {
 export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
   'index.js': html`
     <script>
-      import { GraphQLAPI } from '@aracna/core';
+      import { GraphQlAPI } from '@aracna/core';
 
-      const api = new GraphQLAPI('https://graphqlzero.almansi.me/api');
+      const api = new GraphQlAPI('https://graphqlzero.almansi.me/api');
 
       (async () => {
         let query, response;
@@ -862,9 +862,9 @@ export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
 export const SB_GRAPHQL_API_MUTATION: ProjectFiles = {
   'index.js': html`
     <script>
-      import { GraphQLAPI } from '@aracna/core';
+      import { GraphQlAPI } from '@aracna/core';
 
-      const api = new GraphQLAPI('https://graphqlzero.almansi.me/api');
+      const api = new GraphQlAPI('https://graphqlzero.almansi.me/api');
 
       (async () => {
         let query, variables, response;
@@ -1124,9 +1124,9 @@ export const SB_LOGGER_ENVIRONMENT: ProjectFiles = {
 export const SB_REST_API_GET: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API } from '@aracna/core';
+      import { RestAPI } from '@aracna/core';
 
-      const api = new API('https://dummyjson.com/');
+      const api = new RestAPI('https://dummyjson.com/');
 
       (async () => {
         let response;
@@ -1143,9 +1143,9 @@ export const SB_REST_API_GET: ProjectFiles = {
 export const SB_REST_API_STATUS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, wf } from '@aracna/core';
+      import { RestAPI, wf } from '@aracna/core';
 
-      const api = new API('https://dummyjson.com/');
+      const api = new RestAPI('https://dummyjson.com/');
 
       (async () => {
         console.log(api.status.get('GET', 'test')); // will log "IDLE"
@@ -1173,9 +1173,9 @@ export const SB_REST_API_STATUS: ProjectFiles = {
 export const SB_REST_API_TRANSFORM_BODY: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API } from '@aracna/core';
+      import { RestAPI } from '@aracna/core';
 
-      class MyAPI extends API {
+      class MyAPI extends RestAPI {
         async transformBody(method, path, body, config) {
           body.firstName = body.name.split(' ')[0];
           body.lastName = body.name.split(' ')[1];
@@ -1206,9 +1206,9 @@ export const SB_REST_API_TRANSFORM_BODY: ProjectFiles = {
 export const SB_REST_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API, serializeQueryParameters } from '@aracna/core';
+      import { RestAPI, serializeQueryParameters } from '@aracna/core';
 
-      class MyAPI extends API {
+      class MyAPI extends RestAPI {
         async transformQueryParameters(method, path, body, config) {
           if (config.query.limit === 0) {
             delete config.query.limit;
@@ -1240,9 +1240,9 @@ export const SB_REST_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
 export const SB_REST_API_HANDLE_ERROR: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API } from '@aracna/core';
+      import { RestAPI } from '@aracna/core';
 
-      class MyAPI extends API {
+      class MyAPI extends RestAPI {
         async handleError(method, path, body, config, error) {
           if (path === 'unknown') {
             return true;
@@ -1265,9 +1265,9 @@ export const SB_REST_API_HANDLE_ERROR: ProjectFiles = {
 export const SB_REST_API_HANDLE_PENDING: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API } from '@aracna/core';
+      import { RestAPI } from '@aracna/core';
 
-      class MyAPI extends API {
+      class MyAPI extends RestAPI {
         async handlePending(method, path, body, config) {
           if (path === 'users') {
             return false;
@@ -1292,9 +1292,9 @@ export const SB_REST_API_HANDLE_PENDING: ProjectFiles = {
 export const SB_REST_API_HANDLE_SUCCESS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { API } from '@aracna/core';
+      import { RestAPI } from '@aracna/core';
 
-      class MyAPI extends API {
+      class MyAPI extends RestAPI {
         async handleSuccess(method, path, body, config, response) {
           if (path === 'users') {
             return false;

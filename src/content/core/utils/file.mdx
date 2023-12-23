@@ -5,16 +5,16 @@ title: File
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_SERIALIZE_FILE, SB_DESERIALIZE_FILE } from '@/definitions/stack-blitz/core/utils'
 
-File utils are a set of utility functions that are designed to make working with **File** objects in ECMAScript easier and more efficient. **File** objects are used to represent files in web applications, such as images, audio files, and other types of media.
+This is a collection of functions for working with `File` objects.
 
 ## Serialize
 
-The **serializeFile** function is used to create a new **File** object from an **AracnaFile** object. The function takes two parameters: an **AracnaFile** object and an optional **EndingType** parameter that can be used to control the line endings of the serialized file.
+The `serializeFile` function creates a new `AracnaFile` from a `File`.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SERIALIZE_FILE} template='javascript' title='serializeFile' console={100} />
 
 ## Deserialize
 
-The **deserializeFile** function is used to create an **AracnaFile** object from a **File** object. The **AracnaFile** class is defined elsewhere in the codebase and provides additional functionality for working with files, such as resolving the contents of the file as an array buffer or text.
+The `deserializeFile` function creates a new `File` from an `AracnaFile`. Optionally resolves the data of the file.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_DESERIALIZE_FILE} template='javascript' title='deserializeFile' console={100} />

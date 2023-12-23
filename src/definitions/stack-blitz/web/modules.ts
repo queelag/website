@@ -350,8 +350,8 @@ export const SB_WEB_SOCKET_SEND: ProjectFiles = {
         const ws = new WebSocket('PieSocket', 'wss://ws.postman-echo.com/raw');
         await ws.open();
 
-        // will send "Hello"
-        ws.send('Hello');
+        // will send "hello"
+        ws.send('hello');
       })();
     </script>
   `
@@ -366,12 +366,12 @@ export const SB_WEB_SOCKET_RECEIVE: ProjectFiles = {
         const ws = new WebSocket('PieSocket', 'wss://ws.postman-echo.com/raw');
 
         ws.onMessage = (event) => {
-          // will log "Hello"
+          // will log "hello"
           console.log(event.data);
         };
 
         await ws.open();
-        ws.send('Hello');
+        ws.send('hello');
       })();
     </script>
   `

@@ -3,10 +3,30 @@ title: Base32
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_BASE32 } from '@/definitions/stack-blitz/core/modules'
+import { SB_BASE32_ENCODE, SB_BASE32_DECODE, SB_BASE32_HEX_ENCODE, SB_BASE32_HEX_DECODE } from '@/definitions/stack-blitz/core/utils'
 
-The **Base32** class provides static methods for encoding and decoding data using the Base32 encoding scheme. The Base32 encoding scheme represents binary data as a sequence of 32 symbols (A-Z and 2-7).
+This is a collection of functions for working with base32.
 
-The **Base32** class is a simple and useful utility class that provides a convenient way to encode and decode binary data using the Base32 encoding scheme.
+## Encode
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE32} template='javascript' title='Base32' console={100} />
+The `encodeBase32` function encodes an array of integers into a base32 string.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE32_ENCODE} template='javascript' title='Base32' console={100} />
+
+## Decode
+
+The `decodeBase32` function decodes a base32 string into a Uint8Array.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE32_DECODE} template='javascript' title='Base32' console={100} />
+
+## Encode Hex
+
+The `encodeBase32Hex` function encodes an array of integers into a base32hex string.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE32_HEX_ENCODE} template='javascript' title='Base32' console={100} />
+
+## Decode Hex
+
+The `decodeBase32Hex` function decodes a base32hex string into a Uint8Array.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_BASE32_HEX_DECODE} template='javascript' title='Base32' console={100} />

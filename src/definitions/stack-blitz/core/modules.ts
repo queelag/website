@@ -1,66 +1,6 @@
 import { html } from '@/functions/html.js';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
-export const SB_BASE16: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Base16 } from '@aracna/core';
-
-      let binary, encoded, decoded;
-
-      binary = new Uint8Array([
-        72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
-      ]);
-
-      encoded = Base16.encode(binary);
-      console.log(encoded); // will log "48656C6C6F20576F726C64"
-
-      decoded = Base16.decode(encoded);
-      console.log(decoded); // will log Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
-    </script>
-  `
-};
-
-export const SB_BASE32: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Base32 } from '@aracna/core';
-
-      let binary, encoded, decoded;
-
-      binary = new Uint8Array([
-        72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
-      ]);
-
-      encoded = Base32.encode(binary);
-      console.log(encoded); // will log "JBSWY3DPEBLW64TMMQQQ===="
-
-      decoded = Base32.decode(encoded);
-      console.log(decoded); // will log Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
-    </script>
-  `
-};
-
-export const SB_BASE64: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { Base64 } from '@aracna/core';
-
-      let binary, encoded, decoded;
-
-      binary = new Uint8Array([
-        72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100
-      ]);
-
-      encoded = Base64.encode(binary);
-      console.log(encoded); // will log "SGVsbG8gV29ybGQ="
-
-      decoded = Base64.decode(encoded);
-      console.log(decoded); // will og Uint8Array [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]
-    </script>
-  `
-};
-
 export const SB_ENVIRONMENT: ProjectFiles = {
   'index.js': html`
     <script>
@@ -232,11 +172,11 @@ export const SB_TEXT_CODEC: ProjectFiles = {
     <script>
       import { TextCodec } from '@aracna/core';
 
-      const encoded = TextCodec.encode('Hello');
+      const encoded = TextCodec.encode('hello');
       console.log(encoded); // will log [72, 101, 108, 108, 111]
 
       const decoded = TextCodec.decode(encoded);
-      console.log(decoded); // will log "Hello"
+      console.log(decoded); // will log "hello"
     </script>
   `
 };

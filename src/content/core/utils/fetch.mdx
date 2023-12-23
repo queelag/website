@@ -17,11 +17,24 @@ import {
   SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT
 } from '@/definitions/stack-blitz/core/utils'
 
-Fetch utils are a set of utility functions that are designed to make working with the Fetch API in ECMAScript easier and more efficient. The Fetch API is a modern interface for fetching resources over the network, and is commonly used in web applications to make HTTP requests to servers.
+This is a collection of functions for working with fetch.
 
-## Delete Request Init Header
+## Count a request headers
 
-The **deleteFetchRequestInitHeader** function is used to delete a specific header from a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to delete as input, and returns a new **FetchRequestInit** object with the specified header removed.
+The `countFetchRequestInitHeaders` function counts the number of headers in a `FetchRequestInit` or `RequestInit` object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GET_FETCH_REQUEST_INIT_HEADERS_LENGTH}
+  template='javascript'
+  title='countFetchRequestInitHeaders'
+  console={100}
+/>
+
+## Delete a request header
+
+The `deleteFetchRequestInitHeader` function deletes a header from a `FetchRequestInit` or `RequestInit` object.
 
 <CodeBlock
   client:load
@@ -32,9 +45,9 @@ The **deleteFetchRequestInitHeader** function is used to delete a specific heade
   console={100}
 />
 
-## Get Request Init Header
+## Get a request header
 
-The **getFetchRequestInitHeader** function is used to retrieve the value of a specific header from a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to retrieve as input, and returns the value of the specified header as a string.
+The `getFetchRequestInitHeader` function returns a header from a `FetchRequestInit` or `RequestInit` object.
 
 <CodeBlock
   client:load
@@ -45,9 +58,9 @@ The **getFetchRequestInitHeader** function is used to retrieve the value of a sp
   console={100}
 />
 
-## Get Request Init Headers Entries
+## Get a request headers entries
 
-The **getFetchRequestInitHeadersEntries** function is used to retrieve an array of **[name, value]** pairs representing the headers of a **FetchRequestInit** object. The function takes a **FetchRequestInit** object as input, and returns an array of **[name, value]** pairs representing the headers of the input object.
+The `getFetchRequestInitHeadersEntries` function returns the headers entries of a `FetchRequestInit` or `RequestInit` object.
 
 <CodeBlock
   client:load
@@ -58,22 +71,9 @@ The **getFetchRequestInitHeadersEntries** function is used to retrieve an array 
   console={100}
 />
 
-## Get Request Init Headers Length
+## Set a request header
 
-The **getFetchRequestInitHeadersLength** function is used to retrieve the number of headers in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object as input, and returns the number of headers in the **headers** property of the input object.
-
-<CodeBlock
-  client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_GET_FETCH_REQUEST_INIT_HEADERS_LENGTH}
-  template='javascript'
-  title='getFetchRequestInitHeadersLength'
-  console={100}
-/>
-
-## Set Request Init Header
-
-The **setFetchRequestInitHeader** function is used to set the value of a specific header in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object, a string representing the name of the header to set, and a string representing the value of the header as input. The function returns a new **FetchRequestInit** object with the specified header set to the specified value.
+The `setFetchRequestInitHeader` function sets a header in a `FetchRequestInit` or `RequestInit` object.
 
 <CodeBlock
   client:load
@@ -84,9 +84,9 @@ The **setFetchRequestInitHeader** function is used to set the value of a specifi
   console={100}
 />
 
-## Set Request Init Header When Unset
+## Set a request header when unset
 
-The **setFetchRequestInitHeaderWhenUnset** function is used to set the value of a specific header in a **FetchRequestInit** object, but only if the header is not already set. The function takes a **FetchRequestInit** object, a string representing the name of the header to set, and a string representing the value of the header as input. The function returns a new **FetchRequestInit** object with the specified header set to the specified value, but only if the header was not already set in the input object.
+The `setFetchRequestInitHeaderWhenUnset` function sets a header in a `FetchRequestInit` or `RequestInit` object if it is not already set.
 
 <CodeBlock
   client:load
@@ -97,9 +97,9 @@ The **setFetchRequestInitHeaderWhenUnset** function is used to set the value of 
   console={100}
 />
 
-## Has Request Init Header
+## Check if a request header exists
 
-The **hasFetchRequestInitHeader** function is used to check whether a specific header is set in a **FetchRequestInit** object. The function takes a **FetchRequestInit** object and a string representing the name of the header to check as input, and returns a boolean value indicating whether the specified header is set in the input object.
+The `hasFetchRequestInitHeader` function checks if a header exists in a `FetchRequestInit` or `RequestInit` object.
 
 <CodeBlock
   client:load
@@ -110,9 +110,9 @@ The **hasFetchRequestInitHeader** function is used to check whether a specific h
   console={100}
 />
 
-## Merge Request Inits
+## Merge request inits
 
-The **mergeFetchRequestInits** function is used to merge two **FetchRequestInit** objects into a single object. The function takes two **FetchRequestInit** objects as input, and returns a new **FetchRequestInit** object that contains the merged headers and other properties of the input objects.
+The `mergeFetchRequestInits` function merges two or more `FetchRequestInit` or `RequestInit` objects.
 
 <CodeBlock
   client:load
@@ -123,9 +123,9 @@ The **mergeFetchRequestInits** function is used to merge two **FetchRequestInit*
   console={100}
 />
 
-## Convert Internal Request Init to Native
+## Convert a request to a native request
 
-The **toNativeFetchRequestInit** function is used to convert a **FetchRequestInit** object to a native **RequestInit** object. The function takes a **FetchRequestInit** object as input, and returns a new **RequestInit** object with the same properties as the input object.
+The `toNativeFetchRequestInit` function converts a `FetchRequestInit` or `RequestInit` object to a native `RequestInit` object.
 
 <CodeBlock
   client:load
@@ -136,9 +136,9 @@ The **toNativeFetchRequestInit** function is used to convert a **FetchRequestIni
   console={100}
 />
 
-## Make Request Init Loggable
+## Make a request log friendly
 
-The **toLoggableFetchRequestInit** function is used to convert a **FetchRequestInit** object to a loggable object that can be used for debugging or logging purposes. The function takes a **FetchRequestInit** object as input, and returns a new object with the same properties as the input object, but with the **headers** property converted to an array of **[name, value]** pairs.
+The `toLoggableFetchRequestInit` function returns a version of a `FetchRequestInit` object that is easier to read in logs.
 
 <CodeBlock
   client:load
@@ -149,9 +149,9 @@ The **toLoggableFetchRequestInit** function is used to convert a **FetchRequestI
   console={100}
 />
 
-## Make Native Request Init Loggable
+## Make a native request log friendly
 
-The **toLoggableNativeFetchRequestInit** function is used to convert a native **RequestInit** object to a loggable object that can be used for debugging or logging purposes. The function takes a **RequestInit** object as input, and returns a new object with the same properties as the input object, but with the **headers** property converted to an array of **[name, value]** pairs.
+The `toLoggableNativeFetchRequestInit` function returns a version of a `RequestInit` object that is easier to read in logs.
 
 <CodeBlock
   client:load

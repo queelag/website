@@ -129,6 +129,118 @@ export const SB_IS_ARRAY: ProjectFiles = {
 };
 
 /**
+ * Base16
+ */
+
+export const SB_BASE16_ENCODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { encodeBase16 } from '@aracna/core';
+
+      console.log(encodeBase16([104, 101, 108, 108, 111])); // will log "68656C6C6F"
+    </script>
+  `
+};
+
+export const SB_BASE16_DECODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { decodeBase16 } from '@aracna/core';
+
+      console.log(decodeBase16('68656C6C6F')); // will log [104, 101, 108, 108, 111]
+    </script>
+  `
+};
+
+/**
+ * Base32
+ */
+
+export const SB_BASE32_ENCODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { encodeBase32 } from '@aracna/core';
+
+      console.log(encodeBase32([104, 101, 108, 108, 111])); // will log "NBSWY3DP"
+    </script>
+  `
+};
+
+export const SB_BASE32_DECODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { decodeBase32 } from '@aracna/core';
+
+      console.log(decodeBase32('NBSWY3DP')); // will log [104, 101, 108, 108, 111]
+    </script>
+  `
+};
+
+export const SB_BASE32_HEX_ENCODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { encodeBase32Hex } from '@aracna/core';
+
+      console.log(encodeBase32Hex([104, 101, 108, 108, 111])); // will log "91IMOR3F"
+    </script>
+  `
+};
+
+export const SB_BASE32_HEX_DECODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { decodeBase32Hex } from '@aracna/core';
+
+      console.log(decodeBase32Hex('91IMOR3F')); // will log [104, 101, 108, 108, 111]
+    </script>
+  `
+};
+
+/**
+ * Base64
+ */
+
+export const SB_BASE64_ENCODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { encodeBase64 } from '@aracna/core';
+
+      console.log(encodeBase64([104, 101, 108, 108, 111])); // will log "aGVsbG8="
+    </script>
+  `
+};
+
+export const SB_BASE64_DECODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { decodeBase64 } from '@aracna/core';
+
+      console.log(decodeBase64('aGVsbG8=')); // will log [104, 101, 108, 108, 111]
+    </script>
+  `
+};
+
+export const SB_BASE64_URL_ENCODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { encodeBase64URL } from '@aracna/core';
+
+      console.log(encodeBase64URL([104, 101, 108, 108, 111])); // will log "aGVsbG8"
+    </script>
+  `
+};
+
+export const SB_BASE64_URL_DECODE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { decodeBase64URL } from '@aracna/core';
+
+      console.log(decodeBase64URL('aGVsbG8')); // will log [104, 101, 108, 108, 111]
+    </script>
+  `
+};
+
+/**
  * Blob
  */
 
@@ -138,10 +250,10 @@ export const SB_SERIALIZE_BLOB: ProjectFiles = {
       import { AracnaBlob, serializeBlob } from '@aracna/core';
 
       (async () => {
-        const aracnaBlob = new AracnaBlob(new Blob(['Hello']));
+        const aracnaBlob = new AracnaBlob(new Blob(['hello']));
         const blob = serializeBlob(aracnaBlob);
 
-        console.log(await blob.text()); // will log "Hello"
+        console.log(await blob.text()); // will log "hello"
       })();
     </script>
   `
@@ -153,10 +265,10 @@ export const SB_DESERIALIZE_BLOB: ProjectFiles = {
       import { deserializeBlob } from '@aracna/core';
 
       (async () => {
-        const blob = new Blob(['Hello']);
+        const blob = new Blob(['hello']);
         const aracnaBlob = await deserializeBlob(blob, { resolveText: true });
 
-        console.log(aracnaBlob.text); // will log "Hello"
+        console.log(aracnaBlob.text); // will log "hello"
       })();
     </script>
   `
@@ -483,11 +595,11 @@ export const SB_SERIALIZE_FILE: ProjectFiles = {
       import { AracnaFile, serializeFile } from '@aracna/core';
 
       (async () => {
-        const aracnaFile = new AracnaFile(new File(['Hello'], 'file.txt'));
+        const aracnaFile = new AracnaFile(new File(['hello'], 'file.txt'));
         const file = serializeFile(aracnaFile);
 
         console.log(file.name); // will log "file.txt"
-        console.log(await file.text()); // will log "Hello"
+        console.log(await file.text()); // will log "hello"
       })();
     </script>
   `
@@ -499,11 +611,11 @@ export const SB_DESERIALIZE_FILE: ProjectFiles = {
       import { deserializeFile } from '@aracna/core';
 
       (async () => {
-        const file = new File(['Hello'], 'file.txt');
+        const file = new File(['hello'], 'file.txt');
         const aracnaFile = await deserializeFile(file, { resolveText: true });
 
         console.log(aracnaFile.name); // will log "file.txt"
-        console.log(aracnaFile.text); // will log "Hello"
+        console.log(aracnaFile.text); // will log "hello"
       })();
     </script>
   `

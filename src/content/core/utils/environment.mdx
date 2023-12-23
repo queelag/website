@@ -1,3 +1,24 @@
 ---
 title: Environment
 ---
+
+This is a collection of functions for working with the environment.
+
+## Functions
+
+- **getProcessEnvKey(key: string): string | undefined**: Returns the value of a key in `process.env`. If an error occurs, it returns `undefined`.
+- **hasProcessEnvKey(key: string): boolean**: Checks if a key exists in `process.env`. Returns `false` if an error occurs or if the key is not defined.
+- **getNodeEnv(): string | undefined**: Returns the value of `process.env.NODE_ENV`. If an error occurs, it returns `undefined`.
+- **isBlobDefined(): boolean**: Checks if `Blob` is defined.
+- **isDocumentDefined(): boolean**: Checks if `document` is defined.
+- **isFetchDefined(): boolean**: Checks if `fetch` is defined.
+- **isFileDefined(): boolean**: Checks if `File` is defined.
+- **isFormDataDefined(): boolean**: Checks if `FormData` is defined.
+- **isJestDefined(): boolean**: Checks if the `process.env.JEST_WORKER_ID` variable is defined.
+- **isNodeEnvDevelopment(): boolean**: Checks if the `process.env.NODE_ENV` variable is set to `development`.
+- **isNodeEnvProduction(): boolean**: Checks if the `process.env.NODE_ENV` variable is set to `production`.
+- **isNodeEnvTest(): boolean**: Checks if the `process.env.NODE_ENV` variable is set to `test`.
+- **isProcessDefined(): boolean**: Checks if `process` is defined.
+- **isTextDecoderDefined(): boolean**: Checks if `TextDecoder` is defined.
+- **isTextEncoderDefined(): boolean**: Checks if `TextEncoder` is defined.
+- **isWindowDefined(): boolean**: Checks if `window` is defined.

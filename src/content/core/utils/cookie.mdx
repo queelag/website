@@ -5,17 +5,17 @@ title: Cookie
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_SERIALIZE_COOKIE, SB_DESERIALIZE_COOKIE } from '@/definitions/stack-blitz/core/utils'
 
-Cookie utils are a set of utility functions that are designed to make working with HTTP cookies in ECMAScript easier and more efficient. HTTP cookies are small pieces of data that are sent from a web server to a web browser and stored on the user's computer. Cookies are commonly used to store user preferences, session information, and other types of data that need to persist across multiple requests.
+This is a collection of functions for working with HTTP cookies.
 
 ## Serialize
 
-The **serializeCookie** function is used to serialize a cookie name-value pair into a **Set-Cookie** header string. The function takes a cookie name, value, and an optional **CookieSerializeOptions** object as input, and returns a string. The **CookieSerializeOptions** object is used to specify serialization options for the cookie string.
+The `serializeCookie` function serializes a cookie name-value pair into a string suitable for use in a `Set-Cookie` header or `document.cookie` property.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_SERIALIZE_COOKIE} template='javascript' title='serializeCookie' console={100} />
 
 ## Deserialize
 
-The **deserializeCookie** function is used to parse an HTTP cookie header string and return an object of all cookie name-value pairs. The function takes a cookie string and an optional **CookieParseOptions** object as input, and returns a **CookieObject** interface. The **CookieParseOptions** object is used to specify parsing options for the cookie string.
+The `deserializeCookie` function deserializes a cookie string to an object.
 
 <CodeBlock
   client:load
