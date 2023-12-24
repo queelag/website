@@ -13,14 +13,36 @@ import {
   SB_IS_STRING_JSON,
   SB_IS_STRING_FLOAT,
   SB_IS_STRING_INT,
-  SB_IS_STRING_URL
+  SB_IS_STRING_URL,
+  SB_GENERATE_RANDOM_STRING
 } from '@/definitions/stack-blitz/core/utils'
 
-String utils are a set of utility functions that are designed to help with working with strings in ECMAScript.
+This is a collection of functions for working with strings.
+
+## Generate random
+
+The `generateRandomString` function returns a random string.
+
+- The alphabet is the set of characters that are used to generate the random string.
+- The blacklist is a set of strings that are not allowed to be generated.
+- The random function is a function that returns a random array of bytes.
+- The prefix is the string that is prepended to the random string.
+- The separator is the string that separates the prefix, the random string and the suffix.
+- The size is the length of the random string.
+- The suffix is the string that is appended to the random string.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_GENERATE_RANDOM_STRING}
+  template='javascript'
+  title='generateRandomString'
+  console={100}
+/>
 
 ## Capitalize
 
-The **getCapitalizedString** function is a utility function that takes a string as input and returns a new string with the first letter capitalized. The function also has an optional second parameter **lowercase** which, if set to **true**, will convert the rest of the string to lowercase.
+The `getCapitalizedString` function returns a string with the first letter capitalized. Optionally the rest of the letters can be set to lowercase.
 
 <CodeBlock
   client:load
@@ -31,9 +53,9 @@ The **getCapitalizedString** function is a utility function that takes a string 
   console={100}
 />
 
-## Camel Case
+## Make camel case
 
-The **getCamelCaseString** function is a utility function that takes a string as input and returns a new string in camelCase format. The function iterates over the characters of the input string and converts them to lowercase, except for the first character of each word, which is converted to uppercase. The function uses regular expressions to identify the boundaries between words.
+The `getCamelCaseString` function returns a string in camel case.
 
 <CodeBlock
   client:load
@@ -44,9 +66,9 @@ The **getCamelCaseString** function is a utility function that takes a string as
   console={100}
 />
 
-## Kebab Case
+## Make kebab case
 
-The **getKebabCaseString** function is a utility function that takes a string as input and returns a new string in kebab-case format. The function uses the **getSymbolCaseString** helper function to convert the input string to kebab-case format.
+The `getKebabCaseString` function returns a string in kebab case.
 
 <CodeBlock
   client:load
@@ -57,9 +79,9 @@ The **getKebabCaseString** function is a utility function that takes a string as
   console={100}
 />
 
-## Pascal Case
+## Make pascal case
 
-The **getPascalCaseString** function is a utility function that takes a string as input and returns a new string in PascalCase format. The function uses the **getCapitalizedString** helper function to capitalize the first letter of each word in the input string.
+The `getPascalCaseString` function returns a string in pascal case.
 
 <CodeBlock
   client:load
@@ -70,9 +92,9 @@ The **getPascalCaseString** function is a utility function that takes a string a
   console={100}
 />
 
-## Snake Case
+## Make snake case
 
-The **getSnakeCaseString** function is a utility function that takes a string as input and returns a new string in snake_case format. The function uses the **getSymbolCaseString** helper function to convert the input string to snake_case format.
+The `getSnakeCaseString` function returns a string in snake case.
 
 <CodeBlock
   client:load
@@ -83,9 +105,9 @@ The **getSnakeCaseString** function is a utility function that takes a string as
   console={100}
 />
 
-## Symbol Case
+## Make custom case
 
-The **getSymbolCaseString** function is a utility function that takes a string and a separator symbol as input and returns a new string in the specified symbol case format. The function is used by the **getKebabCaseString** and **getSnakeCaseString** functions to convert the input string to kebab-case and snake_case formats, respectively.
+The `getSymbolCaseString` function returns a string with a symbol between each word.
 
 <CodeBlock
   client:load
@@ -96,26 +118,26 @@ The **getSymbolCaseString** function is a utility function that takes a string a
   console={100}
 />
 
-## Is String Float
+## Check if a string is a float
 
-The **isStringFloat** function is a utility function that takes a string as input and returns a boolean value indicating whether the string can be parsed as a floating-point number.
+The `isStringFloat` function checks if a string is a float.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_STRING_FLOAT} template='javascript' title='isStringFloat' console={100} />
 
-## Is String Integer
+## Check if a string is an integer
 
-The **isStringInt** function is a utility function that takes a string as input and returns a boolean value indicating whether the string can be parsed as an integer.
+The `isStringInt` function checks if a string is an integer.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_STRING_INT} template='javascript' title='isStringInt' console={100} />
 
-## Is String JSON
+## Check if a string is a JSON
 
-The **isStringJSON** function is a utility function that takes a string as input and returns a boolean value indicating whether the string is valid JSON.
+The `isStringJSON` function checks if a string is a JSON.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_STRING_JSON} template='javascript' title='isStringJSON' console={100} />
 
-## Is String URL
+## Check if a string is a URL
 
-The **isStringURL** function is a utility function that takes a string as input and returns a boolean value indicating whether the string is a valid URL.
+The `isStringURL` function checks if a string is a URL.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_STRING_URL} template='javascript' title='isStringURL' console={100} />

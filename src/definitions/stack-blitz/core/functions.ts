@@ -1,6 +1,93 @@
 import { html } from '@/functions/html.js';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
+/**
+ * cafs
+ */
+/** */
+
+export const SB_CAFS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { cafs } from '@aracna/core';
+
+      (async () => {
+        let number;
+
+        await cafs(
+          async () => number++,
+          async () => number++
+        );
+
+        console.log(number); // will log 2
+      })();
+    </script>
+  `
+};
+
+/**
+ * cafsue
+ */
+/** */
+
+export const SB_CAFSUE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { cafsue } from '@aracna/core';
+
+      (async () => {
+        let number;
+
+        await cafsue(
+          async () => number++,
+          async () => new Error(),
+          async () => number++
+        );
+
+        console.log(number); // will log 1
+      })();
+    </script>
+  `
+};
+
+/**
+ * cafsueof
+ */
+/** */
+
+export const SB_CAFSUEOF: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { cafsueof } from '@aracna/core';
+
+      (async () => {
+        let number;
+
+        await cafsueof(
+          async () => number++,
+          async () => new Error(),
+          async () => number++
+        );
+
+        console.log(number); // will log 1
+
+        await cafsueof(
+          async () => number++,
+          async () => false,
+          async () => number++
+        );
+
+        console.log(number); // will log 2
+      })();
+    </script>
+  `
+};
+
+/**
+ * debounce
+ */
+/** */
+
 export const SB_DEBOUNCE: ProjectFiles = {
   'index.js': html`
     <script>
@@ -39,82 +126,20 @@ export const SB_DEBOUNCE_CUSTOM_KEY: ProjectFiles = {
   `
 };
 
+/**
+ * gql
+ */
+/** */
+
 export const SB_GQL: ProjectFiles = {
   'index.js':
     "import { gql } from '@aracna/core';\n\nconst GET_USERS_QUERY = gql`\n  query getUsers {\n    users {\n      id\n      name\n      email\n    }\n  }\n`"
 };
 
-export const SB_INTERVAL_SET: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { setInterval } from '@aracna/core';
-
-      function fn() {
-        console.log('running', Date.now());
-      }
-
-      setInterval(fn, 1000);
-    </script>
-  `
-};
-
-export const SB_INTERVAL_SET_CUSTOM_KEY: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { setInterval } from '@aracna/core';
-
-      const key = 'interval';
-
-      setInterval(() => console.log('running', Date.now()), 1000, key);
-    </script>
-  `
-};
-
-export const SB_INTERVAL_CLEAR: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { clearInterval, setInterval } from '@aracna/core';
-
-      function fn() {
-        console.log('running', Date.now());
-      }
-
-      setInterval(fn, 1000);
-      setTimeout(() => clearInterval(fn), 2500);
-    </script>
-  `
-};
-
-export const SB_INTERVAL_CLEAR_EVERY: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { clearEveryInterval, setInterval } from '@aracna/core';
-
-      function fn() {
-        console.log('running', Date.now());
-      }
-
-      setInterval(() => console.log('running 1', Date.now()), 1000);
-      setInterval(() => console.log('running 2', Date.now()), 1000);
-
-      setTimeout(() => clearEveryInterval(), 2500);
-    </script>
-  `
-};
-
-export const SB_LOGGER_GET_ANSI_COLOR: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { getLoggerAnsiColor } from '@aracna/core';
-
-      console.log(getLoggerAnsiColor('debug')); // will log "\\x1b[35m"
-      console.log(getLoggerAnsiColor('error')); // will log "\\x1b[31m"
-      console.log(getLoggerAnsiColor('info')); // will log "\\x1b[34m"
-      console.log(getLoggerAnsiColor('verbose')); // will log "\\x1b[37m"
-      console.log(getLoggerAnsiColor('warn')); // will log "\\x1b[33m"
-    </script>
-  `
-};
+/**
+ * ma
+ */
+/** */
 
 export const SB_MA: ProjectFiles = {
   'index.js': html`
@@ -133,6 +158,11 @@ export const SB_MA: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * mtc
+ */
+/** */
 
 export const SB_MTC: ProjectFiles = {
   'index.js': html`
@@ -157,6 +187,11 @@ export const SB_MTC: ProjectFiles = {
   `
 };
 
+/**
+ * mtcp
+ */
+/** */
+
 export const SB_MTCP: ProjectFiles = {
   'index.js': html`
     <script>
@@ -180,6 +215,11 @@ export const SB_MTCP: ProjectFiles = {
   `
 };
 
+/**
+ * noop
+ */
+/** */
+
 export const SB_NOOP: ProjectFiles = {
   'index.js': html`
     <script>
@@ -194,6 +234,11 @@ export const SB_NOOP: ProjectFiles = {
   `
 };
 
+/**
+ * rc
+ */
+/** */
+
 export const SB_RC: ProjectFiles = {
   'index.js': html`
     <script>
@@ -207,6 +252,11 @@ export const SB_RC: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * rcp
+ */
+/** */
 
 export const SB_RCP: ProjectFiles = {
   'index.js': html`
@@ -223,6 +273,11 @@ export const SB_RCP: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * rne
+ */
+/** */
 
 export const SB_RNE: ProjectFiles = {
   'index.js': html`
@@ -243,6 +298,11 @@ export const SB_RNE: ProjectFiles = {
   `
 };
 
+/**
+ * rv
+ */
+/** */
+
 export const SB_RV: ProjectFiles = {
   'index.js': html`
     <script>
@@ -256,6 +316,11 @@ export const SB_RV: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * rvp
+ */
+/** */
 
 export const SB_RVP: ProjectFiles = {
   'index.js': html`
@@ -273,6 +338,11 @@ export const SB_RVP: ProjectFiles = {
   `
 };
 
+/**
+ * sleep
+ */
+/** */
+
 export const SB_SLEEP: ProjectFiles = {
   'index.js': html`
     <script>
@@ -286,6 +356,11 @@ export const SB_SLEEP: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * tc
+ */
+/** */
 
 export const SB_TC: ProjectFiles = {
   'index.js': html`
@@ -305,6 +380,11 @@ export const SB_TC: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * tcp
+ */
+/** */
 
 export const SB_TCP: ProjectFiles = {
   'index.js': html`
@@ -326,6 +406,11 @@ export const SB_TCP: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * throttle
+ */
+/** */
 
 export const SB_THROTTLE_FN_AS_KEY: ProjectFiles = {
   'index.js': html`
@@ -363,6 +448,11 @@ export const SB_THROTTLE_NAME_AS_KEY: ProjectFiles = {
   `
 };
 
+/**
+ * tie
+ */
+/** */
+
 export const SB_TIE: ProjectFiles = {
   'index.js': html`
     <script>
@@ -382,6 +472,11 @@ export const SB_TIE: ProjectFiles = {
   `
 };
 
+/**
+ * tne
+ */
+/** */
+
 export const SB_TNE: ProjectFiles = {
   'index.js': html`
     <script>
@@ -400,6 +495,11 @@ export const SB_TNE: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * typeahead
+ */
+/** */
 
 export const SB_TYPEAHEAD: ProjectFiles = {
   'index.js': html`
@@ -426,6 +526,11 @@ export const SB_TYPEAHEAD: ProjectFiles = {
   `
 };
 
+/**
+ * wf
+ */
+/** */
+
 export const SB_WF: ProjectFiles = {
   'index.js': html`
     <script>
@@ -446,6 +551,11 @@ export const SB_WF: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * wfp
+ */
+/** */
 
 export const SB_WFP: ProjectFiles = {
   'index.js': html`

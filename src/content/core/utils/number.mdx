@@ -5,6 +5,7 @@ title: Number
 import { CodeBlock } from '@/blocks/CodeBlock'
 import {
   SB_GET_ABSOLUTE_NUMBER,
+  SB_GET_FIXED_NUMBER,
   SB_GET_HIGHEST_NUMBER,
   SB_GET_LIMITED_NUMBER,
   SB_GET_LOWEST_NUMBER,
@@ -14,15 +15,14 @@ import {
   SB_IS_NUMBER_MULTIPLE_OF,
   SB_IS_NUMBER_ODD,
   SB_PARSE_BIG_INT,
-  SB_PARSE_NUMBER,
-  SB_TO_FIXED_NUMBER
+  SB_PARSE_NUMBER
 } from '@/definitions/stack-blitz/core/utils'
 
-Number utils are a set of utility functions that are used to work with numbers in a programming language. These utility functions can be used to perform mathematical calculations, manipulate numeric data, or analyze numeric data in an application.
+This is a collection of functions for working with numbers.
 
-## Get Absolute Number
+## Get the absolute value
 
-The **getAbsoluteNumber** function is a utility function that returns the absolute value of a number. The function takes a number as input and returns the absolute value of that number.
+The `getAbsoluteNumber` function returns the absolute value of a number.
 
 <CodeBlock
   client:load
@@ -33,9 +33,15 @@ The **getAbsoluteNumber** function is a utility function that returns the absolu
   console={100}
 />
 
-## Calculate Distance Between Numbers
+## Limit the number of decimals
 
-The **getNumbersDistance** function is a utility function that returns the distance between two numbers. The function takes two numbers as input and returns the absolute difference between the two numbers.
+The `getFixedNumber` function returns a number with a fixed number of decimals.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GET_FIXED_NUMBER} template='javascript' title='getFixedNumber' console={100} />
+
+## Get the distance between two numbers
+
+The `getNumbersDistance` function returns the distance between two numbers.
 
 <CodeBlock
   client:load
@@ -46,15 +52,15 @@ The **getNumbersDistance** function is a utility function that returns the dista
   console={100}
 />
 
-## Get Number Limited Between a Maximum and a Minimum
+## Limit the number between a minimum and a maximum
 
-The **getLimitedNumber** function is a utility function that limits a number to a specified range. The function takes three parameters: a number to limit, a minimum value, and a maximum value. If the input number is within the specified range, the function returns the input number. Otherwise, the function returns the closest value within the range.
+The `getLimitedNumber` function returns a number between a minimum and a maximum.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GET_LIMITED_NUMBER} template='javascript' title='getLimitedNumber' console={100} />
 
-## Calculate Percentage
+## Calculate the percentage
 
-The **getNumberPercentage** function is a utility function that calculates the percentage of a number relative to a range. The function takes four parameters: a number to calculate the percentage of, a minimum value, a maximum value, and a boolean value indicating whether to round the percentage to the nearest integer.
+The `getNumberPercentage` function returns the percentage of a number. Optionally the percentage can be rounded.
 
 <CodeBlock
   client:load
@@ -65,51 +71,45 @@ The **getNumberPercentage** function is a utility function that calculates the p
   console={100}
 />
 
-## Get Highest Number
+## Get the highest number in an array
 
-The **getHighestNumber** function is a utility function that returns the highest number in an array of numbers. The function can be called with either an array of numbers or a variable number of arguments, each representing a number.
+The `getHighestNumber` function returns the highest number in an array of numbers.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GET_HIGHEST_NUMBER} template='javascript' title='getHighestNumber' console={100} />
 
-## Get Lowest Number
+## Get the lowest number in an array
 
-The **getLowestNumber** function is a utility function that returns the lowest number in an array of numbers. The function can be called with either an array of numbers or a variable number of arguments, each representing a number.
+The `getLowestNumber` function returns the lowest number in an array of numbers.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_GET_LOWEST_NUMBER} template='javascript' title='getLowestNumber' console={100} />
 
-## Parse BigInt
+## Parse an unknown value to a bigint
 
-The **parseBigInt** function is a utility function that parses a value into a BigInt. The function takes two parameters: a value to parse and an optional fallback value to return if the parsing fails.
+The `parseBigInt` function returns a bigint from an unknown value.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_PARSE_BIG_INT} template='javascript' title='parseBigInt' console={100} />
 
-## Parse Number
+## Parse an unknown value to a number
 
-The **parseNumber** function is a utility function that parses a value into a number. The function takes two parameters: a value to parse and an optional fallback value to return if the parsing fails
+The `parseNumber` function returns a number from an unknown value.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_PARSE_NUMBER} template='javascript' title='parseNumber' console={100} />
 
-## To Fixed Number
+## Check if a number is even
 
-The **toFixedNumber** function is a utility function that formats a number to a fixed number of decimal places and returns the result as a number. The function takes two parameters: a number to format and the number of decimal places to include in the formatted number.
-
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TO_FIXED_NUMBER} template='javascript' title='toFixedNumber' console={100} />
-
-## Check Evenness
-
-The **isNumberEven** function is a utility function that checks whether a number is even. The function takes a number as input and returns a boolean value indicating whether the number is even.
+The `isNumberEven` function checks if a number is even.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_NUMBER_EVEN} template='javascript' title='isNumberEven' console={100} />
 
-## Check Oddness
+## Check if a number is odd
 
-The **isNumberOdd** function is a utility function that checks whether a number is odd. The function takes a number as input and returns a boolean value indicating whether the number is odd.
+The `isNumberOdd` function checks if a number is odd.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_NUMBER_ODD} template='javascript' title='isNumberOdd' console={100} />
 
-## Multiple Of
+## Check if a number is multiple of another
 
-The **isNumberMultipleOf** function is a utility function that checks whether a number is a multiple of another number. The function takes two numbers as input: the number to check and the number to check for multiples of. The function returns a boolean value indicating whether the first number is a multiple of the second number.
+The `isNumberMultipleOf` function checks if a number is multiple of another number.
 
 <CodeBlock
   client:load

@@ -1,0 +1,10 @@
+---
+title: cafs
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_CAFS } from '@/definitions/stack-blitz/core/functions'
+
+The `cafs` function stands for `call async functions sequentially`. It executes a list of async functions in sequence.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CAFS} template='javascript' title='cafs' console={100} />

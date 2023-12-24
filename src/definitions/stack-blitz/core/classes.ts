@@ -1,6 +1,11 @@
 import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
+/**
+ * Appearence
+ */
+/** */
+
 export const SB_APPEARENCE_INITIALIZATION: ProjectFiles = {
   'index.js': html`
     <script>
@@ -82,6 +87,11 @@ export const SB_APPEARENCE_STORE: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * AracnaBlob
+ */
+/** */
 
 export const SB_ARACNA_BLOB_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
   'index.js': html`
@@ -172,6 +182,11 @@ export const SB_ARACNA_BLOB_SERIALIZATION: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * AracnaFile
+ */
+/** */
 
 export const SB_ARACNA_FILE_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
   'index.js': html`
@@ -264,6 +279,11 @@ export const SB_ARACNA_FILE_SERIALIZATION: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * AsyncStorage
+ */
+/** */
 
 export const SB_ASYNC_STORAGE_SET: ProjectFiles = {
   'index.js': html`
@@ -415,6 +435,11 @@ export const SB_ASYNC_STORAGE_HAS: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * Cookie
+ */
+/** */
 
 export const SB_COOKIE_SET: ProjectFiles = {
   'index.js': html`
@@ -592,6 +617,11 @@ export const SB_COOKIE_COPY: ProjectFiles = {
   `
 };
 
+/**
+ * DeferredPromise
+ */
+/** */
+
 export const SB_DEFERRED_PROMISE_RESOLVE: ProjectFiles = {
   'index.js': html`
     <script>
@@ -634,6 +664,11 @@ export const SB_DEFERRED_PROMISE_REJECT: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * EventEmitter
+ */
+/** */
 
 export const SB_EVENT_EMITTER_ON: ProjectFiles = {
   'index.js': html`
@@ -820,6 +855,11 @@ export const SB_EVENT_EMITTER_SET_MAX_LISTENERS: ProjectFiles = {
   `
 };
 
+/**
+ * Fetch
+ */
+/** */
+
 export const SB_FETCH: ProjectFiles = {
   'index.js': html`
     <script>
@@ -836,6 +876,11 @@ export const SB_FETCH: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * GraphQlAPI
+ */
+/** */
 
 export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
   'index.js': html`
@@ -886,6 +931,11 @@ export const SB_GRAPHQL_API_MUTATION: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * Localization
+ */
+/** */
 
 export const SB_LOCALIZATION_INITIALIZE: ProjectFiles = {
   'index.js': html`
@@ -1035,6 +1085,10 @@ export const SB_LOCALIZATION_STORAGE: ProjectFiles = {
   `
 };
 
+/**
+ * Logger
+ */
+
 export const SB_LOGGER: ProjectFiles = {
   'index.js': html`
     <script>
@@ -1120,6 +1174,11 @@ export const SB_LOGGER_ENVIRONMENT: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * RestAPI
+ */
+/** */
 
 export const SB_REST_API_GET: ProjectFiles = {
   'index.js': html`
@@ -1316,6 +1375,11 @@ export const SB_REST_API_HANDLE_SUCCESS: ProjectFiles = {
   `
 };
 
+/**
+ * Status
+ */
+/** */
+
 export const SB_STATUS: ProjectFiles = {
   'index.js': html`
     <script>
@@ -1340,6 +1404,11 @@ export const SB_STATUS: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * SyncStorage
+ */
+/** */
 
 export const SB_SYNC_STORAGE_SET: ProjectFiles = {
   'index.js': html`
@@ -1477,6 +1546,11 @@ export const SB_SYNC_STORAGE_HAS: ProjectFiles = {
     </script>
   `
 };
+
+/**
+ * VisibilityController
+ */
+/** */
 
 export const SB_VISIBILITY_CONTROLLER_SHOW: ProjectFiles = {
   'index.js': html`

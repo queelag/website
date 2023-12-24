@@ -4,14 +4,15 @@ import type { ProjectFiles } from '@stackblitz/sdk';
 /**
  * Array
  */
+/** */
 
-export const SB_CLONE_SHALLOW_ARRAY: ProjectFiles = {
+export const SB_CLONE_ARRAY: ProjectFiles = {
   'index.js': html`
     <script>
-      import { cloneShallowArray } from '@aracna/core';
+      import { cloneArray } from '@aracna/core';
 
       const a = [0, 1];
-      const b = cloneShallowArray(a);
+      const b = cloneArray(a);
 
       b[0] = 1;
       b[1] = 2;
@@ -131,6 +132,7 @@ export const SB_IS_ARRAY: ProjectFiles = {
 /**
  * Base16
  */
+/** */
 
 export const SB_BASE16_ENCODE: ProjectFiles = {
   'index.js': html`
@@ -155,6 +157,7 @@ export const SB_BASE16_DECODE: ProjectFiles = {
 /**
  * Base32
  */
+/** */
 
 export const SB_BASE32_ENCODE: ProjectFiles = {
   'index.js': html`
@@ -199,6 +202,7 @@ export const SB_BASE32_HEX_DECODE: ProjectFiles = {
 /**
  * Base64
  */
+/** */
 
 export const SB_BASE64_ENCODE: ProjectFiles = {
   'index.js': html`
@@ -243,6 +247,7 @@ export const SB_BASE64_URL_DECODE: ProjectFiles = {
 /**
  * Blob
  */
+/** */
 
 export const SB_SERIALIZE_BLOB: ProjectFiles = {
   'index.js': html`
@@ -277,14 +282,14 @@ export const SB_DESERIALIZE_BLOB: ProjectFiles = {
 /**
  * Cookie
  */
+/** */
 
 export const SB_SERIALIZE_COOKIE: ProjectFiles = {
   'index.js': html`
     <script>
       import { serializeCookie } from '@aracna/core';
 
-      // will log "a=0"
-      console.log(serializeCookie('a', '0'));
+      console.log(serializeCookie('a', '0')); // will log "a=0"
     </script>
   `
 };
@@ -294,8 +299,7 @@ export const SB_DESERIALIZE_COOKIE: ProjectFiles = {
     <script>
       import { deserializeCookie } from '@aracna/core';
 
-      // will log { a: "0" }
-      console.log(deserializeCookie('a=0'));
+      console.log(deserializeCookie('a=0')); // will log { a: "0" }
     </script>
   `
 };
@@ -303,17 +307,15 @@ export const SB_DESERIALIZE_COOKIE: ProjectFiles = {
 /**
  * Date
  */
+/** */
 
 export const SB_GET_DATE_UNIX_TIME: ProjectFiles = {
   'index.js': html`
     <script>
       import { getDateUnixTime } from '@aracna/core';
 
-      // will log 1660232042878
-      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z'));
-
-      // will log 16602320428
-      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z', 's'));
+      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z')); // will log 1660232042878
+      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z', 's')); // will log 16602320428
     </script>
   `
 };
@@ -321,17 +323,15 @@ export const SB_GET_DATE_UNIX_TIME: ProjectFiles = {
 /**
  * Emoji
  */
+/** */
 
 export const SB_GET_EMOJI_FROM_COUNTRY_CODE: ProjectFiles = {
   'index.js': html`
     <script>
       import { getEmojiFromCountryCode } from '@aracna/core';
 
-      // will log 🇮🇹
-      console.log(getEmojiFromCountryCode('IT'));
-
-      // will log 🇩🇪
-      console.log(getEmojiFromCountryCode('DE'));
+      console.log(getEmojiFromCountryCode('IT')); // will log 🇮🇹
+      console.log(getEmojiFromCountryCode('DE')); // will log 🇩🇪
     </script>
   `
 };
@@ -339,23 +339,14 @@ export const SB_GET_EMOJI_FROM_COUNTRY_CODE: ProjectFiles = {
 /**
  * Error
  */
+/** */
 
 export const SB_IS_ERROR: ProjectFiles = {
   'index.js': html`
     <script>
-      import { isError, isNotError } from '@aracna/core';
+      import { isError } from '@aracna/core';
 
-      // will log true
-      console.log(isError(new Error()));
-
-      // will log false
-      console.log(isError(0));
-
-      // will log true
-      console.log(isNotError(0));
-
-      // will log false
-      console.log(isNotError(new Error()));
+      console.log(isError(new Error())); // will log true
     </script>
   `
 };
@@ -363,6 +354,7 @@ export const SB_IS_ERROR: ProjectFiles = {
 /**
  * Fetch
  */
+/** */
 
 export const SB_DELETE_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
   'index.js': html`
@@ -588,6 +580,7 @@ export const SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT: ProjectFiles = {
 /**
  * File
  */
+/** */
 
 export const SB_SERIALIZE_FILE: ProjectFiles = {
   'index.js': html`
@@ -624,6 +617,7 @@ export const SB_DESERIALIZE_FILE: ProjectFiles = {
 /**
  * FormData
  */
+/** */
 
 export const SB_SERIALIZE_FORM_DATA: ProjectFiles = {
   'index.js': html`
@@ -676,6 +670,7 @@ export const SB_DESERIALIZE_FORM_DATA: ProjectFiles = {
 /**
  * Function
  */
+/** */
 
 export const SB_IS_INSTANCE_OF: ProjectFiles = {
   'index.js': html`
@@ -692,8 +687,91 @@ export const SB_IS_INSTANCE_OF: ProjectFiles = {
 };
 
 /**
+ * Interval
+ */
+/** */
+
+export const SB_INTERVAL_SET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { setInterval } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      setInterval(fn, 1000);
+    </script>
+  `
+};
+
+export const SB_INTERVAL_SET_CUSTOM_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { setInterval } from '@aracna/core';
+
+      const key = 'interval';
+
+      setInterval(() => console.log('running', Date.now()), 1000, key);
+    </script>
+  `
+};
+
+export const SB_INTERVAL_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { clearInterval, setInterval } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      setInterval(fn, 1000);
+      setTimeout(() => clearInterval(fn), 2500);
+    </script>
+  `
+};
+
+export const SB_INTERVAL_CLEAR_EVERY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { clearEveryInterval, setInterval } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      setInterval(() => console.log('running 1', Date.now()), 1000);
+      setInterval(() => console.log('running 2', Date.now()), 1000);
+
+      setTimeout(() => clearEveryInterval(), 2500);
+    </script>
+  `
+};
+
+/**
+ * Logger
+ */
+/** */
+
+export const SB_LOGGER_GET_ANSI_COLOR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { getLoggerAnsiColor } from '@aracna/core';
+
+      console.log(getLoggerAnsiColor('debug')); // will log "\\x1b[35m"
+      console.log(getLoggerAnsiColor('error')); // will log "\\x1b[31m"
+      console.log(getLoggerAnsiColor('info')); // will log "\\x1b[34m"
+      console.log(getLoggerAnsiColor('verbose')); // will log "\\x1b[37m"
+      console.log(getLoggerAnsiColor('warn')); // will log "\\x1b[33m"
+    </script>
+  `
+};
+
+/**
  * Number
  */
+/** */
 
 export const SB_GET_ABSOLUTE_NUMBER: ProjectFiles = {
   'index.js': html`
@@ -702,6 +780,17 @@ export const SB_GET_ABSOLUTE_NUMBER: ProjectFiles = {
 
       // will log 1
       console.log(getAbsoluteNumber(-1));
+    </script>
+  `
+};
+
+export const SB_GET_FIXED_NUMBER: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { getFixedNumber } from '@aracna/core';
+
+      // will log 2.5
+      console.log(getFixedNumber(2.51, 1));
     </script>
   `
 };
@@ -786,17 +875,6 @@ export const SB_PARSE_NUMBER: ProjectFiles = {
   `
 };
 
-export const SB_TO_FIXED_NUMBER: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { toFixedNumber } from '@aracna/core';
-
-      // will log 2
-      console.log(toFixedNumber(2.5, 0));
-    </script>
-  `
-};
-
 export const SB_IS_NUMBER_EVEN: ProjectFiles = {
   'index.js': html`
     <script>
@@ -842,23 +920,28 @@ export const SB_IS_NUMBER_ODD: ProjectFiles = {
 /**
  * Object
  */
+/** */
 
-export const SB_CLONE_DEEP_OBJECT: ProjectFiles = {
+export const SB_CLONE_OBJECT: ProjectFiles = {
   'index.js': html`
     <script>
-      import { cloneDeepObject } from '@aracna/core';
+      import { cloneObject } from '@aracna/core';
 
-      const object = { deep: { value: 0 }, shallow: 0 };
-      const cloned_object = cloneDeepObject(object);
+      let object, clone;
 
-      cloned_object.a.b++;
-      cloned_object.c++;
+      object = { deep: { value: 0 }, shallow: 0 };
+      clone = cloneObject(object);
 
-      // will log 0
-      console.log(object.a.b);
+      clone.shallow++;
+      console.log(object.shallow); // will log 0
 
-      // will log 1
-      console.log(object.c);
+      clone.deep.value++;
+      console.log(object.deep.value); // will log 1
+
+      clone = cloneObject(object, { deep: true });
+
+      clone.deep.value++;
+      console.log(object.deep.value); // will log 1
     </script>
   `
 };
@@ -920,6 +1003,19 @@ export const SB_DELETE_OBJECT_PROPERTY: ProjectFiles = {
 
       // will log { deep: {} }
       console.log(object);
+    </script>
+  `
+};
+
+export const SB_DELETE_OBJECT_PROPERTIES: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { deleteObjectProperties } from '@aracna/core';
+
+      const object = { deep: { value: 0 }, shallow: 0 };
+
+      deleteObjectProperties(object, ['deep.value', 'shallow']);
+      console.log(object); // will log { deep: {} }
     </script>
   `
 };
@@ -1118,39 +1214,25 @@ export const SB_IS_PLAIN_OBJECT: ProjectFiles = {
 /**
  * Promise
  */
+/** */
 
-export const SB_CHAIN_PROMISES: ProjectFiles = {
+export const SB_IS_PROMISE: ProjectFiles = {
   'index.js': html`
     <script>
-      import { chainPromises } from '@aracna/core';
+      import { isPromise } from '@aracna/core';
 
-      // will always log 0 before and 1 after
-      chainPromises(
-        async () => console.log(0),
-        async () => console.log(1)
-      );
+      console.log(isPromise(Promise.resolve())); // will log true
     </script>
   `
 };
 
-export const SB_CHAIN_TRUTHY_PROMISES: ProjectFiles = {
+export const SB_IS_PROMISE_LIKE: ProjectFiles = {
   'index.js': html`
     <script>
-      import { PromiseUtils, rc } from '@aracna/core';
+      import { noop, isPromiseLike } from '@aracna/core';
 
-      // will log 0 and 1 but will not log 2 since the previous promise returned a falsy value
-      chainTruthyPromises(
-        async () => rc(() => console.log(0), true),
-        async () => console.log(1),
-        async () => console.log(2)
-      );
-
-      // will log 0 but will not log 1 since the previous promise returned an Error
-      chainTruthyPromises(
-        async () => rc(() => console.log(0), true),
-        async () => new Error(),
-        async () => console.log(1)
-      );
+      console.log(isPromiseLike(Promise.resolve())); // will log true
+      console.log(isPromiseLike({ then: noop })); // will log true
     </script>
   `
 };
@@ -1158,6 +1240,7 @@ export const SB_CHAIN_TRUTHY_PROMISES: ProjectFiles = {
 /**
  * Query Parameters
  */
+/** */
 
 export const SB_SERIALIZE_QUERY_PARAMETERS: ProjectFiles = {
   'index.js': html`
@@ -1184,6 +1267,7 @@ export const SB_DESERIALIZE_QUERY_PARAMETERS: ProjectFiles = {
 /**
  * String
  */
+/** */
 
 export const SB_GET_CAMEL_CASE_STRING: ProjectFiles = {
   'index.js': html`
@@ -1254,6 +1338,48 @@ export const SB_GET_SYMBOL_CASE_STRING: ProjectFiles = {
   `
 };
 
+export const SB_GENERATE_RANDOM_STRING: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { generateRandomString } from '@aracna/core';
+
+      console.log(generateRandomString()); // will log a 32 chars random alphanumeric string
+    </script>
+  `
+};
+
+export const SB_GENERATE_RANDOM_STRING_ALPHABET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { generateRandomString } from '@aracna/core';
+
+      console.log(generateRandomString({ alphabet: '0123456789' })); // will log a 32 chars random numeric string
+    </script>
+  `
+};
+
+export const SB_GENERATE_RANDOM_STRING_PREFIX_SUFFIX_SEPARATOR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { generateRandomString } from '@aracna/core';
+
+      console.log(generateRandomString({ prefix: 'pre' })); // will log pre_...
+      console.log(generateRandomString({ suffix: 'post' })); // will log ..._post
+      console.log(generateRandomString({ prefix: 'pre', separator: '-' })); // will log pre-...
+    </script>
+  `
+};
+
+export const SB_GENERATE_RANDOM_STRING_SIZE: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { generateRandomString } from '@aracna/core';
+
+      console.log(generateRandomString({ size: 8 })); // will log a 8 chars random alphanumeric string
+    </script>
+  `
+};
+
 export const SB_IS_STRING_FLOAT: ProjectFiles = {
   'index.js': html`
     <script>
@@ -1299,8 +1425,110 @@ export const SB_IS_STRING_URL: ProjectFiles = {
 };
 
 /**
+ * TextDecoder, TextEncoder
+ */
+/** */
+
+export const SB_DECODE_TEXT: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { decodeText } from '@aracna/core';
+
+      console.log(decodeText(new Uint8Array([104, 101, 108, 108, 111]))); // will log "hello"
+    </script>
+  `
+};
+
+export const SB_ENCODE_TEXT: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { encodeText } from '@aracna/core';
+
+      console.log(encodeText('hello')); // will log Uint8Array(5) [104, 101, 108, 108, 111]
+    </script>
+  `
+};
+
+export const SB_GET_TEXT_DECODER: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { getTextDecoder } from '@aracna/core';
+
+      console.log(getTextDecoder()); // will log TextDecoder
+    </script>
+  `
+};
+
+export const SB_GET_TEXT_ENCODER: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { getTextEncoder } from '@aracna/core';
+
+      console.log(getTextEncoder()); // will log TextEncoder
+    </script>
+  `
+};
+
+/**
+ * Timeout
+ */
+/** */
+
+export const SB_TIMEOUT_FN_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Timeout } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+
+      Timeout.set(fn, 1000);
+      console.log('timeout set', Date.now());
+
+      setTimeout(() => {
+        Timeout.set(fn, 1000);
+        Timeout.unset(fn); // will not run anymore after 1s
+      }, 2000);
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_NAME_AS_KEY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Timeout } from '@aracna/core';
+
+      const ID = 'timeout';
+
+      Timeout.set(ID, () => console.log('running t1', Date.now()), 1000);
+      console.log('timeout set', Date.now());
+
+      setTimeout(() => {
+        Timeout.set(ID, () => console.log('running t2', Date.now()), 1000);
+        Timeout.unset(ID); // will not run anymore after 1s
+      }, 2000);
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_CLEAR: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { Timeout } from '@aracna/core';
+
+      Timeout.set(() => console.log('running t1', Date.now()), 1000);
+      Timeout.set(() => console.log('running t2', Date.now()), 1000);
+
+      Timeout.clear(); // both timeouts will not run
+    </script>
+  `
+};
+
+/**
  * URL
  */
+/** */
 
 export const SB_CONCAT_URL: ProjectFiles = {
   'index.js': html`

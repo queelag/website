@@ -3,25 +3,18 @@ title: Promise
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_CHAIN_PROMISES, SB_CHAIN_TRUTHY_PROMISES } from '@/definitions/stack-blitz/core/utils'
+import { SB_IS_PROMISE, SB_IS_PROMISE_LIKE } from '@/definitions/stack-blitz/core/utils'
 
-Promise utils are a set of utility functions that are designed to make working with Promises in ECMAScript easier and more efficient.
+This is a collection of functions for working with promises.
 
-## Chain Synchronously
+## Check if an unknown value is a Promise
 
-The **chainPromises** function is a utility function that allows you to execute a sequence of asynchronous functions in a controlled manner. The function takes any number of functions that return Promises as arguments using the rest parameter syntax, and executes them in sequence using a **for** loop and the **await** keyword.
+The `isPromise` function checks if an unknown value is a Promise.
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CHAIN_PROMISES} template='javascript' title='chainPromises' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_PROMISE} template='javascript' title='isPromise' console={100} />
 
-## Chain Truthy Synchronously
+## Check if an unknown value is PromiseLike
 
-The **chainTruthyPromises** function is a utility function that allows you to execute a sequence of asynchronous functions in a controlled manner and check whether each Promise resolves to a truthy value. The function takes any number of functions that return Promises as arguments using the rest parameter syntax, and executes them in sequence using a for loop and the await keyword.
+The `isPromiseLike` function checks if an unknown value is PromiseLike.
 
-<CodeBlock
-  client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_CHAIN_TRUTHY_PROMISES}
-  template='javascript'
-  title='chainTruthyPromises'
-  console={100}
-/>
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_PROMISE_LIKE} template='javascript' title='isPromiseLike' console={100} />

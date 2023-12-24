@@ -1,0 +1,10 @@
+---
+title: cafsueof
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_CAFSUEOF } from '@/definitions/stack-blitz/core/functions'
+
+The `cafsueof` function stands for `call async functions sequentially until error or falsy`. It executes a list of async functions in sequence, the execution stops if a function throws or returns an error or a falsy value.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CAFSUEOF} template='javascript' title='cafsueof' console={100} />

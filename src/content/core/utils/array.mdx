@@ -4,7 +4,7 @@ title: Array
 
 import { CodeBlock } from '@/blocks/CodeBlock'
 import {
-  SB_CLONE_SHALLOW_ARRAY,
+  SB_CLONE_ARRAY,
   SB_GET_ARRAYS_DIFFERENCE,
   SB_GET_ARRAYS_INTERSECTION,
   SB_GET_ARRAY_LAST_ITEM,
@@ -15,18 +15,11 @@ import {
 
 This is a collection of functions for working with arrays.
 
-## Create a shallow clone
+## Create a clone
 
-The `cloneShallowArray` function creates a shallow copy of an array.
+The `cloneArray` function creates a copy of an array.
 
-<CodeBlock
-  client:load
-  dependencies={{ '@aracna/core': 'latest' }}
-  files={SB_CLONE_SHALLOW_ARRAY}
-  template='javascript'
-  title='cloneShallowArray'
-  console={100}
-/>
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CLONE_ARRAY} template='javascript' title='cloneArray' console={100} />
 
 ## Get the symmetric difference
 
@@ -82,7 +75,7 @@ The `removeArrayDuplicates` function removes all duplicates from an array. Optio
 
 ## Remove items
 
-The `removeArrayItems` function removes the given items from an array, or removes items that match the given `removes` function.
+The `removeArrayItems` function removes items from an array that match the predicate or are in the items array.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_REMOVE_ARRAY_ITEMS} template='javascript' title='removeArrayItems' console={100} />
 
