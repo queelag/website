@@ -2,29 +2,50 @@
 title: Timeout
 ---
 
+import { Alert } from '@/components/Alert'
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_TIMEOUT_FN_AS_KEY, SB_TIMEOUT_NAME_AS_KEY, SB_TIMEOUT_CLEAR } from '@/definitions/stack-blitz/core/utils'
+import { SB_TIMEOUT_CLEAR, SB_TIMEOUT_CLEAR_EVERY, SB_TIMEOUT_IS_SET, SB_TIMEOUT_SET, SB_TIMEOUT_SET_CUSTOM_KEY } from '@/definitions/stack-blitz/core/utils'
 
-The **Timeout** class abstracts and simplifies the usage of the **setTimeout** and **clearTimeout** APIs, providing a simple and flexible interface for managing timeouts in ECMAScript.
+This is a collection of functions for working with timeouts.
 
-## Function as Key
+## Set
 
-The **set** method can be called with two arguments: **fn** and **ms**. When called with these arguments, the **set** method sets a timeout that will execute the **fn** function after **ms** milliseconds, and uses the **fn** function as the key for the timeout.
+The `setTimeout` function sets a timeout to run a function after `ms` milliseconds. When calling `setTimeout` with only the function and the time, the function will be used as the key.
 
-The **unset** method is used to clear a timeout that was previously set using the **set** method. The **unset** method takes a **TimeoutMapKey** as input, which is the key that was used to set the timeout.
+<Alert client:load severity='warning'>
+  The function passed to the `setInterval` function must be constant, otherwise you will not be able to clear the interval.
+</Alert>
 
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIMEOUT_FN_AS_KEY} template='javascript' title='Timeout' console={100} />
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_TIMEOUT_SET}
+  template='javascript'
+  title='Timeout'
+  console={100}
+/>
 
-## Identifier as Key
+## Set with a custom key
 
-The **set** method can be called with three arguments: **name**, **fn**, and **ms**. When called with these arguments, the **set** method sets a timeout that will execute the **fn** function after ms milliseconds, and uses the **name** string as the key for the timeout.
+The `setTimeout` function can also be called with a custom key. This is useful when you want to clear a timeout with a function that is not constant.
 
-The **unset** method is used to clear a timeout that was previously set using the **set** method. The **unset** method takes a **TimeoutMapKey** as input, which is the key that was used to set the timeout.
-
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIMEOUT_NAME_AS_KEY} template='javascript' title='Timeout' console={100} />
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIMEOUT_SET_CUSTOM_KEY} template='javascript' title='Timeout' console={100} />
 
 ## Clear
 
-The **clear** method is used to clear all timeouts that were previously set using the **set** method.
+The `clearTimeout` function clears a timeout.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIMEOUT_CLEAR} template='javascript' title='Timeout' console={100} />
+
+## Clear all
+
+The `clearEveryTimeout` function clears all timeouts.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIMEOUT_CLEAR_EVERY} template='javascript' title='Timeout' console={100} />
+
+## Check if a timeout is set
+
+The `isTimeoutSet` function checks if a timeout is set.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_TIMEOUT_IS_SET} template='javascript' title='Timeout' console={100} />

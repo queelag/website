@@ -19,7 +19,8 @@ export const SB_CAFS: ProjectFiles = {
           async () => number++
         );
 
-        console.log(number); // will log 2
+        // will log 2
+        console.log(number);
       })();
     </script>
   `
@@ -44,7 +45,8 @@ export const SB_CAFSUE: ProjectFiles = {
           async () => number++
         );
 
-        console.log(number); // will log 1
+        // will log 1
+        console.log(number);
       })();
     </script>
   `
@@ -69,7 +71,8 @@ export const SB_CAFSUEOF: ProjectFiles = {
           async () => number++
         );
 
-        console.log(number); // will log 1
+        // will log 1
+        console.log(number);
 
         await cafsueof(
           async () => number++,
@@ -77,7 +80,8 @@ export const SB_CAFSUEOF: ProjectFiles = {
           async () => number++
         );
 
-        console.log(number); // will log 2
+        // will log 2
+        console.log(number);
       })();
     </script>
   `
@@ -97,12 +101,18 @@ export const SB_DEBOUNCE: ProjectFiles = {
         console.log('fn ran', Date.now());
       }
 
-      debounce(fn, 1000); // will be ignored
-      debounce(fn, 1000); // will be ignored
-      debounce(fn, 1000); // will run after 1s
+      // will be ignored
+      debounce(fn, 1000);
+
+      // will be ignored
+      debounce(fn, 1000);
+
+      // will run after 1s
+      debounce(fn, 1000);
 
       setTimeout(() => {
-        debounce(fn, 1000); // will run after 2s
+        // will run after 2s
+        debounce(fn, 1000);
       }, 2000);
     </script>
   `
@@ -115,12 +125,18 @@ export const SB_DEBOUNCE_CUSTOM_KEY: ProjectFiles = {
 
       const key = 'dfn';
 
-      debounce(() => console.log('fn1 ran', Date.now()), 1000, key); // will be ignored
-      debounce(() => console.log('fn2 ran', Date.now()), 1000, key); // will be ignored
-      debounce(() => console.log('fn3 ran', Date.now()), 1000, key); // will run after 1s
+      // will be ignored
+      debounce(() => console.log('fn1 ran', Date.now()), 1000, key);
+
+      // will be ignored
+      debounce(() => console.log('fn2 ran', Date.now()), 1000, key);
+
+      // will run after 1s
+      debounce(() => console.log('fn3 ran', Date.now()), 1000, key);
 
       setTimeout(() => {
-        debounce(() => console.log('fn4 ran', Date.now()), 1000, key); // will run after 2s
+        // will run after 2s
+        debounce(() => console.log('fn4 ran', Date.now()), 1000, key);
       }, 2000);
     </script>
   `
@@ -152,8 +168,11 @@ export const SB_MA: ProjectFiles = {
         add = ma((a, b) => a + b);
         result = add(1, 2);
 
-        console.log(result); // will log Promise
-        console.log(await result); // will log 3
+        // will log Promise
+        console.log(result);
+
+        // will log 3
+        console.log(await result);
       })();
     </script>
   `
@@ -180,8 +199,11 @@ export const SB_MTC: ProjectFiles = {
           return a / b;
         });
 
-        console.log(divide(3, 2)); // will log 1.5
-        console.log(divide(1, 0)); // will log Error
+        // will log 1.5
+        console.log(divide(3, 2));
+
+        // will log Error
+        console.log(divide(1, 0));
       })();
     </script>
   `
@@ -208,8 +230,11 @@ export const SB_MTCP: ProjectFiles = {
           return a / b;
         });
 
-        console.log(await divide(3, 2)); // will log 1.5
-        console.log(await divide(1, 0)); // will log Error
+        // will log 1.5
+        console.log(await divide(3, 2));
+
+        // will log Error
+        console.log(await divide(1, 0));
       })();
     </script>
   `
@@ -229,7 +254,8 @@ export const SB_NOOP: ProjectFiles = {
         callback();
       }
 
-      fn(noop); // will do nothing
+      // will do nothing
+      fn(noop);
     </script>
   `
 };
@@ -248,7 +274,8 @@ export const SB_RC: ProjectFiles = {
         return a + b;
       }
 
-      console.log(rc(() => add(1, 2), 0)); // will log 0
+      // will log 0
+      console.log(rc(() => add(1, 2), 0));
     </script>
   `
 };
@@ -268,7 +295,8 @@ export const SB_RCP: ProjectFiles = {
           return a + b;
         }
 
-        console.log(await rcp(() => add(1, 2), 0)); // will log 0
+        // will log 0
+        console.log(await rcp(() => add(1, 2), 0));
       })();
     </script>
   `
@@ -292,8 +320,11 @@ export const SB_RNE: ProjectFiles = {
         return a / b;
       }
 
-      console.log(divide(3, 2)); // will log 1.5
-      console.log(divide(1, 0)); // will log Error
+      // will log 1.5
+      console.log(divide(3, 2));
+
+      // will log Error
+      console.log(divide(1, 0));
     </script>
   `
 };
@@ -312,7 +343,8 @@ export const SB_RV: ProjectFiles = {
         return a + b;
       }
 
-      console.log(rv(() => add(1, 2))); // will log undefined
+      // will log undefined
+      console.log(rv(() => add(1, 2)));
     </script>
   `
 };
@@ -332,7 +364,8 @@ export const SB_RVP: ProjectFiles = {
           return a + b;
         }
 
-        console.log(await rvp(() => add(1, 2))); // will log undefined
+        // will log undefined
+        console.log(await rvp(() => add(1, 2)));
       })();
     </script>
   `
@@ -375,8 +408,11 @@ export const SB_TC: ProjectFiles = {
         return a / b;
       }
 
-      console.log(tc(() => divide(3, 1))); // will log 1.5
-      console.log(tc(() => divide(1, 0))); // will log Error
+      // will log 1.5
+      console.log(tc(() => divide(3, 1)));
+
+      // will log Error
+      console.log(tc(() => divide(1, 0)));
     </script>
   `
 };
@@ -400,8 +436,11 @@ export const SB_TCP: ProjectFiles = {
           return a / b;
         }
 
-        console.log(await tcp(() => divide(3, 1))); // will log 1.5
-        console.log(await tcp(() => divide(1, 0))); // will log Error
+        // will log 1.5
+        console.log(await tcp(() => divide(3, 1)));
+
+        // will log Error
+        console.log(await tcp(() => divide(1, 0)));
       })();
     </script>
   `
@@ -421,11 +460,17 @@ export const SB_THROTTLE_FN_AS_KEY: ProjectFiles = {
         console.log('fn ran', Date.now());
       }
 
-      throttle(fn, 1000); // will run
-      throttle(fn, 1000); // will be ignored
-      throttle(fn, 1000); // will be ignored
+      // will run
+      throttle(fn, 1000);
 
-      setTimeout(() => throttle(fn, 1000), 2000); // will run after 2s
+      // will be ignored
+      throttle(fn, 1000);
+
+      // will be ignored
+      throttle(fn, 1000);
+
+      // will run after 2s
+      setTimeout(() => throttle(fn, 1000), 2000);
     </script>
   `
 };
@@ -435,14 +480,20 @@ export const SB_THROTTLE_NAME_AS_KEY: ProjectFiles = {
     <script>
       import { throttle } from '@aracna/core';
 
-      const ID = 'dfn';
+      const key = 'dfn';
 
-      throttle(ID, () => console.log('fn1 ran', Date.now()), 1000); // will run
-      throttle(ID, () => console.log('fn2 ran', Date.now()), 1000); // will be ignored
-      throttle(ID, () => console.log('fn3 ran', Date.now()), 1000); // will be ignored
+      // will run
+      throttle(() => console.log('fn1 ran', Date.now()), 1000, key);
+
+      // will be ignored
+      throttle(() => console.log('fn2 ran', Date.now()), 1000, key);
+
+      // will be ignored
+      throttle(() => console.log('fn3 ran', Date.now()), 1000, key);
 
       setTimeout(() => {
-        throttle(ID, () => console.log('fn4 ran', Date.now()), 1000); // will run after 2s
+        // will run after 2s
+        throttle(() => console.log('fn4 ran', Date.now()), 1000, key);
       }, 2000);
     </script>
   `
@@ -466,8 +517,11 @@ export const SB_TIE: ProjectFiles = {
         return a / b;
       }
 
-      console.log(divide(3, 2)); // will log 1.5
-      console.log(divide(1, 0)); // will log Error: cannot divide by zero
+      // will log 1.5
+      console.log(divide(3, 2));
+
+      // will log Error: cannot divide by zero
+      console.log(divide(1, 0));
     </script>
   `
 };
@@ -490,8 +544,11 @@ export const SB_TNE: ProjectFiles = {
         return a / b;
       }
 
-      console.log(divide(3, 2)); // will log 5
-      console.log(divide(1, 0)); // will throw Error: Cannot divide by zero
+      // will log 5
+      console.log(divide(3, 2));
+
+      // will throw Error: Cannot divide by zero
+      console.log(divide(1, 0));
     </script>
   `
 };

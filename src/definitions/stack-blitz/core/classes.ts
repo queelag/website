@@ -15,13 +15,15 @@ export const SB_APPEARENCE_INITIALIZATION: ProjectFiles = {
 
       async () => {
         await appearence.initialize();
-        console.log(appearence.theme); // will log "system"
+        console.log('will log "system"', appearence.theme);
 
         appearence.setTheme('dark');
         await appearence.store();
-
+        appearence.setTheme('light');
         await appearence.initialize();
-        console.log(appearence.theme); // will log "dark"
+
+        // will log "dark"
+        console.log(appearence.theme);
       };
     </script>
   `
@@ -35,7 +37,8 @@ export const SB_APPEARENCE_ON_CHANGE_THEME: ProjectFiles = {
       const appearence = new Appearence();
 
       appearence.on('change-theme', (theme) => {
-        console.log(theme); // will log "dark"
+        // will log "dark"
+        console.log(theme);
       });
 
       appearence.setTheme('dark');
@@ -49,10 +52,14 @@ export const SB_APPEARENCE_SET_THEME: ProjectFiles = {
       import { Appearence } from '@aracna/core';
 
       const appearence = new Appearence();
-      console.log(appearence.theme); // will log "system"
+
+      // will log "system"
+      console.log(appearence.theme);
 
       appearence.setTheme('dark');
-      console.log(appearence.theme); // will log "dark"
+
+      // will log "dark"
+      console.log(appearence.theme);
     </script>
   `
 };
@@ -63,10 +70,14 @@ export const SB_APPEARENCE_TOGGLE_THEME: ProjectFiles = {
       import { Appearence } from '@aracna/core';
 
       const appearence = new Appearence();
-      console.log(appearence.theme); // will log "system"
+
+      // will log "system"
+      console.log(appearence.theme);
 
       appearence.toggleTheme();
-      console.log(appearence.theme); // will log "dark" or "light" depending on the opposite of your system theme
+
+      // will log "dark" or "light" depending on the opposite of your system theme
+      console.log(appearence.theme);
     </script>
   `
 };
@@ -82,7 +93,8 @@ export const SB_APPEARENCE_STORE: ProjectFiles = {
         appearence.setTheme('dark');
         await appearence.store();
 
-        console.log(MemoryStorage.get('appearence')); // will log { theme: "dark" }
+        // will log { theme: "dark" }
+        console.log(MemoryStorage.get('appearence'));
       })();
     </script>
   `
@@ -108,8 +120,11 @@ export const SB_ARACNA_BLOB_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
 
         await blob.resolveArrayBuffer();
 
-        console.log(blob.arrayBuffer); // will log ArrayBuffer
-        console.log(blob.uInt8Array); // will log Uint8Array
+        // will log ArrayBuffer
+        console.log(blob.arrayBuffer);
+
+        // will log Uint8Array
+        console.log(blob.uInt8Array);
       })();
     </script>
   `
@@ -121,15 +136,16 @@ export const SB_ARACNA_BLOB_RESOLVE_TEXT: ProjectFiles = {
       import { AracnaBlob } from '@aracna/core';
 
       (async () => {
-        let text, blob;
+        let blob;
 
-        text = 'hello';
-        blob = new AracnaBlob(new Blob([text]));
-
+        blob = new AracnaBlob(new Blob(['hello']));
         await blob.resolveText();
 
-        console.log(blob.text); // will log "hello"
-        console.log(blob.uInt8Array); // will log Uint8Array
+        // will log "hello"
+        console.log(blob.text);
+
+        // will log Uint8Array
+        console.log(blob.uInt8Array);
       })();
     </script>
   `
@@ -141,14 +157,13 @@ export const SB_ARACNA_BLOB_UINT8ARRAY: ProjectFiles = {
       import { AracnaBlob } from '@aracna/core';
 
       (async () => {
-        let text, blob;
+        let blob;
 
-        text = 'hello';
-        blob = new AracnaBlob(new Blob([text]));
-
+        blob = new AracnaBlob(new Blob(['hello']));
         await blob.resolveText();
 
-        console.log(blob.uInt8Array); // will log Uint8Array
+        // will log Uint8Array
+        console.log(blob.uInt8Array);
       })();
     </script>
   `
@@ -160,24 +175,32 @@ export const SB_ARACNA_BLOB_SERIALIZATION: ProjectFiles = {
       import { AracnaBlob } from '@aracna/core';
 
       (async () => {
-        let text, blob, serialized, deserialized;
+        let blob, serialized, deserialized;
 
-        text = 'hello';
-        blob = new AracnaBlob(new Blob([text]));
-
+        blob = new AracnaBlob(new Blob(['hello']));
         await blob.resolveText();
 
-        console.log(blob.text); // will log "hello"
-        console.log(blob.uInt8Array); // will log Uint8Array
+        // will log "hello"
+        console.log(blob.text);
+
+        // will log Uint8Array
+        console.log(blob.uInt8Array);
 
         serialized = JSON.stringify(blob, null, 2);
-        console.log(serialized); // will log JSON string
+
+        // will log JSON string
+        console.log(serialized);
 
         deserialized = new AracnaBlob(JSON.parse(serialized));
-        console.log(deserialized); // will log AracnaBlob
 
-        console.log(deserialized.text); // will log "hello"
-        console.log(deserialized.uInt8Array); // will log Uint8Array
+        // will log AracnaBlob
+        console.log(deserialized);
+
+        // will log "hello"
+        console.log(deserialized.text);
+
+        // will log Uint8Array
+        console.log(deserialized.uInt8Array);
       })();
     </script>
   `
@@ -203,8 +226,11 @@ export const SB_ARACNA_FILE_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
 
         await file.resolveArrayBuffer();
 
-        console.log(file.arrayBuffer); // will log ArrayBuffer
-        console.log(file.uInt8Array); // will log Uint8Array
+        // will log ArrayBuffer
+        console.log(file.arrayBuffer);
+
+        // will log Uint8Array
+        console.log(file.uInt8Array);
       })();
     </script>
   `
@@ -216,15 +242,16 @@ export const SB_ARACNA_FILE_RESOLVE_TEXT: ProjectFiles = {
       import { AracnaFile } from '@aracna/core';
 
       (async () => {
-        let text, file;
+        let file;
 
-        text = 'hello';
-        file = new AracnaFile(new File([text], 'file.txt'));
-
+        file = new AracnaFile(new File(['hello'], 'file.txt'));
         await file.resolveText();
 
-        console.log(file.text); // will log "hello"
-        console.log(file.uInt8Array); // will log Uint8Array
+        // will log "hello"
+        console.log(file.text);
+
+        // will log Uint8Array
+        console.log(file.uInt8Array);
       })();
     </script>
   `
@@ -236,14 +263,13 @@ export const SB_ARACNA_FILE_UINT8ARRAY: ProjectFiles = {
       import { AracnaFile } from '@aracna/core';
 
       (async () => {
-        let text, file;
+        let file;
 
-        text = 'hello';
-        file = new AracnaFile(new File([text], 'file.txt'));
-
+        file = new AracnaFile(new File(['hello'], 'file.txt'));
         await file.resolveText();
 
-        console.log(file.uInt8Array); // will log Uint8Array
+        // will log Uint8Array
+        console.log(file.uInt8Array);
       })();
     </script>
   `
@@ -255,26 +281,38 @@ export const SB_ARACNA_FILE_SERIALIZATION: ProjectFiles = {
       import { AracnaFile } from '@aracna/core';
 
       (async () => {
-        let text, file, serialized, deserialized;
+        let file, serialized, deserialized;
 
-        text = 'hello';
-        file = new AracnaFile(new File([text], 'file.txt'));
-
+        file = new AracnaFile(new File(['hello'], 'file.txt'));
         await file.resolveText();
 
-        console.log(file.name); // will log "file.txt"
-        console.log(file.text); // will log "hello"
-        console.log(file.uInt8Array); // will log Uint8Array
+        // will log "file.txt"
+        console.log(file.name);
+
+        // will log "hello"
+        console.log(file.text);
+
+        // will log Uint8Array
+        console.log(file.uInt8Array);
 
         serialized = JSON.stringify(file, null, 2);
-        console.log(serialized); // will log JSON string
+
+        // will log JSON string
+        console.log(serialized);
 
         deserialized = new AracnaFile(JSON.parse(serialized));
-        console.log(deserialized); // will log AracnaFile
 
-        console.log(deserialized.name); // will log "file.txt"
-        console.log(deserialized.text); // will log "hello"
-        console.log(deserialized.uInt8Array); // will log Uint8Array
+        // will log AracnaFile
+        console.log(deserialized);
+
+        // will log "file.txt"
+        console.log(deserialized.name);
+
+        // will log "hello"
+        console.log(deserialized.text);
+
+        // will log Uint8Array
+        console.log(deserialized.uInt8Array);
       })();
     </script>
   `
@@ -302,7 +340,9 @@ export const SB_ASYNC_STORAGE_SET: ProjectFiles = {
 
       (async () => {
         await storage.set('item', { name: 'John', surname: 'Doe' });
-        console.log(sm.get('item')); // will log { name: "John", surname: "Doe" }
+
+        // will log { name: "John", surname: "Doe" }
+        console.log(sm.get('item'));
       })();
     </script>
   `
@@ -325,7 +365,9 @@ export const SB_ASYNC_STORAGE_GET: ProjectFiles = {
 
       (async () => {
         await storage.set('item', { name: 'John', surname: 'Doe' });
-        console.log(await storage.get('item')); // will log { name: "John", surname: "Doe" }
+
+        // will log { name: "John", surname: "Doe" }
+        console.log(await storage.get('item'));
       })();
     </script>
   `
@@ -348,10 +390,14 @@ export const SB_ASYNC_STORAGE_REMOVE: ProjectFiles = {
 
       (async () => {
         await storage.set('item', { name: 'John', surname: 'Doe' });
-        console.log(sm.has('item')); // will log true
+
+        // will log true
+        console.log(sm.has('item'));
 
         await storage.remove('item');
-        console.log(sm.has('item')); // will log false
+
+        // will log false
+        console.log(sm.has('item'));
       })();
     </script>
   `
@@ -375,10 +421,14 @@ export const SB_ASYNC_STORAGE_CLEAR: ProjectFiles = {
       (async () => {
         await storage.set('item1', { name: 'John', surname: 'Doe' });
         await storage.set('item2', { name: 'Paul', surname: 'Smith' });
-        console.log(sm.has('item1'), sm.has('item2')); // will log true, true
+
+        // will log true, true
+        console.log(sm.has('item1'), sm.has('item2'));
 
         await storage.clear();
-        console.log(sm.has('item1'), sm.has('item2')); // will log false, false
+
+        // will log false, false
+        console.log(sm.has('item1'), sm.has('item2'));
       })();
     </script>
   `
@@ -400,14 +450,13 @@ export const SB_ASYNC_STORAGE_COPY: ProjectFiles = {
       );
 
       (async () => {
-        let target;
+        let target = {};
 
         await storage.set('item', { name: 'John', surname: 'Doe' });
-
-        target = {};
         await storage.copy('item', target);
 
-        console.log(target); // will log { name: "John", surname: "Doe" }
+        // will log { name: "John", surname: "Doe" }
+        console.log(target);
       })();
     </script>
   `
@@ -430,7 +479,9 @@ export const SB_ASYNC_STORAGE_HAS: ProjectFiles = {
 
       (async () => {
         await storage.set('item', { name: 'John', surname: 'Doe' });
-        console.log(await storage.has('item')); // will log true
+
+        // will log true
+        console.log(await storage.has('item'));
       })();
     </script>
   `
@@ -448,28 +499,26 @@ export const SB_COOKIE_SET: ProjectFiles = {
 
       const cookie = new Cookie(
         'cookie',
-        async () => document.cookie,
-        async (cookies) => {
+        () => document.cookie,
+        (cookies) => {
           document.cookie = cookies;
         }
       );
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      cookie.set('item', item, options);
 
-        await cookie.set('item', item, options);
-        console.log(document.cookie); // will log "item_name=john; item_surname=doe"
-      })();
+      // will log "item_name=john; item_surname=doe"
+      console.log(document.cookie);
     </script>
   `
 };
@@ -481,28 +530,26 @@ export const SB_COOKIE_GET: ProjectFiles = {
 
       const cookie = new Cookie(
         'cookie',
-        async () => document.cookie,
-        async (cookies) => {
+        () => document.cookie,
+        (cookies) => {
           document.cookie = cookies;
         }
       );
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      cookie.set('item', item, options);
 
-        await cookie.set('item', item, options);
-        console.log(await cookie.get('item')); // will log { name: "john", surname: "doe" }
-      })();
+      // will log { name: "john", surname: "doe" }
+      console.log(cookie.get('item'));
     </script>
   `
 };
@@ -514,31 +561,27 @@ export const SB_COOKIE_REMOVE: ProjectFiles = {
 
       const cookie = new Cookie(
         'cookie',
-        async () => document.cookie,
-        async (cookies) => {
+        () => document.cookie,
+        (cookies) => {
           document.cookie = cookies;
         }
       );
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      cookie.set('item', item, options);
+      cookie.remove('item', options);
 
-        await cookie.set('item', item, options);
-        console.log(document.cookie); // will log "item_name=john; item_surname=doe"
-
-        await cookie.remove('item', options);
-        console.log(document.cookie); // will log ""
-      })();
+      // will log ""
+      console.log(document.cookie);
     </script>
   `
 };
@@ -550,32 +593,28 @@ export const SB_COOKIE_CLEAR: ProjectFiles = {
 
       const cookie = new Cookie(
         'cookie',
-        async () => document.cookie,
-        async (cookies) => {
+        () => document.cookie,
+        (cookies) => {
           document.cookie = cookies;
         }
       );
 
-      (async () => {
-        let item, options;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      cookie.set('item1', item, options);
+      cookie.set('item2', item, options);
+      cookie.clear(options);
 
-        await cookie.set('item1', item, options);
-        await cookie.set('item2', item, options);
-        console.log(document.cookie); // will log "item1_name=john; item1_surname=doe; item2_name=john; item2_surname=doe;"
-
-        await cookie.clear(options);
-        console.log(document.cookie); // will log ""
-      })();
+      // will log ""
+      console.log(document.cookie);
     </script>
   `
 };
@@ -587,32 +626,29 @@ export const SB_COOKIE_COPY: ProjectFiles = {
 
       const cookie = new Cookie(
         'cookie',
-        async () => document.cookie,
-        async (cookies) => {
+        () => document.cookie,
+        (cookies) => {
           document.cookie = cookies;
         }
       );
 
-      (async () => {
-        let item, options, target;
+      const item = {
+        name: 'john',
+        surname: 'doe'
+      };
 
-        item = {
-          name: 'john',
-          surname: 'doe'
-        };
+      const options = {
+        sameSite: 'none',
+        secure: true
+      };
 
-        options = {
-          sameSite: 'none',
-          secure: true
-        };
+      const target = {};
 
-        target = {};
+      cookie.set('item', item, options);
+      cookie.copy('item', target);
 
-        await cookie.set('item', item, options);
-        await cookie.copy('item', target);
-
-        console.log(target); // will log { name: "john", surname: "doe" }
-      })();
+      // will log { name: "john", surname: "doe" }
+      console.log(target);
     </script>
   `
 };
@@ -678,7 +714,8 @@ export const SB_EVENT_EMITTER_ON: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.on('event', (data) => {
-        console.log(data); // will log "hello"
+        // will log "hello"
+        console.log(data);
       });
 
       emitter.emit('event', 'hello');
@@ -694,7 +731,8 @@ export const SB_EVENT_EMITTER_ONCE: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.once('event', (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       });
 
       emitter.emit('event', 'hello');
@@ -711,11 +749,13 @@ export const SB_EVENT_EMITTER_PREPEND: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.on('event', (data) => {
-        console.log('on', data); // will log "hello" second
+        // will log "hello" second
+        console.log('on', data);
       });
 
       emitter.prepend('event', (data) => {
-        console.log('prepend', data); // will log "hello" first
+        // will log "hello" first
+        console.log('prepend', data);
       });
 
       emitter.emit('event', 'hello');
@@ -731,7 +771,8 @@ export const SB_EVENT_EMITTER_EMIT: ProjectFiles = {
       const emitter = new EventEmitter();
 
       emitter.on('event', (data) => {
-        console.log(data); // will log "hello"
+        // will log "hello"
+        console.log(data);
       });
 
       emitter.emit('event', 'hello');
@@ -747,7 +788,8 @@ export const SB_EVENT_EMITTER_OFF: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       };
 
       emitter.on('event', listener);
@@ -766,11 +808,14 @@ export const SB_EVENT_EMITTER_GET_LISTENERS: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       };
 
       emitter.on('event', listener);
-      console.log(emitter.getListeners('event')); // will log [listener]
+
+      // will log [listener]
+      console.log(emitter.getListeners('event'));
     </script>
   `
 };
@@ -783,11 +828,14 @@ export const SB_EVENT_EMITTER_COUNT_LISTENERS: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       };
 
       emitter.on('event', listener);
-      console.log(emitter.countListeners('event')); // will log 1
+
+      // will log 1
+      console.log(emitter.countListeners('event'));
     </script>
   `
 };
@@ -800,11 +848,14 @@ export const SB_EVENT_EMITTER_HAS_LISTENERS: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       };
 
       emitter.on('event', listener);
-      console.log(emitter.hasListeners('event')); // will log true
+
+      // will log true
+      console.log(emitter.hasListeners('event'));
     </script>
   `
 };
@@ -817,11 +868,14 @@ export const SB_EVENT_EMITTER_GET_EVENT_NAMES: ProjectFiles = {
       const emitter = new EventEmitter();
 
       const listener = (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       };
 
       emitter.on('event', listener);
-      console.log(emitter.getEventNames()); // will log ["event"]
+
+      // will log ["event"]
+      console.log(emitter.getEventNames());
     </script>
   `
 };
@@ -832,7 +886,9 @@ export const SB_EVENT_EMITTER_GET_MAX_LISTENERS: ProjectFiles = {
       import { EventEmitter } from '@aracna/core';
 
       const emitter = new EventEmitter();
-      console.log(emitter.getMaxListeners()); // will log 10
+
+      // will log 10
+      console.log(emitter.getMaxListeners());
     </script>
   `
 };
@@ -846,11 +902,15 @@ export const SB_EVENT_EMITTER_SET_MAX_LISTENERS: ProjectFiles = {
       emitter.setMaxListeners(1);
 
       const listener = (data) => {
-        console.log(data); // will log "hello" only once
+        // will log "hello" only once
+        console.log(data);
       };
 
-      emitter.on('event', listener); // will register
-      emitter.on('event', listener); // will not register
+      // will register
+      emitter.on('event', listener);
+
+      // will not register
+      emitter.on('event', listener);
     </script>
   `
 };
@@ -871,6 +931,7 @@ export const SB_FETCH: ProjectFiles = {
         response = await Fetch.send('https://dummyjson.com/users');
         if (response instanceof Error) return;
 
+        // will log FetchResponse
         console.log(response.data);
       })();
     </script>
@@ -898,6 +959,7 @@ export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
         response = await api.query(query);
         if (response instanceof Error) return;
 
+        // will log FetchResponse
         console.log(response.data);
       })();
     </script>
@@ -926,6 +988,7 @@ export const SB_GRAPHQL_API_MUTATION: ProjectFiles = {
         response = await api.mutation(query, variables);
         if (response instanceof Error) return;
 
+        // will log FetchResponse
         console.log(response.data);
       })();
     </script>
@@ -947,9 +1010,11 @@ export const SB_LOCALIZATION_INITIALIZE: ProjectFiles = {
       (async () => {
         localization.setLanguage('it');
         await localization.store();
-
+        localization.setLanguage('en');
         await localization.initialize();
-        console.log(localization.language); // will log "it"
+
+        // will log "it"
+        console.log(localization.language);
       })();
     </script>
   `
@@ -965,7 +1030,9 @@ export const SB_LOCALIZATION_PACKS: ProjectFiles = {
       ]);
 
       localization.push({ data: { hello: 'Ciao' }, language: 'it' });
-      console.log(localization.packs); // will log both packs
+
+      // will log both packs
+      console.log(localization.packs);
     </script>
   `
 };
@@ -986,16 +1053,26 @@ export const SB_LOCALIZATION_GET: ProjectFiles = {
         }
       ]);
 
-      console.log(localization.get('hello')); // will log "Hello"
-      console.log(localization.get('it', 'hello')); // will log "Ciao"
+      // will log "Hello"
+      console.log(localization.get('hello'));
 
-      console.log(localization.get('hello_with_name', { name: 'John' })); // will log "Hello John"
-      console.log(localization.get('it', 'hello_with_name', { name: 'Mario' })); // will log "Ciao Mario"
+      // will log "Ciao"
+      console.log(localization.get('it', 'hello'));
+
+      // will log "Hello John"
+      console.log(localization.get('hello_with_name', { name: 'John' }));
+
+      // will log "Ciao Mario"
+      console.log(localization.get('it', 'hello_with_name', { name: 'Mario' }));
 
       localization.setLanguage('it');
 
-      console.log(localization.get('hello')); // will log "Ciao"
-      console.log(localization.get('hello_with_name', { name: 'Mario' })); // will log "Ciao Mario"
+      // will log "Ciao"
+      console.log(localization.get('hello'));
+
+      // will log "Ciao Mario"
+      console.log(localization.get('hello_with_name', { name: 'Mario' }));
+      x;
     </script>
   `
 };
@@ -1010,11 +1087,16 @@ export const SB_LOCALIZATION_HAS: ProjectFiles = {
         { data: { hello: 'Ciao' }, language: 'it' }
       ]);
 
-      console.log(localization.has('hello')); // will log true
-      console.log(localization.has('it', 'hello')); // will log true
+      // will log true
+      console.log(localization.has('hello'));
+
+      // will log true
+      console.log(localization.has('it', 'hello'));
 
       localization.setLanguage('it');
-      console.log(localization.has('hello')); // will log true
+
+      // will log true
+      console.log(localization.has('hello'));
     </script>
   `
 };
@@ -1025,10 +1107,14 @@ export const SB_LOCALIZATION_SET_LANGUAGE: ProjectFiles = {
       import { Localization } from '@aracna/core';
 
       const localization = new Localization('en');
-      console.log(localization.language); // will log "en"
+
+      // will log "en"
+      console.log(localization.language);
 
       localization.setLanguage('it');
-      console.log(localization.language); // will log "it"
+
+      // will log "it"
+      console.log(localization.language);
     </script>
   `
 };
@@ -1044,12 +1130,16 @@ export const SB_LOCALIZATION_SET_VARIABLES: ProjectFiles = {
         { name: 'John' }
       );
 
-      console.log(localization.get('hello')); // will log "Hello John"
+      // will log "Hello John"
+      console.log(localization.get('hello'));
 
       localization.setVariables({ name: 'Mark' });
-      console.log(localization.get('hello')); // will log "Hello Mark"
 
-      console.log(localization.get('hello', { name: 'Paul' })); // will log "Hello Paul"
+      // will log "Hello Mark"
+      console.log(localization.get('hello'));
+
+      // will log "Hello Paul"
+      console.log(localization.get('hello', { name: 'Paul' }));
     </script>
   `
 };
@@ -1070,16 +1160,23 @@ export const SB_LOCALIZATION_STORAGE: ProjectFiles = {
       );
 
       (async () => {
-        console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+        // will log "Hello John"
+        console.log(localization.get('hello', { name: 'John' }));
 
         await localization.storeLanguage('it');
-        console.log(localization.get('hello', { name: 'Mario' })); // will log "Ciao Mario"
+
+        // will log "Ciao Mario"
+        console.log(localization.get('hello', { name: 'Mario' }));
 
         localization.setLanguage('en');
-        console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+
+        // will log "Hello John"
+        console.log(localization.get('hello', { name: 'John' }));
 
         await localization.initialize();
-        console.log(localization.get('hello', { name: 'John' })); // will log "Hello John"
+
+        // will log "Hello John"
+        console.log(localization.get('hello', { name: 'John' }));
       })();
     </script>
   `
@@ -1096,8 +1193,11 @@ export const SB_LOGGER: ProjectFiles = {
 
       const logger = new Logger('logger');
 
-      logger.warn('warn log');
-      logger.error('error log');
+      // will log "warn" as a warning
+      logger.warn('warn');
+
+      // will log "error" as an error
+      logger.error('error');
     </script>
   `
 };
@@ -1110,9 +1210,13 @@ export const SB_LOGGER_COLORS: ProjectFiles = {
       const logger = new Logger('logger');
 
       logger.enableColors();
+
+      // will log "warn" with ANSI colors
       logger.warn('warn log');
 
       logger.disableColors();
+
+      // will log "warn" without ANSI colors
       logger.warn('warn log');
     </script>
   `
@@ -1126,6 +1230,7 @@ export const SB_LOGGER_SET_LEVEL: ProjectFiles = {
       const logger = new Logger('logger');
       logger.setLevel('verbose');
 
+      // will log "verbose" as a verbose log
       logger.verbose('verbose log');
     </script>
   `
@@ -1139,6 +1244,7 @@ export const SB_LOGGER_SET_SEPARATOR: ProjectFiles = {
       const logger = new Logger('logger');
       logger.setSeparator(' ~> ');
 
+      // will log "multi ~> part ~> log"
       logger.warn('multi', 'part', 'log');
     </script>
   `
@@ -1150,12 +1256,15 @@ export const SB_LOGGER_STATUS: ProjectFiles = {
       import { Logger } from '@aracna/core';
 
       const logger = new Logger('logger');
-
       logger.disable();
-      logger.warn('warn log'); // will not log
+
+      // will not log
+      logger.warn('warn log');
 
       logger.enable();
-      logger.warn('warn log'); // will log
+
+      // will log
+      logger.warn('warn log');
     </script>
   `
 };
@@ -1170,6 +1279,7 @@ export const SB_LOGGER_ENVIRONMENT: ProjectFiles = {
 
       const logger = new Logger('APP');
 
+      // will log "verbose"
       logger.verbose('verbose log');
     </script>
   `
@@ -1193,6 +1303,7 @@ export const SB_REST_API_GET: ProjectFiles = {
         response = await api.get('users');
         if (response instanceof Error) return;
 
+        // will log FetchResponse
         console.log(response.data);
       })();
     </script>
@@ -1207,23 +1318,29 @@ export const SB_REST_API_STATUS: ProjectFiles = {
       const api = new RestAPI('https://dummyjson.com/');
 
       (async () => {
-        console.log(api.status.get('GET', 'test')); // will log "IDLE"
+        // will log "IDLE"
+        console.log(api.status.get('GET', 'test'));
 
         api.get('test').then(() => {
-          console.log(api.status.get('GET', 'test')); // will log "SUCCESS"
+          // will log "SUCCESS"
+          console.log(api.status.get('GET', 'test'));
         });
 
-        console.log(api.status.get('GET', 'test')); // will log "PENDING"
+        // will log "PENDING"
+        console.log(api.status.get('GET', 'test'));
 
         await wf(() => api.status.isSuccess('GET', 'test'));
 
-        console.log(api.status.get('GET', 'unknown')); // will log "IDLE"
+        // will log "IDLE"
+        console.log(api.status.get('GET', 'unknown'));
 
         api.get('unknown').then(() => {
-          console.log(api.status.get('GET', 'unknown')); // will log "ERROR"
+          // will log "ERROR"
+          console.log(api.status.get('GET', 'unknown'));
         });
 
-        console.log(api.status.get('GET', 'unknown')); // will log "PENDING"
+        // will log "PENDING"
+        console.log(api.status.get('GET', 'unknown'));
       })();
     </script>
   `
@@ -1256,6 +1373,7 @@ export const SB_REST_API_TRANSFORM_BODY: ProjectFiles = {
         response = await api.post('users/add', body);
         if (response instanceof Error) return;
 
+        // will log FetchResponse
         console.log(response.data);
       })();
     </script>
@@ -1290,6 +1408,7 @@ export const SB_REST_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
         response = await api.get('users', { query });
         if (response instanceof Error) return;
 
+        // will log FetchResponse
         console.log(response.data);
       })();
     </script>
@@ -1315,7 +1434,9 @@ export const SB_REST_API_HANDLE_ERROR: ProjectFiles = {
 
       (async () => {
         await api.get('unknown');
-        console.log(api.status.get('GET', 'unknown')); // will log "SUCCESS"
+
+        // will log "SUCCESS"
+        console.log(api.status.get('GET', 'unknown'));
       })();
     </script>
   `
@@ -1342,7 +1463,9 @@ export const SB_REST_API_HANDLE_PENDING: ProjectFiles = {
         let response;
 
         response = await api.get('users');
-        console.log(response); // will log Error
+
+        // will log FetchError
+        console.log(response);
       })();
     </script>
   `
@@ -1369,7 +1492,9 @@ export const SB_REST_API_HANDLE_SUCCESS: ProjectFiles = {
         let response;
 
         response = await api.get('users');
-        console.log(response); // will log Error
+
+        // will log FetchError
+        console.log(response);
       })();
     </script>
   `
@@ -1388,19 +1513,31 @@ export const SB_STATUS: ProjectFiles = {
       const status = new Status();
 
       status.idle('t1');
-      console.log(status.isIdle('t1')); // will log true
+
+      // will log true
+      console.log(status.isIdle('t1'));
 
       status.pending('t2');
-      console.log(status.isPending('t2')); // will log true
 
-      console.log(status.areSomeIdle('t1', 't2')); // will log true
-      console.log(status.areSomePending('t1', 't2')); // will log true
+      // will log true
+      console.log(status.isPending('t2'));
+
+      // will log true
+      console.log(status.areSomeIdle('t1', 't2'));
+
+      // will log true
+      console.log(status.areSomePending('t1', 't2'));
 
       status.pending('t1');
-      console.log(status.isPending('t1')); // will log true
 
-      console.log(status.isEveryIdle('t1', 't2')); // will log false
-      console.log(status.isEveryPending('t1', 't2')); // will log true
+      // will log true
+      console.log(status.isPending('t1'));
+
+      // will log false
+      console.log(status.isEveryIdle('t1', 't2'));
+
+      // will log true
+      console.log(status.isEveryPending('t1', 't2'));
     </script>
   `
 };
@@ -1426,7 +1563,9 @@ export const SB_SYNC_STORAGE_SET: ProjectFiles = {
       );
 
       storage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(sm.get('item')); // will log { name: "John", surname: "Doe" }
+
+      // will log { name: "John", surname: "Doe" }
+      console.log(sm.get('item'));
     </script>
   `
 };
@@ -1447,7 +1586,9 @@ export const SB_SYNC_STORAGE_GET: ProjectFiles = {
       );
 
       storage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(storage.get('item')); // will log { name: "John", surname: "Doe" }
+
+      // will log { name: "John", surname: "Doe" }
+      console.log(storage.get('item'));
     </script>
   `
 };
@@ -1468,10 +1609,10 @@ export const SB_SYNC_STORAGE_REMOVE: ProjectFiles = {
       );
 
       storage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(sm.has('item')); // will log true
-
       storage.remove('item');
-      console.log(sm.has('item')); // will log false
+
+      // will log false
+      console.log(sm.has('item'));
     </script>
   `
 };
@@ -1493,10 +1634,10 @@ export const SB_SYNC_STORAGE_CLEAR: ProjectFiles = {
 
       storage.set('item1', { name: 'John', surname: 'Doe' });
       storage.set('item2', { name: 'Paul', surname: 'Smith' });
-      console.log(sm.has('item1'), sm.has('item2')); // will log true, true
-
       storage.clear();
-      console.log(sm.has('item1'), sm.has('item2')); // will log false, false
+
+      // will log false, false
+      console.log(sm.has('item1'), sm.has('item2'));
     </script>
   `
 };
@@ -1516,12 +1657,13 @@ export const SB_SYNC_STORAGE_COPY: ProjectFiles = {
         (key, item) => sm.set(key, item)
       );
 
-      storage.set('item', { name: 'John', surname: 'Doe' });
-
       const target = {};
+
+      storage.set('item', { name: 'John', surname: 'Doe' });
       storage.copy('item', target);
 
-      console.log(target); // will log { name: "John", surname: "Doe" }
+      // will log { name: "John", surname: "Doe" }
+      console.log(target);
     </script>
   `
 };
@@ -1542,7 +1684,9 @@ export const SB_SYNC_STORAGE_HAS: ProjectFiles = {
       );
 
       storage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(storage.has('item')); // will log true
+
+      // will log true
+      console.log(storage.has('item'));
     </script>
   `
 };
@@ -1561,7 +1705,9 @@ export const SB_VISIBILITY_CONTROLLER_SHOW: ProjectFiles = {
 
       (async () => {
         await controller.show('dialog');
-        console.log(controller.isVisible('dialog')); // will log true
+
+        // will log true
+        console.log(controller.isVisible('dialog'));
       })();
     </script>
   `
@@ -1576,10 +1722,14 @@ export const SB_VISIBILITY_CONTROLLER_HIDE: ProjectFiles = {
 
       (async () => {
         await controller.show('dialog');
-        console.log(controller.isVisible('dialog')); // will log true
+
+        // will log true
+        console.log(controller.isVisible('dialog'));
 
         await controller.hide('dialog');
-        console.log(controller.isHidden('dialog')); // will log true
+
+        // will log true
+        console.log(controller.isHidden('dialog'));
       })();
     </script>
   `
@@ -1594,10 +1744,14 @@ export const SB_VISIBILITY_CONTROLLER_TOGGLE: ProjectFiles = {
 
       (async () => {
         await controller.toggle('dialog');
-        console.log(controller.isVisible('dialog')); // will log true
+
+        // will log true
+        console.log(controller.isVisible('dialog'));
 
         await controller.toggle('dialog');
-        console.log(controller.isHidden('dialog')); // will log true
+
+        // will log true
+        console.log(controller.isHidden('dialog'));
       })();
     </script>
   `

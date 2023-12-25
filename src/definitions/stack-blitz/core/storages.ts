@@ -8,10 +8,10 @@ export const SB_MEMORY_STORAGE_CLEAR: ProjectFiles = {
 
       MemoryStorage.set('item1', { name: 'John', surname: 'Doe' });
       MemoryStorage.set('item2', { name: 'Paul', surname: 'Smith' });
-      console.log(MemoryStorage.has('item1'), MemoryStorage.has('item2')); // will log true, true
-
       MemoryStorage.clear();
-      console.log(MemoryStorage.has('item1'), MemoryStorage.has('item2')); // will log false, false
+
+      // will log false, false
+      console.log(MemoryStorage.has('item1'), MemoryStorage.has('item2'));
     </script>
   `
 };
@@ -21,12 +21,13 @@ export const SB_MEMORY_STORAGE_COPY: ProjectFiles = {
     <script>
       import { MemoryStorage } from '@aracna/core';
 
-      MemoryStorage.set('item', { name: 'John', surname: 'Doe' });
-
       const target = {};
+
+      MemoryStorage.set('item', { name: 'John', surname: 'Doe' });
       MemoryStorage.copy('item', target);
 
-      console.log(target); // will log { name: "John", surname: "Doe" }
+      // will log { name: "John", surname: "Doe" }
+      console.log(target);
     </script>
   `
 };
@@ -37,7 +38,9 @@ export const SB_MEMORY_STORAGE_GET: ProjectFiles = {
       import { MemoryStorage } from '@aracna/core';
 
       MemoryStorage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(MemoryStorage.get('item')); // will log { name: "John", surname: "Doe" }
+
+      // will log { name: "John", surname: "Doe" }
+      console.log(MemoryStorage.get('item'));
     </script>
   `
 };
@@ -48,7 +51,9 @@ export const SB_MEMORY_STORAGE_HAS: ProjectFiles = {
       import { MemoryStorage } from '@aracna/core';
 
       MemoryStorage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(MemoryStorage.has('item')); // will log true
+
+      // will log true
+      console.log(MemoryStorage.has('item'));
     </script>
   `
 };
@@ -59,10 +64,10 @@ export const SB_MEMORY_STORAGE_REMOVE: ProjectFiles = {
       import { MemoryStorage } from '@aracna/core';
 
       MemoryStorage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(MemoryStorage.has('item')); // will log true
-
       MemoryStorage.remove('item');
-      console.log(MemoryStorage.has('item')); // will log false
+
+      // will log false
+      console.log(MemoryStorage.has('item'));
     </script>
   `
 };
@@ -73,7 +78,9 @@ export const SB_MEMORY_STORAGE_SET: ProjectFiles = {
       import { MemoryStorage } from '@aracna/core';
 
       MemoryStorage.set('item', { name: 'John', surname: 'Doe' });
-      console.log(MemoryStorage.get('item')); // will log { name: "John", surname: "Doe" }
+
+      // will log { name: "John", surname: "Doe" }
+      console.log(MemoryStorage.get('item'));
     </script>
   `
 };

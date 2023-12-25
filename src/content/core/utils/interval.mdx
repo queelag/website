@@ -4,13 +4,19 @@ title: Interval
 
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { Alert } from '@/components/Alert'
-import { SB_INTERVAL_CLEAR, SB_INTERVAL_CLEAR_EVERY, SB_INTERVAL_SET, SB_INTERVAL_SET_CUSTOM_KEY } from '@/definitions/stack-blitz/core/utils'
+import {
+  SB_INTERVAL_CLEAR,
+  SB_INTERVAL_CLEAR_EVERY,
+  SB_INTERVAL_IS_SET,
+  SB_INTERVAL_SET,
+  SB_INTERVAL_SET_CUSTOM_KEY
+} from '@/definitions/stack-blitz/core/utils'
 
 This is a collection of functions for working with intervals.
 
 ## Set
 
-The `setInterval` function is used to set an interval to run a function every `ms` milliseconds. When calling `setInterval` with only the function and the time, the function will be used as the key.
+The `setInterval` function sets an interval to run a function every `ms` milliseconds. When calling `setInterval` with only the function and the time, the function will be used as the key.
 
 <Alert client:load severity='warning'>
   The function passed to the `setInterval` function must be constant, otherwise you will not be able to clear the interval.
@@ -34,12 +40,18 @@ The `setInterval` function can also be called with a custom key. This is useful 
 
 ## Clear
 
-The `clearInterval` function is used to clear an interval.
+The `clearInterval` function clears an interval.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_CLEAR} template='javascript' title='Interval' console={100} />
 
-## Clear all intervals
+## Clear all
 
-The `clearEveryInterval` function is used to clear all intervals.
+The `clearEveryInterval` function clears all intervals.
 
 <CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_CLEAR_EVERY} template='javascript' title='Interval' console={100} />
+
+## Check if an interval is set
+
+The `isIntervalSet` function checks if an interval is set.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_INTERVAL_IS_SET} template='javascript' title='Interval' console={100} />

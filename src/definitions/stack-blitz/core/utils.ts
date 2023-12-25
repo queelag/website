@@ -139,7 +139,8 @@ export const SB_BASE16_ENCODE: ProjectFiles = {
     <script>
       import { encodeBase16 } from '@aracna/core';
 
-      console.log(encodeBase16([104, 101, 108, 108, 111])); // will log "68656C6C6F"
+      // will log "68656C6C6F"
+      console.log(encodeBase16([104, 101, 108, 108, 111]));
     </script>
   `
 };
@@ -149,7 +150,8 @@ export const SB_BASE16_DECODE: ProjectFiles = {
     <script>
       import { decodeBase16 } from '@aracna/core';
 
-      console.log(decodeBase16('68656C6C6F')); // will log [104, 101, 108, 108, 111]
+      // will log [104, 101, 108, 108, 111]
+      console.log(decodeBase16('68656C6C6F'));
     </script>
   `
 };
@@ -164,7 +166,8 @@ export const SB_BASE32_ENCODE: ProjectFiles = {
     <script>
       import { encodeBase32 } from '@aracna/core';
 
-      console.log(encodeBase32([104, 101, 108, 108, 111])); // will log "NBSWY3DP"
+      // will log "NBSWY3DP"
+      console.log(encodeBase32([104, 101, 108, 108, 111]));
     </script>
   `
 };
@@ -174,7 +177,8 @@ export const SB_BASE32_DECODE: ProjectFiles = {
     <script>
       import { decodeBase32 } from '@aracna/core';
 
-      console.log(decodeBase32('NBSWY3DP')); // will log [104, 101, 108, 108, 111]
+      // will log [104, 101, 108, 108, 111]
+      console.log(decodeBase32('NBSWY3DP'));
     </script>
   `
 };
@@ -184,7 +188,8 @@ export const SB_BASE32_HEX_ENCODE: ProjectFiles = {
     <script>
       import { encodeBase32Hex } from '@aracna/core';
 
-      console.log(encodeBase32Hex([104, 101, 108, 108, 111])); // will log "91IMOR3F"
+      // will log "91IMOR3F"
+      console.log(encodeBase32Hex([104, 101, 108, 108, 111]));
     </script>
   `
 };
@@ -194,7 +199,8 @@ export const SB_BASE32_HEX_DECODE: ProjectFiles = {
     <script>
       import { decodeBase32Hex } from '@aracna/core';
 
-      console.log(decodeBase32Hex('91IMOR3F')); // will log [104, 101, 108, 108, 111]
+      // will log [104, 101, 108, 108, 111]
+      console.log(decodeBase32Hex('91IMOR3F'));
     </script>
   `
 };
@@ -209,7 +215,8 @@ export const SB_BASE64_ENCODE: ProjectFiles = {
     <script>
       import { encodeBase64 } from '@aracna/core';
 
-      console.log(encodeBase64([104, 101, 108, 108, 111])); // will log "aGVsbG8="
+      // will log "aGVsbG8="
+      console.log(encodeBase64([104, 101, 108, 108, 111]));
     </script>
   `
 };
@@ -219,7 +226,8 @@ export const SB_BASE64_DECODE: ProjectFiles = {
     <script>
       import { decodeBase64 } from '@aracna/core';
 
-      console.log(decodeBase64('aGVsbG8=')); // will log [104, 101, 108, 108, 111]
+      // will log [104, 101, 108, 108, 111]
+      console.log(decodeBase64('aGVsbG8='));
     </script>
   `
 };
@@ -229,7 +237,8 @@ export const SB_BASE64_URL_ENCODE: ProjectFiles = {
     <script>
       import { encodeBase64URL } from '@aracna/core';
 
-      console.log(encodeBase64URL([104, 101, 108, 108, 111])); // will log "aGVsbG8"
+      // will log "aGVsbG8"
+      console.log(encodeBase64URL([104, 101, 108, 108, 111]));
     </script>
   `
 };
@@ -239,7 +248,8 @@ export const SB_BASE64_URL_DECODE: ProjectFiles = {
     <script>
       import { decodeBase64URL } from '@aracna/core';
 
-      console.log(decodeBase64URL('aGVsbG8')); // will log [104, 101, 108, 108, 111]
+      // will log [104, 101, 108, 108, 111]
+      console.log(decodeBase64URL('aGVsbG8'));
     </script>
   `
 };
@@ -258,7 +268,8 @@ export const SB_SERIALIZE_BLOB: ProjectFiles = {
         const aracnaBlob = new AracnaBlob(new Blob(['hello']));
         const blob = serializeBlob(aracnaBlob);
 
-        console.log(await blob.text()); // will log "hello"
+        // will log "hello"
+        console.log(await blob.text());
       })();
     </script>
   `
@@ -273,7 +284,8 @@ export const SB_DESERIALIZE_BLOB: ProjectFiles = {
         const blob = new Blob(['hello']);
         const aracnaBlob = await deserializeBlob(blob, { resolveText: true });
 
-        console.log(aracnaBlob.text); // will log "hello"
+        // will log "hello"
+        console.log(aracnaBlob.text);
       })();
     </script>
   `
@@ -289,7 +301,8 @@ export const SB_SERIALIZE_COOKIE: ProjectFiles = {
     <script>
       import { serializeCookie } from '@aracna/core';
 
-      console.log(serializeCookie('a', '0')); // will log "a=0"
+      // will log "a=0"
+      console.log(serializeCookie('a', '0'));
     </script>
   `
 };
@@ -299,7 +312,8 @@ export const SB_DESERIALIZE_COOKIE: ProjectFiles = {
     <script>
       import { deserializeCookie } from '@aracna/core';
 
-      console.log(deserializeCookie('a=0')); // will log { a: "0" }
+      // will log { a: "0" }
+      console.log(deserializeCookie('a=0'));
     </script>
   `
 };
@@ -314,8 +328,11 @@ export const SB_GET_DATE_UNIX_TIME: ProjectFiles = {
     <script>
       import { getDateUnixTime } from '@aracna/core';
 
-      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z')); // will log 1660232042878
-      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z', 's')); // will log 16602320428
+      // will log 1660232042878
+      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z'));
+
+      // will log 16602320428
+      console.log(getDateUnixTime('2022-08-11T15:34:02.878Z', 's'));
     </script>
   `
 };
@@ -330,8 +347,11 @@ export const SB_GET_EMOJI_FROM_COUNTRY_CODE: ProjectFiles = {
     <script>
       import { getEmojiFromCountryCode } from '@aracna/core';
 
-      console.log(getEmojiFromCountryCode('IT')); // will log 🇮🇹
-      console.log(getEmojiFromCountryCode('DE')); // will log 🇩🇪
+      // will log 🇮🇹
+      console.log(getEmojiFromCountryCode('IT'));
+
+      // will log 🇩🇪
+      console.log(getEmojiFromCountryCode('DE'));
     </script>
   `
 };
@@ -346,7 +366,8 @@ export const SB_IS_ERROR: ProjectFiles = {
     <script>
       import { isError } from '@aracna/core';
 
-      console.log(isError(new Error())); // will log true
+      // will log true
+      console.log(isError(new Error()));
     </script>
   `
 };
@@ -399,15 +420,15 @@ export const SB_GET_FETCH_REQUEST_INIT_HEADERS_ENTRIES: ProjectFiles = {
   `
 };
 
-export const SB_GET_FETCH_REQUEST_INIT_HEADERS_LENGTH: ProjectFiles = {
+export const SB_COUNT_FETCH_REQUEST_INIT_HEADERS: ProjectFiles = {
   'index.js': html`
     <script>
-      import { getFetchRequestInitHeadersLength } from '@aracna/core';
+      import { countFetchRequestInitHeaders } from '@aracna/core';
 
       const init = { headers: { a: '0', b: '1' } };
 
-      // will log "2"
-      console.log(getFetchRequestInitHeadersLength(init));
+      // will log 2
+      console.log(countFetchRequestInitHeaders(init));
     </script>
   `
 };
@@ -421,8 +442,6 @@ export const SB_SET_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
       } from '@aracna/core';
 
       const init = {};
-
-      // will set the header inside the init
       setFetchRequestInitHeader(init, 'authorization', 'token');
 
       // will log "token"
@@ -440,14 +459,12 @@ export const SB_SET_FETCH_REQUEST_INIT_HEADER_WHEN_UNSET: ProjectFiles = {
       } from '@aracna/core';
 
       const init = {};
-
-      // will set the header inside the init
       setFetchRequestInitHeaderWhenUnset(init, 'authorization', 'token');
 
       // will log "token"
       console.log(getFetchRequestInitHeader(init, 'authorization'));
 
-      // will not set the header since it has already been set before
+      // will not set the header since it is already set
       setFetchRequestInitHeaderWhenUnset(init, 'authorization', 'token2');
 
       // will still log "token"
@@ -465,11 +482,6 @@ export const SB_HAS_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
       } from '@aracna/core';
 
       const init = {};
-
-      // will log false
-      console.log(hasFetchRequestInitHeader(init, 'authorization'));
-
-      // will set the header inside the init
       setFetchRequestInitHeader(init, 'authorization', 'token');
 
       // will log true
@@ -486,10 +498,9 @@ export const SB_MERGE_FETCH_REQUEST_INITS: ProjectFiles = {
         mergeFetchRequestInits
       } from '@aracna/core';
 
-      const init_source = { headers: { a: '0' }, method: 'GET' };
-      const init_target = { headers: { b: '1' }, method: 'POST' };
-
-      const merged_init = mergeFetchRequestInits(init_source, init_target);
+      const source = { headers: { a: '0' }, method: 'GET' };
+      const target = { headers: { b: '1' }, method: 'POST' };
+      const merge = mergeFetchRequestInits(source, target);
 
       // will log [["a", "0"], ["b", "1"]]
       console.log(getFetchRequestInitHeadersEntries(merged_init));
@@ -508,34 +519,14 @@ export const SB_TO_NATIVE_FETCH_REQUEST_INIT: ProjectFiles = {
         toNativeFetchRequestInit
       } from '@aracna/core';
 
-      const init = {};
-
-      init.body = 0;
-      let native_init = toNativeFetchRequestInit(init);
-
-      // will log "0"
-      console.log(native_init.body);
-
-      // will log "text/plain"
-      console.log(getFetchRequestInitHeader(native_init, 'content-type'));
-
-      init.body = { name: 'John' };
-      native_init = toNativeFetchRequestInit(init);
+      const init = { body: { name: 'John' } };
+      const native = toNativeFetchRequestInit(init);
 
       // will log "{ "name": "John" }"
-      console.log(native_init.body);
+      console.log(native.body);
 
       // will log "application/json"
-      console.log(getFetchRequestInitHeader(native_init, 'content-type'));
-
-      init.body = new Blob([]);
-      native_init = toNativeFetchRequestInit(init);
-
-      // will log Blob
-      console.log(native_init.body);
-
-      // will log "application/octet-stream"
-      console.log(getFetchRequestInitHeader(native_init, 'content-type'));
+      console.log(getFetchRequestInitHeader(native, 'content-type'));
     </script>
   `
 };
@@ -559,7 +550,7 @@ export const SB_TO_LOGGABLE_FETCH_REQUEST_INIT: ProjectFiles = {
 export const SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT: ProjectFiles = {
   'index.js': html`
     <script>
-      import { toLoggableFetchRequestInit } from '@aracna/core';
+      import { toLoggableNativeFetchRequestInit } from '@aracna/core';
 
       const init = {};
 
@@ -567,12 +558,7 @@ export const SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT: ProjectFiles = {
       init.body.set('name', 'John');
 
       // will log "{ "body": { "name": "John" } }"
-      console.log(toLoggableFetchRequestInit(init));
-
-      init.body = { name: 'John' };
-
-      // will log "{ "body": { "name": "John" } }"
-      console.log(toLoggableFetchRequestInit(init));
+      console.log(toLoggableNativeFetchRequestInit(init));
     </script>
   `
 };
@@ -591,8 +577,11 @@ export const SB_SERIALIZE_FILE: ProjectFiles = {
         const aracnaFile = new AracnaFile(new File(['hello'], 'file.txt'));
         const file = serializeFile(aracnaFile);
 
-        console.log(file.name); // will log "file.txt"
-        console.log(await file.text()); // will log "hello"
+        // will log "file.txt"
+        console.log(file.name);
+
+        // will log "hello"
+        console.log(await file.text());
       })();
     </script>
   `
@@ -607,8 +596,11 @@ export const SB_DESERIALIZE_FILE: ProjectFiles = {
         const file = new File(['hello'], 'file.txt');
         const aracnaFile = await deserializeFile(file, { resolveText: true });
 
-        console.log(aracnaFile.name); // will log "file.txt"
-        console.log(aracnaFile.text); // will log "hello"
+        // will log "file.txt"
+        console.log(aracnaFile.name);
+
+        // will log "hello"
+        console.log(aracnaFile.text);
       })();
     </script>
   `
@@ -658,10 +650,12 @@ export const SB_DESERIALIZE_FORM_DATA: ProjectFiles = {
 
       const data = new FormData();
 
+      data.append('age', '20');
       data.append('features', JSON.stringify({ eyes: 'Brown', height: 175 }));
       data.append('name', 'John');
+      data.append('picture', new Blob([]));
 
-      // will log { features: { eyes: "Brown", height: 175 }, name: "John" }
+      // will log { age: 20, features: { eyes: "Brown", height: 175 }, name: "John", picture: Blob }
       console.log(deserializeFormData(data));
     </script>
   `
@@ -676,9 +670,6 @@ export const SB_IS_INSTANCE_OF: ProjectFiles = {
   'index.js': html`
     <script>
       import { isInstanceOf } from '@aracna/core';
-
-      // will log false
-      console.log(isInstanceOf(0, Blob));
 
       // will log true
       console.log(isInstanceOf(new Blob([]), Blob));
@@ -749,6 +740,22 @@ export const SB_INTERVAL_CLEAR_EVERY: ProjectFiles = {
   `
 };
 
+export const SB_INTERVAL_IS_SET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { isIntervalSet, setInterval } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+      setInterval(fn, 1000);
+
+      // will log true
+      console.log(isIntervalSet(fn));
+    </script>
+  `
+};
+
 /**
  * Logger
  */
@@ -759,11 +766,20 @@ export const SB_LOGGER_GET_ANSI_COLOR: ProjectFiles = {
     <script>
       import { getLoggerAnsiColor } from '@aracna/core';
 
-      console.log(getLoggerAnsiColor('debug')); // will log "\\x1b[35m"
-      console.log(getLoggerAnsiColor('error')); // will log "\\x1b[31m"
-      console.log(getLoggerAnsiColor('info')); // will log "\\x1b[34m"
-      console.log(getLoggerAnsiColor('verbose')); // will log "\\x1b[37m"
-      console.log(getLoggerAnsiColor('warn')); // will log "\\x1b[33m"
+      // will log "\\x1b[35m"
+      console.log(getLoggerAnsiColor('debug'));
+
+      // will log "\\x1b[31m"
+      console.log(getLoggerAnsiColor('error'));
+
+      // will log "\\x1b[34m"
+      console.log(getLoggerAnsiColor('info'));
+
+      // will log "\\x1b[37m"
+      console.log(getLoggerAnsiColor('verbose'));
+
+      // will log "\\x1b[33m"
+      console.log(getLoggerAnsiColor('warn'));
     </script>
   `
 };
@@ -812,7 +828,7 @@ export const SB_GET_LIMITED_NUMBER: ProjectFiles = {
       import { getLimitedNumber } from '@aracna/core';
 
       // will log 3
-      console.log(getLimitedNumber(5, 1, 3));
+      console.log(getLimitedNumber(5, { max: 3 }));
     </script>
   `
 };
@@ -882,9 +898,6 @@ export const SB_IS_NUMBER_EVEN: ProjectFiles = {
 
       // will log true
       console.log(isNumberEven(0));
-
-      // will log false
-      console.log(isNumberEven(1));
     </script>
   `
 };
@@ -896,9 +909,6 @@ export const SB_IS_NUMBER_MULTIPLE_OF: ProjectFiles = {
 
       // will log true
       console.log(isNumberMultipleOf(4, 2));
-
-      // will log false
-      console.log(isNumberMultipleOf(5, 2));
     </script>
   `
 };
@@ -910,9 +920,6 @@ export const SB_IS_NUMBER_ODD: ProjectFiles = {
 
       // will log true
       console.log(isNumberOdd(1));
-
-      // will log false
-      console.log(isNumberOdd(2));
     </script>
   `
 };
@@ -933,15 +940,21 @@ export const SB_CLONE_OBJECT: ProjectFiles = {
       clone = cloneObject(object);
 
       clone.shallow++;
-      console.log(object.shallow); // will log 0
+
+      // will log 0
+      console.log(object.shallow);
 
       clone.deep.value++;
-      console.log(object.deep.value); // will log 1
+
+      // will log 1
+      console.log(object.deep.value);
 
       clone = cloneObject(object, { deep: true });
 
       clone.deep.value++;
-      console.log(object.deep.value); // will log 1
+
+      // will log 1
+      console.log(object.deep.value);
     </script>
   `
 };
@@ -1015,7 +1028,9 @@ export const SB_DELETE_OBJECT_PROPERTIES: ProjectFiles = {
       const object = { deep: { value: 0 }, shallow: 0 };
 
       deleteObjectProperties(object, ['deep.value', 'shallow']);
-      console.log(object); // will log { deep: {} }
+
+      // will log { deep: {} }
+      console.log(object);
     </script>
   `
 };
@@ -1132,9 +1147,6 @@ export const SB_HAS_OBJECT_PROPERTY: ProjectFiles = {
 
       // will log true
       console.log(hasObjectProperty(object, 'deep.value'));
-
-      // will log false
-      console.log(hasObjectProperty(object, 'deep.unknown'));
     </script>
   `
 };
@@ -1221,7 +1233,8 @@ export const SB_IS_PROMISE: ProjectFiles = {
     <script>
       import { isPromise } from '@aracna/core';
 
-      console.log(isPromise(Promise.resolve())); // will log true
+      // will log true
+      console.log(isPromise(Promise.resolve()));
     </script>
   `
 };
@@ -1231,35 +1244,11 @@ export const SB_IS_PROMISE_LIKE: ProjectFiles = {
     <script>
       import { noop, isPromiseLike } from '@aracna/core';
 
-      console.log(isPromiseLike(Promise.resolve())); // will log true
-      console.log(isPromiseLike({ then: noop })); // will log true
-    </script>
-  `
-};
+      // will log true
+      console.log(isPromiseLike(Promise.resolve()));
 
-/**
- * Query Parameters
- */
-/** */
-
-export const SB_SERIALIZE_QUERY_PARAMETERS: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { serializeQueryParameters } from '@aracna/core';
-
-      // will log "?a=0&b=1"
-      console.log(serializeQueryParameters({ a: 0, b: 1 }));
-    </script>
-  `
-};
-
-export const SB_DESERIALIZE_QUERY_PARAMETERS: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { deserializeQueryParameters } from '@aracna/core';
-
-      // will log { a: "0", b: "1" }
-      console.log(deserializeQueryParameters('?a=0&b=1'));
+      // will log true
+      console.log(isPromiseLike({ then: noop }));
     </script>
   `
 };
@@ -1343,39 +1332,14 @@ export const SB_GENERATE_RANDOM_STRING: ProjectFiles = {
     <script>
       import { generateRandomString } from '@aracna/core';
 
-      console.log(generateRandomString()); // will log a 32 chars random alphanumeric string
-    </script>
-  `
-};
+      // will log a 32 chars random alphanumeric string
+      console.log(generateRandomString());
 
-export const SB_GENERATE_RANDOM_STRING_ALPHABET: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { generateRandomString } from '@aracna/core';
+      // will log a 32 chars random numeric string
+      console.log(generateRandomString({ alphabet: '0123456789' }));
 
-      console.log(generateRandomString({ alphabet: '0123456789' })); // will log a 32 chars random numeric string
-    </script>
-  `
-};
-
-export const SB_GENERATE_RANDOM_STRING_PREFIX_SUFFIX_SEPARATOR: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { generateRandomString } from '@aracna/core';
-
-      console.log(generateRandomString({ prefix: 'pre' })); // will log pre_...
-      console.log(generateRandomString({ suffix: 'post' })); // will log ..._post
-      console.log(generateRandomString({ prefix: 'pre', separator: '-' })); // will log pre-...
-    </script>
-  `
-};
-
-export const SB_GENERATE_RANDOM_STRING_SIZE: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { generateRandomString } from '@aracna/core';
-
-      console.log(generateRandomString({ size: 8 })); // will log a 8 chars random alphanumeric string
+      // will log a 8 chars random alphanumeric string
+      console.log(generateRandomString({ size: 8 }));
     </script>
   `
 };
@@ -1434,7 +1398,8 @@ export const SB_DECODE_TEXT: ProjectFiles = {
     <script>
       import { decodeText } from '@aracna/core';
 
-      console.log(decodeText(new Uint8Array([104, 101, 108, 108, 111]))); // will log "hello"
+      // will log "hello"
+      console.log(decodeText(new Uint8Array([104, 101, 108, 108, 111])));
     </script>
   `
 };
@@ -1444,7 +1409,8 @@ export const SB_ENCODE_TEXT: ProjectFiles = {
     <script>
       import { encodeText } from '@aracna/core';
 
-      console.log(encodeText('hello')); // will log Uint8Array(5) [104, 101, 108, 108, 111]
+      // will log Uint8Array(5) [104, 101, 108, 108, 111]
+      console.log(encodeText('hello'));
     </script>
   `
 };
@@ -1454,7 +1420,8 @@ export const SB_GET_TEXT_DECODER: ProjectFiles = {
     <script>
       import { getTextDecoder } from '@aracna/core';
 
-      console.log(getTextDecoder()); // will log TextDecoder
+      // will log TextDecoder
+      console.log(getTextDecoder());
     </script>
   `
 };
@@ -1464,7 +1431,8 @@ export const SB_GET_TEXT_ENCODER: ProjectFiles = {
     <script>
       import { getTextEncoder } from '@aracna/core';
 
-      console.log(getTextEncoder()); // will log TextEncoder
+      // will log TextEncoder
+      console.log(getTextEncoder());
     </script>
   `
 };
@@ -1474,39 +1442,43 @@ export const SB_GET_TEXT_ENCODER: ProjectFiles = {
  */
 /** */
 
-export const SB_TIMEOUT_FN_AS_KEY: ProjectFiles = {
+export const SB_TIMEOUT_SET: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Timeout } from '@aracna/core';
+      import { clearTimeout, setTimeout } from '@aracna/core';
 
       function fn() {
         console.log('running', Date.now());
       }
 
-      Timeout.set(fn, 1000);
+      setTimeout(fn, 1000);
       console.log('timeout set', Date.now());
 
       setTimeout(() => {
-        Timeout.set(fn, 1000);
-        Timeout.unset(fn); // will not run anymore after 1s
+        setTimeout(fn, 1000);
+
+        // will not run anymore after 1s
+        clearTimeout(fn);
       }, 2000);
     </script>
   `
 };
 
-export const SB_TIMEOUT_NAME_AS_KEY: ProjectFiles = {
+export const SB_TIMEOUT_SET_CUSTOM_KEY: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Timeout } from '@aracna/core';
+      import { clearTimeout, setTimeout } from '@aracna/core';
 
-      const ID = 'timeout';
+      const key = 'timeout';
 
-      Timeout.set(ID, () => console.log('running t1', Date.now()), 1000);
+      setTimeout(() => console.log('running t1', Date.now()), 1000, key);
       console.log('timeout set', Date.now());
 
       setTimeout(() => {
-        Timeout.set(ID, () => console.log('running t2', Date.now()), 1000);
-        Timeout.unset(ID); // will not run anymore after 1s
+        setTimeout(() => console.log('running t2', Date.now()), 1000, key);
+
+        // will not run anymore after 1s
+        clearTimeout(key);
       }, 2000);
     </script>
   `
@@ -1515,12 +1487,45 @@ export const SB_TIMEOUT_NAME_AS_KEY: ProjectFiles = {
 export const SB_TIMEOUT_CLEAR: ProjectFiles = {
   'index.js': html`
     <script>
-      import { Timeout } from '@aracna/core';
+      import { clearTimeout, setTimeout } from '@aracna/core';
 
-      Timeout.set(() => console.log('running t1', Date.now()), 1000);
-      Timeout.set(() => console.log('running t2', Date.now()), 1000);
+      function fn() {
+        console.log('running', Date.now());
+      }
+      setTimeout(fn, 1000);
 
-      Timeout.clear(); // both timeouts will not run
+      // will not run anymore
+      clearTimeout(fn);
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_CLEAR_EVERY: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { clearEveryTimeout, setTimeout } from '@aracna/core';
+
+      setTimeout(() => console.log('running t1', Date.now()), 1000);
+      setTimeout(() => console.log('running t2', Date.now()), 1000);
+
+      // both timeouts will not run
+      clearEveryTimeout();
+    </script>
+  `
+};
+
+export const SB_TIMEOUT_IS_SET: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { setTimeout, isTimeoutSet } from '@aracna/core';
+
+      function fn() {
+        console.log('running', Date.now());
+      }
+      setTimeout(fn, 1000);
+
+      // will log true
+      console.log(isTimeoutSet(fn));
     </script>
   `
 };
@@ -1529,17 +1534,6 @@ export const SB_TIMEOUT_CLEAR: ProjectFiles = {
  * URL
  */
 /** */
-
-export const SB_CONCAT_URL: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { concatURL } from '@aracna/core';
-
-      // will log "https://dummyjson.com/products"
-      console.log(concatURL('https://dummyjson.com/', 'products'));
-    </script>
-  `
-};
 
 export const SB_APPEND_SEARCH_PARAMS_TO_URL: ProjectFiles = {
   'index.js': html`
@@ -1554,6 +1548,42 @@ export const SB_APPEND_SEARCH_PARAMS_TO_URL: ProjectFiles = {
   `
 };
 
+export const SB_CONCAT_URL: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { concatURL } from '@aracna/core';
+
+      // will log "https://dummyjson.com/products"
+      console.log(concatURL('https://dummyjson.com/', 'products'));
+    </script>
+  `
+};
+
+export const SB_DESERIALIZE_URL_SEARCH_PARAMS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { deserializeURLSearchParams } from '@aracna/core';
+
+      // will log "a=0&b=1"
+      console.log(
+        deserializeURLSearchParams(
+          [
+            ['a', '0'],
+            ['b', '1']
+          ],
+          'string'
+        )
+      );
+
+      // will log { a: "0", b: "1" }
+      console.log(deserializeURLSearchParams('?a=0&b=1'));
+
+      // will log [["a", "0"], ["b", "1"]]
+      console.log(deserializeURLSearchParams({ a: '0', b: '1' }, 'array'));
+    </script>
+  `
+};
+
 export const SB_REMOVE_SEARCH_PARAMS_FROM_URL: ProjectFiles = {
   'index.js': html`
     <script>
@@ -1563,6 +1593,39 @@ export const SB_REMOVE_SEARCH_PARAMS_FROM_URL: ProjectFiles = {
       console.log(
         removeSearchParamsFromURL('https://dummyjson.com/products?a=0')
       );
+    </script>
+  `
+};
+
+export const SB_SERIALIZE_URL_SEARCH_PARAMS: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { serializeURLSearchParams } from '@aracna/core';
+
+      // will log URLSearchParams
+      console.log(
+        serializeURLSearchParams([
+          ['a', '0'],
+          ['b', '1']
+        ])
+      );
+
+      // will log URLSearchParams
+      console.log(serializeURLSearchParams('?a=0&b=1'));
+
+      // will log URLSearchParams
+      console.log(serializeURLSearchParams({ a: '0', b: '1' }));
+    </script>
+  `
+};
+
+export const SB_IS_URL: ProjectFiles = {
+  'index.js': html`
+    <script>
+      import { isURL } from '@aracna/core';
+
+      // will log true
+      console.log(isURL('https://aracna.dariosechi.it'));
     </script>
   `
 };

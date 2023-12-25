@@ -3,19 +3,20 @@ title: URL
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_CONCAT_URL, SB_APPEND_SEARCH_PARAMS_TO_URL, SB_REMOVE_SEARCH_PARAMS_FROM_URL } from '@/definitions/stack-blitz/core/utils'
+import {
+  SB_APPEND_SEARCH_PARAMS_TO_URL,
+  SB_CONCAT_URL,
+  SB_DESERIALIZE_URL_SEARCH_PARAMS,
+  SB_REMOVE_SEARCH_PARAMS_FROM_URL,
+  SB_SERIALIZE_URL_SEARCH_PARAMS,
+  SB_IS_URL
+} from '@/definitions/stack-blitz/core/utils'
 
-URL utilities are a set of functions that provide useful functionality for working with URLs (Uniform Resource Locators) in ECMAScript. URLs are used to identify resources on the internet, such as web pages, images, and other files.
+This is a collection of functions for working with URLs.
 
-## Concatenate URL Chunks
+## Append search params
 
-The **concatURL** function is a utility function that takes one or more URL segments as input and concatenates them into a single URL string. The function removes any extra slashes between segments and trims whitespace.
-
-<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CONCAT_URL} template='javascript' title='concatURL' console={100} />
-
-## Append Search Parameters
-
-The **appendSearchParamsToURL** function is a utility function that takes a URL string and a set of search parameters as input and appends the parameters to the URL as a query string. The function handles cases where the URL already contains a query string and removes any duplicate or unnecessary characters.
+The `appendSearchParamsToURL` function appends the search params to a URL.
 
 <CodeBlock
   client:load
@@ -26,9 +27,9 @@ The **appendSearchParamsToURL** function is a utility function that takes a URL 
   console={100}
 />
 
-## Remove Search Parameters
+## Remove search params
 
-The **removeSearchParamsFromURL** function is a utility function that takes a URL string as input and removes any query string parameters from the URL. The function returns the modified URL string.
+The `removeSearchParamsFromURL` functions removes the search params from an URL.
 
 <CodeBlock
   client:load
@@ -38,3 +39,41 @@ The **removeSearchParamsFromURL** function is a utility function that takes a UR
   title='removeSearchParamsFromURL'
   console={100}
 />
+
+## Concatenate URL pathnames
+
+The `concatURL` function concatenates a URL with pathnames.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_CONCAT_URL} template='javascript' title='concatURL' console={100} />
+
+## Deserialize URL search params
+
+The `deserializeURLSearchParams` function deserializes an array, string, plain object or `URLSearchParams` to an array, string or plain object.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_DESERIALIZE_URL_SEARCH_PARAMS}
+  template='javascript'
+  title='deserializeURLSearchParams'
+  console={100}
+/>
+
+## Serialize URL search params
+
+The `serializeURLSearchParams` function serializes an array, string or plain object to `URLSearchParams`.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest' }}
+  files={SB_SERIALIZE_URL_SEARCH_PARAMS}
+  template='javascript'
+  title='serializeURLSearchParams'
+  console={100}
+/>
+
+## Check if an unknown value is an URL
+
+The `isURL` function checks if an unknown value is an URL.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest' }} files={SB_IS_URL} template='javascript' title='isURL' console={100} />
