@@ -1,3 +1,20 @@
 ---
 title: sendFcmMessage
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_SEND_FCM_MESSAGE } from '@/definitions/stack-blitz/fcm/functions'
+
+The `sendFcmMessage` method sends a message to Firebase Cloud Messaging using the v1 API. The target can be a condition, a token or a topic.
+
+- The token can be obtained with the `registerToFCM` function.
+- The account is a JSON file that can be downloaded from the Firebase console.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_SEND_FCM_MESSAGE}
+  template='node'
+  title='sendFcmMessage'
+  disableStackBlitz
+/>

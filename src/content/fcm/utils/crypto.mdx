@@ -1,3 +1,34 @@
 ---
 title: Crypto
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_CREATE_FCM_ECDH, SB_GENERATE_FCM_AUTH_SECRET } from '@/definitions/stack-blitz/fcm/utils'
+
+This is a collection of functions for working with FCM crypto.
+
+## Create ECDH
+
+The `createFcmECDH` functions creates a new ECDH instance with the prime256v1 curve and generates a new key pair.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_CREATE_FCM_ECDH}
+  template='node'
+  title='createFcmECDH'
+  disableStackBlitz
+/>
+
+## Generate Auth Secret
+
+The `generateFcmAuthSecret` function generates a new FCM auth secret.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_GENERATE_FCM_AUTH_SECRET}
+  template='node'
+  title='generateFcmAuthSecret'
+  disableStackBlitz
+/>

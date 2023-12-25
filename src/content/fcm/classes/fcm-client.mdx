@@ -1,3 +1,76 @@
 ---
 title: FcmClient
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { Alert } from '@/components/Alert'
+import { SB_FCM_CLIENT_CONNECT, SB_FCM_CLIENT_DISCONNECT, SB_FCM_CLIENT_CONNECT_ON_MESSAGE } from '@/definitions/stack-blitz/fcm/classes'
+
+The FcmClient class establishes a TLS socket connection with Google MTalk and handles the communication.
+
+- The client needs a valid ACG ID and ACG security token to login, they can be obtained with the `registerToFCM` function.
+- The client needs a valid ECE auth secret and ECE private key to decrypt the messages, they can be obtained with the `createFcmECDH` and `generateFcmAuthSecret` functions.
+- The client will store the received persistent IDs in the storage. By default the storage is an in-memory storage, it is reccomended to use a persistent storage.
+- The client will perform a heartbeat every 5 seconds to avoid losing the socket connection.
+
+## Events
+
+- The client will emit a `close` event when a close message is received.
+- The client will emit a `heartbeat` event when a heartbeat is received.
+- The client will emit a `iq` event when an IQ stanza is received.
+- The client will emit a `login` event when a login response is received.
+- The client will emit a `message` event when a message is received.
+- The client will emit a `message-data` event when a message is decrypted.
+
+## Connect
+
+The `connect` function connects the socket to Google MTalk.
+
+- The persistent IDs received in the previous session will be retrieved from the storage to communicate them to the server during the login.
+- The ACG ID and ACG security token will be verified before connecting.
+
+<Alert client:load severity='warning'>
+  The ACG ID and ACG security token are required to connect.
+</Alert>
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_FCM_CLIENT_CONNECT}
+  template='node'
+  title='FcmClient'
+  disableStackBlitz
+/>
+
+## Disconnect
+
+The `disconnect` function disconnects the socket.
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_FCM_CLIENT_DISCONNECT}
+  template='node'
+  title='FcmClient'
+  disableStackBlitz
+/>
+
+## Listen to messages
+
+The client emits a `message` event when a message is received and a `message-data` event when a message is decrypted. The client is an event emitter, so you can use the `on` function to listen to the events.
+
+<Alert client:load severity='warning'>
+  The ECE auth secret and ECE private key are required to decrypt the messages.
+</Alert>
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_FCM_CLIENT_CONNECT_ON_MESSAGE}
+  template='node'
+  title='FcmClient'
+  disableStackBlitz
+/>

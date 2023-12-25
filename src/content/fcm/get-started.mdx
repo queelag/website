@@ -3,8 +3,36 @@ order: -1
 title: Get Started
 ---
 
+import { Alert } from '@/components/Alert'
 import { PackageManagerBlock } from '@/blocks/PackageManagerBlock'
 
-The **@aracna/fcm** package depends on the **@aracna/core** package as a peer dependency, which is required for it to function properly.
+The **@aracna/fcm** package depends on the **@aracna/core** package as a peer dependency, which is required for it to function.
 
-<PackageManagerBlock client:load install={{ dependencies: ['@aracna/core'], package: '@aracna/fcm' }} />
+<Alert client:load severity='warning'>
+  This package works only on Node.js.
+</Alert>
+
+<PackageManagerBlock client:load className='mt-6' install={{ dependencies: ['@aracna/core'], package: '@aracna/fcm' }} />
+
+## Use to receive messages
+
+The **@aracna/fcm** package is capable of registering to Firebase Cloud Messaging and listen to incoming messages through a socket connection with Google MTalk.
+
+1. Create a new project on the [Firebase Console](https://console.firebase.google.com/).
+2. Add a new web app to the project.
+3. Create a new web push certificate under the **Cloud Messaging** tab of the project settings.
+4. Create a new auth secret and ECDH key pair with the [generateFcmAuthSecret](/fcm/utils/crypto) and [createFcmECDH](/fcm/utils/crypto) functions.
+5. Store the auth secret and ECDH key pair securely.
+6. Register to Firebase Cloud Messaging with the [registerToFCM](/fcm/functions/register-to-fcm) function.
+7. Store the ACG ID, ACG security token and FCM token.
+8. Create a new [FcmClient](/fcm/classes/fcm-client) instance using the needed values from the previous steps.
+9. Connect with the `connect` method of the client.
+10. Listen to incoming messages with the `on` method of the client, see the [FcmClient](/fcm/classes/fcm-client) docs for more information.
+
+## Use to send messages
+
+The **@aracna/fcm** package is capable of sending messages to Firebase Cloud Messaging.
+
+1. Create a new project on the [Firebase Console](https://console.firebase.google.com/).
+2. Create a new private key under the **Service Accounts** tab of the project settings.
+3. Use the [sendFcmMessage](/fcm/functions/send-fcm-message) function with the `google-service-account.json` file.

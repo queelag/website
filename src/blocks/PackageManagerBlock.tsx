@@ -3,6 +3,7 @@ import { IconFeatherGitBranch } from '@aracna/icons-feather-react/components/git
 import { useState } from 'react'
 
 interface Props {
+  className?: string
   install?: {
     dependencies?: string[]
     package: string
@@ -45,5 +46,5 @@ export function PackageManagerBlock(props: Props) {
     return {}
   }
 
-  return <CodeWindow buttons={getButtons()} files={getFiles()} language='bash' />
+  return <CodeWindow buttons={getButtons()} className={props.className} files={getFiles()} language='bash' />
 }

@@ -3,6 +3,7 @@ import {
   DEFAULT_CODE_RUNTIME_INDEX_CSS,
   DEFAULT_CODE_RUNTIME_INDEX_HTML,
   DEFAULT_CODE_RUNTIME_INDEX_JS,
+  DEFAULT_CODE_RUNTIME_NODE_PACKAGE_JSON,
   DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
   DEFAULT_CODE_RUNTIME_REACT_INDEX_JS,
   DEFAULT_CODE_RUNTIME_VITE_CONFIG_JS,
@@ -35,17 +36,6 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
   }
 
   switch (template) {
-    case 'react':
-      project.dependencies = p.dependencies
-      project.files = {
-        'App.css': ``,
-        'App.jsx': DEFAULT_CODE_RUNTIME_APP_JSX,
-        'index.css': DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
-        'index.html': DEFAULT_CODE_RUNTIME_INDEX_HTML,
-        'index.js': DEFAULT_CODE_RUNTIME_REACT_INDEX_JS
-      }
-
-      break
     case 'html':
       project.dependencies = p.dependencies
       project.files = {
@@ -62,6 +52,25 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
         'index.css': DEFAULT_CODE_RUNTIME_INDEX_CSS,
         'index.html': DEFAULT_CODE_RUNTIME_INDEX_HTML,
         'index.js': DEFAULT_CODE_RUNTIME_INDEX_JS
+      }
+
+      break
+    case 'node':
+      project.dependencies = p.dependencies
+      project.files = {
+        'index.js': ``,
+        'package.json': DEFAULT_CODE_RUNTIME_NODE_PACKAGE_JSON(p.dependencies)
+      }
+
+      break
+    case 'react':
+      project.dependencies = p.dependencies
+      project.files = {
+        'App.css': ``,
+        'App.jsx': DEFAULT_CODE_RUNTIME_APP_JSX,
+        'index.css': DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
+        'index.html': DEFAULT_CODE_RUNTIME_INDEX_HTML,
+        'index.js': DEFAULT_CODE_RUNTIME_REACT_INDEX_JS
       }
 
       break
@@ -120,6 +129,9 @@ export function getStackBlitzProjectOptions(template: CodeRuntimeTemplate, o: Pr
       break
     case 'javascript':
     case 'vite':
+      options.openFile = 'app.js'
+      break
+    case 'node':
       options.openFile = 'index.js'
       break
     case 'react':
@@ -143,6 +155,7 @@ export function getStackBlitzProjectTemplateByCodeRuntimeTemplate(template: Code
       return 'html'
     case 'react':
       return 'create-react-app'
+    case 'node':
     case 'vite':
     case 'vite-react':
       return 'node'

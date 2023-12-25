@@ -1,3 +1,30 @@
 ---
 title: registerToFCM
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { Alert } from '@/components/Alert'
+import { SB_REGISTER_TO_FCM } from '@/definitions/stack-blitz/fcm/functions'
+
+The `registerToFCM` method registers a device to Firebase Cloud Messaging. Optionally registers with already existing ACG ID and ACG security token.
+
+- The app ID is the package name of the app.
+- The ECE auth secret and ECE public key must be generated beforehand with the `createFcmECDH` and `generateFcmAuthSecret` functions. The auth secret and ECDH keys must be stored.
+- The Firebase API key, Firebase app ID and Firebase project ID can be found in the Firebase console.
+- The VAPID key can be found in the Firebase console.
+
+Returns the ACG ID, ACG security token and FCM token, which must be stored.
+
+<Alert client:load severity='info'>
+  The FCM token does not seem to expire.
+</Alert>
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_REGISTER_TO_FCM}
+  template='node'
+  title='registerToFCM'
+  disableStackBlitz
+/>

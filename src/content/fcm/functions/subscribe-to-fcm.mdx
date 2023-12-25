@@ -1,3 +1,30 @@
 ---
 title: subscribeToFCM
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { Alert } from '@/components/Alert'
+import { SB_SUBSCRIBE_TO_FCM } from '@/definitions/stack-blitz/fcm/functions'
+
+The `subscribeToFCM` function subscribes to Firebase Cloud Messaging using a deprecated API.
+Exists only for retro compatibility reasons, please use the `registerToFCM` function instead.
+Optionally registers with already existing ACG ID and ACG security token.
+
+- The app ID is the package name of the app.
+- The ECE auth secret and ECE public key must be generated beforehand with the `createFcmECDH` and `generateFcmAuthSecret` functions. The auth secret and ECDH keys must be stored.
+
+Returns the ACG ID, ACG security token and FCM token, which must be stored.
+
+<Alert client:load severity='warning'>
+  This function uses a deprecated API and will stop working in June 2024.
+</Alert>
+
+<CodeBlock
+  client:load
+  className='mt-6'
+  dependencies={{ '@aracna/core': 'latest', '@aracna/fcm': 'latest' }}
+  files={SB_SUBSCRIBE_TO_FCM}
+  template='node'
+  title='susbcribeToFCM'
+  disableStackBlitz
+/>

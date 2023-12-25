@@ -188,6 +188,21 @@ export const DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML: string = html`
   </html>
 `
 
+export const DEFAULT_CODE_RUNTIME_NODE_PACKAGE_JSON = (dependencies?: ProjectDependencies) =>
+  JSON.stringify(
+    {
+      dependencies: {
+        ...dependencies
+      },
+      scripts: {
+        dev: 'node index.js'
+      },
+      type: 'module'
+    },
+    null,
+    2
+  )
+
 export const DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON = (dependencies?: ProjectDependencies) =>
   JSON.stringify(
     {

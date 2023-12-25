@@ -1,9 +1,7 @@
-import MESH_BLUE from '@/assets/meshes/blue.jpeg'
-import MESH_MINT from '@/assets/meshes/mint.jpeg'
-import MESH_ROSE from '@/assets/meshes/rose.jpeg'
-import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu'
+import { IconFeatherFeather } from '@aracna/icons-feather-react/components/feather'
 import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
+import { IconFeatherMessageCircle } from '@aracna/icons-feather-react/components/message-circle'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
 import type { AracnaIconProps } from '@aracna/react'
 import { joinElementClasses } from '@aracna/web'
@@ -12,46 +10,52 @@ import { IconReact } from 'src/icons/IconReact'
 const LIBRARIES = [
   {
     name: 'Core',
-    description: `The pulsating heart of Aracna.\n\nExposes many functions, modules and utils that will help you write shorter working code.`,
+    description: `The pulsating heart of Aracna.\n\nExposes many classes, functions and utils that will make you write shorter and smarter code.`,
     href: '/core/get-started',
-    background: MESH_ROSE,
-    icon: IconFeatherCpu,
-    ring: 'ring-rose-400'
+    icon: IconFeatherCpu
   },
   {
     name: 'Web',
     description: `Make the web better and more accessible.\n\nCreate ARIA compliant components with ease and leverage the native Browser APIs in a simpler way.`,
     href: '/web/get-started',
-    background: MESH_MINT,
-    icon: IconFeatherGlobe,
-    ring: 'ring-mint-400'
+    icon: IconFeatherGlobe
   },
   {
     name: 'React',
-    description: 'Leverage the power of Aracna Web Components in a React fashion.\n\nExposes several essential hooks for your daily needs.',
+    description: 'Leverage the power of Aracna Web Components in a React fashion.\n\nExposes many components, functions and hooks for your daily needs.',
     href: '/react/get-started',
-    background: MESH_BLUE,
-    icon: (props: AracnaIconProps) => <IconReact {...props} fill='white' />,
-    ring: 'ring-blue-400'
+    icon: (props: AracnaIconProps) => <IconReact {...props} fill='white' />
   },
   {
     name: 'State Manager',
-    description: 'Observe and watch changes in a functional way.\n\nSupports React out of the box with a full toolkit of hooks.',
+    description: `Observe and watch changes in a functional way.\n\nSupports React out of the box with tailor made components, hocs and hooks.`,
     href: '/state-manager/get-started',
-    background: MESH_SEANCE,
-    icon: IconFeatherZap,
-    ring: 'ring-seance-400'
+    icon: IconFeatherZap
+  },
+  {
+    name: 'Icons',
+    description: `Use icons without dealing with the raw assets.\n\nFeather Icons and Material Symbols are available. Small icon packs are exposed as Web and React components.`,
+    href: '/icons/get-started',
+    icon: IconFeatherFeather
+  },
+  {
+    name: 'FCM',
+    description: `Send and receive FCM messages without relying on the Firebase SDK.\n\nWorks only with Node.js.`,
+    href: '/fcm/get-started',
+    icon: IconFeatherMessageCircle
   }
 ]
 
 export function LibrariesCardsBlock() {
   return (
-    <div className='max-w-screen-lg w-full grid lg:grid-cols-2 gap-6 mt-12 not-prose'>
-      {LIBRARIES.map((library) => (
+    <div className='max-w-screen-lg w-full grid lg:grid-cols-2 mt-12 not-prose overflow-hidden rounded-3xl border-2 border-slate-800'>
+      {LIBRARIES.map((library, index: number) => (
         <a
           className={joinElementClasses(
-            'flex flex-col gap-4 p-6 rounded-3xl overflow-hidden shadow-lg ring-offset-2 ring-offset-black transition border-2 border-slate-800 bg-black hover:ring-4',
-            'ring-blue-400'
+            'flex flex-col gap-4 p-6 border-slate-800',
+            'transition hover:bg-slate-900',
+            'even:border-l-2',
+            index < LIBRARIES.length - 2 && 'border-b-2'
           )}
           href={library.href}
           key={library.href}
