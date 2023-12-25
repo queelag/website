@@ -43,7 +43,7 @@ The **@aracna/fcm** library is almost a drop-in replacement for the [push-receiv
 
 1. Add a new web app to the Firebase project on the [Firebase Console](https://console.firebase.google.com/).
 2. Create a new web push certificate under the **Cloud Messaging** tab of the project settings.
-3. Register to Firebase Cloud Messaging with the [registerToFCM](/fcm/functions/register-to-fcm) function.
+3. Register to Firebase Cloud Messaging with the [registerToFCM](/fcm/functions/register-to-fcm) function using the same values that were used with the push-receiver library.
 4. Store the FCM token, this one is generated with the latest APIs from Google/Firebase.
 5. Create a new [FcmClient](/fcm/classes/fcm-client) instance using the values from the previous steps.
 6. Connect with the `connect` method of the client.
