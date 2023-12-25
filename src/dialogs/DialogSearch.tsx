@@ -2,6 +2,7 @@ import { Chip } from '@/components/Chip'
 import { Empty } from '@/components/Empty'
 import { Spinner } from '@/components/Spinner'
 import { DialogController } from '@/controllers/dialog-controller'
+import { PUBLIC_URL } from '@/definitions/constants'
 import type { Hit, SearchResponse } from '@algolia/client-search'
 import { concatURL, debounce, tcp } from '@aracna/core'
 import { IconFeatherSearch } from '@aracna/icons-feather-react/components/search'
@@ -47,7 +48,7 @@ export function DialogSearch() {
     store.query = event.detail?.value ?? ''
     store.searching = true
 
-    debounce('ds', () => search(event.detail?.value), 500)
+    debounce(() => search(event.detail?.value), 500, 'ds')
   }
 
   const onClose = () => {
@@ -99,7 +100,7 @@ export function DialogSearch() {
             {store.hits.length > 0 && (
               <AracnaAriaComboBoxList>
                 {store.hits.map((hit: Hit<T>) => (
-                  <a href={concatURL('/', hit.slug)} key={hit.objectID}>
+                  <a href={concatURL(PUBLIC_URL, hit.slug)} key={hit.objectID}>
                     <AracnaAriaComboBoxOption label=''>
                       <div>
                         <span className='title'>{hit.title}</span>
