@@ -9,35 +9,35 @@ dependencies:
     specifier: ^4.22.0
     version: 4.22.0
   '@aracna/core':
-    specifier: ^1.1.75
-    version: 1.1.75
+    specifier: ^1.1.77
+    version: 1.1.77
   '@aracna/icons-feather':
-    specifier: ^1.0.9
-    version: 1.0.9
+    specifier: ^1.0.10
+    version: 1.0.10
   '@aracna/icons-feather-react':
-    specifier: ^1.0.15
-    version: 1.0.15(@aracna/core@1.1.75)(@aracna/icons-feather-web@1.0.21)(@aracna/icons-feather@1.0.9)(@aracna/react@1.0.43)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(react@18.2.0)
+    specifier: ^1.0.16
+    version: 1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0)
   '@aracna/icons-feather-web':
-    specifier: ^1.0.21
-    version: 1.0.21(@aracna/core@1.1.75)(@aracna/icons-feather@1.0.9)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(lit@3.1.0)
+    specifier: ^1.0.22
+    version: 1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(lit@3.1.0)
   '@aracna/react':
-    specifier: ^1.0.43
-    version: 1.0.43(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@types/react@18.2.45)(react@18.2.0)
+    specifier: ^1.0.45
+    version: 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
   '@aracna/react-components':
-    specifier: ^1.0.41
-    version: 1.0.41(@aracna/core@1.1.75)(@aracna/react@1.0.43)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(react@18.2.0)
+    specifier: ^1.0.42
+    version: 1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0)
   '@aracna/state-manager':
-    specifier: ^1.0.34
-    version: 1.0.34(@aracna/core@1.1.75)
+    specifier: ^1.0.36
+    version: 1.0.36(@aracna/core@1.1.77)
   '@aracna/state-manager-react':
-    specifier: ^1.0.30
-    version: 1.0.30(@aracna/core@1.1.75)(@aracna/react@1.0.43)(@aracna/state-manager@1.0.34)(@aracna/web@1.0.68)(react@18.2.0)
+    specifier: ^1.0.31
+    version: 1.0.31(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/state-manager@1.0.36)(@aracna/web@1.0.69)(react@18.2.0)
   '@aracna/web':
-    specifier: ^1.0.68
-    version: 1.0.68(@aracna/core@1.1.75)
+    specifier: ^1.0.69
+    version: 1.0.69(@aracna/core@1.1.77)
   '@aracna/web-components':
-    specifier: ^1.0.74
-    version: 1.0.74(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
+    specifier: ^1.0.76
+    version: 1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
   '@astrojs/mdx':
     specifier: ^2.0.2
     version: 2.0.2(astro@4.0.7)
@@ -223,9 +223,9 @@ packages:
       '@jridgewell/trace-mapping': 0.3.20
     dev: false
 
-  /@aracna/core@1.1.75:
-    resolution: {integrity: sha512-3wMED2yRj/uUCP2CWgX89N0gI/vk2Vwj1GDzcu8WasWKZfK4TzzLzHOyQSIiWAzZEpFyuhpkzXoDPYfJl+wZ2A==}
-    engines: {node: '>=20', pnpm: '>=8'}
+  /@aracna/core@1.1.77:
+    resolution: {integrity: sha512-LvM1kgaUW2I64Ey7FyHYSx0jrH0wJFI7xbLgu97iwbGmzxN7mXZ9EZvonZQha/qI2TAfy3xHKC28lrX7OAFWUA==}
+    engines: {node: '>=16', pnpm: '>=8'}
     dependencies:
       '@types/cookie': 0.6.0
       cookie: 0.6.0
@@ -234,8 +234,9 @@ packages:
       rfc4648: 1.5.3
     dev: false
 
-  /@aracna/icons-feather-react@1.0.15(@aracna/core@1.1.75)(@aracna/icons-feather-web@1.0.21)(@aracna/icons-feather@1.0.9)(@aracna/react@1.0.43)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(react@18.2.0):
-    resolution: {integrity: sha512-vEciBSkilQbqkdu+e0IMax+88a8cJCNfeFbHnh7jtZpxJP7vnmRTWtMFLg8kOtLnYWZHDQ8upin2Dx1OAlCsRA==}
+  /@aracna/icons-feather-react@1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0):
+    resolution: {integrity: sha512-7IEBfCacJ8FruOQCEdgqBrd4t93LdGQPIsjj/j7WSVAtt98oA1voLDWezL/cPeu/ZpKeQMQbOu7EdrD6K2pw3A==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/icons-feather': '>= 1.0.0'
@@ -245,17 +246,18 @@ packages:
       '@aracna/web-components': '>= 1.0.0'
       react: '>= 18.2.0'
     dependencies:
-      '@aracna/core': 1.1.75
-      '@aracna/icons-feather': 1.0.9
-      '@aracna/icons-feather-web': 1.0.21(@aracna/core@1.1.75)(@aracna/icons-feather@1.0.9)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(lit@3.1.0)
-      '@aracna/react': 1.0.43(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@types/react@18.2.45)(react@18.2.0)
-      '@aracna/web': 1.0.68(@aracna/core@1.1.75)
-      '@aracna/web-components': 1.0.74(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
+      '@aracna/core': 1.1.77
+      '@aracna/icons-feather': 1.0.10
+      '@aracna/icons-feather-web': 1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(lit@3.1.0)
+      '@aracna/react': 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/web': 1.0.69(@aracna/core@1.1.77)
+      '@aracna/web-components': 1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       react: 18.2.0
     dev: false
 
-  /@aracna/icons-feather-web@1.0.21(@aracna/core@1.1.75)(@aracna/icons-feather@1.0.9)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(lit@3.1.0):
-    resolution: {integrity: sha512-A/30dXlXJqSKmskAkVfdmbyxQOU/rhSqh6rf4B5OJIvYvjKBHamhroDOleG9PkgKeOpImxnBa58NIk/y3siOqw==}
+  /@aracna/icons-feather-web@1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(lit@3.1.0):
+    resolution: {integrity: sha512-ml1qflt/6hTeH5mzz+wQLtZEg4Xqg9PmHzmu1tVPAKkQEPBJ4FJdM7veRuCpPhjhB1JH5YVyUdg9aSlB1TjbYQ==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/icons-feather': '>= 1.0.0'
@@ -263,19 +265,21 @@ packages:
       '@aracna/web-components': '>= 1.0.0'
       lit: '>= 2.7.0'
     dependencies:
-      '@aracna/core': 1.1.75
-      '@aracna/icons-feather': 1.0.9
-      '@aracna/web': 1.0.68(@aracna/core@1.1.75)
-      '@aracna/web-components': 1.0.74(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
+      '@aracna/core': 1.1.77
+      '@aracna/icons-feather': 1.0.10
+      '@aracna/web': 1.0.69(@aracna/core@1.1.77)
+      '@aracna/web-components': 1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       lit: 3.1.0
     dev: false
 
-  /@aracna/icons-feather@1.0.9:
-    resolution: {integrity: sha512-W3Cx7UJodtxihOTbMqFVdeaeZYT6MhwP/uxaKy8gobU4vTmzKpv9MegS54/kXhU7UrkCaaH6+gDyvGmQEm/xQg==}
+  /@aracna/icons-feather@1.0.10:
+    resolution: {integrity: sha512-2Pz2P+IV6js5VsyMjm9tCFaBN747lp0BLQo8sdSR/EBbnwb2gW/BS+LgDkhTNiP10BQIiO0+ne0wuBNXvyjJYQ==}
+    engines: {node: '>=16', pnpm: '>=8'}
     dev: false
 
-  /@aracna/react-components@1.0.41(@aracna/core@1.1.75)(@aracna/react@1.0.43)(@aracna/web-components@1.0.74)(@aracna/web@1.0.68)(react@18.2.0):
-    resolution: {integrity: sha512-JKiQhIip20A2rQjLTaCMOGEH95++PPqEWHONJzALc+KqQ7FA2nybOM24CzMD7GUWDlb0stsdHkZUICsqzCENhw==}
+  /@aracna/react-components@1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0):
+    resolution: {integrity: sha512-BOoV8QkdVa7eqU7NY1TdQ9KAyOod3Xwtz6/XbecwXGmqvk/OukyxWngaZpWkNyZ2V39NvrkXsapQ+AfZlf/xVQ==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/react': '>= 1.0.0'
@@ -283,30 +287,32 @@ packages:
       '@aracna/web-components': '>= 1.0.0'
       react: '>= 18.2.0'
     dependencies:
-      '@aracna/core': 1.1.75
-      '@aracna/react': 1.0.43(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@types/react@18.2.45)(react@18.2.0)
-      '@aracna/web': 1.0.68(@aracna/core@1.1.75)
-      '@aracna/web-components': 1.0.74(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
+      '@aracna/core': 1.1.77
+      '@aracna/react': 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/web': 1.0.69(@aracna/core@1.1.77)
+      '@aracna/web-components': 1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       react: 18.2.0
     dev: false
 
-  /@aracna/react@1.0.43(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@types/react@18.2.45)(react@18.2.0):
-    resolution: {integrity: sha512-DHGDAckAJdJKzcGRqVoPd/6nB6GOopzRO1k5dp+ShcKeAKZ65WVrp7Tg2tX5vcuhIxhWmE4KO/HkMF7xm+XW+g==}
+  /@aracna/react@1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0):
+    resolution: {integrity: sha512-7E9RGqNi8gQFhMc6E+zZ4uZAHHhhoLuvs6qdUzEdU93fcFcRGyuqK/7xfusfPr6ocBh4/b7kgd7vKI3+QzctWg==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/web': '>= 1.0.0'
       react: '>= 18.2.0'
     dependencies:
-      '@aracna/core': 1.1.75
-      '@aracna/web': 1.0.68(@aracna/core@1.1.75)
+      '@aracna/core': 1.1.77
+      '@aracna/web': 1.0.69(@aracna/core@1.1.77)
       '@lit/react': 1.0.2(@types/react@18.2.45)
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
     dev: false
 
-  /@aracna/state-manager-react@1.0.30(@aracna/core@1.1.75)(@aracna/react@1.0.43)(@aracna/state-manager@1.0.34)(@aracna/web@1.0.68)(react@18.2.0):
-    resolution: {integrity: sha512-lrt7mi6Xqhk0q8XND6CfKW/PBAwDMJXGDJIOthj8bONNRt+cSeovurXjzWHQi1azG6Br7sh5OrNDdr/uKLU/ig==}
+  /@aracna/state-manager-react@1.0.31(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/state-manager@1.0.36)(@aracna/web@1.0.69)(react@18.2.0):
+    resolution: {integrity: sha512-bJ7XWUgLY9iEu9b6vnx8Z8apXstvENYEEg4oqMxox07JThySd9gV35sFrerNT4tPsPhtwaeK7avTW+536I3eLA==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/react': '>= 1.0.0'
@@ -314,23 +320,25 @@ packages:
       '@aracna/web': '>= 1.0.0'
       react: '>= 18.2.0'
     dependencies:
-      '@aracna/core': 1.1.75
-      '@aracna/react': 1.0.43(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@types/react@18.2.45)(react@18.2.0)
-      '@aracna/state-manager': 1.0.34(@aracna/core@1.1.75)
-      '@aracna/web': 1.0.68(@aracna/core@1.1.75)
+      '@aracna/core': 1.1.77
+      '@aracna/react': 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/state-manager': 1.0.36(@aracna/core@1.1.77)
+      '@aracna/web': 1.0.69(@aracna/core@1.1.77)
       react: 18.2.0
     dev: false
 
-  /@aracna/state-manager@1.0.34(@aracna/core@1.1.75):
-    resolution: {integrity: sha512-oxQ2SpHivqbCVcQdROc6qfNEcLx2Gg4J0olRw7WDOLvDI88wpvWqVBOXo7+i5+wKGL663thsT3hMLpYl8nK00w==}
+  /@aracna/state-manager@1.0.36(@aracna/core@1.1.77):
+    resolution: {integrity: sha512-zhLsbyKWmU1viE6J6vCq3beocYXDw5s4Y3mOE3PUz8UtzoQ37ewdzoPZrsymE6cDxhkln7GspeRioVoiykFJIA==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
     dependencies:
-      '@aracna/core': 1.1.75
+      '@aracna/core': 1.1.77
     dev: false
 
-  /@aracna/web-components@1.0.74(@aracna/core@1.1.75)(@aracna/web@1.0.68)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0):
-    resolution: {integrity: sha512-wllBZWadIFHPd1TO2XLXZ2y7vOr9x/Viqt1sXeUlUdzuWCtHo8Nc6AMB0c4xMzQ30nFj3MFEjwBswHV14twsJw==}
+  /@aracna/web-components@1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0):
+    resolution: {integrity: sha512-FyIQ9iOwi1Rq5Prg7uc+xPGjHZ77uziRGt9cogpbWWGog8u2+n5O3jF3EBuBY8B1Ei+09Gl4YlJzXS+ZCe5fpg==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
       '@aracna/web': '>= 1.0.0'
@@ -350,8 +358,8 @@ packages:
       tabbable:
         optional: true
     dependencies:
-      '@aracna/core': 1.1.75
-      '@aracna/web': 1.0.68(@aracna/core@1.1.75)
+      '@aracna/core': 1.1.77
+      '@aracna/web': 1.0.69(@aracna/core@1.1.77)
       '@floating-ui/dom': 1.5.3
       dompurify: 3.0.6
       focus-trap: 7.5.4
@@ -360,12 +368,13 @@ packages:
       tabbable: 6.2.0
     dev: false
 
-  /@aracna/web@1.0.68(@aracna/core@1.1.75):
-    resolution: {integrity: sha512-CV9vdRzKcaDp3r+k4K7yJTdlmZAhbHPyAr3Mu59DKjmK20DEEaOLpiETXF0L4otVIyc8Fk1OZsLHkwuNhPFRfQ==}
+  /@aracna/web@1.0.69(@aracna/core@1.1.77):
+    resolution: {integrity: sha512-uE0jf6El+Vy6kUlzMKS7yMUH4VArZfhhVhVHx7pDXH02Bl2erIb73FHlF7057cBcqQ4tc8f4XaKW8AMnjRa+Dw==}
+    engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
     dependencies:
-      '@aracna/core': 1.1.75
+      '@aracna/core': 1.1.77
     dev: false
 
   /@astrojs/compiler@2.3.4:
@@ -3647,7 +3656,7 @@ packages:
       postcss: ^8.2.14
     dependencies:
       postcss: 8.4.32
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.14
 
   /postcss-selector-parser@6.0.10:
     resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
@@ -3657,8 +3666,8 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss-selector-parser@6.0.13:
-    resolution: {integrity: sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ==}
+  /postcss-selector-parser@6.0.14:
+    resolution: {integrity: sha512-65xXYsT40i9GyWzlHQ5ShZoK7JZdySeOozi/tz2EezDo6c04q6+ckYMeoY7idaie1qp2dT5KoYQ2yky6JuoHnA==}
     engines: {node: '>=4'}
     dependencies:
       cssesc: 3.0.0
@@ -4303,7 +4312,7 @@ packages:
       postcss-js: 4.0.1(postcss@8.4.32)
       postcss-load-config: 4.0.2(postcss@8.4.32)
       postcss-nested: 6.0.1(postcss@8.4.32)
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.14
       resolve: 1.22.8
       sucrase: 3.35.0
     transitivePeerDependencies:
