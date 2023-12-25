@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@algolia/client-search": "^4.22.0",
-    "@aracna/core": "^1.1.74",
+    "@aracna/core": "^1.1.75",
     "@aracna/icons-feather": "^1.0.9",
     "@aracna/icons-feather-react": "^1.0.15",
     "@aracna/icons-feather-web": "^1.0.21",
@@ -9,8 +9,8 @@
     "@aracna/react-components": "^1.0.41",
     "@aracna/state-manager": "^1.0.34",
     "@aracna/state-manager-react": "^1.0.30",
-    "@aracna/web": "^1.0.67",
-    "@aracna/web-components": "^1.0.73",
+    "@aracna/web": "^1.0.68",
+    "@aracna/web-components": "^1.0.74",
     "@astrojs/mdx": "^2.0.2",
     "@astrojs/react": "^3.0.8",
     "@astrojs/tailwind": "^5.0.4",

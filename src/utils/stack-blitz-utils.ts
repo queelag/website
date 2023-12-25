@@ -10,7 +10,7 @@ import {
   DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON
 } from '@/definitions/constants'
 import type { CodeRuntimeTemplate } from '@/definitions/types'
-import { Environment, cloneShallowObject } from '@aracna/core'
+import { cloneObject, isNodeEnvProduction } from '@aracna/core'
 import type { EmbedOptions, OpenOptions, Project, ProjectOptions, ProjectTemplate } from '@stackblitz/sdk'
 import StackBlitzSDK from '@stackblitz/sdk'
 
@@ -98,7 +98,7 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
 export function getStackBlitzProjectEmbedOptions(template: CodeRuntimeTemplate, o: EmbedOptions = {}): EmbedOptions {
   return getStackBlitzProjectOptions(template, {
     height: '100%',
-    hideExplorer: typeof o.hideExplorer === 'boolean' ? o.hideExplorer : Environment.isProduction,
+    hideExplorer: typeof o.hideExplorer === 'boolean' ? o.hideExplorer : isNodeEnvProduction(),
     hideNavigation: true,
     theme: 'dark',
     ...o
@@ -112,7 +112,7 @@ export function getStackBlitzProjectOpenOptions(template: CodeRuntimeTemplate, o
 export function getStackBlitzProjectOptions(template: CodeRuntimeTemplate, o: ProjectOptions = {}): ProjectOptions {
   let options: ProjectOptions
 
-  options = cloneShallowObject(o)
+  options = cloneObject(o)
 
   switch (template) {
     case 'html':

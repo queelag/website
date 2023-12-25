@@ -959,22 +959,6 @@ export const SB_CLONE_OBJECT: ProjectFiles = {
   `
 };
 
-export const SB_CLONE_SHALLOW_OBJECT: ProjectFiles = {
-  'index.js': html`
-    <script>
-      import { cloneShallowObject } from '@aracna/core';
-
-      const object = { a: 0 };
-      const cloned_object = cloneShallowObject(object);
-
-      cloned_object.a++;
-
-      // will log 0
-      console.log(object.a);
-    </script>
-  `
-};
-
 export const SB_COPY_OBJECT_PROPERTY: ProjectFiles = {
   'index.js': html`
     <script>

@@ -4,7 +4,7 @@ import { Input } from '@/components/Input'
 import { InputCheckBox } from '@/components/InputCheckBox'
 import { Select } from '@/components/Select'
 import type { ComponentBlockAttribute, ComponentBlockVariant, SelectOption } from '@/definitions/interfaces'
-import { cloneShallowObject, isStringJSON } from '@aracna/core'
+import { cloneObject, isStringJSON } from '@aracna/core'
 import { toJS } from '@aracna/state-manager'
 import { Observer, useObservable } from '@aracna/state-manager-react'
 import { Fragment, useState, type ReactNode } from 'react'
@@ -23,7 +23,7 @@ export function ComponentBlock<P extends Record<string, any> = any>(props: Props
   const [activeVariant, setActiveVariant] = useState<ComponentBlockVariant | undefined>(props.variants?.[0])
 
   const onClickVariant = (variant: ComponentBlockVariant) => {
-    setActiveVariant(cloneShallowObject(variant))
+    setActiveVariant(cloneObject(variant))
   }
 
   const serializeState = (state: State) => {
