@@ -16,7 +16,7 @@ The **@aracna/fcm** package depends on the **@aracna/core** package as a peer de
 
 ## Use to receive messages
 
-The **@aracna/fcm** package is capable of registering to Firebase Cloud Messaging and listen to incoming messages through a socket connection with Google MTalk.
+The **@aracna/fcm** library is capable of registering to Firebase Cloud Messaging and listen to incoming messages through a socket connection with Google MTalk.
 
 1. Create a new project on the [Firebase Console](https://console.firebase.google.com/).
 2. Add a new web app to the project.
@@ -25,14 +25,26 @@ The **@aracna/fcm** package is capable of registering to Firebase Cloud Messagin
 5. Store the auth secret and ECDH key pair securely.
 6. Register to Firebase Cloud Messaging with the [registerToFCM](/fcm/functions/register-to-fcm) function.
 7. Store the ACG ID, ACG security token and FCM token.
-8. Create a new [FcmClient](/fcm/classes/fcm-client) instance using the needed values from the previous steps.
+8. Create a new [FcmClient](/fcm/classes/fcm-client) instance using the values from the previous steps.
 9. Connect with the `connect` method of the client.
 10. Listen to incoming messages with the `on` method of the client, see the [FcmClient](/fcm/classes/fcm-client) docs for more information.
 
 ## Use to send messages
 
-The **@aracna/fcm** package is capable of sending messages to Firebase Cloud Messaging.
+The **@aracna/fcm** library is capable of sending messages to Firebase Cloud Messaging.
 
 1. Create a new project on the [Firebase Console](https://console.firebase.google.com/).
 2. Create a new private key under the **Service Accounts** tab of the project settings.
 3. Use the [sendFcmMessage](/fcm/functions/send-fcm-message) function with the `google-service-account.json` file.
+
+## Migrate from push-receiver
+
+The **@aracna/fcm** library is almost a drop-in replacement for the [push-receiver](https://github.com/MatthieuLemoine/push-receiver) library.
+
+1. Add a new web app to the Firebase project on the [Firebase Console](https://console.firebase.google.com/).
+2. Create a new web push certificate under the **Cloud Messaging** tab of the project settings.
+3. Register to Firebase Cloud Messaging with the [registerToFCM](/fcm/functions/register-to-fcm) function.
+4. Store the FCM token, this one is generated with the latest APIs from Google/Firebase.
+5. Create a new [FcmClient](/fcm/classes/fcm-client) instance using the values from the previous steps.
+6. Connect with the `connect` method of the client.
+7. Listen to incoming messages with the `on` method of the client, see the [FcmClient](/fcm/classes/fcm-client) docs for more information.
