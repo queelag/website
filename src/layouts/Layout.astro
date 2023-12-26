@@ -2,7 +2,6 @@
 import Header from '@/components/Header.astro'
 import Sidebar from '@/components/Sidebar.astro'
 import { TOCs } from '@/components/TOCs'
-import { DialogSearch } from '@/dialogs/DialogSearch'
 import { joinElementClasses } from '@aracna/web'
 import type { MarkdownHeading } from 'astro'
 
@@ -63,6 +62,5 @@ const { frontmatter, headings } = Astro.props
       </div>
       <TOCs client:load headings={headings} />
     </div>
-    <DialogSearch client:load />
   </body>
 </html>

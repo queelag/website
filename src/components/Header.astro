@@ -1,8 +1,8 @@
 ---
 import { HEADER_HEIGHT } from '@/definitions/constants'
-import { IconFeatherMenu } from '@aracna/icons-feather-react/components/menu'
 import { AracnaLogo } from './AracnaLogo'
 import HeaderSearch from './HeaderSearch.astro'
+import HeaderMobileNavigation from './HeaderMobileNavigation.astro'
 ---
 
 <header
@@ -12,7 +12,15 @@ import HeaderSearch from './HeaderSearch.astro'
   <a href='/'>
     <AracnaLogo hasText />
   </a>
-  <HeaderSearch />
-  <IconFeatherMenu client:load className='lg:hidden' size={24} stroke='white' stroke-width='1.5' />
+  <div class='flex items-center gap-4'>
+    <HeaderSearch />
+    <HeaderMobileNavigation />
+  </div>
 </header>
 <div style={`height: ${HEADER_HEIGHT}px`}></div>
+
+<script>
+  import { DialogController } from '@/controllers/dialog-controller'
+
+  document.getElementById('mobile-search-trigger')?.addEventListener('click', () => DialogController.show('search'))
+</script>

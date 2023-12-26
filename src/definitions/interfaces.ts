@@ -14,6 +14,13 @@ export interface ComponentBlockVariant {
   value: string
 }
 
+export interface NavigationItem {
+  items?: NavigationItem[]
+  order: number
+  slug: string
+  title: string
+}
+
 export interface RadioButton {
   label?: string
   value: any

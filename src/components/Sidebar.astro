@@ -1,19 +1,19 @@
 ---
-import type { SidebarItemProps } from '@/definitions/props'
-import { getCollectionSidebarItems } from '@/utils/sidebar-utils'
+import type { NavigationItem } from '@/definitions/interfaces'
+import { getCollectioNavigationItems } from '@/utils/navigation-utils'
 import { SidebarItem } from './SidebarItem'
 
-const items: SidebarItemProps[] = [
+const items: NavigationItem[] = [
   { order: -1, slug: '/', title: 'Introduction' },
-  ...(await getCollectionSidebarItems('core')),
-  ...(await getCollectionSidebarItems('fcm')),
-  ...(await getCollectionSidebarItems('icons')),
-  ...(await getCollectionSidebarItems('react')),
-  ...(await getCollectionSidebarItems('state-manager')),
-  ...(await getCollectionSidebarItems('web'))
+  ...(await getCollectioNavigationItems('core')),
+  ...(await getCollectioNavigationItems('fcm')),
+  ...(await getCollectioNavigationItems('icons')),
+  ...(await getCollectioNavigationItems('react')),
+  ...(await getCollectioNavigationItems('state-manager')),
+  ...(await getCollectioNavigationItems('web'))
 ]
 ---
 
 <div class='sticky top-24 left-0 min-w-[280px] max-w-[280px] hidden xl:flex flex-col pl-6 overflow-y-auto' style='height: calc(100vh - 96px)'>
-  {items.map((props: SidebarItemProps) => <SidebarItem {...props} client:only />)}
+  {items.map((item: NavigationItem) => <SidebarItem {...item} client:only />)}
 </div>

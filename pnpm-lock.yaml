@@ -16,22 +16,19 @@ dependencies:
     version: 1.0.10
   '@aracna/icons-feather-react':
     specifier: ^1.0.16
-    version: 1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0)
+    version: 1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.46)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0)
   '@aracna/icons-feather-web':
     specifier: ^1.0.22
     version: 1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(lit@3.1.0)
-  '@aracna/react':
-    specifier: ^1.0.45
-    version: 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
   '@aracna/react-components':
     specifier: ^1.0.42
-    version: 1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0)
+    version: 1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.46)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0)
   '@aracna/state-manager':
-    specifier: ^1.0.36
-    version: 1.0.36(@aracna/core@1.1.77)
+    specifier: ^1.0.37
+    version: 1.0.37(@aracna/core@1.1.77)
   '@aracna/state-manager-react':
-    specifier: ^1.0.31
-    version: 1.0.31(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/state-manager@1.0.36)(@aracna/web@1.0.69)(react@18.2.0)
+    specifier: ^1.0.32
+    version: 1.0.32(@aracna/core@1.1.77)(@aracna/react@1.0.46)(@aracna/state-manager@1.0.37)(@aracna/web@1.0.69)(react@18.2.0)
   '@aracna/web':
     specifier: ^1.0.69
     version: 1.0.69(@aracna/core@1.1.77)
@@ -91,6 +88,9 @@ dependencies:
     version: 6.2.0
 
 devDependencies:
+  '@aracna/react':
+    specifier: ^1.0.46
+    version: 1.0.46(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.0)
@@ -232,9 +232,8 @@ packages:
       nanoid: 3.3.7
       node-fetch: 3.3.2
       rfc4648: 1.5.3
-    dev: false
 
-  /@aracna/icons-feather-react@1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0):
+  /@aracna/icons-feather-react@1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.46)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0):
     resolution: {integrity: sha512-7IEBfCacJ8FruOQCEdgqBrd4t93LdGQPIsjj/j7WSVAtt98oA1voLDWezL/cPeu/ZpKeQMQbOu7EdrD6K2pw3A==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
@@ -249,7 +248,7 @@ packages:
       '@aracna/core': 1.1.77
       '@aracna/icons-feather': 1.0.10
       '@aracna/icons-feather-web': 1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(lit@3.1.0)
-      '@aracna/react': 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/react': 1.0.46(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
       '@aracna/web': 1.0.69(@aracna/core@1.1.77)
       '@aracna/web-components': 1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       react: 18.2.0
@@ -277,7 +276,7 @@ packages:
     engines: {node: '>=16', pnpm: '>=8'}
     dev: false
 
-  /@aracna/react-components@1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0):
+  /@aracna/react-components@1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.46)(@aracna/web-components@1.0.76)(@aracna/web@1.0.69)(react@18.2.0):
     resolution: {integrity: sha512-BOoV8QkdVa7eqU7NY1TdQ9KAyOod3Xwtz6/XbecwXGmqvk/OukyxWngaZpWkNyZ2V39NvrkXsapQ+AfZlf/xVQ==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
@@ -288,14 +287,14 @@ packages:
       react: '>= 18.2.0'
     dependencies:
       '@aracna/core': 1.1.77
-      '@aracna/react': 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/react': 1.0.46(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
       '@aracna/web': 1.0.69(@aracna/core@1.1.77)
       '@aracna/web-components': 1.0.76(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       react: 18.2.0
     dev: false
 
-  /@aracna/react@1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0):
-    resolution: {integrity: sha512-7E9RGqNi8gQFhMc6E+zZ4uZAHHhhoLuvs6qdUzEdU93fcFcRGyuqK/7xfusfPr6ocBh4/b7kgd7vKI3+QzctWg==}
+  /@aracna/react@1.0.46(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0):
+    resolution: {integrity: sha512-GuTMxO1x64cMTGdT+3bCVFrMl7oNR/TaWyk3CRKujzehlfG3XMA7Xi6bUAxGYWvJ+AJyVzoiyzZlQwl6CBAnVA==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
@@ -308,10 +307,9 @@ packages:
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
-    dev: false
 
-  /@aracna/state-manager-react@1.0.31(@aracna/core@1.1.77)(@aracna/react@1.0.45)(@aracna/state-manager@1.0.36)(@aracna/web@1.0.69)(react@18.2.0):
-    resolution: {integrity: sha512-bJ7XWUgLY9iEu9b6vnx8Z8apXstvENYEEg4oqMxox07JThySd9gV35sFrerNT4tPsPhtwaeK7avTW+536I3eLA==}
+  /@aracna/state-manager-react@1.0.32(@aracna/core@1.1.77)(@aracna/react@1.0.46)(@aracna/state-manager@1.0.37)(@aracna/web@1.0.69)(react@18.2.0):
+    resolution: {integrity: sha512-IXJElrSx6hUxUBECFUzfpw3x+HZzbaktCITsJ8jaQC+saR4VtFm+SWKgEetPNf92uJaTRTvOKa8LcfXlakiw5w==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
@@ -321,14 +319,14 @@ packages:
       react: '>= 18.2.0'
     dependencies:
       '@aracna/core': 1.1.77
-      '@aracna/react': 1.0.45(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
-      '@aracna/state-manager': 1.0.36(@aracna/core@1.1.77)
+      '@aracna/react': 1.0.46(@aracna/core@1.1.77)(@aracna/web@1.0.69)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/state-manager': 1.0.37(@aracna/core@1.1.77)
       '@aracna/web': 1.0.69(@aracna/core@1.1.77)
       react: 18.2.0
     dev: false
 
-  /@aracna/state-manager@1.0.36(@aracna/core@1.1.77):
-    resolution: {integrity: sha512-zhLsbyKWmU1viE6J6vCq3beocYXDw5s4Y3mOE3PUz8UtzoQ37ewdzoPZrsymE6cDxhkln7GspeRioVoiykFJIA==}
+  /@aracna/state-manager@1.0.37(@aracna/core@1.1.77):
+    resolution: {integrity: sha512-QGnFGqzqTVHPtjLy6qm+2sXx7wJl2urm8AhFnjfEWbFNcIisu1+nMU41B2oz2++TFo+U35E59a6jWJmSITIGLw==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
@@ -375,7 +373,6 @@ packages:
       '@aracna/core': '>= 1.1.0'
     dependencies:
       '@aracna/core': 1.1.77
-    dev: false
 
   /@astrojs/compiler@2.3.4:
     resolution: {integrity: sha512-33/YtWoBCE0cBUNy1kh78FCDXBoBANX87ShgATlAHECYbG2+buNTAgq4Xgz4t5NgnEHPN21GIBC2Mvvwisoutw==}
@@ -1006,7 +1003,6 @@ packages:
       '@types/react': 17 || 18
     dependencies:
       '@types/react': 18.2.45
-    dev: false
 
   /@lit/reactive-element@2.0.2:
     resolution: {integrity: sha512-SVOwLAWUQg3Ji1egtOt1UiFe4zdDpnWHyc5qctSceJ5XIu0Uc76YmGpIjZgx9YJ0XtdW0Jm507sDvjOu+HnB8w==}
@@ -1225,7 +1221,6 @@ packages:
 
   /@types/cookie@0.6.0:
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
-    dev: false
 
   /@types/debug@4.1.12:
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -1777,7 +1772,6 @@ packages:
   /cookie@0.6.0:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
-    dev: false
 
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -1798,7 +1792,6 @@ packages:
   /data-uri-to-buffer@4.0.1:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
     engines: {node: '>= 12'}
-    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -2100,7 +2093,6 @@ packages:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.2.1
-    dev: false
 
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -2154,7 +2146,6 @@ packages:
     engines: {node: '>=12.20.0'}
     dependencies:
       fetch-blob: 3.2.0
-    dev: false
 
   /fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
@@ -3394,7 +3385,6 @@ packages:
   /node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
-    dev: false
 
   /node-fetch@3.3.2:
     resolution: {integrity: sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==}
@@ -3403,7 +3393,6 @@ packages:
       data-uri-to-buffer: 4.0.1
       fetch-blob: 3.2.0
       formdata-polyfill: 4.0.10
-    dev: false
 
   /node-releases@2.0.14:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
@@ -3810,7 +3799,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -3982,7 +3970,6 @@ packages:
 
   /rfc4648@1.5.3:
     resolution: {integrity: sha512-MjOWxM065+WswwnmNONOT+bD1nXzY9Km6u3kzvnx8F8/HXGZdz3T6e6vZJ8Q/RIMUSp/nxqjH3GwvJDy8ijeQQ==}
-    dev: false
 
   /rollup@4.9.1:
     resolution: {integrity: sha512-pgPO9DWzLoW/vIhlSoDByCzcpX92bKEorbgXuZrqxByte3JFk2xSW2JEeAcyLc9Ru9pqcNNW+Ob7ntsk2oT/Xw==}
@@ -4646,7 +4633,6 @@ packages:
   /web-streams-polyfill@3.2.1:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
-    dev: false
 
   /which-pm-runs@1.1.0:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}

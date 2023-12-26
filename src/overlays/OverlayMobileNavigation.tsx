@@ -1,13 +1,54 @@
+import { AracnaLogo } from '@/components/AracnaLogo'
+import { OverlayController } from '@/controllers/overlay-controller'
 import type { NavigationItem } from '@/definitions/interfaces'
-import { type StorageItem } from '@aracna/core'
+import type { StorageItem } from '@aracna/core'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up'
+import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
+import { AracnaDialog } from '@aracna/react-components/components/feedback/dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
-import { useObservable } from '@aracna/state-manager-react'
-import { joinElementClasses, SessionStorage } from '@aracna/web'
+import { useObservable, useObserver } from '@aracna/state-manager-react'
+import { SessionStorage, joinElementClasses } from '@aracna/web'
 import { useMemo } from 'react'
+import { createPortal } from 'react-dom'
+import './OverlayMobileNavigation.css'
 
-export function SidebarItem(props: NavigationItem) {
+interface Props {
+  items: NavigationItem[]
+}
+
+export function OverlayMobileNavigation(props: Props) {
+  const onClose = () => {
+    OverlayController.hide('mobile-navigation')
+  }
+
+  return useObserver(() =>
+    createPortal(
+      <AracnaDialog
+        id='mobile-navigation'
+        onDialogClose={onClose}
+        visible={OverlayController.isVisible('mobile-navigation')}
+        click-outside-deactivates
+        lock-body-scroll
+      >
+        <div className='flex justify-between items-center px-6 pt-6'>
+          <a href='/'>
+            <AracnaLogo hasText />
+          </a>
+          <IconFeatherX onClick={onClose} size={24} stroke='white' stroke-width={2} />
+        </div>
+        <div className='flex flex-col px-4'>
+          {props.items.map((item: NavigationItem) => (
+            <Item {...item} key={item.slug} />
+          ))}
+        </div>
+      </AracnaDialog>,
+      document.body
+    )
+  )
+}
+
+export function Item(props: NavigationItem) {
   const isExpanded = (): boolean => {
     let item: StorageItem | Error
 
@@ -62,7 +103,7 @@ export function SidebarItem(props: NavigationItem) {
       {props.items && store.expanded && (
         <div className='flex flex-col gap-px ml-3'>
           {props.items.map((props: NavigationItem, index: number) => (
-            <SidebarItem {...props} key={index} />
+            <Item {...props} key={index} />
           ))}
         </div>
       )}

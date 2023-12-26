@@ -1,7 +1,9 @@
 aracna-dialog#search {
   @apply fixed top-32 left-[50%] -translate-x-[50%] z-50;
-  @apply max-w-xl w-full rounded bg-slate-800 shadow-2xl;
+  @apply max-w-xl rounded bg-slate-800 shadow-2xl;
   @apply transition;
+
+  width: calc(100% - 48px);
 
   &:not([visible]) {
     @apply opacity-0 pointer-events-none;

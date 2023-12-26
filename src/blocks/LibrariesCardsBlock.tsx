@@ -4,8 +4,8 @@ import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
 import { IconFeatherMessageCircle } from '@aracna/icons-feather-react/components/message-circle'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
 import type { AracnaIconProps } from '@aracna/react'
-import { joinElementClasses } from '@aracna/web'
 import { IconReact } from 'src/icons/IconReact'
+import './LibrariesCardsBlock.css'
 
 const LIBRARIES = [
   {
@@ -48,18 +48,9 @@ const LIBRARIES = [
 
 export function LibrariesCardsBlock() {
   return (
-    <div className='max-w-screen-lg w-full grid lg:grid-cols-2 mt-12 not-prose overflow-hidden rounded-3xl border-2 border-slate-800'>
-      {LIBRARIES.map((library, index: number) => (
-        <a
-          className={joinElementClasses(
-            'flex flex-col gap-4 p-6 border-slate-800',
-            'transition hover:bg-slate-900',
-            'even:border-l-2',
-            index < LIBRARIES.length - 2 && 'border-b-2'
-          )}
-          href={library.href}
-          key={library.href}
-        >
+    <div className='libraries-cards-block not-prose'>
+      {LIBRARIES.map((library) => (
+        <a href={library.href} key={library.href}>
           <library.icon size={32} stroke='white' stroke-width={0.75} />
           <div className='flex flex-col gap-1'>
             <span className='text-2xl font-bold text-white'>{library.name}</span>

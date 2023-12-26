@@ -19,6 +19,7 @@ import { useObservable, useObserver } from '@aracna/state-manager-react'
 import type { StateChangeEvent } from '@aracna/web'
 import algoliasearch from 'algoliasearch'
 import { Fragment } from 'react'
+import { createPortal } from 'react-dom'
 import './DialogSearch.css'
 
 const search = algoliasearch(import.meta.env.PUBLIC_ALGOLIA_APP_ID, import.meta.env.PUBLIC_ALGOLIA_API_KEY)
@@ -81,40 +82,43 @@ export function DialogSearch() {
     }
   })
 
-  return useObserver(() => (
-    <AracnaDialog id='search' onDialogClose={onClose} visible={DialogController.isVisible('search')} click-outside-deactivates>
-      <AracnaAriaComboBox>
-        <AracnaAriaComboBoxGroup>
-          <IconFeatherSearch stroke='white' stroke-width={3} />
-          <AracnaAriaComboBoxInput onStateChange={onInputStateChange}>
-            <input placeholder='Search' suppressHydrationWarning />
-          </AracnaAriaComboBoxInput>
-          <Chip layer={1} onClick={onClose} text='ESC' />
-        </AracnaAriaComboBoxGroup>
-        {store.searching && <Spinner className='self-center my-8' size={24} stroke='white' />}
-        {store.searching === false && (
-          <Fragment>
-            {store.hits.length <= 0 && (
-              <Empty className='px-4 py-8' headline='Search' text={store.query.length >= 3 ? 'No results found.' : 'Type something to start searching!'} />
-            )}
-            {store.hits.length > 0 && (
-              <AracnaAriaComboBoxList>
-                {store.hits.map((hit: Hit<T>) => (
-                  <a href={concatURL(PUBLIC_URL, hit.slug)} key={hit.objectID}>
-                    <AracnaAriaComboBoxOption label=''>
-                      <div>
-                        <span className='title'>{hit.title}</span>
-                        <Chip layer={2} size='small' text={`@aracna/${hit.package}`} />
-                      </div>
-                      <span className='text'>{hit.text}</span>
-                    </AracnaAriaComboBoxOption>
-                  </a>
-                ))}
-              </AracnaAriaComboBoxList>
-            )}
-          </Fragment>
-        )}
-      </AracnaAriaComboBox>
-    </AracnaDialog>
-  ))
+  return useObserver(() =>
+    createPortal(
+      <AracnaDialog id='search' onDialogClose={onClose} visible={DialogController.isVisible('search')} click-outside-deactivates>
+        <AracnaAriaComboBox>
+          <AracnaAriaComboBoxGroup>
+            <IconFeatherSearch stroke='white' stroke-width={3} />
+            <AracnaAriaComboBoxInput onStateChange={onInputStateChange}>
+              <input placeholder='Search' suppressHydrationWarning />
+            </AracnaAriaComboBoxInput>
+            <Chip layer={1} onClick={onClose} text='ESC' />
+          </AracnaAriaComboBoxGroup>
+          {store.searching && <Spinner className='self-center my-8' size={24} stroke='white' />}
+          {store.searching === false && (
+            <Fragment>
+              {store.hits.length <= 0 && (
+                <Empty className='px-4 py-8' headline='Search' text={store.query.length >= 3 ? 'No results found.' : 'Type something to start searching!'} />
+              )}
+              {store.hits.length > 0 && (
+                <AracnaAriaComboBoxList>
+                  {store.hits.map((hit: Hit<T>) => (
+                    <a href={concatURL(PUBLIC_URL, hit.slug)} key={hit.objectID}>
+                      <AracnaAriaComboBoxOption label=''>
+                        <div>
+                          <span className='title'>{hit.title}</span>
+                          <Chip layer={2} size='small' text={`@aracna/${hit.package}`} />
+                        </div>
+                        <span className='text'>{hit.text}</span>
+                      </AracnaAriaComboBoxOption>
+                    </a>
+                  ))}
+                </AracnaAriaComboBoxList>
+              )}
+            </Fragment>
+          )}
+        </AracnaAriaComboBox>
+      </AracnaDialog>,
+      document.body
+    )
+  )
 }

@@ -1,0 +1,17 @@
+div.libraries-cards-block {
+  @apply max-w-screen-lg w-full grid lg:grid-cols-2 mt-12 overflow-hidden rounded-3xl border-2 border-slate-800;
+
+  a {
+    @apply flex flex-col gap-4 p-6 border-slate-800;
+    @apply transition hover:bg-slate-900;
+    @apply border-b-2 lg:even:border-l-2;
+
+    &:nth-child(5) {
+      @apply lg:border-b-0;
+    }
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+}

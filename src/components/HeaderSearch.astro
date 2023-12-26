@@ -2,14 +2,16 @@
 import { IconFeatherSearch } from '@aracna/icons-feather-react/components/search'
 import { joinElementClasses } from '@aracna/web'
 import { Chip } from './Chip'
+import { DialogSearch } from '@/dialogs/DialogSearch'
 ---
 
+<IconFeatherSearch client:load className='lg:hidden' id='mobile-search-trigger' size={20} stroke='white' stroke-width='2' />
 <div
   class={joinElementClasses(
     'w-64 hidden xl:flex justify-between items-center px-3 py-2 rounded cursor-pointer bg-slate-800',
     'transition hover:ring-2 ring-slate-800'
   )}
-  id='search-trigger'
+  id='desktop-search-trigger'
 >
   <div class='flex items-center gap-3'>
     <IconFeatherSearch client:load stroke='white' />
@@ -17,9 +19,10 @@ import { Chip } from './Chip'
   </div>
   <Chip client:load layer={1} text='CTRL + K' />
 </div>
+<DialogSearch client:only />
 
 <script>
   import { DialogController } from '@/controllers/dialog-controller'
 
-  document.getElementById('search-trigger')?.addEventListener('click', () => DialogController.show('search'))
+  document.getElementById('desktop-search-trigger')?.addEventListener('click', () => DialogController.show('search'))
 </script>

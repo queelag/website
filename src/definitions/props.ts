@@ -15,13 +15,6 @@ export interface CodeWindowProps extends React.DetailedHTMLProps<React.HTMLAttri
   language?: string
 }
 
-export interface SidebarItemProps {
-  items?: SidebarItemProps[]
-  order: number
-  slug: string
-  title: string
-}
-
 export interface StackBlitzProps extends Partial<Omit<Project, 'template'>>, React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   options?: EmbedOptions | OpenOptions
   template: CodeRuntimeTemplate
