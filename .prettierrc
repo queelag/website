@@ -2,12 +2,6 @@
   "jsxSingleQuote": true,
   "overrides": [
     {
-      "files": "**/pages/**/*.{md,mdx}",
-      "options": {
-        "printWidth": 80
-      }
-    },
-    {
       "files": "**/stack-blitz/**/*.ts",
       "options": {
         "printWidth": 80,

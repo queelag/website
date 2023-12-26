@@ -82,7 +82,7 @@ export function CodeWindow(props: CodeWindowProps) {
       )}
       {props.files && (
         <Fragment>
-          <Code className='p-6 text-sm' language={getLanguage(activeFile)}>
+          <Code className='overflow-hidden p-6 text-sm' language={getLanguage(activeFile)} style={{ maxWidth: 'calc(100vw - 52px)' }}>
             {Object.entries(props.files).find(([name, _]) => name === activeFile)?.[1]}
           </Code>
           {Object.keys(props.files).length >= 2 && (

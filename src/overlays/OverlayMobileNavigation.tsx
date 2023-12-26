@@ -32,7 +32,7 @@ export function OverlayMobileNavigation(props: Props) {
         lock-body-scroll
       >
         <div className='flex justify-between items-center px-6 pt-6'>
-          <a href='/'>
+          <a className='outline-none' href='/'>
             <AracnaLogo hasText />
           </a>
           <IconFeatherX onClick={onClose} size={24} stroke='white' stroke-width={2} />
@@ -86,7 +86,7 @@ export function Item(props: NavigationItem) {
         onClick={onClick}
       >
         <span className='flex items-center gap-2'>
-          <span className='text-sm'>{props.title}</span>
+          <span>{props.title}</span>
         </span>
         {props.items && expandable && (
           <AracnaButton shape='squircle' size={16}>
