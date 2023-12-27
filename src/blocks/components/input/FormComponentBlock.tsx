@@ -3,7 +3,7 @@ import { useObservableElementComponent, type AracnaFormProps, type AracnaInputPr
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
-import { FormSubmitEvent, joinElementClasses } from '@aracna/web'
+import { FormSubmitEvent, jec } from '@aracna/web'
 import { pattern, size, string } from 'superstruct'
 
 function Input(props: AracnaInputProps) {
@@ -13,7 +13,7 @@ function Input(props: AracnaInputProps) {
     <div className='flex flex-col gap-1'>
       <AracnaInput
         {...props}
-        className={joinElementClasses(
+        className={jec(
           'group w-full flex items-center font-medium text-xs rounded border-2',
           'transition hover:border-slate-700',
           element?.focused ? 'border-slate-700' : 'border-slate-800'

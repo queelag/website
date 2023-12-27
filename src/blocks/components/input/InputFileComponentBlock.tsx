@@ -8,7 +8,7 @@ import { Memo, useObservableElementComponent, type AracnaInputFileProps } from '
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaInputFile } from '@aracna/react-components/components/input/input-file'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 
 export function InputFileComponentBlock() {
   return (
@@ -29,7 +29,7 @@ export function InputFileComponentBlock() {
             <Memo deps={[props]}>
               <AracnaInputFile {...props} className='group' onStateChange={onStateChange} ref={ref}>
                 <div
-                  className={joinElementClasses(
+                  className={jec(
                     'w-64 h-64 flex flex-col justify-center items-center gap-1 p-6 rounded border-2 border-dashed border-slate-800',
                     'transition group-hover:border-slate-700 group-focus:border-slate-700'
                   )}

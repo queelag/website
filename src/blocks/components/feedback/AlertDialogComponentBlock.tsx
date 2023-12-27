@@ -5,7 +5,7 @@ import type { AracnaAlertDialogProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaAlertDialog, AracnaAlertDialogDescription, AracnaAlertDialogLabel } from '@aracna/react-components/components/feedback/alert-dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import { Fragment, useState } from 'react'
 
 export function AlertDialogComponentBlock() {
@@ -32,7 +32,7 @@ export function AlertDialogComponentBlock() {
             </AracnaButton>
             <AracnaAlertDialog
               {...props}
-              className={joinElementClasses(
+              className={jec(
                 'absolute max-w-sm flex flex-col items-center gap-4 p-4 pt-8 rounded transition bg-slate-800',
                 !visible && 'opacity-0 pointer-events-none'
               )}

@@ -9,9 +9,8 @@ export async function getCollectioNavigationItems(key: CollectionKey): Promise<N
   items = []
 
   for (let entry of entries) {
-    let i: number, sslug: string[], folders: string[], file: string | undefined, item: NavigationItem | undefined
+    let sslug: string[], folders: string[], file: string | undefined, item: NavigationItem | undefined
 
-    i = entries.indexOf(entry)
     sslug = ['/' + key, ...entry.slug.split('/')]
     folders = sslug.slice(0, sslug.length - 1)
 
@@ -89,8 +88,4 @@ function getFolderTitle(folder: string): string {
     default:
       return getCapitalizedString(folder.replace('/', ''))
   }
-}
-
-function getNavigationItemsLength(items: NavigationItem[]): number {
-  return items.reduce((length: number, item: NavigationItem) => length + getNavigationItemsLength(item.items ?? []), items.length)
 }

@@ -1,5 +1,5 @@
 import { IconFeatherInbox } from '@aracna/icons-feather-react/components/inbox'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 
 type Props = JSX.IntrinsicElements['div'] & {
   headline?: string
@@ -8,7 +8,7 @@ type Props = JSX.IntrinsicElements['div'] & {
 
 export function Empty(props: Props) {
   return (
-    <div className={joinElementClasses('flex flex-col justify-center items-center', props.className)}>
+    <div className={jec('flex flex-col justify-center items-center', props.className)}>
       <IconFeatherInbox className='stroke-zinc-500' size={64} stroke='inherit' stroke-width={0.5} />
       <div className='flex flex-col text-center'>
         <span>{props.headline ?? 'Empty'}</span>

@@ -1,6 +1,6 @@
 ---
-import Container from '@/components/Container.astro'
-import { joinElementClasses } from '@aracna/web'
+import Container from '@/components/Container.astro';
+import { jec } from '@aracna/web';
 
 interface Props {
   href: string
@@ -15,7 +15,7 @@ const { href } = Astro.props
     <p class='text-2xl text-slate-300'>Improve your development experience and the quality of your code and products.</p>
     <a class='lg:self-center' href={href}>
       <button
-        class={joinElementClasses(
+        class={jec(
           'flex justify-center items-center px-16 py-8 mt-6 rounded-full bg-gradient-to-tl from-blue-400 to-blue-300',
           'transition shadow-black hover:shadow-2xl'
         )}

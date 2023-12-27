@@ -7,7 +7,7 @@ import {
   AracnaDisclosurePanel,
   AracnaDisclosureSection
 } from '@aracna/react-components/components/surface/disclosure'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 
 const SECTIONS = [
   {
@@ -33,10 +33,7 @@ export function DisclosureComponentBlock() {
     <ComponentBlock
       attributes={[{ name: 'sections', type: 'json' }]}
       component={(props: AracnaDisclosureProps) => (
-        <AracnaDisclosure
-          {...props}
-          className={joinElementClasses('w-full flex flex-col rounded divide-y-2 border-2 border-slate-800 divide-slate-800', props.className)}
-        >
+        <AracnaDisclosure {...props} className={jec('w-full flex flex-col rounded divide-y-2 border-2 border-slate-800 divide-slate-800', props.className)}>
           {props.sections?.map((section) => (
             <AracnaDisclosureSection key={section.headline} className='group flex flex-col'>
               <AracnaDisclosureButton className='w-full flex justify-between items-center p-3 hover:bg-slate-900'>

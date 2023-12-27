@@ -8,7 +8,7 @@ import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { AracnaDialog } from '@aracna/react-components/components/feedback/dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { useObservable, useObserver } from '@aracna/state-manager-react'
-import { SessionStorage, joinElementClasses } from '@aracna/web'
+import { SessionStorage, jec } from '@aracna/web'
 import { useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import './OverlayMobileNavigation.css'
@@ -77,7 +77,7 @@ export function Item(props: NavigationItem) {
   return (
     <div className={'flex flex-col gap-px font-medium'}>
       <a
-        className={joinElementClasses(
+        className={jec(
           'group flex justify-between items-center px-2 py-1 rounded cursor-pointer',
           'transition hover:bg-slate-700',
           store.active && 'bg-slate-800'

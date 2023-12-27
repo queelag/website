@@ -2,7 +2,7 @@ import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { useObservableElementComponent, type AracnaInputProps } from '@aracna/react'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 
 type Props = AracnaInputProps & {
   label?: string
@@ -13,7 +13,7 @@ export function Input(props: Props) {
 
   return (
     <div
-      className={joinElementClasses(
+      className={jec(
         'group w-full flex items-center p-2 text-xs rounded border-2',
         'transition hover:border-slate-700',
         element?.focused ? 'border-slate-700' : 'border-slate-800'

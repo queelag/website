@@ -17,7 +17,7 @@ import {
   AracnaSelectList,
   AracnaSelectOption
 } from '@aracna/react-components/components/input/select'
-import { findSelectOptionByValue, joinElementClasses, type StateChangeEvent } from '@aracna/web'
+import { findSelectOptionByValue, jec, type StateChangeEvent } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 import { Fragment, useState, type MouseEvent } from 'react'
 
@@ -127,7 +127,7 @@ export function SelectComponentBlock() {
             <AracnaSelectGroup className='w-full'>
               {props._variant === 'button' && (
                 <AracnaSelectButton
-                  className={joinElementClasses(
+                  className={jec(
                     'w-full flex justify-between items-center p-3 rounded transition border-2 border-slate-800',
                     'hover:border-slate-700 focus:border-slate-700 focus:outline-none'
                   )}
@@ -154,12 +154,12 @@ export function SelectComponentBlock() {
                     </Fragment>
                   )}
                   {!props.multiple && <span className='text-xs font-medium'>{selected[0]?.label ?? 'Select Fruit'}</span>}
-                  <IconFeatherChevronDown className={joinElementClasses('transition group-[&[expanded]]:rotate-180')} stroke='white' />
+                  <IconFeatherChevronDown className={jec('transition group-[&[expanded]]:rotate-180')} stroke='white' />
                 </AracnaSelectButton>
               )}
               {props._variant === 'input' && (
                 <div
-                  className={joinElementClasses(
+                  className={jec(
                     'w-full flex justify-between items-center rounded transition border-2 border-slate-800',
                     'hover:border-slate-700 focus:border-slate-700'
                   )}
@@ -189,13 +189,13 @@ export function SelectComponentBlock() {
                     />
                   </AracnaSelectInput>
                   <AracnaSelectButton className='w-4 h-4 rounded-full mr-3 transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'>
-                    <IconFeatherChevronDown className={joinElementClasses('transition group-[&[expanded]]:rotate-180')} stroke='white' />
+                    <IconFeatherChevronDown className={jec('transition group-[&[expanded]]:rotate-180')} stroke='white' />
                   </AracnaSelectButton>
                 </div>
               )}
             </AracnaSelectGroup>
             <AracnaSelectList
-              className={joinElementClasses(
+              className={jec(
                 'w-full max-h-48 flex flex-col rounded transition border-2 divide-y-2 border-slate-800 divide-slate-800 bg-black',
                 'opacity-0 pointer-events-none group-[&[expanded]]:opacity-100 group-[&[expanded]]:pointer-events-auto'
               )}
@@ -205,7 +205,7 @@ export function SelectComponentBlock() {
               {element?.filterOptions(props.options ?? []).map((option: SelectOption) => (
                 <AracnaSelectOption
                   {...option}
-                  className={joinElementClasses(
+                  className={jec(
                     'group flex justify-between items-center p-3 transition',
                     'hover:bg-slate-900 [&[focused]]:bg-slate-900 aria-selected:bg-slate-900'
                   )}
@@ -213,7 +213,7 @@ export function SelectComponentBlock() {
                   selected={Boolean(selected.find((option_: SelectOption) => option_.value === option.value))}
                 >
                   <span className='text-xs font-medium'>{option.label ?? option.value}</span>
-                  <IconFeatherCheck className={joinElementClasses('transition', 'opacity-0 group-aria-selected:opacity-100')} size={12} stroke='white' />
+                  <IconFeatherCheck className={jec('transition', 'opacity-0 group-aria-selected:opacity-100')} size={12} stroke='white' />
                 </AracnaSelectOption>
               ))}
             </AracnaSelectList>

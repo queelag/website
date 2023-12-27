@@ -7,7 +7,7 @@ import { Memo, useObservableElementComponent, type AracnaTextAreaProps } from '@
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaTextArea } from '@aracna/react-components/components/input/text-area'
-import { joinElementClasses, type StateChangeEvent } from '@aracna/web'
+import { jec, type StateChangeEvent } from '@aracna/web'
 import { useState } from 'react'
 
 export function TextAreaComponentBlock() {
@@ -35,7 +35,7 @@ export function TextAreaComponentBlock() {
 
         return (
           <div
-            className={joinElementClasses(
+            className={jec(
               'relative min-w-[256px] flex items-center rounded border-2',
               'transition hover:border-slate-700',
               element?.focused ? 'border-slate-700' : 'border-slate-800'

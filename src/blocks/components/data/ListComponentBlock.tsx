@@ -7,7 +7,7 @@ import type { AracnaListProps } from '@aracna/react'
 import { AracnaAvatar } from '@aracna/react-components/components/data/avatar'
 import { AracnaImage } from '@aracna/react-components/components/data/image'
 import { AracnaList, AracnaListItem } from '@aracna/react-components/components/data/list'
-import { joinElementClasses, type ListItemElementAttributes } from '@aracna/web'
+import { jec, type ListItemElementAttributes } from '@aracna/web'
 
 interface Item extends ListItemElementAttributes {
   headline: string
@@ -45,7 +45,7 @@ export function ListComponentBlock() {
         <AracnaList {...props} className='w-full flex flex-col gap-2'>
           {props.items?.map((item: Item) => (
             <AracnaListItem
-              className={joinElementClasses('flex items-center p-3 gap-3 cursor-pointer transition rounded border-2 border-slate-800', 'hover:bg-slate-900')}
+              className={jec('flex items-center p-3 gap-3 cursor-pointer transition rounded border-2 border-slate-800', 'hover:bg-slate-900')}
               key={item.headline}
             >
               <AracnaAvatar shape='circle' size={32}>

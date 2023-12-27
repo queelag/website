@@ -4,7 +4,7 @@ import type { ComponentBlockAttribute, RadioButton } from '@/definitions/interfa
 import { removeArrayItems } from '@aracna/core'
 import { useObservableElementComponent, type AracnaRadioGroupProps } from '@aracna/react'
 import { AracnaRadioButton, AracnaRadioGroup } from '@aracna/react-components/components/input/radio-group'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 
 const BUTTONS: RadioButton[] = [
   { label: 'Male', value: 'male' },
@@ -28,7 +28,7 @@ export function RadioGroupComponentBlock() {
             <div className='flex flex-col gap-1'>
               {element?.buttons?.map((button: RadioButton) => (
                 <AracnaRadioButton
-                  className={joinElementClasses(
+                  className={jec(
                     'group w-64 flex justify-between items-center p-4 rounded border-2 border-slate-800',
                     'transition hover:border-slate-700 aria-checked:bg-slate-900',
                     'focus:outline-none focus:border-slate-700'
@@ -38,7 +38,7 @@ export function RadioGroupComponentBlock() {
                 >
                   <span className='text-xs font-medium'>{button.label}</span>
                   <div
-                    className={joinElementClasses(
+                    className={jec(
                       'w-3 h-3 rounded-full ring-2 ring-offset-2 ring-slate-800 ring-offset-black',
                       'group-aria-checked:ring-slate-700 group-aria-checked:bg-slate-700'
                     )}

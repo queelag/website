@@ -7,7 +7,7 @@ import { Memo, useObservableElementComponent, type AracnaInputProps } from '@ara
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
-import { joinElementClasses, type StateChangeEvent } from '@aracna/web'
+import { jec, type StateChangeEvent } from '@aracna/web'
 import { useState } from 'react'
 
 export function InputComponentBlock() {
@@ -61,7 +61,7 @@ export function InputComponentBlock() {
 
         return (
           <div
-            className={joinElementClasses(
+            className={jec(
               'relative min-w-[256px] flex items-center rounded border-2',
               'transition hover:border-slate-700',
               element?.focused ? 'border-slate-700' : 'border-slate-800'

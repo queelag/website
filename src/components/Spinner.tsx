@@ -1,4 +1,4 @@
-import { joinElementClasses, type Size } from '@aracna/web'
+import { jec, type Size } from '@aracna/web'
 
 type Props = JSX.IntrinsicElements['svg'] & {
   size?: Size
@@ -8,7 +8,7 @@ export function Spinner(props: Props) {
   return (
     <svg
       {...props}
-      className={joinElementClasses('animate-spin', props.className)}
+      className={jec('animate-spin', props.className)}
       height={props.height ?? props.size ?? 16}
       strokeWidth={props.strokeWidth ?? 4}
       viewBox='0 0 100 100'

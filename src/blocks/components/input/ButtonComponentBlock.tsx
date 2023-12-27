@@ -9,7 +9,7 @@ import { ICON_F_PLUS } from '@aracna/icons-feather/assets/plus'
 import type { AracnaButtonProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
-import { joinElementClasses, type ButtonClickEvent } from '@aracna/web'
+import { jec, type ButtonClickEvent } from '@aracna/web'
 
 const ICONS: SelectOption[] = [
   { label: 'clock', value: ICON_F_CLOCK },
@@ -42,9 +42,7 @@ export function ButtonComponentBlock() {
           <div className='relative w-full flex justify-center items-center gap-1.5'>
             <IconFeatherLoader className='absolute animate-spin opacity-0 group-[&[spinning]]:opacity-100' fill='none' stroke='white' />
             <div className='flex items-center gap-1.5 group-[&[spinning]]:opacity-0'>
-              {props.icon && (
-                <AracnaIcon className={joinElementClasses(props.text && '-ml-[4px]')} fill='none' size={16} src={props.icon} stroke='white' stroke-width={2} />
-              )}
+              {props.icon && <AracnaIcon className={jec(props.text && '-ml-[4px]')} fill='none' size={16} src={props.icon} stroke='white' stroke-width={2} />}
               {props.text && <span className='font-medium text-xs text-white'>{props.text}</span>}
             </div>
           </div>

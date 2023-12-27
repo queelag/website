@@ -5,7 +5,7 @@ import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/c
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
 import { useObservableElementComponent, type AracnaMenuItemProps, type AracnaMenuProps } from '@aracna/react'
 import { AracnaMenu, AracnaMenuButton, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu'
-import { WebElementLogger, joinElementClasses } from '@aracna/web'
+import { WebElementLogger, jec } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 import { Fragment, useMemo } from 'react'
 
@@ -72,7 +72,7 @@ function MenuItem(props: AracnaMenuItemProps & { deep?: boolean }) {
   return (
     <AracnaMenuItem
       {...omitObjectProperties(props, ['deep'])}
-      className={joinElementClasses(
+      className={jec(
         'p-3 outline-none transition [&[depth="0"]]:rounded',
         '[&[focused]]:bg-slate-900 [&[depth="0"]]:[&[focused]]:bg-slate-800',
         '[&[submenu-expanded]]:bg-slate-900 [&[depth="0"]]:[&[submenu-expanded]]:bg-slate-800'
@@ -90,7 +90,7 @@ function MenuItem(props: AracnaMenuItemProps & { deep?: boolean }) {
       </a>
       {props.items && (
         <AracnaMenuSubMenu
-          className={joinElementClasses(
+          className={jec(
             'w-48 flex flex-col rounded border-2 divide-y-2 divide-slate-800 border-slate-800 bg-black',
             'pointer-events-none [&[expanded]]:pointer-events-auto opacity-0 [&[expanded]]:opacity-100'
           )}
@@ -130,7 +130,7 @@ export function MenuComponentBlock() {
           {props._variant === 'button' && (
             <Fragment>
               <AracnaMenuButton
-                className={joinElementClasses(
+                className={jec(
                   'w-64 flex justify-between items-center p-3 rounded transition border-2 border-slate-800',
                   'hover:border-slate-700 focus:border-slate-700 aria-expanded:border-slate-700 focus:outline-none'
                 )}
@@ -139,7 +139,7 @@ export function MenuComponentBlock() {
                 <IconFeatherChevronDown size={12} stroke='white' stroke-width={3} />
               </AracnaMenuButton>
               <AracnaMenuSubMenu
-                className={joinElementClasses(
+                className={jec(
                   'w-64 flex flex-col rounded border-2 divide-y-2 divide-slate-800 border-slate-800 bg-black',
                   'pointer-events-none [&[expanded]]:pointer-events-auto opacity-0 [&[expanded]]:opacity-100'
                 )}

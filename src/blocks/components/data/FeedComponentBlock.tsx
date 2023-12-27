@@ -1,7 +1,7 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import type { AracnaFeedProps } from '@aracna/react'
 import { AracnaFeed, AracnaFeedArticle, AracnaFeedArticleDescription, AracnaFeedArticleLabel } from '@aracna/react-components/components/data/feed'
-import { joinElementClasses, type FeedArticleElementAttributes } from '@aracna/web'
+import { jec, type FeedArticleElementAttributes } from '@aracna/web'
 import { Fragment } from 'react'
 
 interface Article extends FeedArticleElementAttributes {}
@@ -36,10 +36,7 @@ export function FeedComponentBlock() {
         <AracnaFeed {...props} className='w-full grid grid-cols-2 gap-2'>
           {props.articles?.map((article: Article) => (
             <AracnaFeedArticle
-              className={joinElementClasses(
-                'aspect-square flex flex-col gap-2 p-4 rounded transition cursor-pointer border-2',
-                'border-slate-800 hover:bg-slate-900'
-              )}
+              className={jec('aspect-square flex flex-col gap-2 p-4 rounded transition cursor-pointer border-2', 'border-slate-800 hover:bg-slate-900')}
               key={article.headline}
             >
               {props.busy && (

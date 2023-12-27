@@ -4,7 +4,7 @@ import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/c
 import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { useObservable } from '@aracna/state-manager-react'
-import { joinElementClasses, SessionStorage } from '@aracna/web'
+import { jec, SessionStorage } from '@aracna/web'
 import { useMemo } from 'react'
 
 export function SidebarItem(props: NavigationItem) {
@@ -36,7 +36,7 @@ export function SidebarItem(props: NavigationItem) {
   return (
     <div className={'flex flex-col gap-px font-medium'}>
       <a
-        className={joinElementClasses(
+        className={jec(
           'group flex justify-between items-center px-2 py-1 rounded cursor-pointer',
           'transition hover:bg-slate-700',
           store.active && 'bg-slate-800'

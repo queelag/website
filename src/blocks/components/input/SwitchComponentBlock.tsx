@@ -4,7 +4,7 @@ import type { ComponentBlockAttribute } from '@/definitions/interfaces'
 import { removeArrayItems } from '@aracna/core'
 import type { AracnaSwitchProps } from '@aracna/react'
 import { AracnaSwitch } from '@aracna/react-components/components/input/switch'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 
 export function SwitchComponentBlock() {
   return (
@@ -17,7 +17,7 @@ export function SwitchComponentBlock() {
         <AracnaSwitch {...props} className='group rounded-full transition focus:outline-none'>
           <div className='w-20 p-[2px] rounded-full transition border-2 border-slate-800 group-focus:border-slate-700'>
             <div
-              className={joinElementClasses(
+              className={jec(
                 'w-8 h-8 rounded-full transition bg-slate-700',
                 'group-hover:bg-slate-600 group-focus:bg-slate-600 group-aria-checked:translate-x-[40px]'
               )}

@@ -1,5 +1,5 @@
 import { removeArrayItems } from '@aracna/core'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import type { MarkdownHeading } from 'astro'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -76,7 +76,7 @@ export function TOCs(props: Props) {
         <div className='flex flex-col'>
           {headings.map((heading: MarkdownHeading, index: number) => (
             <a
-              className={joinElementClasses(
+              className={jec(
                 'inline-flex py-1 border-l-4',
                 'transition hover:border-blue-500',
                 heading.slug === active ? 'border-slate-600' : index <= 0 && !active ? 'border-slate-600' : 'border-slate-800'

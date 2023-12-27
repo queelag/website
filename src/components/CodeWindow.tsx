@@ -2,7 +2,7 @@ import type { CodeWindowButton, CodeWindowProps } from '@/definitions/props'
 import { getArrayLastItem } from '@aracna/core'
 import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/clipboard'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import { Fragment, useMemo, useState } from 'react'
 import { ButtonGroup } from './ButtonGroup'
 import { Code } from './Code'
@@ -56,7 +56,7 @@ export function CodeWindow(props: CodeWindowProps) {
   }
 
   return (
-    <div className={joinElementClasses('not-prose flex flex-col rounded border-2 border-slate-800', props.className)}>
+    <div className={jec('not-prose flex flex-col rounded border-2 border-slate-800', props.className)}>
       <div className='flex justify-between items-center px-6 pt-6'>
         <div className='flex gap-2'>
           <div className='w-4 h-4 rounded-full bg-slate-900' />

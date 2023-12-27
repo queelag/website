@@ -2,7 +2,7 @@ import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
 import type { AracnaTooltipProps } from '@aracna/react'
 import { AracnaTooltip, AracnaTooltipArrow, AracnaTooltipContent, AracnaTooltipTrigger } from '@aracna/react-components/components/data/tooltip'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 import colors from 'tailwindcss/colors'
 
@@ -18,7 +18,7 @@ export function TooltipComponentBlock() {
       component={(props: AracnaTooltipProps) => (
         <AracnaTooltip {...props} className='group'>
           <AracnaTooltipContent
-            className={joinElementClasses(
+            className={jec(
               'whitespace-nowrap px-2 py-1 rounded bg-slate-800',
               'transition opacity-0 pointer-events-none group-[&[visible]]:opacity-100 group-[&[visible]]:pointer-events-all'
             )}

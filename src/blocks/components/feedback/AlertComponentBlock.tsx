@@ -8,7 +8,7 @@ import type { AracnaAlertProps } from '@aracna/react'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import { useState } from 'react'
 
 export function AlertComponentBlock() {
@@ -42,7 +42,7 @@ export function AlertComponentBlock() {
           <AracnaAlert {...props} className='relative w-full flex items-start gap-3 p-4 rounded border-2 border-slate-800'>
             {props.icon && (
               <AracnaIcon
-                className={joinElementClasses(
+                className={jec(
                   props.severity === 'error' && 'stroke-rose-500',
                   props.severity === 'info' && 'stroke-blue-500',
                   props.severity === 'success' && 'stroke-mint-500',

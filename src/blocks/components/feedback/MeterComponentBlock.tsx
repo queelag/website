@@ -2,7 +2,7 @@ import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import type { AracnaMeterProps } from '@aracna/react'
 import { AracnaMeter } from '@aracna/react-components/components/feedback/meter'
-import { getMeterElementPercentage, joinElementClasses } from '@aracna/web'
+import { getMeterElementPercentage, jec } from '@aracna/web'
 
 export function MeterComponentBlock() {
   return (
@@ -19,8 +19,11 @@ export function MeterComponentBlock() {
         { name: 'value', type: 'number' }
       ]}
       component={(props: AracnaMeterProps) => (
-        <AracnaMeter {...props} className={joinElementClasses(!props.native && 'w-64 h-6 rounded-full bg-slate-800')}>
-          <div className='h-full rounded-full bg-slate-700' style={{ width: `${getMeterElementPercentage(props.value, props.min, props.max)}%` }}></div>
+        <AracnaMeter {...props} className={jec(!props.native && 'w-64 h-6 rounded-full bg-slate-800')}>
+          <div
+            className='h-full rounded-full bg-slate-700'
+            style={{ width: `${getMeterElementPercentage(props.value, { max: props.max, min: props.min })}%` }}
+          ></div>
         </AracnaMeter>
       )}
       defaultProps={{

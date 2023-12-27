@@ -2,7 +2,7 @@ import { STACK_BLITZ_PROJECT_KEYS } from '@/definitions/constants'
 import type { StackBlitzProps } from '@/definitions/props'
 import { getStackBlitzProject, getStackBlitzProjectEmbedOptions, getStackBlitzProjectOpenOptions } from '@/utils/stack-blitz-utils'
 import { omitObjectProperties, pickObjectProperties } from '@aracna/core'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import SDK, { type Project } from '@stackblitz/sdk'
 import { useEffect, useMemo, useRef } from 'react'
 
@@ -51,7 +51,5 @@ export function StackBlitz(props: StackBlitzProps) {
     }
   }, [])
 
-  return (
-    <div {...omitObjectProperties(props, KEYS)} className={joinElementClasses('w-full aspect-video rounded', props.className)} onClick={onClick} ref={ref} />
-  )
+  return <div {...omitObjectProperties(props, KEYS)} className={jec('w-full aspect-video rounded', props.className)} onClick={onClick} ref={ref} />
 }

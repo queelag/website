@@ -1,5 +1,5 @@
 import { omitObjectProperties } from '@aracna/core'
-import { joinElementClasses } from '@aracna/web'
+import { jec } from '@aracna/web'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-bash.min.js'
 import 'prismjs/components/prism-css.min.js'
@@ -28,7 +28,7 @@ export function Code(props: Props) {
 
   return (
     <pre {...omitObjectProperties(props, ['code', 'language'])}>
-      <code {...props.code} className={joinElementClasses(`language-${props.language}`, props.code?.className)} ref={ref}>
+      <code {...props.code} className={jec(`language-${props.language}`, props.code?.className)} ref={ref}>
         {props.children}
       </code>
     </pre>
