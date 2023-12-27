@@ -2,7 +2,7 @@ import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
 export const SB_FCM_CLIENT_CONNECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { FcmClient } from '@aracna/fcm';
 
@@ -19,7 +19,7 @@ export const SB_FCM_CLIENT_CONNECT: ProjectFiles = {
 };
 
 export const SB_FCM_CLIENT_DISCONNECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { FcmClient } from '@aracna/fcm';
 
@@ -40,7 +40,7 @@ export const SB_FCM_CLIENT_DISCONNECT: ProjectFiles = {
 };
 
 export const SB_FCM_CLIENT_CONNECT_ON_MESSAGE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { FcmClient } from '@aracna/fcm';
 

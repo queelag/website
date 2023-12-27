@@ -2,7 +2,7 @@ import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
 export const SB_AUTORUN: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { autorun, observe } from '@aracna/state-manager';
 
@@ -21,7 +21,7 @@ export const SB_AUTORUN: ProjectFiles = {
 };
 
 export const SB_IS_OBSERVABLE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObservable, observe } from '@aracna/state-manager';
 
@@ -34,7 +34,7 @@ export const SB_IS_OBSERVABLE: ProjectFiles = {
 };
 
 export const SB_OBSERVE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { autorun, observe } from '@aracna/state-manager';
 
@@ -53,7 +53,7 @@ export const SB_OBSERVE: ProjectFiles = {
 };
 
 export const SB_REACTION: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { observe, reaction } from '@aracna/state-manager';
 
@@ -75,7 +75,7 @@ export const SB_REACTION: ProjectFiles = {
 };
 
 export const SB_TO_JS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObservable, observe, toJS } from '@aracna/state-manager';
 
@@ -89,7 +89,7 @@ export const SB_TO_JS: ProjectFiles = {
 };
 
 export const SB_WHEN_CALLBACK: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { observe, when } from '@aracna/state-manager';
 
@@ -112,7 +112,7 @@ export const SB_WHEN_CALLBACK: ProjectFiles = {
 };
 
 export const SB_WHEN_PROMISE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { observe, when } from '@aracna/state-manager';
 

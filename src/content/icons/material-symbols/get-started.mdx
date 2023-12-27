@@ -3,6 +3,31 @@ order: -1
 title: Get Started
 ---
 
+import { CodeBlock } from '@/blocks/CodeBlock'
 import { PackageManagerBlock } from '@/blocks/PackageManagerBlock'
+import { SB_ICONS_MATERIAL_SYMBOLS } from '@/definitions/stack-blitz/icons/material-symbols'
 
-<PackageManagerBlock client:load install={{ package: '@aracna/icons-material-symbols' }} />
+The **@aracna/icons-material-symbols-\*** packages provide all the icons from the [Material Symbols](https://fonts.google.com/icons) project as raw SVG strings.
+
+- **@aracna/icons-material-symbols-rounded-os20** - 20px rounded icons
+- **@aracna/icons-material-symbols-rounded-os20-fill** - 20px rounded filled icons
+- **@aracna/icons-material-symbols-rounded-os24** - 24px rounded icons
+- **@aracna/icons-material-symbols-rounded-os24-fill** - 24px rounded filled icons
+- **@aracna/icons-material-symbols-sharp-os20** - 20px sharp icons
+- **@aracna/icons-material-symbols-sharp-os20-fill** - 20px sharp filled icons
+- **@aracna/icons-material-symbols-sharp-os24** - 24px sharp icons
+- **@aracna/icons-material-symbols-sharp-os24-fill** - 24px sharp filled icons
+
+The name syntax of the exported raw SVG strings is `ICON_MS_<NAME>_W<WEIGHT>` where `<NAME>` is the name of the icon in upper snake case and `<WEIGHT>` is the weight of the icon in pixels.
+The available weights are `[100, 200, 300, 400, 500, 600, 700, 800, 900]`.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/icons-material-symbols-rounded-os20': 'latest'
+  }}
+  files={SB_ICONS_MATERIAL_SYMBOLS}
+  template='javascript'
+  title='icons-material-symbols'
+  console={100}
+/>

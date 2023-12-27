@@ -2,7 +2,7 @@ import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
 export const SB_CREATE_FCM_ECDH: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { createFcmECDH } from '@aracna/fcm';
 
@@ -15,7 +15,7 @@ export const SB_CREATE_FCM_ECDH: ProjectFiles = {
 };
 
 export const SB_GENERATE_FCM_AUTH_SECRET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { generateFcmAuthSecret } from '@aracna/fcm';
 

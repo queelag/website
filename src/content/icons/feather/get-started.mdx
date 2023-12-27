@@ -3,6 +3,86 @@ order: -1
 title: Get Started
 ---
 
+import { CodeBlock } from '@/blocks/CodeBlock'
 import { PackageManagerBlock } from '@/blocks/PackageManagerBlock'
+import { SB_ICONS_FEATHER, SB_ICONS_FEATHER_REACT, SB_ICONS_FEATHER_WEB } from '@/definitions/stack-blitz/icons/feather'
+
+The **@aracna/icons-feather** packages provides all the icons from [Feather](https://feathericons.com/) as raw SVG strings.
 
 <PackageManagerBlock client:load install={{ package: '@aracna/icons-feather' }} />
+
+The name syntax of the exported raw SVG strings is `ICON_F_<NAME>` where `<NAME>` is the name of the icon in upper snake case.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/icons-feather': 'latest'
+  }}
+  files={SB_ICONS_FEATHER}
+  template='javascript'
+  title='icons-feather'
+  console={100}
+/>
+
+## Use on the web
+
+The **@aracna/icons-feather-web** packages provides all the icons from [Feather](https://feathericons.com/) as web components.
+
+<PackageManagerBlock
+  client:load
+  install={{ dependencies: ['@aracna/core', '@aracna/icons-feather', '@aracna/web', '@aracna/web-components'], package: '@aracna/icons-feather-web' }}
+/>
+
+The name syntax of the exported web components is `icon-feather-<name>` where `<name>` is the name of the icon in kebab case.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/icons-feather': 'latest',
+    '@aracna/icons-feather-web': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    dompurify: 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_ICONS_FEATHER_WEB}
+  template='javascript'
+  title='icons-feather'
+  console={100}
+/>
+
+## Use in React
+
+The **@aracna/icons-feather-react** packages provides all the icons from [Feather](https://feathericons.com/) as React components.
+
+<PackageManagerBlock
+  client:load
+  install={{
+    dependencies: ['@aracna/core', '@aracna/icons-feather', '@aracna/icons-feather-web', '@aracna/react', '@aracna/web', '@aracna/web-components'],
+    package: '@aracna/icons-feather-react'
+  }}
+/>
+
+The name syntax of the exported React components is `IconFeather<Name>` where `<Name>` is the name of the icon in pascal case.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/icons-feather': 'latest',
+    '@aracna/icons-feather-react': 'latest',
+    '@aracna/icons-feather-web': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest',
+    dompurify: 'latest',
+    lit: 'latest',
+    'lit-html': 'latest'
+  }}
+  files={SB_ICONS_FEATHER_REACT}
+  template='react'
+  title='icons-feather'
+  console={100}
+/>

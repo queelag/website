@@ -2,7 +2,7 @@ import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
 export const SB_REGISTER_TO_FCM: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         createFcmECDH,
@@ -36,7 +36,7 @@ export const SB_REGISTER_TO_FCM: ProjectFiles = {
 };
 
 export const SB_SEND_FCM_MESSAGE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { sendFcmMessage } from '@aracna/fcm';
       import GOOGLE_SERVICE_ACCOUNT from './google-service-account.json';
@@ -55,7 +55,7 @@ export const SB_SEND_FCM_MESSAGE: ProjectFiles = {
 };
 
 export const SB_SUBSCRIBE_TO_FCM: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { subscribeToFCM } from '@aracna/fcm';
 
