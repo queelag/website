@@ -1,3 +1,38 @@
 ---
 title: Select Element
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_FIND_SELECT_OPTION_BY_VALUE, SB_FIND_SELECT_OPTION_LABEL_BY_VALUE } from '@/definitions/stack-blitz/web/utils'
+
+This is a collection of functions for working with select elements.
+
+## Find an option by value
+
+The `findSelectOptionByValue` function finds a select option by its value.
+Optionally a custom function can be passed to get the value of the select option.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_FIND_SELECT_OPTION_BY_VALUE}
+  template='javascript'
+  title='findSelectOptionByValue'
+  console={100}
+/>
+
+## Find an option's label by value
+
+The `findSelectOptionLabelByValue` function finds a select option label by its value.
+
+- Optionally a custom function can be passed to get the label of the select option.
+- Optionally a custom function can be passed to get the value of the select option.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_FIND_SELECT_OPTION_LABEL_BY_VALUE}
+  template='javascript'
+  title='findSelectOptionLabelByValue'
+  console={100}
+/>

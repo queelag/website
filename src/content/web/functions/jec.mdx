@@ -1,0 +1,11 @@
+---
+title: jec
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_JEC } from '@/definitions/stack-blitz/web/functions'
+
+The `jec` function stands for `join element classes`.
+It filters out falsy values and joins the remaining ones with a space.
+
+<CodeBlock client:load dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }} files={SB_JEC} template='javascript' title='jec' console={100} />

@@ -2,7 +2,7 @@ import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
 export const SB_ELEMENT_COLLECTOR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { ID } from '@aracna/core';
       import { ElementCollector } from '@aracna/web';
@@ -34,7 +34,7 @@ export const SB_ELEMENT_COLLECTOR: ProjectFiles = {
 };
 
 export const SB_FORM_FIELD_ELEMENT_COLLECTOR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { ID } from '@aracna/core';
       import { FormFieldElementCollector } from '@aracna/web';

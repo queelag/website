@@ -1,3 +1,35 @@
 ---
 title: Meter Element
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_GET_METER_ELEMENT_PERCENTAGE, SB_GET_METER_ELEMENT_VALUE } from '@/definitions/stack-blitz/web/utils'
+
+This is a collection of functions for working with meter elements.
+
+## Calculate the percentage
+
+The `getMeterElementPercentage` returns the percentage of a value between a minimum and a maximum.
+Optionally the percentage can be rounded.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_METER_ELEMENT_PERCENTAGE}
+  template='javascript'
+  title='getMeterElementPercentage'
+  console={100}
+/>
+
+## Get the value between the min and max
+
+The `getMeterElementValue` returns the value between a minimum and a maximum.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_METER_ELEMENT_VALUE}
+  template='javascript'
+  title='getMeterElementValue'
+  console={100}
+/>

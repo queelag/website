@@ -1,8 +1,13 @@
 import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
+/**
+ * Element
+ */
+/** */
+
 export const SB_CREATE_DOCUMENT_ELEMENT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { createDocumentElement } from '@aracna/web';
 
@@ -15,7 +20,7 @@ export const SB_CREATE_DOCUMENT_ELEMENT: ProjectFiles = {
 };
 
 export const SB_DEFINE_CUSTOM_ELEMENT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { defineCustomElement } from '@aracna/web';
 
@@ -29,7 +34,7 @@ export const SB_DEFINE_CUSTOM_ELEMENT: ProjectFiles = {
 };
 
 export const SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getElementStyleCompatibleValue } from '@aracna/web';
 
@@ -42,22 +47,61 @@ export const SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE: ProjectFiles = {
   `
 };
 
-export const SB_JOIN_ELEMENT_CLASSES: ProjectFiles = {
-  'index.js': html`
+export const SB_IS_ELEMENT_FOCUSED: ProjectFiles = {
+  'app.js': html`
     <script>
-      import { joinElementClasses } from '@aracna/web';
+      import { isElementFocused } from '@aracna/web';
 
-      // will log "button button-primary"
-      console.log(joinElementClasses('button', 'button-primary'));
+      const input = document.createElement('input');
+      document.getElementById('root').append(input);
+
+      input.focus();
+
+      // will log true
+      console.log(isElementFocused(input));
+    </script>
+  `
+};
+
+export const SB_REMOVE_ELEMENT_ATTRIBUTE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { removeElementAttribute } from '@aracna/web';
+
+      const div = document.createElement('div');
+      div.setAttribute('name', 'john');
+
+      removeElementAttribute(div, 'name');
+
+      // will log null
+      console.log(div.getAttribute('name'));
+    </script>
+  `
+};
+
+export const SB_REMOVE_IMMUTABLE_ELEMENT_ATTRIBUTE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import {
+        removeImmutableElementAttribute,
+        setImmutableElementAttribute
+      } from '@aracna/web';
+
+      const div = document.createElement('div');
+      setImmutableElementAttribute(div, 'name', 'john');
+
+      removeImmutableElementAttribute(div, 'name');
+
+      // will log null
+      console.log(div.getAttribute('name'));
     </script>
   `
 };
 
 export const SB_SCROLL_ELEMENT_INTO_VIEW: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { scrollElementIntoView } from '@aracna/web';
-      import './index.css';
 
       const root = document.getElementById('root');
       const button = document.createElement('button');
@@ -78,8 +122,89 @@ export const SB_SCROLL_ELEMENT_INTO_VIEW: ProjectFiles = {
   `
 };
 
+export const SB_SET_ELEMENT_ATTRIBUTE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { setElementAttribute } from '@aracna/web';
+
+      const div = document.createElement('div');
+      setElementAttribute(div, 'name', 'john');
+
+      // will log "john"
+      console.log(div.getAttribute('name'));
+    </script>
+  `
+};
+
+export const SB_SET_ELEMENT_ATTRIBUTES: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { setElementAttributes } from '@aracna/web';
+
+      const div = document.createElement('div');
+      setElementAttributes(div, { name: 'john', surname: 'doe' });
+
+      // will log "john"
+      console.log(div.getAttribute('name'));
+
+      // will log "doe"
+      console.log(div.getAttribute('surname'));
+    </script>
+  `
+};
+
+export const SB_SET_IMMUTABLE_ELEMENT_ATTRIBUTE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { setImmutableElementAttribute } from '@aracna/web';
+
+      const div = document.createElement('div');
+      setImmutableElementAttribute(div, 'name', 'john');
+
+      // will log "john"
+      console.log(div.getAttribute('name'));
+
+      div.setAttribute('name', 'paul');
+
+      // will log "john"
+      console.log(div.getAttribute('name'));
+    </script>
+  `
+};
+
+export const SB_SET_IMMUTABLE_ELEMENT_ATTRIBUTES: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { setImmutableElementAttributes } from '@aracna/web';
+
+      const div = document.createElement('div');
+      setImmutableElementAttributes(div, { name: 'john', surname: 'doe' });
+
+      // will log "john"
+      console.log(div.getAttribute('name'));
+
+      // will log "doe"
+      console.log(div.getAttribute('surname'));
+
+      div.setAttribute('name', 'paul');
+      div.setAttribute('surname', 'smith');
+
+      // will log "john"
+      console.log(div.getAttribute('name'));
+
+      // will log "doe"
+      console.log(div.getAttribute('surname'));
+    </script>
+  `
+};
+
+/**
+ * Image Element
+ */
+/** */
+
 export const SB_CACHE_IMAGE_ELEMENT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { cacheImageElement } from '@aracna/web';
 
@@ -107,7 +232,7 @@ export const SB_CACHE_IMAGE_ELEMENT: ProjectFiles = {
 };
 
 export const SB_CACHE_IMAGE_SRC: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { CACHE_IMAGES, cacheImageSrc } from '@aracna/web';
 
@@ -127,7 +252,7 @@ export const SB_CACHE_IMAGE_SRC: ProjectFiles = {
 };
 
 export const SB_GET_IMAGE_SRC_BASE64: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getImageSrcBase64 } from '@aracna/web';
 
@@ -143,7 +268,7 @@ export const SB_GET_IMAGE_SRC_BASE64: ProjectFiles = {
 };
 
 export const SB_GET_IMAGE_ELEMENT_BASE64: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getImageElementBase64 } from '@aracna/web';
 
@@ -161,8 +286,129 @@ export const SB_GET_IMAGE_ELEMENT_BASE64: ProjectFiles = {
   `
 };
 
+/**
+ * Meter Element
+ */
+/** */
+
+export const SB_GET_METER_ELEMENT_PERCENTAGE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { getMeterElementPercentage } from '@aracna/web';
+
+      // will log 50
+      console.log(getMeterElementPercentage(0.5, { min: 0, max: 1 }));
+    </script>
+  `
+};
+
+export const SB_GET_METER_ELEMENT_VALUE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { getMeterElementValue } from '@aracna/web';
+
+      // will log 0.5
+      console.log(getMeterElementValue(0.5, { min: 0, max: 1 }));
+    </script>
+  `
+};
+
+/**
+ * Radio Element
+ */
+/** */
+
+export const SB_FIND_RADIO_BUTTON_BY_VALUE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { findRadioButtonByValue } from '@aracna/web';
+
+      const radio1 = document.createElement('input');
+      const radio2 = document.createElement('input');
+
+      radio1.type = 'radio';
+      radio1.value = '1';
+
+      radio2.type = 'radio';
+      radio2.value = '2';
+
+      // will log HTMLInputElement with value "1"
+      console.log(findRadioButtonByValue([radio1, radio2], '1'));
+    </script>
+  `
+};
+
+export const SB_FIND_RADIO_BUTTON_LABEL_BY_VALUE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { findRadioButtonLabelByValue } from '@aracna/web';
+
+      const radio1 = document.createElement('input');
+      const radio2 = document.createElement('input');
+
+      radio1.label = 'label1';
+      radio1.type = 'radio';
+      radio1.value = '1';
+
+      radio2.label = 'label2';
+      radio2.type = 'radio';
+      radio2.value = '2';
+
+      // will log "label1"
+      console.log(findRadioButtonLabelByValue([radio1, radio2], '1'));
+    </script>
+  `
+};
+
+/**
+ * Select Element
+ */
+/** */
+
+export const SB_FIND_SELECT_OPTION_BY_VALUE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { findSelectOptionByValue } from '@aracna/web';
+
+      const option1 = document.createElement('option');
+      const option2 = document.createElement('option');
+
+      option1.value = '1';
+      option2.value = '2';
+
+      // will log HTMLOptionElement with value "1"
+      console.log(findSelectOptionByValue([option1, option2], '1'));
+    </script>
+  `
+};
+
+export const SB_FIND_SELECT_OPTION_LABEL_BY_VALUE: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { findSelectOptionLabelByValue } from '@aracna/web';
+
+      const option1 = document.createElement('option');
+      const option2 = document.createElement('option');
+
+      option1.label = 'label1';
+      option1.value = '1';
+
+      option2.label = 'label2';
+      option2.value = '2';
+
+      // will log "label1"
+      console.log(findSelectOptionLabelByValue([option1, option2], '1'));
+    </script>
+  `
+};
+
+/**
+ * Slider Element
+ */
+/** */
+
 export const SB_GET_SLIDER_THUMB_ELEMENT_PERCENTAGE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getSliderThumbElementPercentage } from '@aracna/web';
 
@@ -179,7 +425,7 @@ export const SB_GET_SLIDER_THUMB_ELEMENT_PERCENTAGE: ProjectFiles = {
 };
 
 export const SB_GET_SLIDER_THUMB_ELEMENT_STYLE_LEFT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getSliderThumbElementStyleLeft } from '@aracna/web';
 
@@ -193,7 +439,7 @@ export const SB_GET_SLIDER_THUMB_ELEMENT_STYLE_LEFT: ProjectFiles = {
 };
 
 export const SB_GET_SLIDER_THUMB_ELEMENT_STYLE_TOP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getSliderThumbElementStyleTop } from '@aracna/web';
 
@@ -206,8 +452,66 @@ export const SB_GET_SLIDER_THUMB_ELEMENT_STYLE_TOP: ProjectFiles = {
   `
 };
 
+/**
+ * Squircle
+ */
+/** */
+
+export const SB_APPEND_SQUIRCLE_ELEMENT: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { appendSquircleElement, getSquircleElement } from '@aracna/web';
+
+      appendSquircleElement({ size: 32 });
+
+      // will log SVGSVGElement
+      console.log(getSquircleElement({ size: 32 }));
+    </script>
+  `
+};
+
+export const SB_CREATE_SQUIRCLE_ELEMENT: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { createSquircleElement } from '@aracna/web';
+
+      // will log SVGSVGElement
+      console.log(createSquircleElement({ size: 32 }));
+    </script>
+  `
+};
+
+export const SB_GET_SQUIRCLE_ELEMENT: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { getSquircleElement } from '@aracna/web';
+
+      appendSquircleElement({ size: 32 });
+
+      // will log SVGSVGElement
+      console.log(getSquircleElement({ size: 32 }));
+    </script>
+  `
+};
+
+export const SB_GET_SQUIRCLES_CONTAINER: ProjectFiles = {
+  'app.js': html`
+    <script>
+      import { getSquirclesContainer } from '@aracna/web';
+
+      // will log HTMLDivElement
+      console.log(getSquirclesContainer());
+    </script>
+  `
+};
+
+/**
+ * String
+ */
+/** */
+
 export const SB_IS_STRING_SVG: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isStringSVG } from '@aracna/web';
 
@@ -217,8 +521,13 @@ export const SB_IS_STRING_SVG: ProjectFiles = {
   `
 };
 
+/**
+ * Window
+ */
+/** */
+
 export const SB_GET_WINDOW_BOUNDING_CLIENT_RECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getWindowBoundingClientRect } from '@aracna/web';
 

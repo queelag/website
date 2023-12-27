@@ -7,7 +7,7 @@ import type { ProjectFiles } from '@stackblitz/sdk';
 /** */
 
 export const SB_APPEARENCE_INITIALIZATION: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Appearence } from '@aracna/core';
 
@@ -30,7 +30,7 @@ export const SB_APPEARENCE_INITIALIZATION: ProjectFiles = {
 };
 
 export const SB_APPEARENCE_ON_CHANGE_THEME: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Appearence } from '@aracna/core';
 
@@ -47,7 +47,7 @@ export const SB_APPEARENCE_ON_CHANGE_THEME: ProjectFiles = {
 };
 
 export const SB_APPEARENCE_SET_THEME: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Appearence } from '@aracna/core';
 
@@ -65,7 +65,7 @@ export const SB_APPEARENCE_SET_THEME: ProjectFiles = {
 };
 
 export const SB_APPEARENCE_TOGGLE_THEME: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Appearence } from '@aracna/core';
 
@@ -83,7 +83,7 @@ export const SB_APPEARENCE_TOGGLE_THEME: ProjectFiles = {
 };
 
 export const SB_APPEARENCE_STORE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Appearence, MemoryStorage } from '@aracna/core';
 
@@ -106,7 +106,7 @@ export const SB_APPEARENCE_STORE: ProjectFiles = {
 /** */
 
 export const SB_ARACNA_BLOB_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaBlob } from '@aracna/core';
 
@@ -131,7 +131,7 @@ export const SB_ARACNA_BLOB_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
 };
 
 export const SB_ARACNA_BLOB_RESOLVE_TEXT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaBlob } from '@aracna/core';
 
@@ -152,7 +152,7 @@ export const SB_ARACNA_BLOB_RESOLVE_TEXT: ProjectFiles = {
 };
 
 export const SB_ARACNA_BLOB_UINT8ARRAY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaBlob } from '@aracna/core';
 
@@ -170,7 +170,7 @@ export const SB_ARACNA_BLOB_UINT8ARRAY: ProjectFiles = {
 };
 
 export const SB_ARACNA_BLOB_SERIALIZATION: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaBlob } from '@aracna/core';
 
@@ -212,7 +212,7 @@ export const SB_ARACNA_BLOB_SERIALIZATION: ProjectFiles = {
 /** */
 
 export const SB_ARACNA_FILE_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaFile } from '@aracna/core';
 
@@ -237,7 +237,7 @@ export const SB_ARACNA_FILE_RESOLVE_ARRAY_BUFFER: ProjectFiles = {
 };
 
 export const SB_ARACNA_FILE_RESOLVE_TEXT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaFile } from '@aracna/core';
 
@@ -258,7 +258,7 @@ export const SB_ARACNA_FILE_RESOLVE_TEXT: ProjectFiles = {
 };
 
 export const SB_ARACNA_FILE_UINT8ARRAY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaFile } from '@aracna/core';
 
@@ -276,7 +276,7 @@ export const SB_ARACNA_FILE_UINT8ARRAY: ProjectFiles = {
 };
 
 export const SB_ARACNA_FILE_SERIALIZATION: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaFile } from '@aracna/core';
 
@@ -324,7 +324,7 @@ export const SB_ARACNA_FILE_SERIALIZATION: ProjectFiles = {
 /** */
 
 export const SB_ASYNC_STORAGE_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AsyncStorage } from '@aracna/core';
 
@@ -349,7 +349,7 @@ export const SB_ASYNC_STORAGE_SET: ProjectFiles = {
 };
 
 export const SB_ASYNC_STORAGE_GET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AsyncStorage } from '@aracna/core';
 
@@ -374,7 +374,7 @@ export const SB_ASYNC_STORAGE_GET: ProjectFiles = {
 };
 
 export const SB_ASYNC_STORAGE_REMOVE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AsyncStorage } from '@aracna/core';
 
@@ -404,7 +404,7 @@ export const SB_ASYNC_STORAGE_REMOVE: ProjectFiles = {
 };
 
 export const SB_ASYNC_STORAGE_CLEAR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AsyncStorage } from '@aracna/core';
 
@@ -435,7 +435,7 @@ export const SB_ASYNC_STORAGE_CLEAR: ProjectFiles = {
 };
 
 export const SB_ASYNC_STORAGE_COPY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AsyncStorage } from '@aracna/core';
 
@@ -463,7 +463,7 @@ export const SB_ASYNC_STORAGE_COPY: ProjectFiles = {
 };
 
 export const SB_ASYNC_STORAGE_HAS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AsyncStorage } from '@aracna/core';
 
@@ -493,7 +493,7 @@ export const SB_ASYNC_STORAGE_HAS: ProjectFiles = {
 /** */
 
 export const SB_COOKIE_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Cookie } from '@aracna/core';
 
@@ -524,7 +524,7 @@ export const SB_COOKIE_SET: ProjectFiles = {
 };
 
 export const SB_COOKIE_GET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Cookie } from '@aracna/core';
 
@@ -555,7 +555,7 @@ export const SB_COOKIE_GET: ProjectFiles = {
 };
 
 export const SB_COOKIE_REMOVE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Cookie } from '@aracna/core';
 
@@ -587,7 +587,7 @@ export const SB_COOKIE_REMOVE: ProjectFiles = {
 };
 
 export const SB_COOKIE_CLEAR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Cookie } from '@aracna/core';
 
@@ -620,7 +620,7 @@ export const SB_COOKIE_CLEAR: ProjectFiles = {
 };
 
 export const SB_COOKIE_COPY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Cookie } from '@aracna/core';
 
@@ -659,7 +659,7 @@ export const SB_COOKIE_COPY: ProjectFiles = {
 /** */
 
 export const SB_DEFERRED_PROMISE_RESOLVE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { DeferredPromise } from '@aracna/core';
 
@@ -679,7 +679,7 @@ export const SB_DEFERRED_PROMISE_RESOLVE: ProjectFiles = {
 };
 
 export const SB_DEFERRED_PROMISE_REJECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { DeferredPromise } from '@aracna/core';
 
@@ -707,7 +707,7 @@ export const SB_DEFERRED_PROMISE_REJECT: ProjectFiles = {
 /** */
 
 export const SB_EVENT_EMITTER_ON: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -724,7 +724,7 @@ export const SB_EVENT_EMITTER_ON: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_ONCE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -742,7 +742,7 @@ export const SB_EVENT_EMITTER_ONCE: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_PREPEND: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -764,7 +764,7 @@ export const SB_EVENT_EMITTER_PREPEND: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_EMIT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -781,7 +781,7 @@ export const SB_EVENT_EMITTER_EMIT: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_OFF: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -801,7 +801,7 @@ export const SB_EVENT_EMITTER_OFF: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_GET_LISTENERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -821,7 +821,7 @@ export const SB_EVENT_EMITTER_GET_LISTENERS: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_COUNT_LISTENERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -841,7 +841,7 @@ export const SB_EVENT_EMITTER_COUNT_LISTENERS: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_HAS_LISTENERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -861,7 +861,7 @@ export const SB_EVENT_EMITTER_HAS_LISTENERS: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_GET_EVENT_NAMES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -881,7 +881,7 @@ export const SB_EVENT_EMITTER_GET_EVENT_NAMES: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_GET_MAX_LISTENERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -894,7 +894,7 @@ export const SB_EVENT_EMITTER_GET_MAX_LISTENERS: ProjectFiles = {
 };
 
 export const SB_EVENT_EMITTER_SET_MAX_LISTENERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { EventEmitter } from '@aracna/core';
 
@@ -921,7 +921,7 @@ export const SB_EVENT_EMITTER_SET_MAX_LISTENERS: ProjectFiles = {
 /** */
 
 export const SB_FETCH: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Fetch } from '@aracna/core';
 
@@ -944,7 +944,7 @@ export const SB_FETCH: ProjectFiles = {
 /** */
 
 export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { GraphQlAPI } from '@aracna/core';
 
@@ -967,7 +967,7 @@ export const SB_GRAPHQL_API_QUERY: ProjectFiles = {
 };
 
 export const SB_GRAPHQL_API_MUTATION: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { GraphQlAPI } from '@aracna/core';
 
@@ -1001,7 +1001,7 @@ export const SB_GRAPHQL_API_MUTATION: ProjectFiles = {
 /** */
 
 export const SB_LOCALIZATION_INITIALIZE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
 
@@ -1021,7 +1021,7 @@ export const SB_LOCALIZATION_INITIALIZE: ProjectFiles = {
 };
 
 export const SB_LOCALIZATION_PACKS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
 
@@ -1038,7 +1038,7 @@ export const SB_LOCALIZATION_PACKS: ProjectFiles = {
 };
 
 export const SB_LOCALIZATION_GET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
 
@@ -1078,7 +1078,7 @@ export const SB_LOCALIZATION_GET: ProjectFiles = {
 };
 
 export const SB_LOCALIZATION_HAS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
 
@@ -1102,7 +1102,7 @@ export const SB_LOCALIZATION_HAS: ProjectFiles = {
 };
 
 export const SB_LOCALIZATION_SET_LANGUAGE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
 
@@ -1120,7 +1120,7 @@ export const SB_LOCALIZATION_SET_LANGUAGE: ProjectFiles = {
 };
 
 export const SB_LOCALIZATION_SET_VARIABLES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
 
@@ -1145,7 +1145,7 @@ export const SB_LOCALIZATION_SET_VARIABLES: ProjectFiles = {
 };
 
 export const SB_LOCALIZATION_STORAGE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Localization } from '@aracna/core';
       import { LocalStorage } from '@aracna/web';
@@ -1187,7 +1187,7 @@ export const SB_LOCALIZATION_STORAGE: ProjectFiles = {
  */
 
 export const SB_LOGGER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Logger } from '@aracna/core';
 
@@ -1203,7 +1203,7 @@ export const SB_LOGGER: ProjectFiles = {
 };
 
 export const SB_LOGGER_COLORS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Logger } from '@aracna/core';
 
@@ -1223,7 +1223,7 @@ export const SB_LOGGER_COLORS: ProjectFiles = {
 };
 
 export const SB_LOGGER_SET_LEVEL: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Logger } from '@aracna/core';
 
@@ -1237,7 +1237,7 @@ export const SB_LOGGER_SET_LEVEL: ProjectFiles = {
 };
 
 export const SB_LOGGER_SET_SEPARATOR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Logger } from '@aracna/core';
 
@@ -1251,7 +1251,7 @@ export const SB_LOGGER_SET_SEPARATOR: ProjectFiles = {
 };
 
 export const SB_LOGGER_STATUS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Logger } from '@aracna/core';
 
@@ -1270,7 +1270,7 @@ export const SB_LOGGER_STATUS: ProjectFiles = {
 };
 
 export const SB_LOGGER_ENVIRONMENT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Logger } from '@aracna/core';
 
@@ -1291,7 +1291,7 @@ export const SB_LOGGER_ENVIRONMENT: ProjectFiles = {
 /** */
 
 export const SB_REST_API_GET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI } from '@aracna/core';
 
@@ -1311,7 +1311,7 @@ export const SB_REST_API_GET: ProjectFiles = {
 };
 
 export const SB_REST_API_STATUS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI, wf } from '@aracna/core';
 
@@ -1347,7 +1347,7 @@ export const SB_REST_API_STATUS: ProjectFiles = {
 };
 
 export const SB_REST_API_TRANSFORM_BODY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI } from '@aracna/core';
 
@@ -1381,7 +1381,7 @@ export const SB_REST_API_TRANSFORM_BODY: ProjectFiles = {
 };
 
 export const SB_REST_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI, serializeQueryParameters } from '@aracna/core';
 
@@ -1416,7 +1416,7 @@ export const SB_REST_API_TRANSFORM_QUERY_PARAMETERS: ProjectFiles = {
 };
 
 export const SB_REST_API_HANDLE_ERROR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI } from '@aracna/core';
 
@@ -1443,7 +1443,7 @@ export const SB_REST_API_HANDLE_ERROR: ProjectFiles = {
 };
 
 export const SB_REST_API_HANDLE_PENDING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI } from '@aracna/core';
 
@@ -1472,7 +1472,7 @@ export const SB_REST_API_HANDLE_PENDING: ProjectFiles = {
 };
 
 export const SB_REST_API_HANDLE_SUCCESS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { RestAPI } from '@aracna/core';
 
@@ -1506,7 +1506,7 @@ export const SB_REST_API_HANDLE_SUCCESS: ProjectFiles = {
 /** */
 
 export const SB_STATUS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { Status } from '@aracna/core';
 
@@ -1548,7 +1548,7 @@ export const SB_STATUS: ProjectFiles = {
 /** */
 
 export const SB_SYNC_STORAGE_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { SyncStorage } from '@aracna/core';
 
@@ -1571,7 +1571,7 @@ export const SB_SYNC_STORAGE_SET: ProjectFiles = {
 };
 
 export const SB_SYNC_STORAGE_GET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { SyncStorage } from '@aracna/core';
 
@@ -1594,7 +1594,7 @@ export const SB_SYNC_STORAGE_GET: ProjectFiles = {
 };
 
 export const SB_SYNC_STORAGE_REMOVE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { SyncStorage } from '@aracna/core';
 
@@ -1618,7 +1618,7 @@ export const SB_SYNC_STORAGE_REMOVE: ProjectFiles = {
 };
 
 export const SB_SYNC_STORAGE_CLEAR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { SyncStorage } from '@aracna/core';
 
@@ -1643,7 +1643,7 @@ export const SB_SYNC_STORAGE_CLEAR: ProjectFiles = {
 };
 
 export const SB_SYNC_STORAGE_COPY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { SyncStorage } from '@aracna/core';
 
@@ -1669,7 +1669,7 @@ export const SB_SYNC_STORAGE_COPY: ProjectFiles = {
 };
 
 export const SB_SYNC_STORAGE_HAS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { SyncStorage } from '@aracna/core';
 
@@ -1697,7 +1697,7 @@ export const SB_SYNC_STORAGE_HAS: ProjectFiles = {
 /** */
 
 export const SB_VISIBILITY_CONTROLLER_SHOW: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { VisibilityController } from '@aracna/core';
 
@@ -1714,7 +1714,7 @@ export const SB_VISIBILITY_CONTROLLER_SHOW: ProjectFiles = {
 };
 
 export const SB_VISIBILITY_CONTROLLER_HIDE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { VisibilityController } from '@aracna/core';
 
@@ -1736,7 +1736,7 @@ export const SB_VISIBILITY_CONTROLLER_HIDE: ProjectFiles = {
 };
 
 export const SB_VISIBILITY_CONTROLLER_TOGGLE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { VisibilityController } from '@aracna/core';
 

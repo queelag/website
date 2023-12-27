@@ -7,7 +7,7 @@ import type { ProjectFiles } from '@stackblitz/sdk';
 /** */
 
 export const SB_CAFS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { cafs } from '@aracna/core';
 
@@ -32,7 +32,7 @@ export const SB_CAFS: ProjectFiles = {
 /** */
 
 export const SB_CAFSUE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { cafsue } from '@aracna/core';
 
@@ -58,7 +58,7 @@ export const SB_CAFSUE: ProjectFiles = {
 /** */
 
 export const SB_CAFSUEOF: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { cafsueof } from '@aracna/core';
 
@@ -93,7 +93,7 @@ export const SB_CAFSUEOF: ProjectFiles = {
 /** */
 
 export const SB_DEBOUNCE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { debounce } from '@aracna/core';
 
@@ -119,7 +119,7 @@ export const SB_DEBOUNCE: ProjectFiles = {
 };
 
 export const SB_DEBOUNCE_CUSTOM_KEY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { debounce } from '@aracna/core';
 
@@ -148,7 +148,7 @@ export const SB_DEBOUNCE_CUSTOM_KEY: ProjectFiles = {
 /** */
 
 export const SB_GQL: ProjectFiles = {
-  'index.js':
+  'app.js':
     "import { gql } from '@aracna/core';\n\nconst GET_USERS_QUERY = gql`\n  query getUsers {\n    users {\n      id\n      name\n      email\n    }\n  }\n`"
 };
 
@@ -158,7 +158,7 @@ export const SB_GQL: ProjectFiles = {
 /** */
 
 export const SB_MA: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { ma } from '@aracna/core';
 
@@ -184,7 +184,7 @@ export const SB_MA: ProjectFiles = {
 /** */
 
 export const SB_MTC: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { mtc } from '@aracna/core';
 
@@ -215,7 +215,7 @@ export const SB_MTC: ProjectFiles = {
 /** */
 
 export const SB_MTCP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { mtcp } from '@aracna/core';
 
@@ -246,7 +246,7 @@ export const SB_MTCP: ProjectFiles = {
 /** */
 
 export const SB_NOOP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { noop } from '@aracna/core';
 
@@ -266,7 +266,7 @@ export const SB_NOOP: ProjectFiles = {
 /** */
 
 export const SB_RC: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { rc } from '@aracna/core';
 
@@ -286,7 +286,7 @@ export const SB_RC: ProjectFiles = {
 /** */
 
 export const SB_RCP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { rcp } from '@aracna/core';
 
@@ -308,7 +308,7 @@ export const SB_RCP: ProjectFiles = {
 /** */
 
 export const SB_RNE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { rne } from '@aracna/core';
 
@@ -335,7 +335,7 @@ export const SB_RNE: ProjectFiles = {
 /** */
 
 export const SB_RV: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { rv } from '@aracna/core';
 
@@ -355,7 +355,7 @@ export const SB_RV: ProjectFiles = {
 /** */
 
 export const SB_RVP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { rvp } from '@aracna/core';
 
@@ -377,7 +377,7 @@ export const SB_RVP: ProjectFiles = {
 /** */
 
 export const SB_SLEEP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { sleep } from '@aracna/core';
 
@@ -396,7 +396,7 @@ export const SB_SLEEP: ProjectFiles = {
 /** */
 
 export const SB_TC: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { tc } from '@aracna/core';
 
@@ -423,7 +423,7 @@ export const SB_TC: ProjectFiles = {
 /** */
 
 export const SB_TCP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { tcp } from '@aracna/core';
 
@@ -452,7 +452,7 @@ export const SB_TCP: ProjectFiles = {
 /** */
 
 export const SB_THROTTLE_FN_AS_KEY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { throttle } from '@aracna/core';
 
@@ -476,7 +476,7 @@ export const SB_THROTTLE_FN_AS_KEY: ProjectFiles = {
 };
 
 export const SB_THROTTLE_NAME_AS_KEY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { throttle } from '@aracna/core';
 
@@ -505,7 +505,7 @@ export const SB_THROTTLE_NAME_AS_KEY: ProjectFiles = {
 /** */
 
 export const SB_TIE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { tie } from '@aracna/core';
 
@@ -532,7 +532,7 @@ export const SB_TIE: ProjectFiles = {
 /** */
 
 export const SB_TNE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { tne } from '@aracna/core';
 
@@ -559,7 +559,7 @@ export const SB_TNE: ProjectFiles = {
 /** */
 
 export const SB_TYPEAHEAD: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { typeahead } from '@aracna/core';
 
@@ -589,7 +589,7 @@ export const SB_TYPEAHEAD: ProjectFiles = {
 /** */
 
 export const SB_WF: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { wf } from '@aracna/core';
 
@@ -615,7 +615,7 @@ export const SB_WF: ProjectFiles = {
 /** */
 
 export const SB_WFP: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { wfp } from '@aracna/core';
 

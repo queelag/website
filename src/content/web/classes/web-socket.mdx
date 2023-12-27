@@ -3,15 +3,28 @@ title: WebSocket
 ---
 
 import { CodeBlock } from '@/blocks/CodeBlock'
-import { SB_WEB_SOCKET_OPEN, SB_WEB_SOCKET_CLOSE, SB_WEB_SOCKET_SEND, SB_WEB_SOCKET_RECEIVE } from '@/definitions/stack-blitz/web/modules'
+import { SB_WEB_SOCKET_OPEN, SB_WEB_SOCKET_CLOSE, SB_WEB_SOCKET_SEND, SB_WEB_SOCKET_RECEIVE } from '@/definitions/stack-blitz/web/classes'
 
-The **WebSocket** class is used to create and manage WebSocket connections in the browser environment. The class takes several parameters including the name of the WebSocket, the URL to connect to, and callback functions for various WebSocket events.
+The `WebSocket` class is built on top of the native `WebSocket` class.
 
-WebSockets are a protocol for creating real-time, two-way communication channels between a client (usually a web browser) and a server. Unlike traditional HTTP requests, which are one-way and require the client to initiate a new request for each update, WebSockets allow for continuous, bidirectional communication between the client and server.
+- The `close` method is asynchronous and resolves when the connection is closed.
+- The `open` method is asynchronous and resolves when the connection is opened.
+- The `send` method can send blobs, buffers, objects and strings.
+- The received message data will be automatically parsed if it is a JSON string.
+- The data to send can be transformed before sending with the `transformSendData` method.
+- The received data can be transformed before handling it in the message event with the `transformMessageData` method.
 
-## Open Connection
+## Events
 
-The **open** function is used to open the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
+- The `close` event is emitted when the connection is closed.
+- The `error` event is emitted when the connection crashes.
+- The `message` event is emitted when a message is received.
+- The `open` event is emitted when the connection is opened.
+
+## Open the connection
+
+The `open` method opens the connection.
+Optionally the binary type, protocols, data transformers and URL can be set before opening the connection.
 
 <CodeBlock
   client:load
@@ -22,9 +35,9 @@ The **open** function is used to open the WebSocket connection. It is an asynchr
   console={100}
 />
 
-## Close Connection
+## Close the connection
 
-The **close** function is used to close the WebSocket connection. It is an asynchronous function that takes no parameters and returns a **Promise** object.
+The `close` method closes the connection. Optionally with a code and a reason.
 
 <CodeBlock
   client:load
@@ -35,9 +48,13 @@ The **close** function is used to close the WebSocket connection. It is an async
   console={100}
 />
 
-## Send Message
+## Send data
 
-The **send** function is used to send data over a WebSocket connection. It takes one parameter, **data**, which is the data to send over the WebSocket connection.
+The `send` method sends data to the web socket.
+
+- The data will be left as is if it is an `ArrayBuffer` or a `Blob`.
+- The data will be JSON stringified if it is an object.
+- The data will be transformed with the `transformSendData` method.
 
 <CodeBlock
   client:load
@@ -48,9 +65,9 @@ The **send** function is used to send data over a WebSocket connection. It takes
   console={100}
 />
 
-## Receive Message
+## Listen to messages
 
-The **onMessage** event is used to handle incoming data over a WebSocket connection. It is a callback function that takes one parameter, **event**, which is a **MessageEvent** object containing the incoming data.
+The `message` event is emitted when a message is received. The class is an `EventEmitter` so the `on` method can be used to listen to the event.
 
 <CodeBlock
   client:load

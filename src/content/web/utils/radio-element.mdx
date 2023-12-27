@@ -1,3 +1,38 @@
 ---
 title: Radio Element
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_FIND_RADIO_BUTTON_BY_VALUE, SB_FIND_RADIO_BUTTON_LABEL_BY_VALUE } from '@/definitions/stack-blitz/web/utils'
+
+This is a collection of functions for working with radio elements.
+
+## Find a button by value
+
+The `findRadioButtonByValue` function finds a radio button by its value.
+Optionally a custom function can be passed to get the value of the radio button.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_FIND_RADIO_BUTTON_BY_VALUE}
+  template='javascript'
+  title='findRadioButtonByValue'
+  console={100}
+/>
+
+## Find a button's label by value
+
+The `findRadioButtonLabelByValue` function finds a radio button label by its value.
+
+- Optionally a custom function can be passed to get the label of the radio button.
+- Optionally a custom function can be passed to get the value of the radio button.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_FIND_RADIO_BUTTON_LABEL_BY_VALUE}
+  template='javascript'
+  title='findRadioButtonLabelByValue'
+  console={100}
+/>

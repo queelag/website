@@ -37,7 +37,7 @@ export function OverlayMobileNavigation(props: Props) {
           </a>
           <IconFeatherX onClick={onClose} size={24} stroke='white' stroke-width={2} />
         </div>
-        <div className='flex flex-col px-4'>
+        <div className='flex flex-col px-4 overflow-y-auto'>
           {props.items.map((item: NavigationItem) => (
             <Item {...item} key={item.slug} />
           ))}

@@ -1,0 +1,68 @@
+---
+title: Image Element
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_CACHE_IMAGE_ELEMENT, SB_CACHE_IMAGE_SRC, SB_GET_IMAGE_ELEMENT_BASE64, SB_GET_IMAGE_SRC_BASE64 } from '@/definitions/stack-blitz/web/utils'
+
+This is a collection of functions for working with image elements.
+
+## Cache the data of an element
+
+The `cacheImageElement` function caches the base64 data of an image element.
+
+- Optionally the caching can be forced even if the image has already been cached.
+- Optionally the quality and type of the saved data can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CACHE_IMAGE_ELEMENT}
+  template='javascript'
+  title='cacheImageElement'
+  console={100}
+/>
+
+## Cache the data from a source
+
+The `cacheImageSrc` function caches the base64 data from an image src.
+
+- Optionally the caching can be forced even if the image has already been cached.
+- Optionally the quality and type of the saved data can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CACHE_IMAGE_SRC}
+  template='javascript'
+  title='cacheImageSrc'
+  console={100}
+/>
+
+## Get the base64 of an element
+
+The `getImageElementBase64` function returns the base64 data of an image element.
+Optionally the quality and type of the saved data can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_IMAGE_ELEMENT_BASE64}
+  template='javascript'
+  title='getImageElementBase64'
+  console={100}
+/>
+
+## Get the base64 from a source
+
+The `getImageSrcBase64` function returns the base64 data from an image src.
+Optionally the quality and type of the saved data can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_IMAGE_SRC_BASE64}
+  template='javascript'
+  title='getImageSrcBase64'
+  console={100}
+/>

@@ -7,7 +7,7 @@ import type { ProjectFiles } from '@stackblitz/sdk';
 /** */
 
 export const SB_CLONE_ARRAY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { cloneArray } from '@aracna/core';
 
@@ -27,7 +27,7 @@ export const SB_CLONE_ARRAY: ProjectFiles = {
 };
 
 export const SB_GET_ARRAYS_DIFFERENCE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getArraysDifference } from '@aracna/core';
 
@@ -41,7 +41,7 @@ export const SB_GET_ARRAYS_DIFFERENCE: ProjectFiles = {
 };
 
 export const SB_GET_ARRAYS_INTERSECTION: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getArraysIntersection } from '@aracna/core';
 
@@ -55,7 +55,7 @@ export const SB_GET_ARRAYS_INTERSECTION: ProjectFiles = {
 };
 
 export const SB_GET_ARRAY_LAST_ITEM: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getArrayLastItem } from '@aracna/core';
 
@@ -72,7 +72,7 @@ export const SB_GET_ARRAY_LAST_ITEM: ProjectFiles = {
 };
 
 export const SB_REMOVE_ARRAY_DUPLICATES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { removeArrayDuplicates } from '@aracna/core'
 
@@ -100,7 +100,7 @@ export const SB_REMOVE_ARRAY_DUPLICATES: ProjectFiles = {
 };
 
 export const SB_REMOVE_ARRAY_ITEMS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { removeArrayItems } from '@aracna/core'
 
@@ -116,7 +116,7 @@ export const SB_REMOVE_ARRAY_ITEMS: ProjectFiles = {
 };
 
 export const SB_IS_ARRAY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isArray } from '@aracna/core';
 
@@ -135,7 +135,7 @@ export const SB_IS_ARRAY: ProjectFiles = {
 /** */
 
 export const SB_BASE16_ENCODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { encodeBase16 } from '@aracna/core';
 
@@ -146,7 +146,7 @@ export const SB_BASE16_ENCODE: ProjectFiles = {
 };
 
 export const SB_BASE16_DECODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { decodeBase16 } from '@aracna/core';
 
@@ -162,7 +162,7 @@ export const SB_BASE16_DECODE: ProjectFiles = {
 /** */
 
 export const SB_BASE32_ENCODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { encodeBase32 } from '@aracna/core';
 
@@ -173,7 +173,7 @@ export const SB_BASE32_ENCODE: ProjectFiles = {
 };
 
 export const SB_BASE32_DECODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { decodeBase32 } from '@aracna/core';
 
@@ -184,7 +184,7 @@ export const SB_BASE32_DECODE: ProjectFiles = {
 };
 
 export const SB_BASE32_HEX_ENCODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { encodeBase32Hex } from '@aracna/core';
 
@@ -195,7 +195,7 @@ export const SB_BASE32_HEX_ENCODE: ProjectFiles = {
 };
 
 export const SB_BASE32_HEX_DECODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { decodeBase32Hex } from '@aracna/core';
 
@@ -211,7 +211,7 @@ export const SB_BASE32_HEX_DECODE: ProjectFiles = {
 /** */
 
 export const SB_BASE64_ENCODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { encodeBase64 } from '@aracna/core';
 
@@ -222,7 +222,7 @@ export const SB_BASE64_ENCODE: ProjectFiles = {
 };
 
 export const SB_BASE64_DECODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { decodeBase64 } from '@aracna/core';
 
@@ -233,7 +233,7 @@ export const SB_BASE64_DECODE: ProjectFiles = {
 };
 
 export const SB_BASE64_URL_ENCODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { encodeBase64URL } from '@aracna/core';
 
@@ -244,7 +244,7 @@ export const SB_BASE64_URL_ENCODE: ProjectFiles = {
 };
 
 export const SB_BASE64_URL_DECODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { decodeBase64URL } from '@aracna/core';
 
@@ -260,7 +260,7 @@ export const SB_BASE64_URL_DECODE: ProjectFiles = {
 /** */
 
 export const SB_SERIALIZE_BLOB: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaBlob, serializeBlob } from '@aracna/core';
 
@@ -276,7 +276,7 @@ export const SB_SERIALIZE_BLOB: ProjectFiles = {
 };
 
 export const SB_DESERIALIZE_BLOB: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deserializeBlob } from '@aracna/core';
 
@@ -297,7 +297,7 @@ export const SB_DESERIALIZE_BLOB: ProjectFiles = {
 /** */
 
 export const SB_SERIALIZE_COOKIE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { serializeCookie } from '@aracna/core';
 
@@ -308,7 +308,7 @@ export const SB_SERIALIZE_COOKIE: ProjectFiles = {
 };
 
 export const SB_DESERIALIZE_COOKIE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deserializeCookie } from '@aracna/core';
 
@@ -324,7 +324,7 @@ export const SB_DESERIALIZE_COOKIE: ProjectFiles = {
 /** */
 
 export const SB_GET_DATE_UNIX_TIME: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getDateUnixTime } from '@aracna/core';
 
@@ -343,7 +343,7 @@ export const SB_GET_DATE_UNIX_TIME: ProjectFiles = {
 /** */
 
 export const SB_GET_EMOJI_FROM_COUNTRY_CODE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getEmojiFromCountryCode } from '@aracna/core';
 
@@ -362,7 +362,7 @@ export const SB_GET_EMOJI_FROM_COUNTRY_CODE: ProjectFiles = {
 /** */
 
 export const SB_IS_ERROR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isError } from '@aracna/core';
 
@@ -378,7 +378,7 @@ export const SB_IS_ERROR: ProjectFiles = {
 /** */
 
 export const SB_DELETE_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         deleteFetchRequestInitHeader,
@@ -395,7 +395,7 @@ export const SB_DELETE_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
 };
 
 export const SB_GET_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getFetchRequestInitHeader } from '@aracna/core';
 
@@ -408,7 +408,7 @@ export const SB_GET_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
 };
 
 export const SB_GET_FETCH_REQUEST_INIT_HEADERS_ENTRIES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getFetchRequestInitHeadersEntries } from '@aracna/core';
 
@@ -421,7 +421,7 @@ export const SB_GET_FETCH_REQUEST_INIT_HEADERS_ENTRIES: ProjectFiles = {
 };
 
 export const SB_COUNT_FETCH_REQUEST_INIT_HEADERS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { countFetchRequestInitHeaders } from '@aracna/core';
 
@@ -434,7 +434,7 @@ export const SB_COUNT_FETCH_REQUEST_INIT_HEADERS: ProjectFiles = {
 };
 
 export const SB_SET_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         getFetchRequestInitHeader,
@@ -451,7 +451,7 @@ export const SB_SET_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
 };
 
 export const SB_SET_FETCH_REQUEST_INIT_HEADER_WHEN_UNSET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         getFetchRequestInitHeader,
@@ -474,7 +474,7 @@ export const SB_SET_FETCH_REQUEST_INIT_HEADER_WHEN_UNSET: ProjectFiles = {
 };
 
 export const SB_HAS_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         hasFetchRequestInitHeader,
@@ -491,7 +491,7 @@ export const SB_HAS_FETCH_REQUEST_INIT_HEADER: ProjectFiles = {
 };
 
 export const SB_MERGE_FETCH_REQUEST_INITS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         getFetchRequestInitHeadersEntries,
@@ -512,7 +512,7 @@ export const SB_MERGE_FETCH_REQUEST_INITS: ProjectFiles = {
 };
 
 export const SB_TO_NATIVE_FETCH_REQUEST_INIT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import {
         getFetchRequestInitHeader,
@@ -532,7 +532,7 @@ export const SB_TO_NATIVE_FETCH_REQUEST_INIT: ProjectFiles = {
 };
 
 export const SB_TO_LOGGABLE_FETCH_REQUEST_INIT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { toLoggableFetchRequestInit } from '@aracna/core';
 
@@ -548,7 +548,7 @@ export const SB_TO_LOGGABLE_FETCH_REQUEST_INIT: ProjectFiles = {
 };
 
 export const SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { toLoggableNativeFetchRequestInit } from '@aracna/core';
 
@@ -569,7 +569,7 @@ export const SB_TO_LOGGABLE_NATIVE_FECTH_REQUEST_INIT: ProjectFiles = {
 /** */
 
 export const SB_SERIALIZE_FILE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { AracnaFile, serializeFile } from '@aracna/core';
 
@@ -588,7 +588,7 @@ export const SB_SERIALIZE_FILE: ProjectFiles = {
 };
 
 export const SB_DESERIALIZE_FILE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deserializeFile } from '@aracna/core';
 
@@ -612,7 +612,7 @@ export const SB_DESERIALIZE_FILE: ProjectFiles = {
 /** */
 
 export const SB_SERIALIZE_FORM_DATA: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { serializeFormData } from '@aracna/core';
 
@@ -644,7 +644,7 @@ export const SB_SERIALIZE_FORM_DATA: ProjectFiles = {
 };
 
 export const SB_DESERIALIZE_FORM_DATA: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deserializeFormData } from '@aracna/core';
 
@@ -667,7 +667,7 @@ export const SB_DESERIALIZE_FORM_DATA: ProjectFiles = {
 /** */
 
 export const SB_IS_INSTANCE_OF: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isInstanceOf } from '@aracna/core';
 
@@ -683,7 +683,7 @@ export const SB_IS_INSTANCE_OF: ProjectFiles = {
 /** */
 
 export const SB_INTERVAL_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { setInterval } from '@aracna/core';
 
@@ -697,7 +697,7 @@ export const SB_INTERVAL_SET: ProjectFiles = {
 };
 
 export const SB_INTERVAL_SET_CUSTOM_KEY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { setInterval } from '@aracna/core';
 
@@ -709,7 +709,7 @@ export const SB_INTERVAL_SET_CUSTOM_KEY: ProjectFiles = {
 };
 
 export const SB_INTERVAL_CLEAR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { clearInterval, setInterval } from '@aracna/core';
 
@@ -724,7 +724,7 @@ export const SB_INTERVAL_CLEAR: ProjectFiles = {
 };
 
 export const SB_INTERVAL_CLEAR_EVERY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { clearEveryInterval, setInterval } from '@aracna/core';
 
@@ -741,7 +741,7 @@ export const SB_INTERVAL_CLEAR_EVERY: ProjectFiles = {
 };
 
 export const SB_INTERVAL_IS_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isIntervalSet, setInterval } from '@aracna/core';
 
@@ -762,7 +762,7 @@ export const SB_INTERVAL_IS_SET: ProjectFiles = {
 /** */
 
 export const SB_LOGGER_GET_ANSI_COLOR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getLoggerAnsiColor } from '@aracna/core';
 
@@ -790,7 +790,7 @@ export const SB_LOGGER_GET_ANSI_COLOR: ProjectFiles = {
 /** */
 
 export const SB_GET_ABSOLUTE_NUMBER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getAbsoluteNumber } from '@aracna/core';
 
@@ -801,7 +801,7 @@ export const SB_GET_ABSOLUTE_NUMBER: ProjectFiles = {
 };
 
 export const SB_GET_FIXED_NUMBER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getFixedNumber } from '@aracna/core';
 
@@ -812,7 +812,7 @@ export const SB_GET_FIXED_NUMBER: ProjectFiles = {
 };
 
 export const SB_GET_NUMBERS_DISTANCE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getNumbersDistance } from '@aracna/core';
 
@@ -823,7 +823,7 @@ export const SB_GET_NUMBERS_DISTANCE: ProjectFiles = {
 };
 
 export const SB_GET_LIMITED_NUMBER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getLimitedNumber } from '@aracna/core';
 
@@ -834,7 +834,7 @@ export const SB_GET_LIMITED_NUMBER: ProjectFiles = {
 };
 
 export const SB_GET_NUMBER_PERCENTAGE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getNumberPercentage } from '@aracna/core';
 
@@ -845,7 +845,7 @@ export const SB_GET_NUMBER_PERCENTAGE: ProjectFiles = {
 };
 
 export const SB_GET_HIGHEST_NUMBER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getHighestNumber } from '@aracna/core';
 
@@ -856,7 +856,7 @@ export const SB_GET_HIGHEST_NUMBER: ProjectFiles = {
 };
 
 export const SB_GET_LOWEST_NUMBER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getLowestNumber } from '@aracna/core';
 
@@ -867,7 +867,7 @@ export const SB_GET_LOWEST_NUMBER: ProjectFiles = {
 };
 
 export const SB_PARSE_BIG_INT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { parseBigInt } from '@aracna/core';
 
@@ -878,7 +878,7 @@ export const SB_PARSE_BIG_INT: ProjectFiles = {
 };
 
 export const SB_PARSE_NUMBER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { parseNumber } from '@aracna/core';
 
@@ -892,7 +892,7 @@ export const SB_PARSE_NUMBER: ProjectFiles = {
 };
 
 export const SB_IS_NUMBER_EVEN: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isNumberEven } from '@aracna/core';
 
@@ -903,7 +903,7 @@ export const SB_IS_NUMBER_EVEN: ProjectFiles = {
 };
 
 export const SB_IS_NUMBER_MULTIPLE_OF: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isNumberMultipleOf } from '@aracna/core';
 
@@ -914,7 +914,7 @@ export const SB_IS_NUMBER_MULTIPLE_OF: ProjectFiles = {
 };
 
 export const SB_IS_NUMBER_ODD: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isNumberOdd } from '@aracna/core';
 
@@ -930,7 +930,7 @@ export const SB_IS_NUMBER_ODD: ProjectFiles = {
 /** */
 
 export const SB_CLONE_OBJECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { cloneObject } from '@aracna/core';
 
@@ -960,7 +960,7 @@ export const SB_CLONE_OBJECT: ProjectFiles = {
 };
 
 export const SB_COPY_OBJECT_PROPERTY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { copyObjectProperty } from '@aracna/core';
 
@@ -983,7 +983,7 @@ export const SB_COPY_OBJECT_PROPERTY: ProjectFiles = {
 };
 
 export const SB_DELETE_OBJECT_PROPERTY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deleteObjectProperty } from '@aracna/core';
 
@@ -1005,7 +1005,7 @@ export const SB_DELETE_OBJECT_PROPERTY: ProjectFiles = {
 };
 
 export const SB_DELETE_OBJECT_PROPERTIES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deleteObjectProperties } from '@aracna/core';
 
@@ -1020,7 +1020,7 @@ export const SB_DELETE_OBJECT_PROPERTIES: ProjectFiles = {
 };
 
 export const SB_FLATTEN_OBJECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { flattenObject } from '@aracna/core';
 
@@ -1033,7 +1033,7 @@ export const SB_FLATTEN_OBJECT: ProjectFiles = {
 };
 
 export const SB_GET_OBJECT_PROPERTY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getObjectProperty } from '@aracna/core';
 
@@ -1049,7 +1049,7 @@ export const SB_GET_OBJECT_PROPERTY: ProjectFiles = {
 };
 
 export const SB_MERGE_OBJECTS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { mergeObjects } from '@aracna/core';
 
@@ -1063,7 +1063,7 @@ export const SB_MERGE_OBJECTS: ProjectFiles = {
 };
 
 export const SB_OMIT_OBJECT_PROPERTIES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { omitObjectProperties } from '@aracna/core';
 
@@ -1076,7 +1076,7 @@ export const SB_OMIT_OBJECT_PROPERTIES: ProjectFiles = {
 };
 
 export const SB_PICK_OBJECT_PROPERTIES: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { pickObjectProperties } from '@aracna/core';
 
@@ -1089,7 +1089,7 @@ export const SB_PICK_OBJECT_PROPERTIES: ProjectFiles = {
 };
 
 export const SB_SET_OBJECT_PROPERTY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { setObjectProperty } from '@aracna/core';
 
@@ -1120,7 +1120,7 @@ export const SB_SET_OBJECT_PROPERTY: ProjectFiles = {
 };
 
 export const SB_HAS_OBJECT_PROPERTY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { hasObjectProperty } from '@aracna/core';
 
@@ -1136,7 +1136,7 @@ export const SB_HAS_OBJECT_PROPERTY: ProjectFiles = {
 };
 
 export const SB_IS_OBJECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObject } from '@aracna/core';
 
@@ -1147,7 +1147,7 @@ export const SB_IS_OBJECT: ProjectFiles = {
 };
 
 export const SB_IS_OBJECT_CLONABLE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObjectClonable } from '@aracna/core';
 
@@ -1161,7 +1161,7 @@ export const SB_IS_OBJECT_CLONABLE: ProjectFiles = {
 };
 
 export const SB_IS_OBJECT_FLATTENABLE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObjectFlattenable } from '@aracna/core';
 
@@ -1175,7 +1175,7 @@ export const SB_IS_OBJECT_FLATTENABLE: ProjectFiles = {
 };
 
 export const SB_IS_OBJECT_KEYS_POPULATED: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObjectKeysPopulated } from '@aracna/core';
 
@@ -1186,7 +1186,7 @@ export const SB_IS_OBJECT_KEYS_POPULATED: ProjectFiles = {
 };
 
 export const SB_IS_OBJECT_VALUES_POPULATED: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isObjectValuesPopulated } from '@aracna/core';
 
@@ -1197,7 +1197,7 @@ export const SB_IS_OBJECT_VALUES_POPULATED: ProjectFiles = {
 };
 
 export const SB_IS_PLAIN_OBJECT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isPlainObject } from '@aracna/core';
 
@@ -1213,7 +1213,7 @@ export const SB_IS_PLAIN_OBJECT: ProjectFiles = {
 /** */
 
 export const SB_IS_PROMISE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isPromise } from '@aracna/core';
 
@@ -1224,7 +1224,7 @@ export const SB_IS_PROMISE: ProjectFiles = {
 };
 
 export const SB_IS_PROMISE_LIKE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { noop, isPromiseLike } from '@aracna/core';
 
@@ -1243,7 +1243,7 @@ export const SB_IS_PROMISE_LIKE: ProjectFiles = {
 /** */
 
 export const SB_GET_CAMEL_CASE_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getCamelCaseString } from '@aracna/core';
 
@@ -1254,7 +1254,7 @@ export const SB_GET_CAMEL_CASE_STRING: ProjectFiles = {
 };
 
 export const SB_GET_CAPITALIZED_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getCapitalizedString } from '@aracna/core';
 
@@ -1268,7 +1268,7 @@ export const SB_GET_CAPITALIZED_STRING: ProjectFiles = {
 };
 
 export const SB_GET_KEBAB_CASE_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getKebabCaseString } from '@aracna/core';
 
@@ -1279,7 +1279,7 @@ export const SB_GET_KEBAB_CASE_STRING: ProjectFiles = {
 };
 
 export const SB_GET_PASCAL_CASE_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getPascalCaseString } from '@aracna/core';
 
@@ -1290,7 +1290,7 @@ export const SB_GET_PASCAL_CASE_STRING: ProjectFiles = {
 };
 
 export const SB_GET_SNAKE_CASE_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getSnakeCaseStranger } from '@aracna/core';
 
@@ -1301,7 +1301,7 @@ export const SB_GET_SNAKE_CASE_STRING: ProjectFiles = {
 };
 
 export const SB_GET_SYMBOL_CASE_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getKebabCaseString } from '@aracna/core';
 
@@ -1312,7 +1312,7 @@ export const SB_GET_SYMBOL_CASE_STRING: ProjectFiles = {
 };
 
 export const SB_GENERATE_RANDOM_STRING: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { generateRandomString } from '@aracna/core';
 
@@ -1329,7 +1329,7 @@ export const SB_GENERATE_RANDOM_STRING: ProjectFiles = {
 };
 
 export const SB_IS_STRING_FLOAT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isStringFloat } from '@aracna/core';
 
@@ -1340,7 +1340,7 @@ export const SB_IS_STRING_FLOAT: ProjectFiles = {
 };
 
 export const SB_IS_STRING_INT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isStringInt } from '@aracna/core';
 
@@ -1351,7 +1351,7 @@ export const SB_IS_STRING_INT: ProjectFiles = {
 };
 
 export const SB_IS_STRING_JSON: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isStringJSON } from '@aracna/core';
 
@@ -1362,7 +1362,7 @@ export const SB_IS_STRING_JSON: ProjectFiles = {
 };
 
 export const SB_IS_STRING_URL: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isStringURL } from '@aracna/core';
 
@@ -1378,7 +1378,7 @@ export const SB_IS_STRING_URL: ProjectFiles = {
 /** */
 
 export const SB_DECODE_TEXT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { decodeText } from '@aracna/core';
 
@@ -1389,7 +1389,7 @@ export const SB_DECODE_TEXT: ProjectFiles = {
 };
 
 export const SB_ENCODE_TEXT: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { encodeText } from '@aracna/core';
 
@@ -1400,7 +1400,7 @@ export const SB_ENCODE_TEXT: ProjectFiles = {
 };
 
 export const SB_GET_TEXT_DECODER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getTextDecoder } from '@aracna/core';
 
@@ -1411,7 +1411,7 @@ export const SB_GET_TEXT_DECODER: ProjectFiles = {
 };
 
 export const SB_GET_TEXT_ENCODER: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { getTextEncoder } from '@aracna/core';
 
@@ -1427,7 +1427,7 @@ export const SB_GET_TEXT_ENCODER: ProjectFiles = {
 /** */
 
 export const SB_TIMEOUT_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { clearTimeout, setTimeout } from '@aracna/core';
 
@@ -1449,7 +1449,7 @@ export const SB_TIMEOUT_SET: ProjectFiles = {
 };
 
 export const SB_TIMEOUT_SET_CUSTOM_KEY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { clearTimeout, setTimeout } from '@aracna/core';
 
@@ -1469,7 +1469,7 @@ export const SB_TIMEOUT_SET_CUSTOM_KEY: ProjectFiles = {
 };
 
 export const SB_TIMEOUT_CLEAR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { clearTimeout, setTimeout } from '@aracna/core';
 
@@ -1485,7 +1485,7 @@ export const SB_TIMEOUT_CLEAR: ProjectFiles = {
 };
 
 export const SB_TIMEOUT_CLEAR_EVERY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { clearEveryTimeout, setTimeout } from '@aracna/core';
 
@@ -1499,7 +1499,7 @@ export const SB_TIMEOUT_CLEAR_EVERY: ProjectFiles = {
 };
 
 export const SB_TIMEOUT_IS_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { setTimeout, isTimeoutSet } from '@aracna/core';
 
@@ -1520,7 +1520,7 @@ export const SB_TIMEOUT_IS_SET: ProjectFiles = {
 /** */
 
 export const SB_APPEND_SEARCH_PARAMS_TO_URL: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { appendSearchParamsToURL } from '@aracna/core';
 
@@ -1533,7 +1533,7 @@ export const SB_APPEND_SEARCH_PARAMS_TO_URL: ProjectFiles = {
 };
 
 export const SB_CONCAT_URL: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { concatURL } from '@aracna/core';
 
@@ -1544,7 +1544,7 @@ export const SB_CONCAT_URL: ProjectFiles = {
 };
 
 export const SB_DESERIALIZE_URL_SEARCH_PARAMS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { deserializeURLSearchParams } from '@aracna/core';
 
@@ -1569,7 +1569,7 @@ export const SB_DESERIALIZE_URL_SEARCH_PARAMS: ProjectFiles = {
 };
 
 export const SB_REMOVE_SEARCH_PARAMS_FROM_URL: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { removeSearchParamsFromURL } from '@aracna/core';
 
@@ -1582,7 +1582,7 @@ export const SB_REMOVE_SEARCH_PARAMS_FROM_URL: ProjectFiles = {
 };
 
 export const SB_SERIALIZE_URL_SEARCH_PARAMS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { serializeURLSearchParams } from '@aracna/core';
 
@@ -1604,7 +1604,7 @@ export const SB_SERIALIZE_URL_SEARCH_PARAMS: ProjectFiles = {
 };
 
 export const SB_IS_URL: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { isURL } from '@aracna/core';
 

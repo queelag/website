@@ -6,15 +6,22 @@ import { CodeBlock } from '@/blocks/CodeBlock'
 import {
   SB_DEFINE_CUSTOM_ELEMENT,
   SB_GET_ELEMENT_STYLE_COMPATIBLE_VALUE,
-  SB_JOIN_ELEMENT_CLASSES,
-  SB_SCROLL_ELEMENT_INTO_VIEW
+  SB_IS_ELEMENT_FOCUSED,
+  SB_REMOVE_ELEMENT_ATTRIBUTE,
+  SB_REMOVE_IMMUTABLE_ELEMENT_ATTRIBUTE,
+  SB_SCROLL_ELEMENT_INTO_VIEW,
+  SB_SET_ELEMENT_ATTRIBUTE,
+  SB_SET_ELEMENT_ATTRIBUTES,
+  SB_SET_IMMUTABLE_ELEMENT_ATTRIBUTE,
+  SB_SET_IMMUTABLE_ELEMENT_ATTRIBUTES
 } from '@/definitions/stack-blitz/web/utils'
 
-Element utils are a set of utility functions that are used to work with HTML elements in the browser environment. These functions can be used to define custom elements, join CSS class names, convert values to compatible CSS styles, set and remove element attributes, and define attributes in an immutable way.
+This is a collection of functions for working with HTML elements.
 
-## Define Custom Element
+## Define a custom element
 
-The **defineCustomElement** function is used to define a custom element in the browser environment without having to deal with errors or already defined custom elements.
+The `defineCustomeElement` function defines a custom element.
+The difference with the native `customElements.define` is that this function does not throw an error if the element is already defined.
 
 <CodeBlock
   client:load
@@ -25,9 +32,9 @@ The **defineCustomElement** function is used to define a custom element in the b
   console={100}
 />
 
-## Get Style Compatible Value
+## Get a compatible style value
 
-The **getElementStyleCompatibleValue** function is used to convert a value to a string that is compatible with CSS styles. This is useful when setting style properties on HTML elements in the browser environment. By using this function, you can ensure that the values you set are in the correct format and avoid errors caused by incompatible values.
+The `getElementStyleCompatibleValue` function returns a compatible value for the `style` attribute of an element.
 
 <CodeBlock
   client:load
@@ -38,22 +45,10 @@ The **getElementStyleCompatibleValue** function is used to convert a value to a 
   console={100}
 />
 
-## Join Classes
+## Scroll an element into view
 
-The **joinElementClasses** function is used to join multiple CSS class names into a single string. This is useful when setting the **class** attribute of an HTML element in the browser environment. By using this function, you can ensure that the resulting string is properly formatted and does not contain any unnecessary spaces or other characters.
-
-<CodeBlock
-  client:load
-  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
-  files={SB_JOIN_ELEMENT_CLASSES}
-  template='javascript'
-  title='joinElementClasses'
-  console={100}
-/>
-
-## Scroll Into View
-
-The **scrollElementIntoView** function is used to scroll an HTML element into view within its parent element or the window. This is useful when working with large or complex HTML documents that require scrolling to view all content. By using this function, you can ensure that the target element is always visible and in the desired position.
+The `scrollElementIntoView` function scrolls an element into view.
+Optionally the behavior and logical position can be specified.
 
 <CodeBlock
   client:load
@@ -61,4 +56,92 @@ The **scrollElementIntoView** function is used to scroll an HTML element into vi
   files={SB_SCROLL_ELEMENT_INTO_VIEW}
   template='javascript'
   title='scrollElementIntoView'
+/>
+
+## Set an attribute
+
+The `setElementAttribute` function sets an attribute to an element.
+The attribute is removed if the value is not a string.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_SET_ELEMENT_ATTRIBUTE}
+  template='javascript'
+  title='setElementAttribute'
+/>
+
+## Set multiple attributes
+
+The `setElementAttributes` function sets multiple attributes to an element.
+The attributes with a value that is not a string are removed.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_SET_ELEMENT_ATTRIBUTES}
+  template='javascript'
+  title='setElementAttributes'
+/>
+
+## Set an immutable attribute
+
+The `setImmutableElementAttribute` function sets an immutable attribute to an element.
+The attribute is removed if the value is not a string.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_SET_IMMUTABLE_ELEMENT_ATTRIBUTE}
+  template='javascript'
+  title='setImmutableElementAttribute'
+/>
+
+## Set multiple immutable attributes
+
+The `setImmutableElementAttributes` function sets multiple immutable attributes to an element.
+The attributes with a value that is not a string are removed.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_SET_IMMUTABLE_ELEMENT_ATTRIBUTES}
+  template='javascript'
+  title='setImmutableElementAttributes'
+/>
+
+## Remove an attribute
+
+The `removeElementAttribute` function removes an attribute from an element.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_REMOVE_ELEMENT_ATTRIBUTE}
+  template='javascript'
+  title='removeElementAttribute'
+/>
+
+## Remove an immutable attribute
+
+The `removeImmutableElementAttribute` function removes an immutable attribute from an element.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_REMOVE_IMMUTABLE_ELEMENT_ATTRIBUTE}
+  template='javascript'
+  title='removeImmutableElementAttribute'
+/>
+
+## Check if an element is focused
+
+The `isElementFocused` function checks if an element is focused.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_IS_ELEMENT_FOCUSED}
+  template='javascript'
+  title='isElementFocused'
 />

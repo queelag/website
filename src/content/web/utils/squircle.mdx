@@ -1,3 +1,68 @@
 ---
 title: Squircle
 ---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import {
+  SB_APPEND_SQUIRCLE_ELEMENT,
+  SB_CREATE_SQUIRCLE_ELEMENT,
+  SB_GET_SQUIRCLE_ELEMENT,
+  SB_GET_SQUIRCLES_CONTAINER
+} from '@/definitions/stack-blitz/web/utils'
+
+This is a collection of functions for working with squircles and squircle elements.
+
+## Append a squircle element to the DOM
+
+The `appendSquircleElement` function appends a squircle element to the DOM.
+Optionally the curvature and the size can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_APPEND_SQUIRCLE_ELEMENT}
+  template='javascript'
+  title='appendSquircleElement'
+  console={100}
+/>
+
+## Create a squircle element
+
+The `createSquircleElement` function creates a new squircle element.
+Optionally the curvature and the size can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_CREATE_SQUIRCLE_ELEMENT}
+  template='javascript'
+  title='createSquircleElement'
+  console={100}
+/>
+
+## Get a squircle element
+
+The `getSquircleElement` function returns a squircle element.
+Optionally the curvature and the size can be specified.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_SQUIRCLE_ELEMENT}
+  template='javascript'
+  title='getSquircleElement'
+  console={100}
+/>
+
+## Get the squircles container
+
+The `getSquirclesContainer` function returns the squircles container element.
+
+<CodeBlock
+  client:load
+  dependencies={{ '@aracna/core': 'latest', '@aracna/web': 'latest' }}
+  files={SB_GET_SQUIRCLES_CONTAINER}
+  template='javascript'
+  title='getSquirclesContainer'
+  console={100}
+/>

@@ -9,14 +9,13 @@ import {
   SB_DOCUMENT_COOKIE_REMOVE,
   SB_DOCUMENT_COOKIE_CLEAR,
   SB_DOCUMENT_COOKIE_COPY
-} from '@/definitions/stack-blitz/web/modules'
-import { Alert } from '@/components/Alert'
+} from '@/definitions/stack-blitz/web/cookies'
 
-The **DocumentCookie** object handles CRUD operations on the document.cookie property in the browser environment. It can be used to get and set the value of the cookie, and can be customized to handle different cookie names and values.
+The `DocumentCookie` class is a `Cookie` that uses the `document.cookie` API.
 
-## Set
+## Set an item
 
-The **set** function in the **DocumentCookie** object is an asynchronous method that takes a prefix string **key**, an object of type **CookieItem** **item**, and optionally an object of type **CookieSerializeOptions** **options** and an array of keys **keys**. If **keys** is not provided, all the keys in the **item** object will be set as cookies with keys that start with the **key** prefix. If **keys** is provided, only the keys in the **keys** array will be set as cookies. The **options** object can be used to set additional options for the cookie serialization process.
+The `set` method in the `Cookie` class sets an item in the cookies. Optionally, you can specify the keys of the item that you want to set. If you don't specify any key, the whole item will be set.
 
 <CodeBlock
   client:load
@@ -27,9 +26,9 @@ The **set** function in the **DocumentCookie** object is an asynchronous method 
   console={100}
 />
 
-## Get
+## Get an item
 
-The **get** method of the **DocumentCookie** object is used to retrieve a cookie item from the cookie with a given key prefix. The **key** parameter is a string that represents the prefix of the cookie keys to retrieve.
+The `get` method in the `DocumentCookie` class retrieves an item from the cookies. Optionally, you can specify the keys of the item that you want to get. If you don't specify any key, the whole item will be retrieved.
 
 <CodeBlock
   client:load
@@ -40,9 +39,9 @@ The **get** method of the **DocumentCookie** object is used to retrieve a cookie
   console={100}
 />
 
-## Remove
+## Remove an item
 
-The **remove** method of the **DocumentCookie** object is used to remove one or more cookie items from the cookie with a given key prefix. The **key** parameter is a string that represents the prefix of the cookie keys to remove. The **options** parameter is an optional object that can be used to specify options for the cookie. The **keys** parameter is an optional array of strings that represents the specific keys to remove from the cookie item.
+The `remove` method in the `DocumentCookie` class removes an item from the cookies. Optionally, you can specify the keys of the item that you want to remove. If you don't specify any key, the whole item will be removed.
 
 <CodeBlock
   client:load
@@ -54,13 +53,9 @@ The **remove** method of the **DocumentCookie** object is used to remove one or 
   console={100}
 />
 
-## Clear
+## Clear all cookies
 
-The **clear** method of the **DocumentCookie** object is used to remove all cookie items from the cookie. The **options** parameter is an optional object that can be used to specify options for the cookie.
-
-<Alert client:load severity='warning'>
-  Note that the **clear** method removes all key-value pairs from the cookie, and does not take a **key** or **keys** parameter like the **remove** method.
-</Alert>
+The `clear` method in the `DocumentCookie` class is used to clear all cookies.
 
 <CodeBlock
   client:load
@@ -72,9 +67,9 @@ The **clear** method of the **DocumentCookie** object is used to remove all cook
   console={100}
 />
 
-## Copy
+## Copy an item to a target object
 
-The **copy** method of the **DocumentCookie** object is used to copy one or more cookie items from the cookie with a given key prefix to a target object. The **key** parameter is a string that represents the prefix of the cookie keys to copy. The **target** parameter is an object where the cookie items will be copied. The **keys** parameter is an optional array of strings that represents the specific keys to copy from the cookie item.
+The `copy` method in the `DocumentCookie` class copies an item from the cookies to a target object. Optionally, you can specify the keys of the item that you want to copy. If you don't specify any key, the whole item will be copied.
 
 <CodeBlock
   client:load

@@ -2,7 +2,7 @@ import { html } from '@/functions/html';
 import type { ProjectFiles } from '@stackblitz/sdk';
 
 export const SB_MEMORY_STORAGE_CLEAR: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { MemoryStorage } from '@aracna/core';
 
@@ -17,7 +17,7 @@ export const SB_MEMORY_STORAGE_CLEAR: ProjectFiles = {
 };
 
 export const SB_MEMORY_STORAGE_COPY: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { MemoryStorage } from '@aracna/core';
 
@@ -33,7 +33,7 @@ export const SB_MEMORY_STORAGE_COPY: ProjectFiles = {
 };
 
 export const SB_MEMORY_STORAGE_GET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { MemoryStorage } from '@aracna/core';
 
@@ -46,7 +46,7 @@ export const SB_MEMORY_STORAGE_GET: ProjectFiles = {
 };
 
 export const SB_MEMORY_STORAGE_HAS: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { MemoryStorage } from '@aracna/core';
 
@@ -59,7 +59,7 @@ export const SB_MEMORY_STORAGE_HAS: ProjectFiles = {
 };
 
 export const SB_MEMORY_STORAGE_REMOVE: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { MemoryStorage } from '@aracna/core';
 
@@ -73,7 +73,7 @@ export const SB_MEMORY_STORAGE_REMOVE: ProjectFiles = {
 };
 
 export const SB_MEMORY_STORAGE_SET: ProjectFiles = {
-  'index.js': html`
+  'app.js': html`
     <script>
       import { MemoryStorage } from '@aracna/core';
 

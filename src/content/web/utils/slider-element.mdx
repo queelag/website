@@ -9,11 +9,14 @@ import {
   SB_GET_SLIDER_THUMB_ELEMENT_STYLE_TOP
 } from '@/definitions/stack-blitz/web/utils'
 
-Slider element utils are a set of utility functions that are used to work with slider elements in the browser environment. They can help to simplify the process of positioning the slider thumb element and calculating the percentage of the slider that the thumb should be positioned at.
+This is a collection of functions for working with slider elements.
 
-## Get Thumb Element Percentage
+## Calculate a thumb element's percentage
 
-The **getSliderThumbElementPercentage** function is used to get the percentage of the slider that the thumb should be positioned at based on a given value, minimum value, maximum value, and number of decimals. This can be useful for positioning the slider thumb element dynamically based on user input or other factors.
+The `getSliderThumbElementPercentage` function returns the percentage of a value between a minimum and maximum.
+
+- Optionally the percentage can be rounded.
+- Optionally the number of decimals can be specified.
 
 <CodeBlock
   client:load
@@ -24,9 +27,9 @@ The **getSliderThumbElementPercentage** function is used to get the percentage o
   console={100}
 />
 
-## Get Thumb Element Left Style
+## Get a thumb's element left style property
 
-The **getSliderThumbElementStyleLeft** function is used to get the left position of the slider thumb element based on a given percentage and orientation. This can be useful for positioning the slider thumb element dynamically based on user input or other factors.
+The `getSliderThumbElementStyleLeft` function returns the style left property of a slider thumb element based on its percentage.
 
 <CodeBlock
   client:load
@@ -37,9 +40,9 @@ The **getSliderThumbElementStyleLeft** function is used to get the left position
   console={100}
 />
 
-## Get Thumb Element Top Style
+## Get a thumb's element top style property
 
-The **getSliderThumbElementStyleTop** function is used to get the top position of the slider thumb element based on a given percentage and orientation. This can be useful for positioning the slider thumb element dynamically based on user input or other factors.
+The `getSliderThumbElementStyleTop` function returns the style top property of a slider thumb element based on its percentage.
 
 <CodeBlock
   client:load
