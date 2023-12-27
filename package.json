@@ -8,7 +8,7 @@
     "@aracna/react-components": "^1.0.42",
     "@aracna/state-manager": "^1.0.37",
     "@aracna/state-manager-react": "^1.0.32",
-    "@aracna/web": "^1.0.70",
+    "@aracna/web": "^1.0.72",
     "@aracna/web-components": "^1.0.77",
     "@astrojs/mdx": "^2.0.2",
     "@astrojs/react": "^3.0.8",
@@ -29,7 +29,7 @@
     "tabbable": "^6.2.0"
   },
   "devDependencies": {
-    "@aracna/react": "^1.0.46",
+    "@aracna/react": "^1.0.47",
     "@astrojs/check": "^0.3.4",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.10.5",
@@ -48,7 +48,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "rm -rf dist && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
