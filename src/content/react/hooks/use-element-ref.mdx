@@ -1,0 +1,21 @@
+---
+title: useElementRef
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_USE_ELEMENT_REF } from '@/definitions/stack-blitz/react/hooks'
+
+The `useElementRef` hook returns a mutable ref object whose `.current` property is initialized with a matching element.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_ELEMENT_REF}
+  template='react'
+  title='useElementRef'
+  console
+/>

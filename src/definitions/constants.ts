@@ -146,7 +146,7 @@ export const DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS: string = html`
 
 export const DEFAULT_CODE_RUNTIME_REACT_INDEX_JS: string = html`
   <script>
-    import { StrictMode } from 'react'
+    import React, { StrictMode } from 'react'
     import { createRoot } from 'react-dom/client'
 
     import { App } from './App'
@@ -217,6 +217,22 @@ export const DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON = (dependencies?: ProjectDep
     null,
     2
   )
+
+export const DEFAULT_CODE_RUNTIME_VITE_REACT_INDEX_HTML: string = html`
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+    </head>
+    <body>
+      <div id="root"></div>
+      <script type="module" src="./index.jsx"></script>
+    </body>
+  </html>
+`
 
 export const DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON = (dependencies?: ProjectDependencies) =>
   DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON({

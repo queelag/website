@@ -1,0 +1,21 @@
+---
+title: useWindowSize
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_USE_WINDOW_SIZE } from '@/definitions/stack-blitz/react/hooks'
+
+The `useWindowSize` hook returns the window size.
+Optionally a dependency list can be passed to refresh the dimensions.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest'
+  }}
+  files={SB_USE_WINDOW_SIZE}
+  template='react'
+  title='useWindowSize'
+/>

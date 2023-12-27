@@ -5,13 +5,11 @@ title: useLifeCycle
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_USE_LIFE_CYCLE } from '@/definitions/stack-blitz/react/hooks'
 
-The useLifeCycle hook is a custom React hook that returns a mutable ref object that holds the current lifecycle state of the component.
+The `useLifeCycle` hook returns the current life cycle of the component.
 
-The **CONSTRUCTED** value represents the constructed state of the component, which is the state of the component before it is mounted to the DOM.
-
-The **MOUNTED** value represents the mounted state of the component, which is the state of the component after it is mounted to the DOM.
-
-The **UNMOUNTED** value represents the unmounted state of the component, which is the state of the component after it is unmounted from the DOM.
+- The `CONSTRUCTED` state means that the component has been created but not yet mounted.
+- The `MOUNTED` state means that the component has been mounted.
+- The `UNMOUNTED` state means that the component has been unmounted.
 
 <CodeBlock
   client:load

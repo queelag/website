@@ -4,7 +4,7 @@ import type { ProjectFiles } from '@stackblitz/sdk';
 export const SB_USE_DISPATCH: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import { Fragment, useRef } from 'react';
+      import React, { Fragment, useRef } from 'react';
       import { useDispatch } from '@aracna/react';
 
       export function App() {
@@ -26,10 +26,54 @@ export const SB_USE_DISPATCH: ProjectFiles = {
   `
 };
 
+export const SB_USE_DOM_RECT: ProjectFiles = {
+  'App.jsx': html`
+    <script>
+      import React, { useRef } from 'react';
+      import { useDOMRect } from '@aracna/react';
+
+      export function App() {
+        const ref = useRef();
+        const rect = useDOMRect(ref);
+
+        return <pre ref={ref}>{JSON.stringify(rect, null, 2)}</pre>;
+      }
+    </script>
+  `,
+  'App.css': html`
+    <style>
+      pre {
+        background: black;
+        border-radius: 16px;
+        color: white;
+        padding: 16px;
+      }
+    </style>
+  `
+};
+
+export const SB_USE_ELEMENT_REF: ProjectFiles = {
+  'App.jsx': html`
+    <script>
+      import React from 'react';
+      import { useElementRef } from '@aracna/react';
+
+      export function App() {
+        const ref = useElementRef('div');
+
+        // will log HTMLDivElement
+        console.log(ref.current);
+
+        return <div ref={ref} />;
+      }
+    </script>
+  `
+};
+
 export const SB_USE_EVENT_LISTENER: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import { useRef, useState } from 'react';
+      import React, { useRef, useState } from 'react';
       import { useEventListener } from '@aracna/react';
 
       export function App() {
@@ -48,7 +92,7 @@ export const SB_USE_EVENT_LISTENER: ProjectFiles = {
 export const SB_USE_INTERSECTION_OBSERVER: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import { useRef } from 'react';
+      import React, { useRef } from 'react';
       import { useIntersectionObserver } from '@aracna/react';
 
       function Block(props) {
@@ -63,7 +107,7 @@ export const SB_USE_INTERSECTION_OBSERVER: ProjectFiles = {
               alignItems: 'center',
               background: 'white',
               display: 'flex',
-              filter: 'invert(' + (isIntersecting ? 1 : 0) + ')',
+              filter: 'invert(' + (isIntersecting() ? 1 : 0) + ')',
               height: '100vh',
               justifyContent: 'center',
               transition: 'all linear 1s'
@@ -88,7 +132,7 @@ export const SB_USE_INTERSECTION_OBSERVER: ProjectFiles = {
 export const SB_USE_LIFE_CYCLE: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import { useEffect } from 'react';
+      import React, { useEffect } from 'react';
       import { useLifeCycle } from '@aracna/react';
 
       export function App() {
@@ -116,6 +160,7 @@ export const SB_USE_LIFE_CYCLE: ProjectFiles = {
 export const SB_USE_OBSERVABLE_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
+      import React from 'react';
       import { useComponent } from '@aracna/react';
       import { AracnaButton } from '@aracna/react-components/components/input/button';
 
@@ -127,24 +172,6 @@ export const SB_USE_OBSERVABLE_ELEMENT_COMPONENT: ProjectFiles = {
             Button
           </AracnaButton>
         );
-      }
-    </script>
-  `
-};
-
-export const SB_USE_SAFE_REF: ProjectFiles = {
-  'App.jsx': html`
-    <script>
-      import React from 'react';
-      import { useSafeRef } from '@aracna/react';
-
-      export function App() {
-        const ref = useSafeRef('div');
-
-        // will log HTMLDivElement
-        console.log(ref.current);
-
-        return <div ref={ref} />;
       }
     </script>
   `
@@ -164,5 +191,30 @@ export const SB_USE_WINDOW_EVENT_LISTENER: ProjectFiles = {
         return <div style={{ height: '200vh' }} />;
       }
     </script>
+  `
+};
+
+export const SB_USE_WINDOW_SIZE: ProjectFiles = {
+  'App.jsx': html`
+    <script>
+      import React from 'react';
+      import { useWindowSize } from '@aracna/react';
+
+      export function App() {
+        const size = useWindowSize();
+
+        return <pre>{JSON.stringify(size, null, 2)}</pre>;
+      }
+    </script>
+  `,
+  'App.css': html`
+    <style>
+      pre {
+        background: black;
+        border-radius: 16px;
+        color: white;
+        padding: 16px;
+      }
+    </style>
   `
 };

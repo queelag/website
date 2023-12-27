@@ -8,7 +8,9 @@ import {
   DEFAULT_CODE_RUNTIME_REACT_INDEX_JS,
   DEFAULT_CODE_RUNTIME_VITE_CONFIG_JS,
   DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML,
-  DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON
+  DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON,
+  DEFAULT_CODE_RUNTIME_VITE_REACT_INDEX_HTML,
+  DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON
 } from '@/definitions/constants'
 import type { CodeRuntimeTemplate } from '@/definitions/types'
 import { cloneObject, isNodeEnvProduction } from '@aracna/core'
@@ -90,9 +92,9 @@ export function getStackBlitzProject(template: CodeRuntimeTemplate, p: Omit<Proj
         'App.css': ``,
         'App.jsx': DEFAULT_CODE_RUNTIME_APP_JSX,
         'index.css': DEFAULT_CODE_RUNTIME_REACT_INDEX_CSS,
-        'index.html': DEFAULT_CODE_RUNTIME_VITE_INDEX_HTML,
+        'index.html': DEFAULT_CODE_RUNTIME_VITE_REACT_INDEX_HTML,
         'index.jsx': DEFAULT_CODE_RUNTIME_REACT_INDEX_JS,
-        'package.json': DEFAULT_CODE_RUNTIME_VITE_PACKAGE_JSON(p.dependencies),
+        'package.json': DEFAULT_CODE_RUNTIME_VITE_REACT_PACKAGE_JSON(p.dependencies),
         'vite.config.js': DEFAULT_CODE_RUNTIME_VITE_CONFIG_JS
       }
 

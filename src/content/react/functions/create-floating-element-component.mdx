@@ -1,0 +1,22 @@
+---
+title: createFloatingElementComponent
+---
+
+import { CodeBlock } from '@/blocks/CodeBlock'
+import { SB_CREATE_FLOATING_ELEMENT_COMPONENT } from '@/definitions/stack-blitz/react/functions'
+
+The `createFloatingElementComponent` function creates a new React component that renders a custom element which extends `FloatingElement`.
+Optionally the events can be defined as well.
+
+<CodeBlock
+  client:load
+  dependencies={{
+    '@aracna/core': 'latest',
+    '@aracna/react': 'latest',
+    '@aracna/web': 'latest',
+    '@aracna/web-components': 'latest'
+  }}
+  files={SB_CREATE_FLOATING_ELEMENT_COMPONENT}
+  template='vite-react'
+  title='createFloatingElementComponent'
+/>
