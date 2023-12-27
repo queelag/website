@@ -16,19 +16,19 @@ dependencies:
     version: 1.0.10
   '@aracna/icons-feather-react':
     specifier: ^1.0.16
-    version: 1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.47)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0)
+    version: 1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.48)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0)
   '@aracna/icons-feather-web':
     specifier: ^1.0.22
     version: 1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(lit@3.1.0)
   '@aracna/react-components':
     specifier: ^1.0.42
-    version: 1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.47)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0)
+    version: 1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.48)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0)
   '@aracna/state-manager':
     specifier: ^1.0.37
     version: 1.0.37(@aracna/core@1.1.77)
   '@aracna/state-manager-react':
     specifier: ^1.0.32
-    version: 1.0.32(@aracna/core@1.1.77)(@aracna/react@1.0.47)(@aracna/state-manager@1.0.37)(@aracna/web@1.0.72)(react@18.2.0)
+    version: 1.0.32(@aracna/core@1.1.77)(@aracna/react@1.0.48)(@aracna/state-manager@1.0.37)(@aracna/web@1.0.72)(react@18.2.0)
   '@aracna/web':
     specifier: ^1.0.72
     version: 1.0.72(@aracna/core@1.1.77)
@@ -89,8 +89,8 @@ dependencies:
 
 devDependencies:
   '@aracna/react':
-    specifier: ^1.0.47
-    version: 1.0.47(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
+    specifier: ^1.0.48
+    version: 1.0.48(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
   '@astrojs/check':
     specifier: ^0.3.4
     version: 0.3.4(prettier@3.1.1)(typescript@5.3.3)
@@ -239,7 +239,7 @@ packages:
       node-fetch: 3.3.2
       rfc4648: 1.5.3
 
-  /@aracna/icons-feather-react@1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.47)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0):
+  /@aracna/icons-feather-react@1.0.16(@aracna/core@1.1.77)(@aracna/icons-feather-web@1.0.22)(@aracna/icons-feather@1.0.10)(@aracna/react@1.0.48)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0):
     resolution: {integrity: sha512-7IEBfCacJ8FruOQCEdgqBrd4t93LdGQPIsjj/j7WSVAtt98oA1voLDWezL/cPeu/ZpKeQMQbOu7EdrD6K2pw3A==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
@@ -254,7 +254,7 @@ packages:
       '@aracna/core': 1.1.77
       '@aracna/icons-feather': 1.0.10
       '@aracna/icons-feather-web': 1.0.22(@aracna/core@1.1.77)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(lit@3.1.0)
-      '@aracna/react': 1.0.47(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/react': 1.0.48(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
       '@aracna/web': 1.0.72(@aracna/core@1.1.77)
       '@aracna/web-components': 1.0.77(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       react: 18.2.0
@@ -282,7 +282,7 @@ packages:
     engines: {node: '>=16', pnpm: '>=8'}
     dev: false
 
-  /@aracna/react-components@1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.47)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0):
+  /@aracna/react-components@1.0.42(@aracna/core@1.1.77)(@aracna/react@1.0.48)(@aracna/web-components@1.0.77)(@aracna/web@1.0.72)(react@18.2.0):
     resolution: {integrity: sha512-BOoV8QkdVa7eqU7NY1TdQ9KAyOod3Xwtz6/XbecwXGmqvk/OukyxWngaZpWkNyZ2V39NvrkXsapQ+AfZlf/xVQ==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
@@ -293,14 +293,14 @@ packages:
       react: '>= 18.2.0'
     dependencies:
       '@aracna/core': 1.1.77
-      '@aracna/react': 1.0.47(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/react': 1.0.48(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
       '@aracna/web': 1.0.72(@aracna/core@1.1.77)
       '@aracna/web-components': 1.0.77(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@floating-ui/dom@1.5.3)(dompurify@3.0.6)(focus-trap@7.5.4)(lit-html@3.1.0)(lit@3.1.0)(tabbable@6.2.0)
       react: 18.2.0
     dev: false
 
-  /@aracna/react@1.0.47(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0):
-    resolution: {integrity: sha512-BAZYat/F1ll86vpdtS+lj01D82hbNQkwYB3tCNBwouQiK+9l2fsHVTWMUXXUhSxJfp/OdtuMCXJnC9lfy1DjVw==}
+  /@aracna/react@1.0.48(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0):
+    resolution: {integrity: sha512-F9tp4+PGjdDeCv3+n2HABUkfUqfT1JOJX9/o3lXX9DPvIpmWmhRQM3ykAoTo19Hj75B616+R3L+uegw+CV9E1Q==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
@@ -314,7 +314,7 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
 
-  /@aracna/state-manager-react@1.0.32(@aracna/core@1.1.77)(@aracna/react@1.0.47)(@aracna/state-manager@1.0.37)(@aracna/web@1.0.72)(react@18.2.0):
+  /@aracna/state-manager-react@1.0.32(@aracna/core@1.1.77)(@aracna/react@1.0.48)(@aracna/state-manager@1.0.37)(@aracna/web@1.0.72)(react@18.2.0):
     resolution: {integrity: sha512-IXJElrSx6hUxUBECFUzfpw3x+HZzbaktCITsJ8jaQC+saR4VtFm+SWKgEetPNf92uJaTRTvOKa8LcfXlakiw5w==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
@@ -325,7 +325,7 @@ packages:
       react: '>= 18.2.0'
     dependencies:
       '@aracna/core': 1.1.77
-      '@aracna/react': 1.0.47(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
+      '@aracna/react': 1.0.48(@aracna/core@1.1.77)(@aracna/web@1.0.72)(@types/react@18.2.45)(react@18.2.0)
       '@aracna/state-manager': 1.0.37(@aracna/core@1.1.77)
       '@aracna/web': 1.0.72(@aracna/core@1.1.77)
       react: 18.2.0
