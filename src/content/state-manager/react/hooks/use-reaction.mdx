@@ -5,9 +5,8 @@ title: useReaction
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_USE_REACTION } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-The **useReaction** hook is a custom hook that is designed to be used with React functional components. It is used for registering a reaction to observable data and triggering a side effect when the observable data changes.
-
-The **useReaction** hook takes two arguments: the first is a function that returns a value based on the observable data, and the second is a function that is executed when the observable data changes.
+The `useReaction` hook runs an effect whenever any of the values it references from an observable change inside the expression.
+Optionally the dependencies can be specified.
 
 <CodeBlock
   client:load

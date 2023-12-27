@@ -29,7 +29,6 @@ export const SB_CREATE_ELEMENT_COMPONENT: ProjectFiles = {
 export const SB_CREATE_BASE_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import React from 'react';
       import { createBaseElementComponent } from '@aracna/react';
       import { BaseElement } from '@aracna/web-components/elements/core/base-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
@@ -56,7 +55,6 @@ export const SB_CREATE_BASE_ELEMENT_COMPONENT: ProjectFiles = {
 export const SB_CREATE_FLOATING_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import React from 'react';
       import { createFloatingElementComponent } from '@aracna/react';
       import { FloatingElement } from '@aracna/web-components/elements/core/floating-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
@@ -83,7 +81,6 @@ export const SB_CREATE_FLOATING_ELEMENT_COMPONENT: ProjectFiles = {
 export const SB_CREATE_FOCUS_TRAP_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import React from 'react';
       import { createFocusTrapElementComponent } from '@aracna/react';
       import { FocusTrapElement } from '@aracna/web-components/elements/core/focus-trap-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';
@@ -110,7 +107,6 @@ export const SB_CREATE_FOCUS_TRAP_ELEMENT_COMPONENT: ProjectFiles = {
 export const SB_CREATE_FORM_CONTROL_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import React from 'react';
       import { createFormFieldElementComponent } from '@aracna/react';
       import { FormFieldElement } from '@aracna/web-components/elements/core/form-field-element';
       import { unsafeHTML } from 'lit/directives/unsafe-html.js';

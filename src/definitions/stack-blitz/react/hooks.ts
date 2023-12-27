@@ -160,7 +160,6 @@ export const SB_USE_LIFE_CYCLE: ProjectFiles = {
 export const SB_USE_OBSERVABLE_ELEMENT_COMPONENT: ProjectFiles = {
   'App.jsx': html`
     <script>
-      import React from 'react';
       import { useComponent } from '@aracna/react';
       import { AracnaButton } from '@aracna/react-components/components/input/button';
 

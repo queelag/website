@@ -5,9 +5,8 @@ title: useWhen
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_USE_WHEN } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-The **useWhen** hook is a custom hook that is designed to be used with React functional components. It is used for registering a reaction to observable data and triggering a side effect when the predicate function returns true.
-
-The **useWhen** hook takes two arguments: a **predicate** function and an **effect** function. The **predicate** function is used to determine whether the **effect** function should be executed. If the **predicate** function returns **true**, the **effect** function is executed. If the **predicate** function returns **false**, the **effect** function is not executed.
+The `useWhen` hook runs an effect whenever the predicate becomes true.
+Optionally the dependencies can be specified.
 
 <CodeBlock
   client:load

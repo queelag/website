@@ -5,9 +5,10 @@ title: useObservable
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_USE_OBSERVABLE } from '@/definitions/stack-blitz/state-manager/react/hooks'
 
-The **useObservable** hook is a custom hook that is designed to be used with React functional components. It is used for observing changes to observable data and returning the current state of the observable object.
+The `useObservable` hook returns an observable object that can be used inside a component, changes to observed properties will trigger a re-render.
 
-The **useObservable** hook takes two arguments: the first is the target object to observe, and the second is an optional array of keys to observe. If no keys are provided, all keys in the target object will be observed.
+- Optionally the keys to observe can be specified.
+- Optionally the dependencies can be specified.
 
 <CodeBlock
   client:load

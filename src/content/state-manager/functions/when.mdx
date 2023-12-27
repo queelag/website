@@ -5,11 +5,11 @@ title: when
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_WHEN_CALLBACK, SB_WHEN_PROMISE } from '@/definitions/stack-blitz/state-manager/functions'
 
-The **when** function is used to create a watcher that observes an observable until a certain condition is met, and then runs an effect function.
+The `when` function runs an effect whenever the predicate becomes true, or returns a promise that resolves when the predicate becomes true.
 
 ## Callback
 
-When the **when** function is called with two arguments, **predicate** and **effect**, it creates a watcher that observes the **predicate** function until it returns a truthy value. Once the **predicate** function returns a truthy value, the **effect** function is run.
+The `when` function runs an effect whenever the predicate becomes true.
 
 <CodeBlock
   client:load
@@ -22,7 +22,7 @@ When the **when** function is called with two arguments, **predicate** and **eff
 
 ## Promise
 
-When the **when** function is called with only the **predicate** argument, it returns a promise that resolves when the condition specified by the **predicate** function is met.
+The `when` function returns a promise that resolves when the predicate becomes true.
 
 <CodeBlock
   client:load

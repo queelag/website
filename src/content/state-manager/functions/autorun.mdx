@@ -5,7 +5,7 @@ title: autorun
 import { CodeBlock } from '@/blocks/CodeBlock'
 import { SB_AUTORUN } from '@/definitions/stack-blitz/state-manager/functions'
 
-The **autorun** function takes a single argument called **effect** which is of type **WatcherAutorunEffect**. The purpose of this function is to create an autorun watcher that automatically runs the **effect** function whenever any of its dependencies change.
+The `autorun` function runs an effect immediately and re-runs it whenever any of the values it references from an observable change.
 
 <CodeBlock
   client:load
