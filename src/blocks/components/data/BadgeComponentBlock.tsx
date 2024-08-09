@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { AracnaBadgeProps } from '@aracna/react'
+import type { AracnaBadgeProps } from '@aracna/react-components'
 import { AracnaBadge } from '@aracna/react-components/components/data/badge'
 
 export function BadgeComponentBlock() {

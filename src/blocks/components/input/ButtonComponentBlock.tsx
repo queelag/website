@@ -6,10 +6,11 @@ import { IconFeatherLoader } from '@aracna/icons-feather-react/components/loader
 import { ICON_F_CLOCK } from '@aracna/icons-feather/assets/clock'
 import { ICON_F_IMAGE } from '@aracna/icons-feather/assets/image'
 import { ICON_F_PLUS } from '@aracna/icons-feather/assets/plus'
-import type { AracnaButtonProps } from '@aracna/react'
+import type { AracnaButtonProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
-import { jec, type ButtonClickEvent } from '@aracna/web'
+import { jec } from '@aracna/web'
+import type { ButtonClickEvent } from '@aracna/web-components'
 
 const ICONS: SelectOption[] = [
   { label: 'clock', value: ICON_F_CLOCK },

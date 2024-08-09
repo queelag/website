@@ -1,7 +1,7 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES, DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
-import type { AracnaCheckBoxProps } from '@aracna/react'
+import type { AracnaCheckBoxProps } from '@aracna/react-components'
 import { AracnaCheckBox } from '@aracna/react-components/components/input/check-box'
 
 export function CheckBoxComponentBlock() {

@@ -1,5 +1,6 @@
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
-import { useObservableElementComponent, type AracnaCheckBoxProps } from '@aracna/react'
+import { useObservableElementComponent } from '@aracna/react'
+import type { AracnaCheckBoxProps } from '@aracna/react-components'
 import { AracnaCheckBox } from '@aracna/react-components/components/input/check-box'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { jec } from '@aracna/web'

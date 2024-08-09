@@ -3,9 +3,10 @@ import type { ComponentBlockComponentProps } from '@/definitions/types'
 import { omitObjectProperties } from '@aracna/core'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
-import { useObservableElementComponent, type AracnaMenuItemProps, type AracnaMenuProps } from '@aracna/react'
+import { useObservableElementComponent } from '@aracna/react'
+import { type AracnaMenuItemProps, type AracnaMenuProps } from '@aracna/react-components'
 import { AracnaMenu, AracnaMenuButton, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu'
-import { WebElementLogger, jec } from '@aracna/web'
+import { jec } from '@aracna/web'
 import { offset } from '@floating-ui/dom'
 import { Fragment, useMemo } from 'react'
 
@@ -105,8 +106,6 @@ function MenuItem(props: AracnaMenuItemProps & { deep?: boolean }) {
     </AracnaMenuItem>
   )
 }
-
-WebElementLogger.setLevel('verbose')
 
 export function MenuComponentBlock() {
   return (

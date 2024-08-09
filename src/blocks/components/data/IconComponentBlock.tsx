@@ -2,7 +2,7 @@ import ICON_MIC from '@/assets/icons/mic.svg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { PUBLIC_URL } from '@/definitions/constants'
 import { concatURL } from '@aracna/core'
-import type { AracnaIconProps } from '@aracna/react'
+import type { AracnaIconProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 
 export function IconComponentBlock() {

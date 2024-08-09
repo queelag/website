@@ -1,4 +1,4 @@
-import type { AracnaButtonGroupProps, AracnaButtonProps } from '@aracna/react'
+import type { AracnaButtonGroupProps, AracnaButtonProps } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaButtonGroup } from '@aracna/react-components/components/input/button-group'
 

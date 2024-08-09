@@ -3,7 +3,7 @@ import { IconFeatherFeather } from '@aracna/icons-feather-react/components/feath
 import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
 import { IconFeatherMessageCircle } from '@aracna/icons-feather-react/components/message-circle'
 import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
-import type { AracnaIconProps } from '@aracna/react'
+import type { AracnaIconProps } from '@aracna/react-components'
 import { IconReact } from 'src/icons/IconReact'
 import './LibrariesCardsBlock.css'
 

@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { AracnaDividerProps } from '@aracna/react'
+import type { AracnaDividerProps } from '@aracna/react-components'
 import { AracnaDivider } from '@aracna/react-components/components/layout/divider'
 import { jec } from '@aracna/web'
 

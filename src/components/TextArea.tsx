@@ -1,4 +1,5 @@
-import { useObservableElementComponent, type AracnaTextAreaProps } from '@aracna/react'
+import { useObservableElementComponent } from '@aracna/react'
+import type { AracnaTextAreaProps } from '@aracna/react-components'
 import { AracnaTextArea } from '@aracna/react-components/components/input/text-area'
 
 type Props = AracnaTextAreaProps & {

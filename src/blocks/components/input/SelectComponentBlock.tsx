@@ -6,7 +6,8 @@ import { omitObjectProperties, removeArrayItems } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { useObservableElementComponent, type AracnaSelectProps } from '@aracna/react'
+import { useObservableElementComponent } from '@aracna/react'
+import { type AracnaSelectProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import {
@@ -17,7 +18,8 @@ import {
   AracnaSelectList,
   AracnaSelectOption
 } from '@aracna/react-components/components/input/select'
-import { findSelectOptionByValue, jec, type StateChangeEvent } from '@aracna/web'
+import { jec } from '@aracna/web'
+import { findSelectOptionByValue, type StateChangeEvent } from '@aracna/web-components'
 import { offset } from '@floating-ui/dom'
 import { Fragment, useState, type MouseEvent } from 'react'
 

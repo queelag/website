@@ -1,13 +1,13 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { ICON_F_X } from '@aracna/icons-feather/assets/x'
-import type { AracnaButtonGroupProps } from '@aracna/react'
+import type { AracnaButtonGroupProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaButtonGroup } from '@aracna/react-components/components/input/button-group'
-import type { ButtonElementAttributes } from '@aracna/web'
+import type { AracnaButtonElementAttributes } from '@aracna/web-components'
 import colors from 'tailwindcss/colors'
 
-interface Button extends ButtonElementAttributes {
+interface Button extends AracnaButtonElementAttributes {
   background: string
 }
 

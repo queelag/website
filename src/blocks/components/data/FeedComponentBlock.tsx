@@ -1,10 +1,11 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import type { AracnaFeedProps } from '@aracna/react'
+import type { AracnaFeedProps } from '@aracna/react-components'
 import { AracnaFeed, AracnaFeedArticle, AracnaFeedArticleDescription, AracnaFeedArticleLabel } from '@aracna/react-components/components/data/feed'
-import { jec, type FeedArticleElementAttributes } from '@aracna/web'
+import { jec } from '@aracna/web'
+import type { AracnaFeedArticleElementAttributes } from '@aracna/web-components'
 import { Fragment } from 'react'
 
-interface Article extends FeedArticleElementAttributes {}
+interface Article extends AracnaFeedArticleElementAttributes {}
 
 const ARTICLES: Article[] = [
   {

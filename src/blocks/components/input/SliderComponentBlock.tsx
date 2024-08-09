@@ -3,9 +3,11 @@ import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definit
 import type { ComponentBlockAttribute } from '@/definitions/interfaces'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
 import { getLowestNumber, getNumbersDistance, isArray, removeArrayItems } from '@aracna/core'
-import { useObservableElementComponent, type AracnaSliderProps, type AracnaSliderThumbProps } from '@aracna/react'
+import { useObservableElementComponent } from '@aracna/react'
+import { type AracnaSliderProps, type AracnaSliderThumbProps } from '@aracna/react-components'
 import { AracnaSlider, AracnaSliderThumb } from '@aracna/react-components/components/input/slider'
-import { jec, type SliderChangeEvent } from '@aracna/web'
+import { jec } from '@aracna/web'
+import type { SliderChangeEvent } from '@aracna/web-components'
 import { Fragment, useState } from 'react'
 
 function Thumb(props: AracnaSliderThumbProps) {
@@ -34,7 +36,7 @@ export function SliderComponentBlock() {
         { name: 'step', type: 'number' }
       ]}
       component={(props: ComponentBlockComponentProps<AracnaSliderProps>) => {
-        const { element, onStateChange, ref } = useObservableElementComponent<'aracna-slider'>({ whitelist: ['value'] })
+        const { onStateChange, ref } = useObservableElementComponent<'aracna-slider'>({ whitelist: ['value'] })
         const [percentage, setPercentage] = useState<number[]>([25, 75])
 
         const onSliderChange = (event: SliderChangeEvent) => {

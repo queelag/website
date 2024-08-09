@@ -3,11 +3,13 @@ import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definit
 import type { ComponentBlockAttribute } from '@/definitions/interfaces'
 import { removeArrayItems } from '@aracna/core'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { Memo, useObservableElementComponent, type AracnaTextAreaProps } from '@aracna/react'
+import { Memo, useObservableElementComponent } from '@aracna/react'
+import { type AracnaTextAreaProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaTextArea } from '@aracna/react-components/components/input/text-area'
-import { jec, type StateChangeEvent } from '@aracna/web'
+import { jec } from '@aracna/web'
+import type { StateChangeEvent } from '@aracna/web-components'
 import { useState } from 'react'
 
 export function TextAreaComponentBlock() {

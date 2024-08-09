@@ -1,7 +1,7 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import { ICON_F_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triangle'
-import type { AracnaAlertDialogProps } from '@aracna/react'
+import type { AracnaAlertDialogProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaAlertDialog, AracnaAlertDialogDescription, AracnaAlertDialogLabel } from '@aracna/react-components/components/feedback/alert-dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'

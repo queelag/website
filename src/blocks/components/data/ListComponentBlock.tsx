@@ -3,13 +3,14 @@ import MESH_MINT from '@/assets/meshes/mint.jpeg'
 import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import type { AracnaListProps } from '@aracna/react'
+import type { AracnaListProps } from '@aracna/react-components'
 import { AracnaAvatar } from '@aracna/react-components/components/data/avatar'
 import { AracnaImage } from '@aracna/react-components/components/data/image'
 import { AracnaList, AracnaListItem } from '@aracna/react-components/components/data/list'
-import { jec, type ListItemElementAttributes } from '@aracna/web'
+import { jec } from '@aracna/web'
+import type { AracnaListItemElementAttributes } from '@aracna/web-components'
 
-interface Item extends ListItemElementAttributes {
+interface Item extends AracnaListItemElementAttributes {
   headline: string
   text: string
 }

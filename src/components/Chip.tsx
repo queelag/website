@@ -1,4 +1,4 @@
-import type { AracnaChipProps } from '@aracna/react'
+import type { AracnaChipProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { jec } from '@aracna/web'
 import './Chip.css'

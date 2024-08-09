@@ -4,7 +4,7 @@ import { ICON_F_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triang
 import { ICON_F_CHECK_CIRCLE } from '@aracna/icons-feather/assets/check-circle'
 import { ICON_F_INFO } from '@aracna/icons-feather/assets/info'
 import { ICON_F_X_CIRCLE } from '@aracna/icons-feather/assets/x-circle'
-import type { AracnaAlertProps } from '@aracna/react'
+import type { AracnaAlertProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
 import { AracnaButton } from '@aracna/react-components/components/input/button'

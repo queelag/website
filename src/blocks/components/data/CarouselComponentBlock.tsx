@@ -9,7 +9,7 @@ import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/c
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
 import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause'
 import { IconFeatherPlay } from '@aracna/icons-feather-react/components/play'
-import type { AracnaCarouselProps } from '@aracna/react'
+import type { AracnaCarouselProps } from '@aracna/react-components'
 import {
   AracnaCarousel,
   AracnaCarouselNextSlideControl,

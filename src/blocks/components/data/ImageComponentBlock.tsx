@@ -1,7 +1,7 @@
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { AracnaImageProps } from '@aracna/react'
+import type { AracnaImageProps } from '@aracna/react-components'
 import { AracnaImage } from '@aracna/react-components/components/data/image'
 
 export function ImageComponentBlock() {

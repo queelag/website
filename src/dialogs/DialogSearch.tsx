@@ -16,7 +16,7 @@ import {
 } from '@aracna/react-components/components/aria/aria-combo-box'
 import { AracnaDialog } from '@aracna/react-components/components/feedback/dialog'
 import { useObservable, useObserver } from '@aracna/state-manager-react'
-import type { StateChangeEvent } from '@aracna/web'
+import type { StateChangeEvent } from '@aracna/web-components'
 import algoliasearch from 'algoliasearch'
 import { Fragment } from 'react'
 import { createPortal } from 'react-dom'

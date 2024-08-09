@@ -1,9 +1,11 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { useObservableElementComponent, type AracnaFormProps, type AracnaInputProps } from '@aracna/react'
+import { useObservableElementComponent } from '@aracna/react'
+import type { AracnaFormProps, AracnaInputProps } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
-import { FormSubmitEvent, jec } from '@aracna/web'
+import { jec } from '@aracna/web'
+import type { FormSubmitEvent } from '@aracna/web-components'
 import { pattern, size, string } from 'superstruct'
 
 function Input(props: AracnaInputProps) {

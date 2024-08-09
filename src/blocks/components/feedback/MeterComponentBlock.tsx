@@ -1,8 +1,9 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { AracnaMeterProps } from '@aracna/react'
+import type { AracnaMeterProps } from '@aracna/react-components'
 import { AracnaMeter } from '@aracna/react-components/components/feedback/meter'
-import { getMeterElementPercentage, jec } from '@aracna/web'
+import { jec } from '@aracna/web'
+import { getMeterElementPercentage } from '@aracna/web-components'
 
 export function MeterComponentBlock() {
   return (

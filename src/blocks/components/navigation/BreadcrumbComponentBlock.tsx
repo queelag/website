@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
-import type { AracnaBreadcrumbProps } from '@aracna/react'
+import type { AracnaBreadcrumbProps } from '@aracna/react-components'
 import { AracnaBreadcrumb, AracnaBreadcrumbItem, AracnaBreadcrumbList } from '@aracna/react-components/components/navigation/breadcrumb'
 
 const ITEMS = [

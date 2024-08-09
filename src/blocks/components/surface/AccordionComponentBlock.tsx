@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
-import type { AracnaAccordionProps } from '@aracna/react'
+import type { AracnaAccordionProps } from '@aracna/react-components'
 import {
   AracnaAccordion,
   AracnaAccordionButton,

@@ -1,4 +1,4 @@
-import type { AracnaFormProps } from '@aracna/react'
+import type { AracnaFormProps } from '@aracna/react-components'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 
 type Props = AracnaFormProps & {}
