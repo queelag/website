@@ -16,7 +16,7 @@ const items: NavigationItem[] = [
 ---
 
 <IconFeatherMenu client:load className='lg:hidden' id='mobile-navigation-trigger' size={24} stroke='white' stroke-width='1.5' />
-<OverlayMobileNavigation client:only items={items} />
+<OverlayMobileNavigation client:only="react" items={items} />
 
 <script>
   import { OverlayController } from '@/controllers/overlay-controller'

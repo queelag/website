@@ -7,7 +7,7 @@ type Props = AracnaTextAreaProps & {
 }
 
 export function TextArea(props: Props) {
-  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-textarea'>()
+  const { onStateChange, ref } = useObservableElementComponent<'aracna-textarea'>()
 
   return (
     <div className='w-full flex flex-col p-2 text-xs rounded border-2 border-slate-800'>
