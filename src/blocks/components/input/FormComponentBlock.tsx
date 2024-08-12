@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { useObservableElementComponent } from '@aracna/react'
 import type { AracnaFormProps, AracnaInputProps } from '@aracna/react-components'
+import { useObservableElementComponent } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { AracnaInput } from '@aracna/react-components/components/input/input'

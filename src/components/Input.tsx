@@ -1,6 +1,6 @@
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { useObservableElementComponent } from '@aracna/react'
 import type { AracnaInputProps } from '@aracna/react-components'
+import { useObservableElementComponent } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { jec } from '@aracna/web'

@@ -6,8 +6,7 @@ import { omitObjectProperties, removeArrayItems } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { useObservableElementComponent } from '@aracna/react'
-import { type AracnaSelectProps } from '@aracna/react-components'
+import { useObservableElementComponent, type AracnaSelectProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import {
@@ -121,8 +120,8 @@ export function SelectComponentBlock() {
             {...omitObjectProperties(props, ['_variant'])}
             className='group w-64'
             expanded={typeof props.expanded === 'boolean' ? props.expanded : expanded}
-            onComboBoxCollapse={() => setExpanded(false)}
-            onComboBoxExpand={() => setExpanded(true)}
+            onCollapse={() => setExpanded(false)}
+            onExpand={() => setExpanded(true)}
             onStateChange={props.multiple ? onChangeOptions : onChangeOption}
             ref={ref}
           >
