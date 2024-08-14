@@ -4,8 +4,7 @@ import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import type { AracnaTabsProps } from '@aracna/react-components'
-import { AracnaImage } from '@aracna/react-components/components/data/image'
-import { AracnaTabs, AracnaTabsTab } from '@aracna/react-components/components/navigation/tabs'
+import { AracnaTabs, AracnaTabsPanel, AracnaTabsTab } from '@aracna/react-components/components/navigation/tabs'
 import type { ImageMetadata } from 'astro'
 import { useState } from 'react'
 
@@ -47,14 +46,16 @@ export function TabsComponentBlock() {
                 <AracnaTabsTab
                   key={tab.headline}
                   className='flex-1 justify-center p-3 transition hover:bg-slate-900 aria-selected:bg-slate-900'
-                  onClick={() => setSelected(tab.headline)}
+                  onSelect={() => setSelected(tab.headline)}
                   selected={tab.headline === selected}
                 >
                   <span className='font-medium text-xs text-white'>{tab.headline}</span>
                 </AracnaTabsTab>
               ))}
             </div>
-            <AracnaImage className='w-full h-64 rounded' src={props.tabs?.find((tab: Tab) => tab.headline === selected)?.image.src} />
+            <AracnaTabsPanel className='w-full h-64'>
+              <img className='not-prose rounded' src={props.tabs?.find((tab: Tab) => tab.headline === selected)?.image.src} />
+            </AracnaTabsPanel>
           </AracnaTabs>
         )
       }}

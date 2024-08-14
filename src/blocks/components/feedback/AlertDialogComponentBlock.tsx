@@ -6,7 +6,7 @@ import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaAlertDialog, AracnaAlertDialogDescription, AracnaAlertDialogLabel } from '@aracna/react-components/components/feedback/alert-dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { jec } from '@aracna/web'
-import { Fragment, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 
 export function AlertDialogComponentBlock() {
   return (
@@ -20,10 +20,14 @@ export function AlertDialogComponentBlock() {
         { name: 'visible', type: 'boolean' }
       ]}
       component={(props: AracnaAlertDialogProps) => {
-        const [visible, setVisible] = useState<boolean>(false)
+        const [visible, setVisible] = useState<boolean | undefined>(props.visible)
 
         const open = () => setVisible(true)
         const close = () => setVisible(false)
+
+        useMemo(() => {
+          setVisible(props.visible)
+        }, [props.visible])
 
         return (
           <Fragment>
