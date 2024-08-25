@@ -3,7 +3,7 @@
     "@algolia/client-search": "^5.1.1",
     "@aracna/core": "^1.1.87",
     "@aracna/icons-feather": "^1.0.10",
-    "@aracna/icons-feather-react": "1.0.18",
+    "@aracna/icons-feather-react": "1.0.19",
     "@aracna/icons-feather-web": "^1.0.24",
     "@aracna/react": "1.0.53",
     "@aracna/react-components": "1.0.47",

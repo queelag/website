@@ -18,8 +18,8 @@ importers:
         specifier: ^1.0.10
         version: 1.0.10
       '@aracna/icons-feather-react':
-        specifier: 1.0.18
-        version: 1.0.18(@aracna/core@1.1.87)(@aracna/icons-feather-web@1.0.24(@aracna/core@1.1.87)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/icons-feather@1.0.10)(@aracna/react-components@1.0.47(@aracna/core@1.1.87)(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1))(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1)
+        specifier: 1.0.19
+        version: 1.0.19(@aracna/core@1.1.87)(@aracna/icons-feather-web@1.0.24(@aracna/core@1.1.87)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/icons-feather@1.0.10)(@aracna/react-components@1.0.47(@aracna/core@1.1.87)(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1))(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1)
       '@aracna/icons-feather-web':
         specifier: ^1.0.24
         version: 1.0.24(@aracna/core@1.1.87)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0)
@@ -173,8 +173,8 @@ packages:
     resolution: {integrity: sha512-AzPeMZC9OBBQFMfY0Mbc2osTHn+yl1BOviqdewGPGCJQmmOMKJkvEXvQU6EgiwoO51aWKhAK5wNdYjOwNCzSPw==}
     engines: {node: '>=16', pnpm: '>=8'}
 
-  '@aracna/icons-feather-react@1.0.18':
-    resolution: {integrity: sha512-Wv6D5As5zUiTs9DCxO58rP6j+/WtFmdUnHBOsaiO78qpKRg2JBUKZQdQtr72aBLupafE2ZPNvioyVzxIRt1xRQ==}
+  '@aracna/icons-feather-react@1.0.19':
+    resolution: {integrity: sha512-AXqtcgX6A3OyFyqISDw+9ztvAgMUqvuTK1Y/ID1qo/OY7Rr1UZsGR2fOEh7xkh34htMt1LMT0IfIEuNM1Kp4xA==}
     engines: {node: '>=16', pnpm: '>=8'}
     peerDependencies:
       '@aracna/core': '>= 1.1.0'
@@ -2780,7 +2780,7 @@ snapshots:
       node-fetch: 3.3.2
       rfc4648: 1.5.3
 
-  '@aracna/icons-feather-react@1.0.18(@aracna/core@1.1.87)(@aracna/icons-feather-web@1.0.24(@aracna/core@1.1.87)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/icons-feather@1.0.10)(@aracna/react-components@1.0.47(@aracna/core@1.1.87)(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1))(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1)':
+  '@aracna/icons-feather-react@1.0.19(@aracna/core@1.1.87)(@aracna/icons-feather-web@1.0.24(@aracna/core@1.1.87)(@aracna/icons-feather@1.0.10)(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/icons-feather@1.0.10)(@aracna/react-components@1.0.47(@aracna/core@1.1.87)(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1))(@aracna/react@1.0.53(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(@types/react@18.3.4)(react@18.3.1))(@aracna/web-components@1.0.81(@aracna/core@1.1.87)(@aracna/web@1.0.75(@aracna/core@1.1.87))(lit@3.2.0))(@aracna/web@1.0.75(@aracna/core@1.1.87))(react@18.3.1)':
     dependencies:
       '@aracna/core': 1.1.87
       '@aracna/icons-feather': 1.0.10
