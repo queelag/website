@@ -3,8 +3,9 @@ import { Empty } from '@/components/Empty'
 import { Spinner } from '@/components/Spinner'
 import { DialogController } from '@/controllers/dialog-controller'
 import { PUBLIC_URL } from '@/definitions/constants'
-import type { Hit, SearchResponse } from '@algolia/client-search'
-import { concatURL, debounce, tcp } from '@aracna/core'
+import type { Hit, SearchResponses } from '@algolia/client-search'
+import { searchClient as Algolia } from '@algolia/client-search'
+import { concatURL, debounce, getObjectProperty, tcp } from '@aracna/core'
 import { IconFeatherSearch } from '@aracna/icons-feather-react/components/search'
 import { useWindowEventListener } from '@aracna/react'
 import {
@@ -17,13 +18,11 @@ import {
 import { AracnaDialog } from '@aracna/react-components/components/feedback/dialog'
 import { useObservable, useObserver } from '@aracna/state-manager-react'
 import type { StateChangeEvent } from '@aracna/web-components'
-import algoliasearch from 'algoliasearch'
 import { Fragment } from 'react'
 import { createPortal } from 'react-dom'
 import './DialogSearch.css'
 
-const search = algoliasearch(import.meta.env.PUBLIC_ALGOLIA_APP_ID, import.meta.env.PUBLIC_ALGOLIA_API_KEY)
-const index = search.initIndex(import.meta.env.PUBLIC_ALGOLIA_INDEX_NAME)
+const algolia = Algolia(import.meta.env.PUBLIC_ALGOLIA_APP_ID, import.meta.env.PUBLIC_ALGOLIA_API_KEY)
 
 interface T {
   package: string
@@ -57,7 +56,7 @@ export function DialogSearch() {
   }
 
   const search = async (query: string = '') => {
-    let response: SearchResponse<T> | Error
+    let response: SearchResponses<T> | Error
 
     if (query.length < 3) {
       store.hits = []
@@ -66,10 +65,10 @@ export function DialogSearch() {
       return
     }
 
-    response = await tcp(() => index.search<T>(query, { hitsPerPage: 5 }))
+    response = await tcp(() => algolia.searchForHits<T>([{ indexName: import.meta.env.PUBLIC_ALGOLIA_INDEX_NAME }]))
     if (response instanceof Error) return
 
-    store.hits = response.hits
+    store.hits = getObjectProperty(response.results[0], 'hits', [])
     store.searching = false
   }
 
@@ -93,7 +92,7 @@ export function DialogSearch() {
             </AracnaAriaComboBoxInput>
             <Chip layer={1} onClick={onClose} text='ESC' />
           </AracnaAriaComboBoxGroup>
-          {store.searching && <Spinner className='self-center my-8' size={24} stroke='white' />}
+          {store.searching && <Spinner className='self-center my-8 !border-t-0' size={24} stroke='white' />}
           {store.searching === false && (
             <Fragment>
               {store.hits.length <= 0 && (
@@ -101,7 +100,7 @@ export function DialogSearch() {
               )}
               {store.hits.length > 0 && (
                 <AracnaAriaComboBoxList>
-                  {store.hits.map((hit: Hit<T>) => (
+                  {store.hits.slice(0, 5).map((hit: Hit<T>) => (
                     <a href={concatURL(PUBLIC_URL, hit.slug)} key={hit.objectID}>
                       <AracnaAriaComboBoxOption label=''>
                         <div>
