@@ -6,10 +6,19 @@ import { AracnaForm } from '@aracna/react-components/components/input/form'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { jec } from '@aracna/web'
 import type { FormSubmitEvent } from '@aracna/web-components'
+import type { FormControlValidateEvent } from 'node_modules/@aracna/web-components/events/form-control-validate-event'
+import { useState } from 'react'
 import { pattern, size, string } from 'superstruct'
 
 function Input(props: AracnaInputProps) {
-  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-input'>()
+  const { element, onStateChange, ref } = useObservableElementComponent<'aracna-input'>({ whitelist: ['validation'] })
+  const [error, setError] = useState<string>()
+
+  const onValidate = (event: FormControlValidateEvent<any>) => {
+    if (event.detail?.touched) {
+      setError(event.detail?.error)
+    }
+  }
 
   return (
     <div className='flex flex-col gap-1'>
@@ -20,12 +29,13 @@ function Input(props: AracnaInputProps) {
           'transition hover:border-slate-700',
           element?.focused ? 'border-slate-700' : 'border-slate-800'
         )}
+        onFormControlValidate={onValidate}
         onStateChange={onStateChange}
-        padding='12px'
         ref={ref}
-        normalized
-      />
-      {element?.isErrorVisible && <span className='font-medium text-[10px] text-red-500'>{element?.error}</span>}
+      >
+        <input className='w-full bg-transparent p-3 outline-none placeholder:text-slate-500' placeholder={props.placeholder} />
+      </AracnaInput>
+      {error && <span className='font-medium text-[10px] text-red-500'>{error}</span>}
     </div>
   )
 }
@@ -44,10 +54,11 @@ export function FormComponentBlock() {
       ]}
       component={(props: AracnaFormProps) => (
         <AracnaForm {...props} className='w-full' onFormSubmit={onSubmit}>
-          <div className='flex flex-col gap-2'>
+          <form className='w-full flex flex-col gap-2' suppressHydrationWarning>
             <Input placeholder='username' schema={size(string(), 1, 32)} type='text' />
             <Input placeholder='password' schema={pattern(string(), /^[a-zA-Z0-9]{8,}$/)} type='password' />
             <AracnaButton
+              async
               className='self-end px-6 py-3 mt-4 transition hover:brightness-125 active:brightness-75 bg-blue-500'
               shape='rectangle'
               shape-rectangle-radius={2}
@@ -55,7 +66,7 @@ export function FormComponentBlock() {
             >
               <span className='font-medium text-xs'>Submit</span>
             </AracnaButton>
-          </div>
+          </form>
         </AracnaForm>
       )}
       defaultProps={{

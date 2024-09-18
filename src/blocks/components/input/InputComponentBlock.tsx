@@ -1,7 +1,5 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ComponentBlockAttribute } from '@/definitions/interfaces'
-import { removeArrayItems } from '@aracna/core'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { Memo } from '@aracna/react'
 import { useObservableElementComponent, type AracnaInputProps } from '@aracna/react-components'
@@ -16,16 +14,15 @@ export function InputComponentBlock() {
   return (
     <ComponentBlock
       attributes={[
-        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) => item.name === 'native'),
+        ...DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES,
         { name: 'multiple', type: 'boolean', visible: { type: ['text'] } },
         {
           name: 'obscured',
           type: 'boolean',
           visible: { type: ['buffer', 'color', 'date', 'datetime-local', 'email', 'month', 'number', 'search', 'tel', 'text', 'time', 'url', 'week'] }
         },
-        { name: 'padding', type: 'string' },
         { name: 'placeholder', type: 'string' },
-        // { name: 'touch-trigger', type: 'enum', options: [{ value: 'blur' }, { value: 'input' }] },
+        { name: 'touch-trigger', type: 'enum', options: [{ value: 'blur' }, { value: 'input' }] },
         {
           name: 'type',
           type: 'enum',
@@ -91,23 +88,26 @@ export function InputComponentBlock() {
                 className='flex-1 text-xs font-medium rounded text-white'
                 onAttributeChange={onAttributeChange}
                 onStateChange={props.type === 'text' && props.multiple ? onChangeItems : undefined}
-                padding='16px'
                 ref={ref}
                 type={props.type === 'color' ? 'text' : props.type}
                 value={props.type === 'color' ? color : props.value}
-              />
+              >
+                <input className='w-full bg-transparent p-4 outline-none' placeholder={props.placeholder} />
+              </AracnaInput>
             </Memo>
             {props.type === 'color' && (
               <div className='relative w-4 h-4 mr-4 rounded-full cursor-pointer' style={{ backgroundColor: color ?? '#fff' }}>
                 <Memo deps={[props]}>
-                  <AracnaInput {...props} className='absolute inset-0 opacity-0' onStateChange={onChangeColor} shape='circle' size={24} type='color' />
+                  <AracnaInput {...props} className='absolute inset-0 opacity-0' onStateChange={onChangeColor} shape='circle' size={24} type='color'>
+                    <input className='opacity-0' />
+                  </AracnaInput>
                 </Memo>
               </div>
             )}
           </div>
         )
       }}
-      defaultProps={{ normalized: true, placeholder: 'placeholder', type: 'text' }}
+      defaultProps={{ placeholder: 'placeholder', type: 'text' }}
     />
   )
 }

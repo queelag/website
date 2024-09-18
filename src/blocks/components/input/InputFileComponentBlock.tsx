@@ -15,9 +15,7 @@ export function InputFileComponentBlock() {
   return (
     <ComponentBlock
       attributes={[
-        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) =>
-          ['normalized', 'readonly'].includes(item.name)
-        ),
+        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) => ['readonly'].includes(item.name)),
         { name: 'deserialize-file-resolve-array-buffer', type: 'boolean' },
         { name: 'deserialize-file-resolve-text', type: 'boolean' },
         { name: 'multiple', type: 'boolean' }
@@ -29,6 +27,7 @@ export function InputFileComponentBlock() {
           <div className='flex flex-col items-center gap-2'>
             <Memo deps={[props]}>
               <AracnaInputFile {...props} className='group' onStateChange={onStateChange} ref={ref}>
+                <input className='absolute inset-0 opacity-0 cursor-pointer' />
                 <div
                   className={jec(
                     'w-64 h-64 flex flex-col justify-center items-center gap-1 p-6 rounded border-2 border-dashed border-slate-800',
@@ -40,7 +39,7 @@ export function InputFileComponentBlock() {
                 </div>
               </AracnaInputFile>
             </Memo>
-            {!props.native && element?.isFilesNotEmpty && (
+            {element?.isFilesNotEmpty && (
               <div className='flex flex-wrap justify-center gap-1'>
                 {element?.files.map((file: AracnaFile) => (
                   <AracnaChip className='flex items-center gap-2 pl-2.5 pr-1.5 py-1 rounded bg-slate-800' key={file.id}>

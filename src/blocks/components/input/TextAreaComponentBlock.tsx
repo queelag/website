@@ -1,7 +1,5 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ComponentBlockAttribute } from '@/definitions/interfaces'
-import { removeArrayItems } from '@aracna/core'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { Memo } from '@aracna/react'
 import { useObservableElementComponent, type AracnaTextAreaProps } from '@aracna/react-components'
@@ -16,15 +14,11 @@ export function TextAreaComponentBlock() {
   return (
     <ComponentBlock
       attributes={[
-        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) => item.name === 'native'),
+        ...DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES,
         { name: 'autosize', type: 'boolean' },
-        { name: 'cols', type: 'number' },
         { name: 'multiple', type: 'boolean' },
-        { name: 'padding', type: 'string' },
         { name: 'placeholder', type: 'string' },
-        { name: 'resize', type: 'enum', options: [{ value: 'both' }, { value: 'horizontal' }, { value: 'vertical' }, { value: 'none' }] },
-        { name: 'rows', type: 'number' },
-        // { name: 'touch-trigger', type: 'enum', options: [{ value: 'blur' }, { value: 'textarea' }] },
+        { name: 'touch-trigger', type: 'enum', options: [{ value: 'blur' }, { value: 'textarea' }] },
         { name: 'value', type: 'string' }
       ]}
       component={(props: AracnaTextAreaProps) => {
@@ -65,14 +59,20 @@ export function TextAreaComponentBlock() {
                 className='flex-1 text-xs font-medium rounded text-white'
                 onAttributeChange={onAttributeChange}
                 onStateChange={props.multiple ? onChangeItems : undefined}
-                padding='16px'
                 ref={ref}
-              />
+              >
+                <textarea
+                  className='w-full bg-transparent p-4 outline-none placeholder:text-slate-500'
+                  placeholder={props.placeholder}
+                  rows={1}
+                  suppressHydrationWarning
+                />
+              </AracnaTextArea>
             </Memo>
           </div>
         )
       }}
-      defaultProps={{ normalized: true, placeholder: 'placeholder' }}
+      defaultProps={{ placeholder: 'placeholder' }}
     />
   )
 }

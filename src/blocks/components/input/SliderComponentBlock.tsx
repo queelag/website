@@ -1,8 +1,7 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ComponentBlockAttribute } from '@/definitions/interfaces'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
-import { getLowestNumber, getNumbersDistance, isArray, removeArrayItems } from '@aracna/core'
+import { getLowestNumber, getNumbersDistance, isArray } from '@aracna/core'
 import { useObservableElementComponent, type AracnaSliderProps, type AracnaSliderThumbProps } from '@aracna/react-components'
 import { AracnaSlider, AracnaSliderThumb } from '@aracna/react-components/components/input/slider'
 import { jec } from '@aracna/web'
@@ -25,7 +24,7 @@ export function SliderComponentBlock() {
   return (
     <ComponentBlock
       attributes={[
-        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) => item.name === 'normalized'),
+        ...DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES,
         { name: 'decimals', type: 'number' },
         { name: 'disable-swap', type: 'boolean' },
         { name: 'max', type: 'number' },

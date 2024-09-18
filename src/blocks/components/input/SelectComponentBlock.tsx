@@ -1,8 +1,8 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ComponentBlockAttribute, SelectOption } from '@/definitions/interfaces'
+import type { SelectOption } from '@/definitions/interfaces'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
-import { omitObjectProperties, removeArrayItems } from '@aracna/core'
+import { omitObjectProperties } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
 import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
@@ -52,7 +52,7 @@ export function SelectComponentBlock() {
   return (
     <ComponentBlock
       attributes={[
-        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) => item.name === 'normalized'),
+        ...DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES,
         { name: 'autocomplete', type: 'enum', options: [{ value: 'none' }, { value: 'inline' }, { value: 'list' }, { value: 'both' }] },
         { name: 'expanded', type: 'boolean' },
         { name: 'multiple', type: 'boolean' },

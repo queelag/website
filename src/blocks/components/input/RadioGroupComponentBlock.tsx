@@ -1,7 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import type { ComponentBlockAttribute, RadioButton } from '@/definitions/interfaces'
-import { removeArrayItems } from '@aracna/core'
+import type { RadioButton } from '@/definitions/interfaces'
 import { useObservableElementComponent, type AracnaRadioGroupProps } from '@aracna/react-components'
 import { AracnaRadioButton, AracnaRadioGroup } from '@aracna/react-components/components/input/radio-group'
 import { jec } from '@aracna/web'
@@ -16,10 +15,7 @@ const BUTTONS: RadioButton[] = [
 export function RadioGroupComponentBlock() {
   return (
     <ComponentBlock
-      attributes={[
-        ...removeArrayItems(DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, (_, item: ComponentBlockAttribute) => item.name === 'normalized'),
-        { name: 'buttons', type: 'json' }
-      ]}
+      attributes={[...DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES, { name: 'buttons', type: 'json' }]}
       component={(props: AracnaRadioGroupProps<RadioButton>) => {
         const { element, ref } = useObservableElementComponent<'aracna-radio-group'>()
 

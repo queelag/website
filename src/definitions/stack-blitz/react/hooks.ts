@@ -167,8 +167,8 @@ export const SB_USE_OBSERVABLE_ELEMENT_COMPONENT: ProjectFiles = {
         const { ref } = useObservableElementComponent();
 
         return (
-          <AracnaButton ref={ref} native>
-            Button
+          <AracnaButton ref={ref}>
+            <button>Button</button>
           </AracnaButton>
         );
       }

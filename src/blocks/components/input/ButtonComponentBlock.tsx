@@ -31,8 +31,6 @@ export function ButtonComponentBlock() {
         { name: 'async', type: 'boolean' },
         { name: 'disabled', type: 'boolean' },
         { name: 'icon', type: 'enum', options: ICONS },
-        { name: 'native', type: 'boolean' },
-        { name: 'normalized', type: 'boolean' },
         { name: 'spinning', type: 'boolean' },
         { name: 'text', type: 'string' },
         { name: 'type', type: 'enum', options: [{ value: 'button' }, { value: 'menu' }, { value: 'reset' }, { value: 'submit' }] },

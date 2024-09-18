@@ -4,5 +4,11 @@ import { AracnaForm } from '@aracna/react-components/components/input/form'
 type Props = AracnaFormProps & {}
 
 export function Form(props: Props) {
-  return <AracnaForm {...props} />
+  return (
+    <AracnaForm {...props}>
+      <form className='w-full' suppressHydrationWarning>
+        {props.children}
+      </form>
+    </AracnaForm>
+  )
 }

@@ -13,7 +13,6 @@ import { offset } from '@floating-ui/dom'
 
 type Props = AracnaSelectProps<SelectOption> & {
   label?: string
-  placeholder?: string
 }
 
 export function Select(props: Props) {
@@ -30,7 +29,7 @@ export function Select(props: Props) {
         <AracnaSelectButton className='group w-full flex justify-between items-center'>
           <div className='flex flex-col gap-1'>
             {props.label && <label className='text-xs'>{props.label}</label>}
-            <span className={jec('text-xs font-semibold line-clamp-1', !element?.value && 'text-gray-500')}>
+            <span className={jec('text-xs font-semibold line-clamp-1', !element?.value && 'text-slate-500')}>
               {findSelectOptionLabelByValue(props.options ?? [], element?.value) ?? element?.value ?? props.placeholder}
             </span>
           </div>

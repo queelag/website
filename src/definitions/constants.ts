@@ -273,8 +273,6 @@ export const DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES: ComponentBlo
 export const DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES: ComponentBlockAttribute[] = [
   { name: 'disabled', type: 'boolean' },
   // { name: 'focused', type: 'boolean' },
-  { name: 'native', type: 'boolean' },
-  { name: 'normalized', type: 'boolean' },
   // { name: 'path', type: 'string' },
   { name: 'readonly', type: 'boolean' },
   // { name: 'schema', type: 'json' },
