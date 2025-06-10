@@ -10,8 +10,8 @@ import './Code.css'
 
 Prism.manual = true
 
-type Props = JSX.IntrinsicElements['pre'] & {
-  code?: JSX.IntrinsicElements['code']
+type Props = React.JSX.IntrinsicElements['pre'] & {
+  code?: React.JSX.IntrinsicElements['code']
   language: string
 }
 

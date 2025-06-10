@@ -2,8 +2,8 @@ import { omitObjectProperties } from '@aracna/core'
 import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
 import { jec } from '@aracna/web'
 
-type Props = JSX.IntrinsicElements['div'] & {
-  itemElementProps?: JSX.IntrinsicElements['div']
+type Props = React.JSX.IntrinsicElements['div'] & {
+  itemElementProps?: React.JSX.IntrinsicElements['div']
   items: string[]
 }
 

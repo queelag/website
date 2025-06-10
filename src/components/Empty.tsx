@@ -1,7 +1,7 @@
 import { IconFeatherInbox } from '@aracna/icons-feather-react/components/inbox'
 import { jec } from '@aracna/web'
 
-type Props = JSX.IntrinsicElements['div'] & {
+type Props = React.JSX.IntrinsicElements['div'] & {
   headline?: string
   text?: string
 }

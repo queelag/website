@@ -32,7 +32,7 @@ export function AlertComponentBlock() {
         { name: 'variant', type: 'enum', options: [{ value: 'fill' }, { value: 'fill-tonal' }, { value: 'opacity' }, { value: 'outline' }, { value: 'text' }] }
       ]}
       component={(props: AracnaAlertProps) => {
-        const [visible, setVisible] = useState(true)
+        const [_, setVisible] = useState(true)
 
         const close = () => {
           setVisible(false)

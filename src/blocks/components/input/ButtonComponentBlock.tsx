@@ -19,9 +19,10 @@ const ICONS: SelectOption[] = [
 ]
 
 export function ButtonComponentBlock() {
-  const onClickAsync = async (event: ButtonClickEvent) => {
-    await sleep(1000)
-    event.detail?.finalize()
+  const onClickAsync = (event: ButtonClickEvent) => {
+    event.detail?.callback(async () => {
+      await sleep(1000)
+    })
   }
 
   return (

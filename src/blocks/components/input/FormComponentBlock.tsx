@@ -1,4 +1,5 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { noop } from '@aracna/core'
 import type { AracnaFormProps, AracnaInputProps } from '@aracna/react-components'
 import { useObservableElementComponent } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
@@ -42,7 +43,7 @@ function Input(props: AracnaInputProps) {
 
 export function FormComponentBlock() {
   const onSubmit = (event: FormSubmitEvent) => {
-    event.detail?.finalize()
+    event.detail?.callback(noop)
   }
 
   return (

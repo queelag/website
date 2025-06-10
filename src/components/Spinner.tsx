@@ -1,7 +1,7 @@
 import { jec } from '@aracna/web'
 import type { Size } from '@aracna/web-components'
 
-type Props = JSX.IntrinsicElements['svg'] & {
+type Props = React.JSX.IntrinsicElements['svg'] & {
   size?: Size
 }
 
