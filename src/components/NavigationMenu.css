@@ -1,3 +1,5 @@
+@reference '@/styles/global.css';
+
 aracna-menu-item[depth='0'] > .text {
   @apply text-xl transition hover:opacity-50;
 }

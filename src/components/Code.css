@@ -1,3 +1,5 @@
+@reference '@/styles/global.css';
+
 code[class*='language-'],
 pre[class*='language-'] {
   color: white;

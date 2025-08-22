@@ -45,7 +45,7 @@ export function AlertComponentBlock() {
                 className={jec(
                   props.severity === 'error' && 'stroke-rose-500',
                   props.severity === 'info' && 'stroke-blue-500',
-                  props.severity === 'success' && 'stroke-mint-500',
+                  props.severity === 'success' && 'stroke-emerald-500',
                   props.severity === 'warning' && 'stroke-amber-500'
                 )}
                 size={16}

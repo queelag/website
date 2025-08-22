@@ -4,6 +4,7 @@ import Sidebar from '@/components/Sidebar.astro'
 import { TOCs } from '@/components/TOCs'
 import { jec } from '@aracna/web'
 import type { MarkdownHeading } from 'astro'
+import '@/styles/global.css'
 
 interface Props {
   frontmatter: Record<string, any>
@@ -21,6 +22,8 @@ const { frontmatter, headings } = Astro.props
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Aracna - {frontmatter.title}</title>
     <style is:global>
+      @reference '@/styles/global.css';
+
       @font-face {
         font-display: swap;
         font-family: 'Futura';

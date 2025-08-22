@@ -27,7 +27,7 @@ export function InputFileComponentBlock() {
           <div className='flex flex-col items-center gap-2'>
             <Memo deps={[props]}>
               <AracnaInputFile {...props} className='group' onStateChange={onStateChange} ref={ref}>
-                <input className='absolute inset-0 opacity-0 cursor-pointer' />
+                <input className='absolute inset-0 opacity-0 cursor-pointer' type="file" />
                 <div
                   className={jec(
                     'w-64 h-64 flex flex-col justify-center items-center gap-1 p-6 rounded border-2 border-dashed border-slate-800',

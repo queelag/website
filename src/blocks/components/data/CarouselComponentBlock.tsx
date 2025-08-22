@@ -46,7 +46,7 @@ export function CarouselComponentBlock() {
               </AracnaCarouselSlide>
             ))}
             <AracnaCarouselRotationControl className='absolute top-2 left-2'>
-              <div className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25  hover:bg-opacity-75 bg-black transition'>
+              <div className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25 hover:bg-opacity-75 bg-black transition'>
                 <IconFeatherPause className='group-[[live=polite]]:hidden' stroke='white' />
                 <IconFeatherPlay className='group-[[live=off]]:hidden' stroke='white' />
               </div>

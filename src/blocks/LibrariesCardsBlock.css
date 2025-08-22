@@ -1,3 +1,5 @@
+@reference '@/styles/global.css';
+
 div.libraries-cards-block {
   @apply max-w-screen-lg w-full grid lg:grid-cols-2 mt-12 overflow-hidden rounded-3xl border-2 border-slate-800;
 

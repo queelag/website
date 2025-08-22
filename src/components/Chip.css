@@ -1,3 +1,5 @@
+@reference '@/styles/global.css';
+
 aracna-chip.chip {
   @apply px-2 py-1 rounded transition;
 

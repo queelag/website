@@ -1,3 +1,5 @@
+@reference '@/styles/global.css';
+
 aracna-dialog#search {
   @apply fixed top-32 left-[50%] -translate-x-[50%] z-50;
   @apply max-w-xl rounded bg-slate-800 shadow-2xl;
