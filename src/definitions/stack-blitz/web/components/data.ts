@@ -604,7 +604,7 @@ export const SB_LIST: ProjectFiles = {
 
 export const SB_TOOLTIP: ProjectFiles = {
   'index.html': html`
-    <aracna-tooltip focusable show-on-mouse-enter>
+    <aracna-tooltip focusable show-on-pointer-enter>
       <aracna-tooltip-content>
         <span>Tooltip Content</span>
         <aracna-tooltip-arrow></aracna-tooltip-arrow>

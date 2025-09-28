@@ -13,7 +13,7 @@ export function TooltipComponentBlock() {
       attributes={[
         { name: 'children', type: 'string' },
         { name: 'focusable', type: 'boolean' },
-        { name: 'show-on-mouse-enter', type: 'boolean' },
+        { name: 'show-on-pointer-enter', type: 'boolean' },
         { name: 'visible', type: 'boolean' }
       ]}
       component={(props: AracnaTooltipProps) => (
@@ -25,11 +25,11 @@ export function TooltipComponentBlock() {
             )}
             middlewares={[offset(8)]}
           >
-            <span className='text-xs font-medium'>{props.children}</span>
             <AracnaTooltipArrow
               className='w-0 h-0'
               style={{ borderLeft: '6px solid transparent', borderRight: '6px solid transparent', borderBottom: `6px solid ${colors.slate[800]}` }}
             />
+            <span className='text-xs font-medium'>{props.children}</span>
           </AracnaTooltipContent>
           <AracnaTooltipTrigger>
             <IconFeather src={ICON_F_INFO} stroke='white' />
@@ -39,7 +39,7 @@ export function TooltipComponentBlock() {
       defaultProps={{
         children: 'Tooltip Content',
         focusable: true,
-        'show-on-mouse-enter': true
+        'show-on-pointer-enter': true
       }}
     />
   )

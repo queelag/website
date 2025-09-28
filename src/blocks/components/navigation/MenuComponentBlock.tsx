@@ -111,8 +111,8 @@ export function MenuComponentBlock() {
     <ComponentBlock
       attributes={[
         { name: 'collapse-debounce-time', type: 'number' },
-        { name: 'collapse-on-mouse-leave', type: 'boolean' },
-        { name: 'expand-on-mouse-enter', type: 'boolean' },
+        { name: 'collapse-on-pointer-leave', type: 'boolean' },
+        { name: 'expand-on-pointer-enter', type: 'boolean' },
         { name: 'typeahead-debounce-time', type: 'number' }
         // { name: 'typeahead-function', type: 'function' },
       ]}
