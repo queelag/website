@@ -1,5 +1,5 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { ICON_F_X } from '@aracna/icons-feather/assets/x'
+import { ICON_F_X } from '@aracna-icons/feather'
 import type { AracnaButtonGroupProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'

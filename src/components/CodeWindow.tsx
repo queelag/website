@@ -1,11 +1,12 @@
 import type { CodeWindowButton, CodeWindowProps } from '@/definitions/props'
+import { ICON_F_CLIPBOARD } from '@aracna-icons/feather'
 import { getArrayLastItem } from '@aracna/core'
-import { IconFeatherClipboard } from '@aracna/icons-feather-react/components/clipboard'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { jec } from '@aracna/web'
 import { Fragment, useMemo, useState } from 'react'
 import { ButtonGroup } from './ButtonGroup'
 import { Code } from './Code'
+import { IconFeather } from './IconFeather'
 
 export function CodeWindow(props: CodeWindowProps) {
   const [activeFile, setActiveFile] = useState<string>(props.activeFile ?? Object.keys(props.files ?? [])[0])
@@ -13,7 +14,7 @@ export function CodeWindow(props: CodeWindowProps) {
     () => [
       ...(props.buttons ?? []),
       {
-        icon: IconFeatherClipboard,
+        icon: ICON_F_CLIPBOARD,
         onClick: () => {
           let code: HTMLElement | null
 
@@ -70,7 +71,7 @@ export function CodeWindow(props: CodeWindowProps) {
               key={button.onClick.toString()}
               onClick={button.onClick}
             >
-              <button.icon stroke='white' />
+              <IconFeather src={button.icon} stroke='white' />
             </AracnaButton>
           ))}
         </div>

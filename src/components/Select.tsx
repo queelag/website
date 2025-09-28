@@ -1,8 +1,6 @@
 import type { SelectOption } from '@/definitions/interfaces'
+import { ICON_F_CHECK, ICON_F_CHEVRON_DOWN, ICON_F_X } from '@aracna-icons/feather'
 import { omitObjectProperties } from '@aracna/core'
-import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import type { AracnaSelectProps } from '@aracna/react-components'
 import { useObservableElementComponent } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
@@ -10,6 +8,7 @@ import { AracnaSelect, AracnaSelectButton, AracnaSelectGroup, AracnaSelectList, 
 import { jec } from '@aracna/web'
 import { findSelectOptionLabelByValue } from '@aracna/web-components'
 import { offset } from '@floating-ui/dom'
+import { IconFeather } from './IconFeather'
 
 type Props = AracnaSelectProps<SelectOption> & {
   label?: string
@@ -36,11 +35,11 @@ export function Select(props: Props) {
           <div className='flex items-center gap-1'>
             {element?.value && (
               <AracnaButton className='rounded-full opacity-0 transition group-hover:opacity-100 ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
-                <IconFeatherX onClick={onClear} size={12} stroke='white' />
+                <IconFeather onClick={onClear} size={12} src={ICON_F_X} stroke='white' />
               </AracnaButton>
             )}
             <AracnaButton className='rounded-full transition ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
-              <IconFeatherChevronDown className={jec('group-aria-expanded:rotate-180')} size={12} stroke='white' />
+              <IconFeather className={jec('group-aria-expanded:rotate-180')} size={12} src={ICON_F_CHEVRON_DOWN} stroke='white' />
             </AracnaButton>
           </div>
         </AracnaSelectButton>
@@ -60,7 +59,7 @@ export function Select(props: Props) {
             value={option.value}
           >
             <span className='text-xs'>{option.label ?? option.value}</span>
-            {option.value === element?.value && <IconFeatherCheck size={12} stroke='white' />}
+            {option.value === element?.value && <IconFeather size={12} src={ICON_F_CHECK} stroke='white' />}
           </AracnaSelectOption>
         ))}
       </AracnaSelectList>

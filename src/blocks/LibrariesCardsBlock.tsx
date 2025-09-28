@@ -1,8 +1,5 @@
-import { IconFeatherCpu } from '@aracna/icons-feather-react/components/cpu'
-import { IconFeatherFeather } from '@aracna/icons-feather-react/components/feather'
-import { IconFeatherGlobe } from '@aracna/icons-feather-react/components/globe'
-import { IconFeatherMessageCircle } from '@aracna/icons-feather-react/components/message-circle'
-import { IconFeatherZap } from '@aracna/icons-feather-react/components/zap'
+import { IconFeather } from '@/components/IconFeather'
+import { ICON_F_CPU, ICON_F_FEATHER, ICON_F_GLOBE, ICON_F_MESSAGE_CIRCLE, ICON_F_ZAP } from '@aracna-icons/feather'
 import type { AracnaIconProps } from '@aracna/react-components'
 import { IconReact } from 'src/icons/IconReact'
 import './LibrariesCardsBlock.css'
@@ -12,13 +9,13 @@ const LIBRARIES = [
     name: 'Core',
     description: `The pulsating heart of Aracna.\n\nExposes many classes, functions and utils that will make you write shorter and smarter code.`,
     href: '/core/get-started',
-    icon: IconFeatherCpu
+    icon: (props: AracnaIconProps) => <IconFeather {...props} src={ICON_F_CPU} />
   },
   {
     name: 'Web',
     description: `Make the web better and more accessible.\n\nCreate ARIA compliant components with ease and leverage the native Browser APIs in a simpler way.`,
     href: '/web/get-started',
-    icon: IconFeatherGlobe
+    icon: (props: AracnaIconProps) => <IconFeather {...props} src={ICON_F_GLOBE} />
   },
   {
     name: 'React',
@@ -30,19 +27,19 @@ const LIBRARIES = [
     name: 'State Manager',
     description: `Observe and watch changes in a functional way.\n\nSupports React out of the box with tailor made components, hocs and hooks.`,
     href: '/state-manager/get-started',
-    icon: IconFeatherZap
+    icon: (props: AracnaIconProps) => <IconFeather {...props} src={ICON_F_ZAP} />
   },
   {
     name: 'Icons',
     description: `Use icons without dealing with the raw assets.\n\nFeather Icons and Material Symbols are available. Small icon packs are exposed as Web and React components.`,
     href: '/icons/get-started',
-    icon: IconFeatherFeather
+    icon: (props: AracnaIconProps) => <IconFeather {...props} src={ICON_F_FEATHER} />
   },
   {
     name: 'FCM',
     description: `Send and receive FCM messages without relying on the Firebase SDK.\n\nWorks only with Node.js.`,
     href: '/fcm/get-started',
-    icon: IconFeatherMessageCircle
+    icon: (props: AracnaIconProps) => <IconFeather {...props} src={ICON_F_MESSAGE_CIRCLE} />
   }
 ]
 

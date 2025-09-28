@@ -1,9 +1,9 @@
-import { IconFeatherAlertTriangle } from '@aracna/icons-feather-react/components/alert-triangle'
-import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
+import { ICON_F_ALERT_TRIANGLE, ICON_F_INFO } from '@aracna-icons/feather'
 import type { AracnaAlertProps } from '@aracna/react-components'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
 import { jec } from '@aracna/web'
 import type { AlertSeverity, AlertVariant } from '@aracna/web-components'
+import { IconFeather } from './IconFeather'
 
 type Props = AracnaAlertProps & {
   closable?: boolean
@@ -20,8 +20,8 @@ export function Alert(props: Props) {
       {...props}
       className={jec('w-full inline-flex items-center gap-4 leading-tight px-4 rounded border-2 border-slate-700 bg-slate-900', props.className)}
     >
-      {props.severity === 'warning' && <IconFeatherAlertTriangle className='mt-[3px] stroke-amber-500' />}
-      {props.severity === 'info' && <IconFeatherInfo className='stroke-blue-500' />}
+      {props.severity === 'warning' && <IconFeather className='mt-[3px] stroke-amber-500' src={ICON_F_ALERT_TRIANGLE} />}
+      {props.severity === 'info' && <IconFeather className='stroke-blue-500' src={ICON_F_INFO} />}
       <div>{props.children}</div>
     </AracnaAlert>
   )

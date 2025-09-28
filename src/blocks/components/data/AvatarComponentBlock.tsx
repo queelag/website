@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import { ICON_F_USER } from '@aracna/icons-feather/assets/user'
+import { ICON_F_USER } from '@aracna-icons/feather'
 import type { AracnaAvatarProps } from '@aracna/react-components'
 import { AracnaAvatar } from '@aracna/react-components/components/data/avatar'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'

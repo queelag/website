@@ -1,5 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
+import { IconFeather } from '@/components/IconFeather'
+import { ICON_F_CHEVRON_DOWN } from '@aracna-icons/feather'
 import type { AracnaAccordionProps } from '@aracna/react-components'
 import {
   AracnaAccordion,
@@ -43,7 +44,7 @@ export function AccordionComponentBlock() {
               <AracnaAccordionHeader className='hover:bg-slate-900'>
                 <AracnaAccordionButton className='w-full flex justify-between items-center p-3'>
                   <span className='text-sm text-white'>{section.headline}</span>
-                  <IconFeatherChevronDown className='transition group-[&[expanded]]:rotate-180' stroke='white' />
+                  <IconFeather className='transition group-[&[expanded]]:rotate-180' src={ICON_F_CHEVRON_DOWN} stroke='white' />
                 </AracnaAccordionButton>
               </AracnaAccordionHeader>
               <AracnaAccordionPanel className='hidden aria-expanded:block p-3 pt-0'>

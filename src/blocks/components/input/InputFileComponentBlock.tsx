@@ -1,9 +1,9 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { IconFeather } from '@/components/IconFeather'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import type { ComponentBlockAttribute } from '@/definitions/interfaces'
+import { ICON_F_UPLOAD_CLOUD, ICON_F_X } from '@aracna-icons/feather'
 import { removeArrayItems, type AracnaFile } from '@aracna/core'
-import { IconFeatherUploadCloud } from '@aracna/icons-feather-react/components/upload-cloud'
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { Memo } from '@aracna/react'
 import { useObservableElementComponent, type AracnaInputFileProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
@@ -27,14 +27,14 @@ export function InputFileComponentBlock() {
           <div className='flex flex-col items-center gap-2'>
             <Memo deps={[props]}>
               <AracnaInputFile {...props} className='group' onStateChange={onStateChange} ref={ref}>
-                <input className='absolute inset-0 opacity-0 cursor-pointer' type="file" />
+                <input className='absolute inset-0 opacity-0 cursor-pointer' type='file' />
                 <div
                   className={jec(
                     'w-64 h-64 flex flex-col justify-center items-center gap-1 p-6 rounded border-2 border-dashed border-slate-800',
                     'transition group-hover:border-slate-700 group-focus:border-slate-700'
                   )}
                 >
-                  <IconFeatherUploadCloud size={48} stroke='white' stroke-width={0.7} />
+                  <IconFeather size={48} src={ICON_F_UPLOAD_CLOUD} stroke='white' stroke-width={0.7} />
                   <span className='text-xs font-medium'>Drag and drop files here</span>
                 </div>
               </AracnaInputFile>
@@ -49,7 +49,7 @@ export function InputFileComponentBlock() {
                       onClick={() => element?.removeFile(file)}
                       size={12}
                     >
-                      <IconFeatherX size={12} stroke='white' />
+                      <IconFeather size={12} src={ICON_F_X} stroke='white' />
                     </AracnaButton>
                   </AracnaChip>
                 ))}

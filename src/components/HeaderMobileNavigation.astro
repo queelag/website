@@ -2,7 +2,8 @@
 import type { NavigationItem } from '@/definitions/interfaces'
 import { OverlayMobileNavigation } from '@/overlays/OverlayMobileNavigation'
 import { getCollectioNavigationItems } from '@/utils/navigation-utils'
-import { IconFeatherMenu } from '@aracna/icons-feather-react/components/menu'
+import { ICON_F_MENU } from '@aracna-icons/feather'
+import { IconFeather } from './IconFeather'
 
 const items: NavigationItem[] = [
   { order: -1, slug: '/', title: 'Introduction' },
@@ -15,8 +16,8 @@ const items: NavigationItem[] = [
 ]
 ---
 
-<IconFeatherMenu client:load className='lg:hidden' id='mobile-navigation-trigger' size={24} stroke='white' stroke-width='1.5' />
-<OverlayMobileNavigation client:only="react" items={items} />
+<IconFeather client:load className='lg:hidden' id='mobile-navigation-trigger' size={24} src={ICON_F_MENU} stroke='white' stroke-width='1.5' />
+<OverlayMobileNavigation client:only='react' items={items} />
 
 <script>
   import { OverlayController } from '@/controllers/overlay-controller'

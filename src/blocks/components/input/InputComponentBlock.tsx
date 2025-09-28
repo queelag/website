@@ -1,6 +1,7 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { IconFeather } from '@/components/IconFeather'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
+import { ICON_F_X } from '@aracna-icons/feather'
 import { Memo } from '@aracna/react'
 import { useObservableElementComponent, type AracnaInputProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
@@ -76,7 +77,7 @@ export function InputComponentBlock() {
                       onClick={() => element?.removeItem(item)}
                       size={12}
                     >
-                      <IconFeatherX size={12} stroke='white' />
+                      <IconFeather size={12} src={ICON_F_X} stroke='white' />
                     </AracnaButton>
                   </AracnaChip>
                 ))}

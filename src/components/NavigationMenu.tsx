@@ -1,6 +1,7 @@
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
+import { ICON_F_CHEVRON_DOWN } from '@aracna-icons/feather'
 import { AracnaMenu, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu'
 import { offset } from '@floating-ui/dom'
+import { IconFeather } from './IconFeather'
 import './NavigationMenu.css'
 
 interface Item {
@@ -69,13 +70,13 @@ export function MenuItem(props: ItemProps) {
       {typeof props.href === 'string' && (
         <a className='text flex items-center gap-2' href={props.href}>
           <span>{props.text}</span>
-          {props.items && <IconFeatherChevronDown size={24} stroke='white' stroke-width={1.5} />}
+          {props.items && <IconFeather size={24} src={ICON_F_CHEVRON_DOWN} stroke='white' stroke-width={1.5} />}
         </a>
       )}
       {typeof props.href === 'undefined' && (
         <div className='text flex items-center gap-2'>
           <span>{props.text}</span>
-          {props.items && <IconFeatherChevronDown size={24} stroke='white' stroke-width={1.5} />}
+          {props.items && <IconFeather size={24} src={ICON_F_CHEVRON_DOWN} stroke='white' stroke-width={1.5} />}
         </div>
       )}
       {props.items && (

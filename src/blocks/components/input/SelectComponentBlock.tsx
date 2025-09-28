@@ -1,11 +1,10 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { IconFeather } from '@/components/IconFeather'
 import { DEFAULT_COMPONENT_BLOCK_FORM_FIELD_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import type { SelectOption } from '@/definitions/interfaces'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
+import { ICON_F_CHECK, ICON_F_CHEVRON_DOWN, ICON_F_X } from '@aracna-icons/feather'
 import { omitObjectProperties } from '@aracna/core'
-import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { useObservableElementComponent, type AracnaSelectProps } from '@aracna/react-components'
 import { AracnaChip } from '@aracna/react-components/components/data/chip'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
@@ -146,7 +145,7 @@ export function SelectComponentBlock() {
                                 onClick={(event: any) => onClickRemoveOption(event, option)}
                                 size={12}
                               >
-                                <IconFeatherX size={12} stroke='white' />
+                                <IconFeather size={12} src={ICON_F_X} stroke='white' />
                               </AracnaButton>
                             </AracnaChip>
                           ))}
@@ -155,7 +154,7 @@ export function SelectComponentBlock() {
                     </Fragment>
                   )}
                   {!props.multiple && <span className='text-xs font-medium'>{selected[0]?.label ?? 'Select Fruit'}</span>}
-                  <IconFeatherChevronDown className={jec('transition group-[&[expanded]]:rotate-180')} stroke='white' />
+                  <IconFeather className={jec('transition group-[&[expanded]]:rotate-180')} src={ICON_F_CHEVRON_DOWN} stroke='white' />
                 </AracnaSelectButton>
               )}
               {props._variant === 'input' && (
@@ -175,7 +174,7 @@ export function SelectComponentBlock() {
                             onClick={(event: any) => onClickRemoveOption(event, option)}
                             size={12}
                           >
-                            <IconFeatherX size={12} stroke='white' />
+                            <IconFeather size={12} src={ICON_F_X} stroke='white' />
                           </AracnaButton>
                         </AracnaChip>
                       ))}
@@ -190,7 +189,7 @@ export function SelectComponentBlock() {
                     />
                   </AracnaSelectInput>
                   <AracnaSelectButton className='w-4 h-4 rounded-full mr-3 transition ring-slate-600 hover:bg-slate-600 hover:ring-4 active:ring-2'>
-                    <IconFeatherChevronDown className={jec('transition group-[&[expanded]]:rotate-180')} stroke='white' />
+                    <IconFeather className={jec('transition group-[&[expanded]]:rotate-180')} src={ICON_F_CHEVRON_DOWN} stroke='white' />
                   </AracnaSelectButton>
                 </div>
               )}
@@ -214,7 +213,7 @@ export function SelectComponentBlock() {
                   selected={Boolean(selected.find((option_: SelectOption) => option_.value === option.value))}
                 >
                   <span className='text-xs font-medium'>{option.label ?? option.value}</span>
-                  <IconFeatherCheck className={jec('transition', 'opacity-0 group-aria-selected:opacity-100')} size={12} stroke='white' />
+                  <IconFeather className={jec('transition', 'opacity-0 group-aria-selected:opacity-100')} size={12} src={ICON_F_CHECK} stroke='white' />
                 </AracnaSelectOption>
               ))}
             </AracnaSelectList>

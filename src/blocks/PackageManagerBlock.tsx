@@ -1,5 +1,5 @@
 import { CodeWindow } from '@/components/CodeWindow'
-import { IconFeatherGitBranch } from '@aracna/icons-feather-react/components/git-branch'
+import { ICON_F_GIT_BRANCH } from '@aracna-icons/feather'
 import { useState } from 'react'
 
 interface Props {
@@ -17,7 +17,7 @@ export function PackageManagerBlock(props: Props) {
     if (props.install && props.install.dependencies) {
       return [
         {
-          icon: IconFeatherGitBranch,
+          icon: ICON_F_GIT_BRANCH,
           onClick: () => setInstallWithDependencies((v: boolean) => !v)
         }
       ]

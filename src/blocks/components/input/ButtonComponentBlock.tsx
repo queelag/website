@@ -1,11 +1,9 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { IconFeather } from '@/components/IconFeather'
 import { DEFAULT_COMPONENT_BLOCK_BASE_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
 import type { SelectOption } from '@/definitions/interfaces'
+import { ICON_F_CLOCK, ICON_F_IMAGE, ICON_F_LOADER, ICON_F_PLUS } from '@aracna-icons/feather'
 import { sleep } from '@aracna/core'
-import { IconFeatherLoader } from '@aracna/icons-feather-react/components/loader'
-import { ICON_F_CLOCK } from '@aracna/icons-feather/assets/clock'
-import { ICON_F_IMAGE } from '@aracna/icons-feather/assets/image'
-import { ICON_F_PLUS } from '@aracna/icons-feather/assets/plus'
 import type { AracnaButtonProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
@@ -40,7 +38,7 @@ export function ButtonComponentBlock() {
       component={(props: AracnaButtonProps) => (
         <AracnaButton {...props} className='group px-3 py-2 transition hover:brightness-125 active:brightness-75 bg-blue-500' onButtonClick={onClickAsync}>
           <div className='relative w-full flex justify-center items-center gap-1.5'>
-            <IconFeatherLoader className='absolute animate-spin opacity-0 group-[&[spinning]]:opacity-100' fill='none' stroke='white' />
+            <IconFeather className='absolute animate-spin opacity-0 group-[&[spinning]]:opacity-100' fill='none' src={ICON_F_LOADER} stroke='white' />
             <div className='flex items-center gap-1.5 group-[&[spinning]]:opacity-0'>
               {props.icon && <AracnaIcon className={jec(props.text && '-ml-[4px]')} fill='none' size={16} src={props.icon} stroke='white' stroke-width={2} />}
               {props.text && <span className='font-medium text-xs text-white'>{props.text}</span>}

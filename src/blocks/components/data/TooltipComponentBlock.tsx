@@ -1,5 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { IconFeatherInfo } from '@aracna/icons-feather-react/components/info'
+import { IconFeather } from '@/components/IconFeather'
+import { ICON_F_INFO } from '@aracna-icons/feather'
 import type { AracnaTooltipProps } from '@aracna/react-components'
 import { AracnaTooltip, AracnaTooltipArrow, AracnaTooltipContent, AracnaTooltipTrigger } from '@aracna/react-components/components/data/tooltip'
 import { jec } from '@aracna/web'
@@ -31,7 +32,7 @@ export function TooltipComponentBlock() {
             />
           </AracnaTooltipContent>
           <AracnaTooltipTrigger>
-            <IconFeatherInfo stroke='white' />
+            <IconFeather src={ICON_F_INFO} stroke='white' />
           </AracnaTooltipTrigger>
         </AracnaTooltip>
       )}

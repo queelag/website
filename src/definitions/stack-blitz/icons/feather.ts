@@ -4,7 +4,7 @@ import type { ProjectFiles } from '@stackblitz/sdk';
 export const SB_ICONS_FEATHER: ProjectFiles = {
   'app.js': html`
     <script>
-      import { ICON_F_FEATHER } from '@aracna/icons-feather/assets/feather';
+      import { ICON_F_FEATHER } from '@aracna-icons/feather';
 
       // will log the SVG string of the "feather" icon
       console.log(ICON_F_FEATHER);
@@ -16,10 +16,11 @@ export const SB_ICONS_FEATHER_REACT: ProjectFiles = {
   'App.jsx': html`
     <script>
       import React from 'react';
-      import { IconFeatherFeather } from '@aracna/icons-feather-react/components/feather';
+      import { Icon } from '@aracna/react-components/components/data/icon';
+      import { ICON_F_FEATHER } from '@aracna-icons/feather';
 
       export function App() {
-        return <IconFeatherFeather />;
+        return <Icon size={16} src={ICON_F_FEATHER} />;
       }
     </script>
   `
@@ -28,12 +29,14 @@ export const SB_ICONS_FEATHER_REACT: ProjectFiles = {
 export const SB_ICONS_FEATHER_WEB: ProjectFiles = {
   'app.js': html`
     <script>
-      import '@aracna/icons-feather-web/elements/feather';
+      import '@aracna/web-components/elements/icon-element';
 
       const root = document.getElementById('root');
-      const feather = document.createElement('icon-feather-feather');
+      const icon = document.createElement('icon-feather');
 
-      root.append(feather);
+      icon.size = 16;
+
+      root.append(icon);
     </script>
   `
 };

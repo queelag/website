@@ -1,10 +1,11 @@
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
+import { ICON_F_X } from '@aracna-icons/feather'
 import type { AracnaInputProps } from '@aracna/react-components'
 import { useObservableElementComponent } from '@aracna/react-components'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { jec } from '@aracna/web'
 import { getFormControlElementValue } from '@aracna/web-components'
+import { IconFeather } from './IconFeather'
 
 type Props = AracnaInputProps & {
   label?: string
@@ -44,7 +45,7 @@ export function Input(props: Props) {
           onClick={() => element?.clear()}
           size={16}
         >
-          <IconFeatherX size={12} stroke='white' />
+          <IconFeather size={12} src={ICON_F_X} stroke='white' />
         </AracnaButton>
       )}
     </div>

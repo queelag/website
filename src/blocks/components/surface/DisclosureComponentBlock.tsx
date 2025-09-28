@@ -1,5 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
+import { IconFeather } from '@/components/IconFeather'
+import { ICON_F_CHEVRON_DOWN } from '@aracna-icons/feather'
 import type { AracnaDisclosureProps } from '@aracna/react-components'
 import {
   AracnaDisclosure,
@@ -38,7 +39,7 @@ export function DisclosureComponentBlock() {
             <AracnaDisclosureSection key={section.headline} className='group flex flex-col'>
               <AracnaDisclosureButton className='w-full flex justify-between items-center p-3 hover:bg-slate-900'>
                 <span className='text-sm text-white'>{section.headline}</span>
-                <IconFeatherChevronDown className='transition group-[&[expanded]]:rotate-180' stroke='white' />
+                <IconFeather className='transition group-[&[expanded]]:rotate-180' src={ICON_F_CHEVRON_DOWN} stroke='white' />
               </AracnaDisclosureButton>
               <AracnaDisclosurePanel className='hidden group-[&[expanded]]:block p-3 pt-0'>
                 <span className='inline-flex text-xs'>{section.text}</span>

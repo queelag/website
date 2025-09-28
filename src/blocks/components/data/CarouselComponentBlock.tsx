@@ -3,12 +3,10 @@ import MESH_MINT from '@/assets/meshes/mint.jpeg'
 import MESH_ROSE from '@/assets/meshes/rose.jpeg'
 import MESH_SEANCE from '@/assets/meshes/seance.jpeg'
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { IconFeather } from '@/components/IconFeather'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
+import { ICON_F_CHEVRON_LEFT, ICON_F_CHEVRON_RIGHT, ICON_F_PAUSE, ICON_F_PLAY } from '@aracna-icons/feather'
 import { omitObjectProperties } from '@aracna/core'
-import { IconFeatherChevronLeft } from '@aracna/icons-feather-react/components/chevron-left'
-import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
-import { IconFeatherPause } from '@aracna/icons-feather-react/components/pause'
-import { IconFeatherPlay } from '@aracna/icons-feather-react/components/play'
 import type { AracnaCarouselProps } from '@aracna/react-components'
 import {
   AracnaCarousel,
@@ -47,17 +45,17 @@ export function CarouselComponentBlock() {
             ))}
             <AracnaCarouselRotationControl className='absolute top-2 left-2'>
               <div className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25 hover:bg-opacity-75 bg-black transition'>
-                <IconFeatherPause className='group-[[live=polite]]:hidden' stroke='white' />
-                <IconFeatherPlay className='group-[[live=off]]:hidden' stroke='white' />
+                <IconFeather className='group-[[live=polite]]:hidden' src={ICON_F_PLAY} stroke='white' />
+                <IconFeather className='group-[[live=off]]:hidden' src={ICON_F_PAUSE} stroke='white' />
               </div>
             </AracnaCarouselRotationControl>
             {props._variant === 'buttons' && (
               <div className='absolute top-2 right-2 flex gap-1'>
                 <AracnaCarouselPreviousSlideControl className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25 hover:bg-opacity-75 bg-black transition'>
-                  <IconFeatherChevronLeft stroke='white' />
+                  <IconFeather src={ICON_F_CHEVRON_LEFT} stroke='white' />
                 </AracnaCarouselPreviousSlideControl>
                 <AracnaCarouselNextSlideControl className='w-6 h-6 flex justify-center items-center rounded backdrop-blur-3xl bg-opacity-25 hover:bg-opacity-75 bg-black transition'>
-                  <IconFeatherChevronRight stroke='white' />
+                  <IconFeather src={ICON_F_CHEVRON_RIGHT} stroke='white' />
                 </AracnaCarouselNextSlideControl>
               </div>
             )}

@@ -1,9 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
-import { ICON_F_ALERT_TRIANGLE } from '@aracna/icons-feather/assets/alert-triangle'
-import { ICON_F_CHECK_CIRCLE } from '@aracna/icons-feather/assets/check-circle'
-import { ICON_F_INFO } from '@aracna/icons-feather/assets/info'
-import { ICON_F_X_CIRCLE } from '@aracna/icons-feather/assets/x-circle'
+import { IconFeather } from '@/components/IconFeather'
+import { ICON_F_ALERT_TRIANGLE, ICON_F_CHECK_CIRCLE, ICON_F_INFO, ICON_F_X, ICON_F_X_CIRCLE } from '@aracna-icons/feather'
 import type { AracnaAlertProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaAlert } from '@aracna/react-components/components/feedback/alert'
@@ -62,7 +59,7 @@ export function AlertComponentBlock() {
             </div>
             {props.closable && (
               <AracnaButton className='absolute top-2 right-2 rounded-full transition ring-slate-700 hover:bg-slate-700 hover:ring-4 active:ring-2'>
-                <IconFeatherX onClick={close} size={12} stroke='white' />
+                <IconFeather onClick={close} size={12} src={ICON_F_X} stroke='white' />
               </AracnaButton>
             )}
           </AracnaAlert>

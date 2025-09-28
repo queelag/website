@@ -1,6 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { DEFAULT_COMPONENT_BLOCK_FOCUS_TRAP_ELEMENT_ATTRIBUTES } from '@/definitions/constants'
-import { ICON_F_CALENDAR } from '@aracna/icons-feather/assets/calendar'
+import { ICON_F_CALENDAR } from '@aracna-icons/feather'
 import type { AracnaDialogProps } from '@aracna/react-components'
 import { AracnaIcon } from '@aracna/react-components/components/data/icon'
 import { AracnaDialog, AracnaDialogDescription, AracnaDialogLabel } from '@aracna/react-components/components/feedback/dialog'

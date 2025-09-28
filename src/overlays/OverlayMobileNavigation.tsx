@@ -1,10 +1,9 @@
 import { AracnaLogo } from '@/components/AracnaLogo'
+import { IconFeather } from '@/components/IconFeather'
 import { OverlayController } from '@/controllers/overlay-controller'
 import type { NavigationItem } from '@/definitions/interfaces'
+import { ICON_F_CHEVRON_DOWN, ICON_F_CHEVRON_UP, ICON_F_X } from '@aracna-icons/feather'
 import type { StorageItem } from '@aracna/core'
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
-import { IconFeatherChevronUp } from '@aracna/icons-feather-react/components/chevron-up'
-import { IconFeatherX } from '@aracna/icons-feather-react/components/x'
 import { AracnaDialog } from '@aracna/react-components/components/feedback/dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { useObservable, useObserver } from '@aracna/state-manager-react'
@@ -35,7 +34,7 @@ export function OverlayMobileNavigation(props: Props) {
           <a className='outline-none' href='/'>
             <AracnaLogo hasText />
           </a>
-          <IconFeatherX onClick={onClose} size={24} stroke='white' stroke-width={2} />
+          <IconFeather onClick={onClose} size={24} src={ICON_F_X} stroke='white' stroke-width={2} />
         </div>
         <div className='flex flex-col px-4 overflow-y-auto'>
           {props.items.map((item: NavigationItem) => (
@@ -92,9 +91,9 @@ export function Item(props: NavigationItem) {
           <AracnaButton shape='squircle' size={16}>
             <div className='w-full h-full flex justify-center items-center transition bg-slate-800 group-hover:bg-black'>
               {store.expanded ? (
-                <IconFeatherChevronUp size={10} stroke='white' stroke-width={3} />
+                <IconFeather size={10} src={ICON_F_CHEVRON_UP} stroke='white' stroke-width={3} />
               ) : (
-                <IconFeatherChevronDown className='-mb-[1px]' size={10} stroke='white' stroke-width={3} />
+                <IconFeather className='-mb-[1px]' size={10} src={ICON_F_CHEVRON_DOWN} stroke='white' stroke-width={3} />
               )}
             </div>
           </AracnaButton>

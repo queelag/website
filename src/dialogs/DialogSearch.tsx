@@ -1,12 +1,13 @@
 import { Chip } from '@/components/Chip'
 import { Empty } from '@/components/Empty'
+import { IconFeather } from '@/components/IconFeather'
 import { Spinner } from '@/components/Spinner'
 import { DialogController } from '@/controllers/dialog-controller'
 import { PUBLIC_URL } from '@/definitions/constants'
 import type { Hit, SearchResponses } from '@algolia/client-search'
 import { searchClient as Algolia } from '@algolia/client-search'
+import { ICON_F_SEARCH } from '@aracna-icons/feather'
 import { concatURL, debounce, getObjectProperty, tcp } from '@aracna/core'
-import { IconFeatherSearch } from '@aracna/icons-feather-react/components/search'
 import { useWindowEventListener } from '@aracna/react'
 import {
   AracnaAriaComboBox,
@@ -86,7 +87,7 @@ export function DialogSearch() {
       <AracnaDialog id='search' onDialogClose={onClose} visible={DialogController.isVisible('search')} click-outside-deactivates>
         <AracnaAriaComboBox>
           <AracnaAriaComboBoxGroup>
-            <IconFeatherSearch stroke='white' stroke-width={3} />
+            <IconFeather src={ICON_F_SEARCH} stroke='white' stroke-width={3} />
             <AracnaAriaComboBoxInput onStateChange={onInputStateChange}>
               <input placeholder='Search' suppressHydrationWarning />
             </AracnaAriaComboBoxInput>

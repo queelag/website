@@ -1,9 +1,10 @@
-import { IconFeatherCheck } from '@aracna/icons-feather-react/components/check'
+import { ICON_F_CHECK } from '@aracna-icons/feather'
 import type { AracnaCheckBoxProps } from '@aracna/react-components'
 import { useObservableElementComponent } from '@aracna/react-components'
 import { AracnaCheckBox } from '@aracna/react-components/components/input/check-box'
 import { AracnaInput } from '@aracna/react-components/components/input/input'
 import { jec } from '@aracna/web'
+import { IconFeather } from './IconFeather'
 
 type Props = AracnaCheckBoxProps & {
   label?: string
@@ -23,7 +24,7 @@ export function InputCheckBox(props: Props) {
       </div>
       <AracnaCheckBox {...props} onStateChange={onStateChange} ref={ref} className='group'>
         <div className={jec('w-6 h-6 flex justify-center items-center rounded bg-slate-800', 'transition hover:bg-slate-700 active:bg-slate-800')}>
-          <IconFeatherCheck className='opacity-0 group-aria-checked:opacity-100 transition' size={14} stroke='white' />
+          <IconFeather className='opacity-0 group-aria-checked:opacity-100 transition' size={14} src={ICON_F_CHECK} stroke='white' />
         </div>
       </AracnaCheckBox>
     </div>

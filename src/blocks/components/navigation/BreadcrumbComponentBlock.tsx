@@ -1,5 +1,6 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
-import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
+import { IconFeather } from '@/components/IconFeather'
+import { ICON_F_CHEVRON_DOWN } from '@aracna-icons/feather'
 import type { AracnaBreadcrumbProps } from '@aracna/react-components'
 import { AracnaBreadcrumb, AracnaBreadcrumbItem, AracnaBreadcrumbList } from '@aracna/react-components/components/navigation/breadcrumb'
 
@@ -22,7 +23,7 @@ export function BreadcrumbComponentBlock() {
                 <a className='text-xs no-underline hover:underline aria-[current=page]:italic' href={item.href} suppressHydrationWarning>
                   {item.text}
                 </a>
-                {index < ITEMS.length - 1 && <IconFeatherChevronRight size={12} stroke='white' />}
+                {index < ITEMS.length - 1 && <IconFeather size={12} src={ICON_F_CHEVRON_DOWN} stroke='white' />}
               </AracnaBreadcrumbItem>
             ))}
           </AracnaBreadcrumbList>

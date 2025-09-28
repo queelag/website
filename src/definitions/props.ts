@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import type { CodeRuntimeTemplate } from './types'
 
 export interface CodeWindowButton {
-  icon: any
+  icon: string
   onClick: () => any
 }
 

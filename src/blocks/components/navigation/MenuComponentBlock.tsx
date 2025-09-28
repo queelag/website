@@ -1,8 +1,8 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
+import { IconFeather } from '@/components/IconFeather'
 import type { ComponentBlockComponentProps } from '@/definitions/types'
+import { ICON_F_CHEVRON_DOWN, ICON_F_CHEVRON_RIGHT } from '@aracna-icons/feather'
 import { omitObjectProperties } from '@aracna/core'
-import { IconFeatherChevronDown } from '@aracna/icons-feather-react/components/chevron-down'
-import { IconFeatherChevronRight } from '@aracna/icons-feather-react/components/chevron-right'
 import { useObservableElementComponent, type AracnaMenuItemProps, type AracnaMenuProps } from '@aracna/react-components'
 import { AracnaMenu, AracnaMenuButton, AracnaMenuItem, AracnaMenuSubMenu } from '@aracna/react-components/components/navigation/menu'
 import { jec } from '@aracna/web'
@@ -83,8 +83,8 @@ function MenuItem(props: AracnaMenuItemProps & { deep?: boolean }) {
         <span>{props.headline}</span>
         {props.items && (
           <Fragment>
-            {shallow && <IconFeatherChevronDown size={12} stroke='white' stroke-width={3} />}
-            {deep && <IconFeatherChevronRight size={12} stroke='white' stroke-width={3} />}
+            {shallow && <IconFeather size={12} src={ICON_F_CHEVRON_DOWN} stroke='white' stroke-width={3} />}
+            {deep && <IconFeather size={12} src={ICON_F_CHEVRON_RIGHT} stroke='white' stroke-width={3} />}
           </Fragment>
         )}
       </a>
@@ -134,7 +134,7 @@ export function MenuComponentBlock() {
                 )}
               >
                 <span className='text-xs font-medium text-white'>Products</span>
-                <IconFeatherChevronDown size={12} stroke='white' stroke-width={3} />
+                <IconFeather size={12} src={ICON_F_CHEVRON_DOWN} stroke='white' stroke-width={3} />
               </AracnaMenuButton>
               <AracnaMenuSubMenu
                 className={jec(
