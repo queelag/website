@@ -21,8 +21,8 @@ importers:
         specifier: 1.0.58
         version: 1.0.58(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@lit/react@1.0.5(@types/react@19.1.15))(react@19.1.1)
       '@aracna/react-components':
-        specifier: 1.0.58
-        version: 1.0.58(@aracna/core@1.4.3)(@aracna/react@1.0.58(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@lit/react@1.0.5(@types/react@19.1.15))(react@19.1.1))(@aracna/web-components@1.1.15(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(tabbable@6.2.0))(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(@lit/react@1.0.5(@types/react@19.1.15))(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(react@19.1.1)(tabbable@6.2.0)
+        specifier: 1.0.59
+        version: 1.0.59(@aracna/core@1.4.3)(@aracna/react@1.0.58(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@lit/react@1.0.5(@types/react@19.1.15))(react@19.1.1))(@aracna/web-components@1.1.15(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(tabbable@6.2.0))(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(@lit/react@1.0.5(@types/react@19.1.15))(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(react@19.1.1)(tabbable@6.2.0)
       '@aracna/state-manager':
         specifier: ^1.0.45
         version: 1.0.45(@aracna/core@1.4.3)
@@ -185,8 +185,8 @@ packages:
   '@aracna/core@1.4.3':
     resolution: {integrity: sha512-QbouZYeYGqfHTji+5I77xR57L/+z6X3M+GdfpsJWG/wSXF10cKsm5WA/44Fnoz1T5opJmJLwszc4aNYLAIsNoA==}
 
-  '@aracna/react-components@1.0.58':
-    resolution: {integrity: sha512-igGPkzjUVGfSLIcPB1imwQkB6ttWryAb97pss6zh9P/+Hs+Xu+4XtXHVjKi8OAwKR+idhlGBHcrwlBvIYVhvsw==}
+  '@aracna/react-components@1.0.59':
+    resolution: {integrity: sha512-3GAX616Cqw+VWKAFjTiI67oqu+ZZlX+dB+WjIbHVUvETQvGlgt0pqr6KY29SN/4iFtK7SZD2Ek3KD1HLjMmNaw==}
     peerDependencies:
       '@aracna/core': '>= 1.4.0'
       '@aracna/react': '>= 1.0.0'
@@ -2913,7 +2913,7 @@ snapshots:
       nanoid: 5.1.6
       rfc4648: 1.5.4
 
-  '@aracna/react-components@1.0.58(@aracna/core@1.4.3)(@aracna/react@1.0.58(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@lit/react@1.0.5(@types/react@19.1.15))(react@19.1.1))(@aracna/web-components@1.1.15(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(tabbable@6.2.0))(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(@lit/react@1.0.5(@types/react@19.1.15))(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(react@19.1.1)(tabbable@6.2.0)':
+  '@aracna/react-components@1.0.59(@aracna/core@1.4.3)(@aracna/react@1.0.58(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@lit/react@1.0.5(@types/react@19.1.15))(react@19.1.1))(@aracna/web-components@1.1.15(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(tabbable@6.2.0))(@aracna/web@1.0.88(@aracna/core@1.4.3))(@floating-ui/dom@1.7.4)(@lit/react@1.0.5(@types/react@19.1.15))(dompurify@3.2.7)(focus-trap@7.6.5)(lit@3.3.1)(qrcode@1.5.4)(react@19.1.1)(tabbable@6.2.0)':
     dependencies:
       '@aracna/core': 1.4.3
       '@aracna/react': 1.0.58(@aracna/core@1.4.3)(@aracna/web@1.0.88(@aracna/core@1.4.3))(@lit/react@1.0.5(@types/react@19.1.15))(react@19.1.1)
