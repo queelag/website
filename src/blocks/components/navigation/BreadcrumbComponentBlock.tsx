@@ -1,8 +1,15 @@
 import { ComponentBlock } from '@/blocks/ComponentBlock'
 import { IconFeather } from '@/components/IconFeather'
 import { ICON_F_CHEVRON_DOWN } from '@aracna-icons/feather'
+import { noop } from '@aracna/core'
 import type { AracnaBreadcrumbProps } from '@aracna/react-components'
 import { AracnaBreadcrumb, AracnaBreadcrumbItem, AracnaBreadcrumbList } from '@aracna/react-components/components/navigation/breadcrumb'
+import {
+  AracnaBreadcrumbElement,
+  AracnaBreadcrumbItemElement,
+  AracnaBreadcrumbListElement
+} from '@aracna/web-components/elements/navigation/breadcrumb-element'
+import { useEffect } from 'react'
 
 const ITEMS = [
   { href: '/', text: 'Home' },
@@ -12,6 +19,10 @@ const ITEMS = [
 ]
 
 export function BreadcrumbComponentBlock() {
+  useEffect(() => {
+    noop(AracnaBreadcrumbElement, AracnaBreadcrumbItemElement, AracnaBreadcrumbListElement)
+  }, [])
+
   return (
     <ComponentBlock
       attributes={[{ name: 'items', type: 'json' }]}

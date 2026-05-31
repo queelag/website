@@ -27,6 +27,7 @@
     "tabbable": "^6.4.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@tailwindcss/typography": "^0.5.19",
     "@types/prismjs": "^1.26.6",
     "@types/react": "^19.2.15",
@@ -42,7 +43,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/build.mjs && astro build",
+    "build": "node scripts/build.mjs && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

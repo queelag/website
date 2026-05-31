@@ -3,12 +3,13 @@ import { IconFeather } from '@/components/IconFeather'
 import { OverlayController } from '@/controllers/overlay-controller'
 import type { NavigationItem } from '@/definitions/interfaces'
 import { ICON_F_CHEVRON_DOWN, ICON_F_CHEVRON_UP, ICON_F_X } from '@aracna-icons/feather'
-import type { StorageItem } from '@aracna/core'
+import { noop, type StorageItem } from '@aracna/core'
 import { AracnaDialog } from '@aracna/react-components/components/feedback/dialog'
 import { AracnaButton } from '@aracna/react-components/components/input/button'
 import { useObservable, useObserver } from '@aracna/state-manager-react'
 import { SessionStorage, jec } from '@aracna/web'
-import { useMemo } from 'react'
+import { AracnaDialogElement } from '@aracna/web-components/elements/feedback/dialog-element'
+import { useEffect, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import './OverlayMobileNavigation.css'
 
@@ -20,6 +21,10 @@ export function OverlayMobileNavigation(props: Props) {
   const onClose = () => {
     OverlayController.hide('mobile-navigation')
   }
+
+  useEffect(() => {
+    noop(AracnaDialogElement)
+  }, [])
 
   return useObserver(() =>
     createPortal(
