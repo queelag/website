@@ -2,7 +2,7 @@ import type { NavigationItem } from '@/definitions/interfaces'
 import { getArrayLastItem, getCapitalizedString } from '@aracna/core'
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content'
 
-export async function getCollectioNavigationItems(key: CollectionKey): Promise<NavigationItem[]> {
+export async function getCollectionNavigationItems(key: CollectionKey): Promise<NavigationItem[]> {
   let entries: CollectionEntry<CollectionKey>[], items: NavigationItem[]
 
   entries = await getCollection(key)
@@ -11,7 +11,7 @@ export async function getCollectioNavigationItems(key: CollectionKey): Promise<N
   for (let entry of entries) {
     let sslug: string[], folders: string[], file: string | undefined, item: NavigationItem | undefined
 
-    sslug = ['/' + key, ...entry.slug.split('/')]
+    sslug = ['/' + key, ...entry.id.split('/')]
     folders = sslug.slice(0, sslug.length - 1)
 
     file = getArrayLastItem(sslug)

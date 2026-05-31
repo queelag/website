@@ -1,16 +1,16 @@
 ---
 import type { NavigationItem } from '@/definitions/interfaces'
-import { getCollectioNavigationItems } from '@/utils/navigation-utils'
+import { getCollectionNavigationItems } from '@/utils/navigation-utils'
 import { SidebarItem } from './SidebarItem'
 
 const items: NavigationItem[] = [
   { order: -1, slug: '/', title: 'Introduction' },
-  ...(await getCollectioNavigationItems('core')),
-  ...(await getCollectioNavigationItems('fcm')),
-  ...(await getCollectioNavigationItems('icons')),
-  ...(await getCollectioNavigationItems('react')),
-  ...(await getCollectioNavigationItems('state-manager')),
-  ...(await getCollectioNavigationItems('web'))
+  ...(await getCollectionNavigationItems('core')),
+  ...(await getCollectionNavigationItems('fcm')),
+  ...(await getCollectionNavigationItems('icons')),
+  ...(await getCollectionNavigationItems('react')),
+  ...(await getCollectionNavigationItems('state-manager')),
+  ...(await getCollectionNavigationItems('web'))
 ]
 ---
 

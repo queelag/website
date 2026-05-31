@@ -1,7 +1,7 @@
 import { IconFeather } from '@/components/IconFeather'
+import { IconReact } from '@/icons/IconReact'
 import { ICON_F_CPU, ICON_F_FEATHER, ICON_F_GLOBE, ICON_F_MESSAGE_CIRCLE, ICON_F_ZAP } from '@aracna-icons/feather'
 import type { AracnaIconProps } from '@aracna/react-components'
-import { IconReact } from 'src/icons/IconReact'
 import './LibrariesCardsBlock.css'
 
 const LIBRARIES = [

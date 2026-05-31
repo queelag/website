@@ -1,3 +1,15 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - '@aracna-icons/feather'
+  - '@aracna/core'
+  - '@aracna/react'
+  - '@aracna/react-components'
+  - '@aracna/state-manager'
+  - '@aracna/state-manager-react'
+  - '@aracna/web'
+  - '@aracna/web-components'
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
